@@ -1,0 +1,121 @@
+[
+  {
+    "id": "HE001",
+    "section": "HERO",
+    "title": "Agile Task Manager",
+    "Button1": "Contact Us",
+    "image": "/images/hero/hero_section.svg",
+    "lables": ["Time management", "Self service", "Manager desk", "Agile", "My profile"]
+  },
+  {
+    "id": "SE001",
+    "captions": [
+      {
+        "id": "SE001",
+        "section": "SERVICES",
+        "title": "Smart Attendance",
+        "subtitle": "Integration of Bio-Metric, Geo-Fencing, Work from home and office Check In & Out.",
+        "description": "To modernize attendance tracking and enhance operational transparency, a unified system integrating biometric authentication, geo-fencing, and multi-mode check-in/check-out (office and work from home) is essential. This integrated solution ensures accuracy, security, and flexibility for both remote and on-site employees.",
+        "image": "/images/fingerprint_scanner.png",
+        "labels": [
+          "Bio-Metric",
+          "Geo-Fencing",
+          "Remote & On-Site",
+          "Check In/Out"
+        ]
+      },
+      {
+        "id": "SE002",
+        "section": "SERVICES",
+        "title": "Employee Self Service",
+        "subtitle": "Enablement of Employee Self Service in Mobile App as well as Cloud.",
+        "description": "Track and manage employee attendance, including when they check in, check out, and record their work hours. Leave, On-duty, Overtime, Expenses, Salary Advance, Regularization, Items in custody, and Spot activity (Mobile App for field tasks).",
+        "image": "/images/employee_self_service.png",
+        "labels": [
+          "Leave",
+          "On-duty",
+          "Overtime",
+          "Expenses",
+          "Salary Advance",
+          "Regularization",
+          "Spot Activity"
+        ]
+      },
+      {
+        "id": "SE003",
+        "section": "SERVICES",
+        "title": "Approval Workflows",
+        "subtitle": "Vertical and Hierarchical Approval workflow for Managers.",
+        "description": "To streamline decision-making and maintain organizational accountability, a Vertical and Hierarchical Approval Workflow system is essential. This structured workflow ensures that requests—such as leave applications, expense claims, attendance exceptions, or project approvals—are reviewed and authorized through appropriate managerial levels.",
+        "image": "/images/approval_workflows.png",
+        "labels": [
+          "Vertical Approval",
+          "Hierarchical Approval",
+          "Manager Review",
+          "Authorization"
+        ]
+      },
+      {
+        "id": "SE004",
+        "section": "SERVICES",
+        "title": "Timesheet & Workforce Records",
+        "subtitle": "Employee enrollment and timesheet management.",
+        "description": "A streamlined Employee Enrollment and Timesheet Management system is essential for maintaining accurate workforce records, ensuring compliance, and optimizing productivity tracking. Probation, Confirmed, In-sourced staff, Out-sourced staff.",
+        "image": "/images/timesheet_workforce.png",
+        "labels": [
+          "Timesheet Management",
+          "Employee Enrollment",
+          "Compliance",
+          "Productivity Tracking"
+        ]
+      },
+      {
+        "id": "SE005",
+        "section": "SERVICES",
+        "title": "Agile Project Management",
+        "subtitle": "Agile-based Project Planning, Management, Costing, and Monitoring.",
+        "description": "Integrating Agile-based project planning, management, costing, and monitoring empowers organizations to deliver high-quality outputs while maintaining control over timelines and budgets. Includes: Self-Initiated Tasks, Manager-Assigned Tasks, Agile Sprint Tasks, Spot Activity.",
+        "image": "/images/agile_project_management.png",
+        "labels": ["Agile Planning", "Costing", "Monitoring", "Task Management"]
+      }
+    ]
+  },
+
+  {
+    "id": "EN001",
+    "captions": [
+      {
+        "id": "EF001",
+        "section": "ENHANCEMENT_FEATURES",
+        "title": "HRMS Integration",
+        "subtitle": "Seamless integration with any HRMS for Payroll, Attendance & More",
+        "description": "Our platform offers robust integration with leading HRMS solutions, enabling seamless management of employee records, payroll, and attendance tracking. This smart integration streamlines HR operations, reduces manual effort, and ensures data consistency across systems.",
+        "image": "/images/hrms_integration.png",
+        "labels": [
+          "Resource Allocation",
+          "Personal Data Management",
+          "Resource Management",
+          "Skill Management",
+          "Performance Management",
+          "Attendance/Leave Management",
+          "Training Administration",
+          "HR & Benefits Administration"
+        ]
+      },
+      {
+        "id": "EF002",
+        "section": "ENHANCEMENT_FEATURES",
+        "title": "Manufacturing IT Solutions",
+        "subtitle": "Integration with any Manufacturing / Production system",
+        "description": "Seamlessly integrate your production systems with our agile task tracker – enabling full accountability, real-time cost tracking, and optimized operational efficiency.",
+        "image": "/images/manufacturing_integration.png",
+        "labels": [
+          "Production System Integration",
+          "Real-Time Cost Tracking",
+          "Operational Efficiency",
+          "Full Accountability"
+        ]
+      }
+    ]
+  }
+]

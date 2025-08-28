@@ -7,9 +7,10 @@ import { useRouter } from "next/navigation";
 const Hero: React.FC = () => {
   const router = useRouter();
   const [preview, setPreview] = useState("");
+  
   const [image, setImage] = useState<File | null>(null);
   const [pages, setPages] = useState<any>({ lables: [] });
-
+  
   // Handle text input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -48,13 +49,7 @@ const Hero: React.FC = () => {
     }
   };
 
-  // Add new label
-  const addLabel = () => {
-    setPages((prev: any) => ({
-      ...prev,
-      lables: [...prev.lables, { id: Date.now(), src: "", label: "" }],
-    }));
-  };
+
 
   const loadPages = async () => {
     try {

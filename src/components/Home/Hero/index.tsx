@@ -40,7 +40,6 @@ const Hero: React.FC = () => {
       const res = await fetch("/api/content-manage?contentId=C001");
       if (!res.ok) throw new Error("Failed to fetch pages");
       const data = await res.json();
-      console.log(data,"333333333333333333");    
       setPages(data);
       setPreview(data.image)
     } catch (err) {

@@ -12,7 +12,7 @@ import { testimonials } from "@/app/api/testimonial";
 
 // const Testimonial = () => {
 //     const [api, setApi] = React.useState<CarouselApi | undefined>(undefined);
-//     const [current, setCurrent] = React.useState(0);
+//     const [current, setCurrent] =  React.useState(0);
 //     const [count, setCount] = React.useState(0);
 
 //     React.useEffect(() => {

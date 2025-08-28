@@ -1,3 +1,4 @@
+
 import { PropertyHomes } from '@/types/properyHomes'
 import { Icon } from '@iconify/react'
 import Image from 'next/image'

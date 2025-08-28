@@ -105,7 +105,7 @@ export default function ContactUs() {
           <p className="text-base font-semibold text-badge dark:text-white/90">Contact Us</p>
         </div>
         <h3 className="text-4xl sm:text-52 font-medium tracking-tighter text-black dark:text-white mb-3 leading-10 sm:leading-14">
-          Have questions? We're ready to help!
+          Have questions? We are ready to help!
         </h3>
       </div>
 

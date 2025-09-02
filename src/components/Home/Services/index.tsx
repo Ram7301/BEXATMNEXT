@@ -5,6 +5,11 @@ import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 
+interface FeatureItem {
+  name: string;
+  description?: string;
+}
+
 interface Feature {
   title: string;
   icon: string;
@@ -13,6 +18,7 @@ interface Feature {
   image: string;
   badge: string;
   reverse: boolean;
+  features?: (string | FeatureItem)[];
 }
 
 const Categories = () => {
@@ -132,6 +138,24 @@ const Categories = () => {
               <p className="text-dark/50 dark:text-white/50 text-lg leading-[1.3]">
                 {feature.detail}
               </p>
+
+              {/* ✅ Render Feature List */}
+              {feature.features && feature.features.length > 0 && (
+                <ul className="mt-4 list-disc list-inside text-dark/70 dark:text-white/70 text-base space-y-2">
+                  {feature.features.map((item, idx) => (
+                    <li key={idx}>
+                      {typeof item === "string" ? (
+                        item
+                      ) : (
+                        <>
+                          <strong>{item.name}</strong>
+                          {item.description && ` – ${item.description}`}
+                        </>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
 
             {/* Image Block */}
@@ -160,32 +184,30 @@ const Categories = () => {
           </div>
         ))}
 
-    {/* Edit Button (below section, right side, same as Properties) */}
-<div className="flex justify-end mt-10">
-  <button
-    onClick={() => setShowEditor(true)}
-    className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
-    title="Edit Services Section"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
-      />
-    </svg>
-  </button>
-</div>
-</div>
-
-
+        {/* Edit Button */}
+        <div className="flex justify-end mt-10">
+          <button
+            onClick={() => setShowEditor(true)}
+            className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
+            title="Edit Services Section"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
 
       {/* Edit Modal */}
       {showEditor && (

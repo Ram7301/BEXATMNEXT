@@ -130,10 +130,11 @@ const Header: React.FC = () => {
         )
       }
 
-      <div
-        ref={sideMenuRef}
-        className={`fixed top-0 right-0 h-full w-full bg-dark shadow-lg transition-transform duration-300 max-w-2xl ${navbarOpen ? 'translate-x-0' : 'translate-x-full'} z-50 px-20 overflow-auto no-scrollbar`}
-      >
+  <div
+  ref={sideMenuRef}
+  className={`fixed top-0 right-0 h-full w-full bg-dark shadow-lg transition-transform duration-300 max-w-lg ${navbarOpen ? 'translate-x-0' : 'translate-x-full'} z-50 px-6 overflow-auto no-scrollbar`}
+>
+
         <div className="flex flex-col h-full justify-between">
           <div className="">
             <div className='flex items-center justify-start py-10'>
@@ -179,10 +180,10 @@ const Header: React.FC = () => {
               Contact
             </p>
             <Link href="#" className='text-base sm:text-xm font-medium text-inherit hover:text-primary'>
-              hello@homely.com
+              govee@beyondexs.com
             </Link>
             <Link href="#" className='text-base sm:text-xm font-medium text-inherit hover:text-primary'>
-              +1-212-456-7890{' '}
+              +91 944 440 8804{' '}
             </Link>
           </div>
         </div>

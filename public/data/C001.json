@@ -8,17 +8,17 @@
     {
       "id": 1,
       "src": "/images/hero/clock.svg",
-      "label": "Time management"
+      "label": "Time Management"
     },
     {
       "id": 2,
       "src": "/images/hero/self-service.svg",
-      "label": "Self service"
+      "label": "Employee Self Service"
     },
     {
       "id": 3,
       "src": "/images/hero/manager-desk.svg",
-      "label": "Manager desk"
+      "label": "Manager Desk"
     },
     {
       "id": 4,
@@ -28,7 +28,7 @@
     {
       "id": 5,
       "src": "/images/hero/download.jfif",
-      "label": "My profile"
+      "label": "My Profile"
     }
   ],
   "labels": "Time management,Self service,Manager desk,Agile,My profile"

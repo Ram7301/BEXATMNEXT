@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const Hero: React.FC = () => {
-   const router = useRouter();
+  const router = useRouter();
   const [showEditor, setShowEditor] = useState(false);
   const [preview, setPreview] = useState("");
   const [image, setImage] = useState<File | null>(null)
@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
     const { name, value } = e.target;
     setPages((prev) => ({ ...prev, [name]: value }));
   };
-  
+
 
   // Handle image file selection
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
       setImage(file)
       setPreview(URL.createObjectURL(file));
       // Store only the file name, not the full path
-      setPages((prev) => ({ ...prev, image: `/images/hero/${file.name}`}));
+      setPages((prev) => ({ ...prev, image: `/images/hero/${file.name}` }));
     }
   };
 
@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
       const res = await fetch("/api/content-manage?contentId=C001");
       if (!res.ok) throw new Error("Failed to fetch pages");
       const data = await res.json();
-      console.log(data,"333333333333333333");    
+      console.log(data, "333333333333333333");
       setPages(data);
       setPreview(data.image)
     } catch (err) {
@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
     loadPages();
   }, []);
 
- 
+
   const savePages = async () => {
     await fetch('/api/content-manage?contentId=C001', {
       method: 'PUT',
@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
     alert('Pages saved!')
   }
 
-    const uploadImage = async () => {
+  const uploadImage = async () => {
     if (!image) return
     const formData = new FormData()
     formData.append('file', image)
@@ -93,7 +93,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
           <div className="hidden md:block absolute top-18 -right-15">
-           {pages?.image && <Image
+            {pages?.image && <Image
               src={pages?.image || null}
               alt="heroImg"
               width={882}
@@ -106,7 +106,7 @@ const Hero: React.FC = () => {
         {/* Bottom feature icons */}
         <div className="md:absolute bottom-0 md:right-0 xl:-right-1 bg-white dark:bg-black py-12 px-8 mobile:px-16 md:pl-16 md:pr-[95px] rounded-2xl md:rounded-none md:rounded-tl-2xl mt-24">
           <div className="grid grid-cols-2 sm:grid-cols-4 md:flex gap-16 md:gap-24 sm:text-center dark:text-white text-black">
-            { pages && pages?.lables?.map((item, i) => (
+            {pages && pages?.lables?.map((item, i) => (
               <div key={i} className="flex flex-col sm:items-center gap-2">
                 <Image
                   src={item.src || null}
@@ -135,7 +135,7 @@ const Hero: React.FC = () => {
 
       {/* Edit Button moved to bottom-right */}
       <button
-       onClick={() => router.push("/content/hero")} 
+        onClick={() => router.push("/content/hero")}
         // onClick={loadPages}
         className="absolute bottom-5 right-5 z-50 bg-primary text-white p-2 rounded-full shadow-lg hover:bg-opacity-80 transition"
         title="Edit Hero Section"
@@ -216,7 +216,7 @@ const Hero: React.FC = () => {
               <input
                 type="text"
                 name="labels"
-                value={pages?.lables.map(v => v.label).join(",") }
+                value={pages?.lables.map(v => v.label).join(",")}
                 onChange={handleChange}
                 className="w-full mb-4 p-2 border rounded"
               />

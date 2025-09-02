@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // <-- Import useRouter
 
 interface Feature {
   title: string;
@@ -17,94 +16,73 @@ interface Feature {
   icon?: string;
 }
 
-const Selfservice: React.FC = () => {
-  const router = useRouter(); // <-- Initialize router
+const Assesment: React.FC = () => {
   const [showEditor, setShowEditor] = useState(false);
   const [features, setFeatures] = useState<Feature[]>([]);
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState("");
 
-  // Load features data
-  const loadFeatures = () => {
+  const loadFeatures = async () => {
     const data: Feature[] = [
       {
-        title: "Permission",
-        subtitle: "Manage Attendance Adjustments",
+        title: "Category",
+        subtitle: "Review and Manage Requests",
         description:
-          "Permission allows employees to request time away from work for personal, medical, or other approved absences. It helps maintain accurate attendance records, provides clear records of approved absences, tracks employee availability, and supports smooth payroll processing.",
-        image: "/images/permission.png",
-        href: "#permission",
-        badge: "Attendance",
+          "Category is a section that groups related evaluation criteria together. Each category focuses on a specific aspect of performance or skills, such as technical skills, communication, teamwork, productivity, or behaviour and attitude, helping make the assessment more structured and organized.",
+        image: "/images/categories.png",
+        href: "#approval",
+        badge: "Core",
         reverse: true,
-        icon: "mdi:shield-key",
+        icon: "mdi:check-decagram", // example icon
       },
+
       {
-        title: "Leave Entry",
-        subtitle: "Request and Manage Time Off",
+        title: "Assessment",
+        subtitle: "Capture Real-Time Events",
         description:
-          "Allows employees to formally submit leave for vacations, medical, personal, casual, or other approved absences. This feature supports accurate attendance tracking and helps maintain up-to-date work hours and leave information.",
-        image: "/images/leaveentry.png",
-        href: "#leaveentry",
-        badge: "Attendance",
+          "In an assessment, you can define the number of questions, the minimum score required to pass, the number of attempts permitted, and the duration of the assessment (in days), allowing the system to structure and manage the evaluation effectively. ",
+        image: "/images/assesmentlist.png",
+        href: "#onsiteactivity",
+        badge: "Core",
         reverse: false,
-        icon: "mdi:calendar-plus",
+        icon: "mdi:map-marker",
       },
       {
-        title: "On Duty",
-        subtitle: "Log Official Work Outside",
+        title: "Question Groups",
+        subtitle: "Organize Evaluation Topics",
         description:
-          "The On-Duty screen allows employees to record time spent on official tasks outside the workplace, such as client meetings, field visits, business travel, work from client locations, official events, training sessions, and audits.",
-        image: "/images/onduty.png",
-        href: "#onduty",
-        badge: "Attendance",
+          "Question Groups are sets of related questions grouped under a specific topic or category. They help organize the assessment by focusing on particular skills, knowledge areas, or competencies, making it easier to evaluate employees in a structured and consistent way .",
+        image: "/images/questiongroup.png",
+        href: "#timesheet",
+        badge: "Core",
         reverse: true,
-        icon: "mdi:briefcase",
+        icon: "mdi:clock-time-eight",
       },
       {
-        title: "Over Time",
-        subtitle: "Track Extra Work Hours",
+        title: "Question & Answer",
+        subtitle: "Capture Candidate Responses",
         description:
-          "The Overtime screen allows employees to log hours worked beyond their regular schedule, such as for project deadlines, client support, or emergency tasks. Employees can enter the start and end times for overtime, specify the date, and provide any relevant details.",
-        image: "/images/overtime.png",
-        href: "#overtime",
-        badge: "Attendance",
+          "Question & Answer refer to the individual questions presented to candidates and the corresponding answers they provide. This component captures the candidates’ responses to evaluate skills, knowledge, or performance based on predefined criteria, allowing managers or the system to assess competencies accurately.",
+        image: "/images/q&a.png",
+        href: "#timesheet",
+        badge: "Core",
         reverse: false,
-        icon: "mdi:clock-plus-outline",
+        icon: "mdi:clock-time-eight",
       },
       {
-        title: "Regularization",
-        subtitle: "Correct Attendance Records",
+        title: "Session",
+        subtitle: "Log Work Hours & Tasks",
         description:
-          "Allows employees to correct missed check-ins or check-outs, as well as incorrect logins or logouts. Employees can submit a regularization request specifying the correct time, which is then reviewed and approved by the manager.",
-        image: "/images/regularization.png",
-        href: "#regularization",
-        badge: "Attendance",
+          "Within a session, documents can be uploaded for each category, and links to study materials on websites or YouTube can be provided, enabling participants to access relevant resources while taking the assessment. ",
+        image: "/images/session.png",
+        href: "#timesheet",
+        badge: "Core",
         reverse: true,
-        icon: "mdi:file-document-edit",
+        icon: "mdi:clock-time-eight",
       },
-      {
-        title: "Expense Entry",
-        subtitle: "Track and Approve Expenses",
-        description:
-          "Expenses refer to the costs incurred by employees or the organization while carrying out work-related activities. These costs are usually reimbursable or recorded in the company’s financial records and may include travel, meals or entertainment, project-related expenses, training and development, or miscellaneous work expenses.",
-        image: "/images/expenseentry.png",
-        href: "#expenseentry",
-        badge: "Finance",
-        reverse: false,
-        icon: "mdi:cash-multiple",
-      },
-      {
-        title: "Salary Advance",
-        subtitle: "Request Early Salary Payouts",
-        description:
-          "This screen enables employees to request early salary payouts for emergencies, while maintaining a transparent record for payroll.",
-        image: "/images/salaryadvance.png",
-        href: "#salaryadvance",
-        badge: "Finance",
-        reverse: true,
-        icon: "mdi:wallet",
-      },
- 
+
+
+
     ];
     setFeatures(data);
   };
@@ -113,7 +91,6 @@ const Selfservice: React.FC = () => {
     loadFeatures();
   }, []);
 
-  // Handle text change
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     index: number
@@ -124,23 +101,24 @@ const Selfservice: React.FC = () => {
     );
   };
 
-  // Handle image upload
   const handleImageChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     index: number
   ) => {
     const file = e.target.files?.[0];
-    if (!file) return;
-    setImage(file);
-    const url = URL.createObjectURL(file);
-    setPreview(url);
-    setFeatures((prev) =>
-      prev.map((f, i) => (i === index ? { ...f, image: url } : f))
-    );
+    if (file) {
+      setImage(file);
+      setPreview(URL.createObjectURL(file));
+      setFeatures((prev) =>
+        prev.map((f, i) =>
+          i === index ? { ...f, image: URL.createObjectURL(file) } : f
+        )
+      );
+    }
   };
 
-  const saveFeatures = () => {
-    console.log("Saved features:", features);
+  const saveFeatures = async () => {
+    console.log("Saving features:", features);
     alert("Features saved (mock). Replace with API call!");
   };
 
@@ -148,33 +126,29 @@ const Selfservice: React.FC = () => {
 
   return (
     <section className="relative overflow-hidden">
-      {/* Heading */}
-      <div className="relative text-center mb-16 mt-12 bg-[url('/images/background.png')] bg-cover bg-center bg-no-repeat rounded-2xl shadow-lg">
+      {/* ✅ Heading with Background Image */}
+      <div className="relative text-center mb-16 mt-12 bg-[url('/images/assessment2.png')] bg-cover bg-center bg-no-repeat rounded-2xl shadow-lg">
         <div className="bg-black/50 rounded-2xl px-6 py-16">
           <h2 className="text-4xl lg:text-5xl font-medium text-white tracking-tight leading-tight">
-            Self Service
+            Assessment
           </h2>
           <p className="mt-4 max-w-4xl mx-auto text-lg text-gray-200">
-            Enablement of Employee Self Service in the Mobile App as well as
-            Cloud, allowing employees to apply for Leave, On-duty, Overtime,
-            and other requests seamlessly. This screen empowers users to manage
-            their own attendance-related activities anytime, anywhere.
+            Assessment is a structured platform or process used to evaluate employees’ skills, knowledge, performance, and overall competencies against predefined standards. It helps organizations measure employee strengths and areas for improvement, provide constructive feedback, support training and development, and ensure fair performance evaluations. Such a system promotes accountability, improves productivity, and aligns employee growth with organizational goals.
           </p>
         </div>
       </div>
 
-      {/* Feature Cards */}
+      {/* ✅ Feature Cards with Icons */}
       <div className="container max-w-7xl mx-auto px-5 mt-10">
         {features.map((feature, index) => (
           <div
             key={index}
-            className={`flex flex-col ${
-              feature.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
-            } items-center gap-10 mb-24`}
+            className={`flex flex-col ${feature.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
+              } items-center gap-10 mb-24`}
           >
             {/* Text Block */}
             <div className="lg:w-1/2">
-              <p className="text-dark/75 dark:text-white/75 text-base font-semibold flex gap-2.5 items-center">
+              <p className="text-dark/75 dark:text-white/75 text-base font-semibold flex gap-2.5">
                 {feature.icon && (
                   <Icon icon={feature.icon} className="text-2xl text-primary" />
                 )}
@@ -212,35 +186,35 @@ const Selfservice: React.FC = () => {
         ))}
       </div>
 
-      {/* Edit Button */}
-      <button
-        onClick={() => router.push("/content/blogs")} // <-- router works now
-        className="absolute bottom-5 right-5 z-50 bg-primary text-white p-2 rounded-full shadow-lg hover:bg-opacity-80 transition"
-        title="Edit Hero Section"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-5 h-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
+      {/* ✅ Edit Button */}
+      <div className="flex justify-end mt-10">
+        <button
+          onClick={() => setShowEditor(true)}
+          className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
+          title="Edit Features"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
-          />
-        </svg>
-      </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-5 h-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+            />
+          </svg>
+        </button>
+      </div>
 
-      {/* Edit Modal */}
+      {/* ✅ Edit Modal */}
       {showEditor && (
         <div className="fixed inset-0 bg-black/60 z-[999] flex items-center justify-center">
           <div className="bg-white dark:bg-dark w-full h-full max-w-4xl mx-auto p-8 overflow-auto relative rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">
-              Edit Self Service Features
-            </h2>
+            <h2 className="text-2xl font-bold mb-4">Edit Manager Desk Features</h2>
 
             <form
               onSubmit={(e) => {
@@ -306,7 +280,7 @@ const Selfservice: React.FC = () => {
               </button>
             </form>
 
-            {/* Close Button */}
+            {/* Close */}
             <button
               className="absolute top-4 right-6 text-gray-500 hover:text-black dark:hover:text-white text-3xl"
               onClick={() => setShowEditor(false)}
@@ -320,4 +294,4 @@ const Selfservice: React.FC = () => {
   );
 };
 
-export default Selfservice;
+export default Assesment;

@@ -8,7 +8,7 @@ import Link from "next/link";
 interface Feature {
     title: string;
     subtitle: string;
-    description: string[]; // now an array
+    description: string;
     image: string;
     href: string;
     badge: string;
@@ -16,7 +16,7 @@ interface Feature {
     icon?: string;
 }
 
-const Agile: React.FC = () => {
+const BackOfficeSystem: React.FC = () => {
     const [showEditor, setShowEditor] = useState(false);
     const [features, setFeatures] = useState<Feature[]>([]);
     const [image, setImage] = useState<File | null>(null);
@@ -25,87 +25,76 @@ const Agile: React.FC = () => {
     const loadFeatures = async () => {
         const data: Feature[] = [
             {
-                title: "Project",
-                subtitle: "Review and Manage Requests",
-                description: [
-                    "Provides details about projects, including their list of milestones, milestone weightages, and team members. Managers can add or remove members from the project based on requirements and preferences."
-                ],
-                image: "/images/Approval.png",
-                href: "#approval",
-                badge: "Core",
-                reverse: true,
-                icon: "mdi:check-decagram",
-            },
-            // {
-            //     title: "Routine Tasks",
-            //     subtitle: "Assign and Track Work",
-            //     description: [
-            //         "Routine Tasks provide a detailed description of each project based on its milestones, associated activities, team roles, and the effort contributed by each member."
-            //     ],
-            //     image: "/images/task.png",
-            //     href: "#task",
-            //     badge: "Core",
-            //     reverse: false,
-            //     icon: "mdi:clipboard-check",
-            // },
-            {
-                title: "Sprint",
-                subtitle: "Track Progress and Outcomes",
-                description: [
-                    "The manager assigns tasks to team members based on the project plan, schedules the start and due dates, allocates the responsible person, and tracks the actual completion date to ensure timely delivery."
-                ],
-                image: "/images/task2.png",
-                href: "#taskmonitoring",
+                title: "Employee",
+                subtitle: "Manage Profiles & Work Records",
+                description: `
+An employee is a person who is hired by an organization or company to perform specific tasks or duties in exchange for compensation, such as a salary or wages. Employees can be categorized based on their employment type and responsibilities:
+
+• Probationary – Track performance and attendance during the probation period.  
+
+• Confirmed – Maintain ongoing timesheet records and monitor productivity metrics.  
+
+• In-sourced Staff – Manage internal teams with full visibility into work hours and deliverables.  
+
+• Out-sourced Staff – Monitor attendance and output of contracted or third-party personnel.  
+
+Apart from these categories and attendance records, an employee’s profile also includes contact details, list of skills, approval flows they are part of, reporting manager, and deployment information such as designation, location, project/product assignment, shift details, and weekly off schedule.  
+
+The system also tracks how the employee records their check-in and check-out, which could be via biometric devices, mobile geofencing, cloud application, manager manual entry, or default present status.  
+
+Additionally, it maintains leave configurations and the list of documents associated with the employee, ensuring comprehensive management of all employee-related information.
+                `,
+                image: "/images/employee.png",
+                href: "#employee",
                 badge: "Core",
                 reverse: false,
-                icon: "mdi:chart-line",
-            },
-            {
-                title: "Task",
-                subtitle: "Manage Workflows Efficiently",
-                description: [
-                    "Handle self-assigned tasks, manager-assigned responsibilities, and sprint-based activities in one place. Plan start and due dates, allocate ownership, and monitor progress to ensure timely completion and team alignment."
-                ],
-                image: "/images/task2.png",
-                href: "#taskmonitoring",
-                badge: "Core",
-                reverse: true,
-                icon: "mdi:clipboard-check-outline",
+                icon: "mdi:account-tie"
             },
 
             {
-                title: "Project Enquiry",
-                subtitle: "Capture Real-Time Events",
-                description: [
-                    "Project Enquiry provides detailed information about project tasks based on the project, milestone, operational stage, and associated activities."
-                ],
-                image: "/images/onsite.png",
-                href: "#onsiteactivity",
+                title: "Manager Dashboard",
+                subtitle: "Track Team Performance",
+                description: `
+The Manager Dashboard offers real-time visibility into team productivity, task progress, and resource utilization.  
+
+It helps managers monitor workloads, identify bottlenecks, and make data-driven decisions to improve efficiency and achieve organizational goals.
+                `,
+                image: "/images/managerdash.png",
+                href: "#managerdashboard",
                 badge: "Core",
                 reverse: false,
-                icon: "mdi:map-marker",
+                icon: "mdi:account-tie",
             },
+
             {
-                title: "Project Status Report",
-                subtitle: "Product Status Based on Project & Employee",
-                description: [
-                    "It provides a status report of the product based on the project and employee, within a specified date range (From Date to To Date)",
-                    "Works within a specified date range (From Date – To Date).",
-                    "Efforts – List of Tasks: Displays details of tasks taken up by an employee, including descriptions and time taken.",
-                    "Efforts – List of Employee Tasks: Shows task completion information, including estimated effort vs. actual time spent.",
-                    "Efforts – List of Projects: Displays projects assigned to an employee, including estimated hours and actual contributed hours (effort)."
-                ],
-                image: "/images/projectstatus.png",
-                href: "#projectstatus",
-                badge: "Reports",
+                title: "Scrum Master Dashboard",
+                subtitle: "Facilitate Agile Processes",
+                description: `
+The Scrum Master Dashboard provides visibility into sprint progress, task allocation, and team collaboration.  
+
+It helps monitor agile workflows, remove impediments, and ensure the team follows best practices for delivering value consistently.
+                `,
+                image: "/images/scrummaster.png",
+                href: "#scrummaster",
+                badge: "Agile",
                 reverse: true,
-                icon: "mdi:file-chart",
+                icon: "mdi:chart-timeline",
             },
 
+            {
+                title: "Employee Dashboard",
+                subtitle: "Track Personal Tasks & Goals",
+                description: `
+The Employee Dashboard provides a clear view of individual tasks, goals, and performance metrics.  
 
-
-
-
+It helps employees monitor their progress, manage daily responsibilities, and stay aligned with team and organizational objectives.
+                `,
+                image: "/images/employeedash.png",
+                href: "#employee",
+                badge: "Core",
+                reverse: false,
+                icon: "mdi:account-circle",
+            },
         ];
         setFeatures(data);
     };
@@ -120,15 +109,7 @@ const Agile: React.FC = () => {
     ) => {
         const { name, value } = e.target;
         setFeatures((prev) =>
-            prev.map((f, i) =>
-                i === index
-                    ? {
-                        ...f,
-                        [name]:
-                            name === "description" ? value.split("\n") : value, // split textarea into array
-                    }
-                    : f
-            )
+            prev.map((f, i) => (i === index ? { ...f, [name as keyof Feature]: value } : f))
         );
     };
 
@@ -139,17 +120,18 @@ const Agile: React.FC = () => {
         const file = e.target.files?.[0];
         if (file) {
             setImage(file);
-            setPreview(URL.createObjectURL(file));
+            const url = URL.createObjectURL(file);
+            setPreview(url);
             setFeatures((prev) =>
                 prev.map((f, i) =>
-                    i === index ? { ...f, image: URL.createObjectURL(file) } : f
+                    i === index ? { ...f, image: url } : f
                 )
             );
         }
     };
 
     const saveFeatures = async () => {
-        console.log("Saving features:", features);
+        console.log("Saving features:", JSON.stringify(features, null, 2));
         alert("Features saved (mock). Replace with API call!");
     };
 
@@ -158,23 +140,18 @@ const Agile: React.FC = () => {
     return (
         <section className="relative overflow-hidden">
             {/* ✅ Heading with Background Image */}
-            <div className="relative text-center mb-16 mt-12 bg-[url('/images/categories/image3.png')] bg-cover bg-center bg-no-repeat rounded-2xl shadow-lg">
-                <div className="bg-black/50 rounded-2xl px-6 py-16">
+            <div className="relative text-center mb-16 mt-12 bg-[url('/images/backoffice.png')] bg-cover bg-center bg-no-repeat rounded-2xl shadow-lg">
+                <div className="bg-black/70 rounded-2xl px-6 py-16">
                     <h2 className="text-4xl lg:text-5xl font-medium text-white tracking-tight leading-tight">
-                        Agile
+                        Back Office System
                     </h2>
                     <p className="mt-4 max-w-4xl mx-auto text-lg text-gray-200">
-                        The Agile Screen implements a vertical and hierarchical approval
-                        workflow for managers, ensuring that every request (such as leave,
-                        attendance regularization, expense claims, or timesheet entries) is
-                        routed through the appropriate chain of command. Each level of
-                        management reviews and processes the request in sequence, based on
-                        predefined rules and role-based hierarchies.
+                        Back Office System is an internal platform that manages and supports a company’s administrative and operational functions, including HR, payroll, accounting, and data management. It ensures smooth workflows, accurate record-keeping, and provides managers and HR teams with insights for decision-making. The system also includes essential employee credentials and information such as Designation, Departments, Leave Types, Functions, Holiday List, Daily and Monthly Attendance, Attendance Register, and Timesheet, enabling employees to access and manage their records efficiently while helping HR maintain accurate data and monitor work activities.
                     </p>
                 </div>
             </div>
 
-            {/* Feature Cards with Icons */}
+            {/* ✅ Feature Cards with Icons */}
             <div className="container max-w-7xl mx-auto px-5 mt-10">
                 {features.map((feature, index) => (
                     <div
@@ -193,18 +170,9 @@ const Agile: React.FC = () => {
                             <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
                                 {feature.subtitle}
                             </h2>
-
-                            {/* ✅ Render description */}
-                            <ul
-                                className={`text-lg leading-[1.6] space-y-2 ${feature.title === "Project Status Report"
-                                    ? "list-disc pl-6 text-dark/50 dark:text-white/50"
-                                    : "list-none text-dark/50 dark:text-white/50 pl-0"
-                                    }`}
-                            >
-                                {feature.description.map((point, idx) => (
-                                    <li key={idx}>{point}</li>
-                                ))}
-                            </ul>
+                            <p className="text-dark/50 dark:text-white/50 text-lg leading-[1.6] whitespace-pre-line">
+                                {feature.description}
+                            </p>
                         </div>
 
                         {/* Image Block */}
@@ -213,7 +181,7 @@ const Agile: React.FC = () => {
                                 <Link href={feature.href}>
                                     <Image
                                         src={feature.image}
-                                        alt={feature.title}
+                                        alt={`${feature.title} illustration`}
                                         width={680}
                                         height={386}
                                         unoptimized
@@ -231,28 +199,14 @@ const Agile: React.FC = () => {
                 ))}
             </div>
 
-
             {/* ✅ Edit Button */}
             <div className="flex justify-end mt-10">
                 <button
                     onClick={() => setShowEditor(true)}
-                    className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                    className="bg-purple-600 text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
                     title="Edit Features"
                 >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
-                        />
-                    </svg>
+                    ✎
                 </button>
             </div>
 
@@ -260,9 +214,7 @@ const Agile: React.FC = () => {
             {showEditor && (
                 <div className="fixed inset-0 bg-black/60 z-[999] flex items-center justify-center">
                     <div className="bg-white dark:bg-dark w-full h-full max-w-4xl mx-auto p-8 overflow-auto relative rounded-lg">
-                        <h2 className="text-2xl font-bold mb-4">
-                            Edit Manager Desk Features
-                        </h2>
+                        <h2 className="text-2xl font-bold mb-4">Edit Manager Desk Features</h2>
 
                         <form
                             onSubmit={(e) => {
@@ -293,13 +245,14 @@ const Agile: React.FC = () => {
                                     />
 
                                     <label className="block mb-2 text-sm font-medium">
-                                        Description (one point per line)
+                                        Description
                                     </label>
                                     <textarea
                                         name="description"
-                                        value={feature.description.join("\n")}
+                                        value={feature.description}
                                         onChange={(e) => handleChange(e, index)}
                                         className="w-full mb-4 p-2 border rounded"
+                                        rows={6}
                                     />
 
                                     <label className="block mb-2 text-sm font-medium">Image</label>
@@ -342,4 +295,4 @@ const Agile: React.FC = () => {
     );
 };
 
-export default Agile;
+export default BackOfficeSystem;

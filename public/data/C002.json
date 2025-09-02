@@ -1,57 +1,109 @@
 [
   {
     "id": "SS001",
-
-    "title": "Smart Attendance",
+    "title": "Timesheet & Workforce Records",
     "icon": "fluent:apps-list-detail-24-filled",
-    "description": "Integration of Bio-Metric, Geo-Fencing, Work from home and office Check In & Out.",
-    "detail": "To modernize attendance tracking and enhance operational transparency, a unified system integrating biometric authentication, geo-fencing, and multi-mode check-in/check-out (office and work from home) is essential. This integrated solution ensures accuracy, security, and flexibility for both remote and on-site employees.",
-    "image": "/images/categories/biometric.png",
-    "badge": "Time Management",
-    "reverse": false
+    "description": "Employee enrollment and timesheet management.",
+    "detail": "A streamlined Employee Enrollment and Timesheet Management system is essential for maintaining accurate workforce records, ensuring compliance, and optimizing productivity tracking. The system should effectively manage different employee categories, including:",
+    "image": "/images/categories/employee.png",
+    "badge": "Time Sheet",
+    "reverse": false,
+    "features": [
+      {
+        "name": "Probationary",
+        "description": "Track performance and attendance during the probation period."
+      },
+      {
+        "name": "Confirmed",
+        "description": "Maintain ongoing timesheet records and productivity metrics."
+      },
+      {
+        "name": "In-sourced Staff",
+        "description": "Manage internal teams with full visibility into work hours and deliverables."
+      },
+      {
+        "name": "Out-sourced Staff",
+        "description": "Monitor attendance and output of contracted or third-party personnel."
+      }
+    ]
   },
   {
     "id": "SS002",
-
-    "title": "Employee Self Service",
+    "title": "Integrated Attendance",
     "icon": "fluent:apps-list-detail-24-filled",
-    "description": "Enablement of Employee Self Service in Mobile App as well as Cloud.",
-    "detail": "Track and manage employee attendance, including when they check in, check out, and record their work hours. Leave, On-duty, Overtime, Expenses, Salary Advance, Regularization, Items in custody, Spot activity (Mobile App for field tasks)",
-    "image": "/images/categories/enable.png",
-    "badge": "Self Service",
+    "description": "Integration of Bio-Metric, Geo-Fencing, WFH and Office Check In & Out",
+    "detail": "To modernize attendance tracking and enhance operational transparency, implementing a unified system that integrates biometric authentication, geo-fencing, and multi-mode check-in/check-out (for both office and WFH scenarios) is essential. This comprehensive solution ensures accuracy in attendance records, strengthens security through reliable verification methods, and provides the flexibility required to support today’s hybrid work environments.",
+    "image": "/images/categories/biometric.png",
+    "badge": "Time Management",
     "reverse": true
   },
   {
     "id": "SS003",
-
-    "title": "Approval Workflows",
+    "title": "Employee Self Service",
     "icon": "fluent:apps-list-detail-24-filled",
-    "description": "Vertical and Hierarchical Approval workflow for Managers.",
-    "detail": "To streamline decision-making and maintain organizational accountability, a Vertical and Hierarchical Approval Workflow system is essential. This structured workflow ensures that requests—such as leave applications, expense claims, attendance exceptions, or project approvals—are reviewed and authorized through appropriate managerial levels.",
-    "image": "/images/categories/vertical.png",
-    "badge": "Manager Desk",
-    "reverse": false
+    "description": "Enablement of Employee Self Service in Mobile App as well as Cloud.",
+    "detail": "Track and manage employee attendance seamlessly with a centralized system that captures check-in/check-out times and total work hours. The platform also supports comprehensive workforce management.",
+    "image": "/images/categories/enable.png",
+    "badge": "Self Service",
+    "reverse": false,
+    "features": [
+      "Leave Management – Apply, approve, and track various leave types with ease.",
+      "On-Duty Requests – Log and monitor official assignments outside the workplace.",
+      "Overtime Tracking – Record and manage extra work hours for accurate compensation.",
+      "Expense Claims – Submit, review, and approve business-related expenses.",
+      "Salary Advance Requests – Facilitate employee requests for advance salary payments.",
+      "Attendance Regularization – Allow employees to correct missed or inaccurate attendance logs.",
+      "Items in Custody – Track assets or equipment issued to employees.",
+      "On Site Activity Logging – Use the mobile app to record field-based tasks and activities in real-time."
+    ]
   },
   {
     "id": "SS004",
-
-    "title": "Timesheet & Workforce Records",
+    "title": "Approval Workflows",
     "icon": "fluent:apps-list-detail-24-filled",
-    "description": "Employee enrollment and timesheet management.",
-    "detail": "A streamlined Employee Enrollment and Timesheet Management system is essential for maintaining accurate workforce records, ensuring compliance, and optimizing productivity tracking. Probation, Confirmed, In-sourced staff, Out-sourced staff.",
-    "image": "/images/categories/employee.png",
-    "badge": "Time Sheet",
+    "description": "Vertical and Hierarchical Approval workflow for Managers.",
+    "detail": "To streamline decision-making and uphold organizational accountability, implementing a Vertical and Hierarchical Approval Workflow system is essential. This structured workflow ensures that various requests such as leave applications, expense claims, attendance exceptions, and project approvals are systematically reviewed and authorized by the appropriate managerial levels in alignment with the organization’s established chain of command. This approach enhances transparency, reduces delays, and supports efficient operational governance.",
+    "image": "/images/approvel2.png",
+    "badge": "Manager Desk",
     "reverse": true
   },
   {
     "id": "SS005",
-
+    "title": "Assessment",
+    "icon": "fluent:apps-list-detail-24-filled",
+    "subtitle": "Evaluate, Review, and Validate Effectively",
+    "description": "Quick and structured evaluations for better decisions.",
+    "detail": "Assessment processes ensure that every request—such as leave applications, expense claims, attendance exceptions, and project approvals—is carefully reviewed against predefined criteria. Managers assess supporting documents, justification, and potential impact before making decisions. This approach not only enforces fairness and consistency but also strengthens governance, reduces risks, and supports organizational efficiency.",
+    "image": "/images/Assesment2.png",
+    "badge": "Manager Desk",
+    "reverse": false
+  },
+  {
+    "id": "SS006",
     "title": "Agile Project Management",
     "icon": "fluent:apps-list-detail-24-filled",
-    "description": "Agile-based Project Planning, Management, Costing, and Monitoring.",
-    "detail": "Integrating Agile-based project planning, management, costing, and monitoring empowers organizations to deliver high-quality outputs while maintaining control over timelines and budgets. Includes: Self-Initiated Tasks, Manager-Assigned Tasks, Agile Sprint Tasks, Spot Activity.",
+    "description": "Agile-based Project Planning, Management, Monitoring and Costing.",
+    "detail": "Integrating Agile-based project planning, management, costing, and monitoring empowers organizations to deliver high-quality outputs while maintaining control over timelines and budgets. The system should support multiple task types to accommodate diverse work scenarios, including:",
     "image": "/images/categories/image3.png",
     "badge": "Agile",
-    "reverse": false
+    "reverse": true,
+    "features": [
+      {
+        "name": "Self-Initiated Tasks",
+        "description": "Tasks proactively created by employees to support individual or team goals."
+      },
+      {
+        "name": "Manager-Assigned Tasks",
+        "description": "Responsibilities delegated by supervisors to align with project objectives."
+      },
+      {
+        "name": "Agile Sprint Tasks",
+        "description": "Time-boxed deliverables planned and tracked within Agile sprints for iterative progress."
+      },
+      {
+        "name": "On-Site Activity",
+        "description": "Real-time field or on-the-go task updates captured through mobile or location-based input."
+      }
+    ]
   }
 ]

@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Approval",
+    "subtitle": "Review and Manage Requests",
+    "description": "The Approval screen allows managers to review, approve, or reject various employee requests, including leave, overtime, expenses, and task completions.",
+    "image": "/images/Approval.png",
+    "href": "#approval",
+    "badge": "Core",
+    "reverse": true,
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "title": "On Site Activity",
+    "subtitle": "Capture Real-Time Events",
+    "description": "Spot Activity captures real-time events or actions that occur spontaneously. It helps in tracking immediate issues or tasks requiring urgent attention.",
+    "image": "/images/onsite.png",
+    "href": "#onsiteactivity",
+    "badge": "Core",
+    "reverse": false,
+    "icon": "mdi:map-marker"
+  },
+  {
+    "title": "Time Sheet",
+    "subtitle": "Log Work Hours & Tasks",
+    "description": "The Time Sheet module allows employees to record daily work hours, assigned tasks, and project contributions, enabling accurate payroll and productivity tracking.",
+    "image": "/images/TimeSheet.png",
+    "href": "#timesheet",
+    "badge": "Core",
+    "reverse": true,
+    "icon": "mdi:clock-time-eight"
+  }
+]

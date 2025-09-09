@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import contentData from '../../../Mock.db/C002.json'
+import { useRouter } from "next/navigation";
+
 
 interface FeatureItem {
   name: string;
@@ -22,7 +25,8 @@ interface Feature {
 }
 
 const Categories = () => {
-  const [features, setFeatures] = useState<Feature[]>([]);
+    const router = useRouter();
+  const [features, setFeatures] = useState<any>({});
   const [showEditor, setShowEditor] = useState(false);
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState("");
@@ -31,9 +35,10 @@ const Categories = () => {
   useEffect(() => {
     const loadFeatures = async () => {
       try {
-        const res = await fetch("/api/content-manage?contentId=C002");
+        const res = await fetch("https://bexatm.com/ContentManageSys.php?contentId=C002");
         const data = await res.json();
         setFeatures(data);
+              setPreview(data.image)
       } catch (error) {
         console.error("Error loading categories:", error);
       }
@@ -68,7 +73,7 @@ const Categories = () => {
 
   // Save features
   const saveFeatures = async () => {
-    await fetch("/api/content-manage?contentId=C002", {
+    await fetch("https://bexatm.com/ContentManageSys.php?contentId=C002", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(features),
@@ -139,8 +144,62 @@ const Categories = () => {
                 {feature.detail}
               </p>
 
+               {feature.isBullet && (
+
+                <ul className="mt-4 list-disc list-inside text-dark/70 dark:text-white/70 text-base space-y-2">
+                   <li >
+                     
+                          <strong>{feature.name1}</strong>
+                          {feature.description1 && ` – ${feature.description1}`}
+                     
+                    </li>
+                   <li >
+                     
+                          <strong>{feature.name2}</strong>
+                          {feature.description2 && ` – ${feature.description2}`}
+                     
+                    </li>
+                   <li >
+                     
+                          <strong>{feature.name3}</strong>
+                          {feature.description3 && ` – ${feature.description3}`}
+                     
+                    </li>
+                   <li >
+                     
+                          <strong>{feature.name4}</strong>
+                          {feature.description4 && ` – ${feature.description4}`}
+                     
+                    </li>
+                      {feature.name5 &&<li >
+                     
+                          <strong>{feature.name5}</strong>
+                          {feature.description5 && ` – ${feature.description5}`}
+                     
+                    </li>}
+                      {feature.name6 &&<li >
+                     
+                          <strong>{feature.name6}</strong>
+                          {feature.description6 && ` – ${feature.description6}`}
+                     
+                    </li>}
+                     {feature.name7 && <li >
+                     
+                          <strong>{feature.name7}</strong>
+                          {feature.description7 && ` – ${feature.description7}`}
+                     
+                    </li>}
+                      {feature.name8 && <li >
+                     
+                          <strong>{feature.name8}</strong>
+                          {feature.description8 && ` – ${feature.description8}`}
+                     
+                    </li>}
+                </ul>
+              )}
+
               {/* ✅ Render Feature List */}
-              {feature.features && feature.features.length > 0 && (
+              {/* {feature.features && feature.features.length > 0 && (
                 <ul className="mt-4 list-disc list-inside text-dark/70 dark:text-white/70 text-base space-y-2">
                   {feature.features.map((item, idx) => (
                     <li key={idx}>
@@ -155,7 +214,7 @@ const Categories = () => {
                     </li>
                   ))}
                 </ul>
-              )}
+              )} */}
             </div>
 
             {/* Image Block */}
@@ -163,7 +222,7 @@ const Categories = () => {
               <div className="relative rounded-2xl overflow-hidden group">
                 <Link href="#">
                   <Image
-                    src={feature.image}
+                    src={`https://bexatm.com/${feature.image}`}
                     alt={feature.title}
                     width={680}
                     height={386}
@@ -187,7 +246,7 @@ const Categories = () => {
         {/* Edit Button */}
         <div className="flex justify-end mt-10">
           <button
-            onClick={() => setShowEditor(true)}
+               onClick={() => router.push("/content/services")}
             className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
             title="Edit Services Section"
           >
@@ -209,90 +268,7 @@ const Categories = () => {
         </div>
       </div>
 
-      {/* Edit Modal */}
-      {showEditor && (
-        <div className="fixed inset-0 bg-black/60 z-[999] flex items-center justify-center">
-          <div className="bg-white dark:bg-dark w-full h-full max-w-4xl mx-auto p-8 overflow-auto relative rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">Edit Services Section</h2>
-
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                saveFeatures();
-              }}
-            >
-              {features.map((feature, index) => (
-                <div key={index} className="mb-8 border-b pb-6">
-                  <label className="block mb-2 text-sm font-medium">
-                    Title
-                  </label>
-                  <input
-                    type="text"
-                    name="title"
-                    value={feature.title}
-                    onChange={(e) => handleChange(e, index)}
-                    className="w-full mb-4 p-2 border rounded"
-                  />
-
-                  <label className="block mb-2 text-sm font-medium">
-                    Description
-                  </label>
-                  <input
-                    type="text"
-                    name="description"
-                    value={feature.description}
-                    onChange={(e) => handleChange(e, index)}
-                    className="w-full mb-4 p-2 border rounded"
-                  />
-
-                  <label className="block mb-2 text-sm font-medium">
-                    Detail
-                  </label>
-                  <textarea
-                    name="detail"
-                    value={feature.detail}
-                    onChange={(e) => handleChange(e, index)}
-                    className="w-full mb-4 p-2 border rounded"
-                  />
-
-                  <label className="block mb-2 text-sm font-medium">
-                    Image
-                  </label>
-                  {preview && (
-                    <div className="mb-4">
-                      <Image
-                        src={preview}
-                        alt="Preview"
-                        width={200}
-                        height={150}
-                        unoptimized
-                      />
-                    </div>
-                  )}
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={(e) => handleImageChange(e, index)}
-                    className="mb-4"
-                  />
-                </div>
-              ))}
-
-              <button className="px-4 py-2 bg-primary text-white rounded hover:bg-opacity-90">
-                Save
-              </button>
-            </form>
-
-            {/* Close */}
-            <button
-              className="absolute top-4 right-6 text-gray-500 hover:text-black dark:hover:text-white text-3xl"
-              onClick={() => setShowEditor(false)}
-            >
-              ✕
-            </button>
-          </div>
-        </div>
-      )}
+ 
     </section>
   );
 };

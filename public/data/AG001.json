@@ -1,0 +1,66 @@
+[
+  {
+    "title": "Project",
+    "subtitle": "Review and Manage Requests",
+    "description": [
+      "Provides details about projects, including their list of milestones, milestone weightages, and team members. Managers can add or remove members from the project based on requirements and preferences."
+    ],
+    "image": "/images/Approval.png",
+    "href": "#approval",
+    "badge": "Core",
+    "reverse": true,
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "title": "Sprint",
+    "subtitle": "Track Progress and Outcomes",
+    "description": [
+      "The manager assigns tasks to team members based on the project plan, schedules the start and due dates, allocates the responsible person, and tracks the actual completion date to ensure timely delivery."
+    ],
+    "image": "/images/task2.png",
+    "href": "#taskmonitoring",
+    "badge": "Core",
+    "reverse": false,
+    "icon": "mdi:chart-line"
+  },
+  {
+    "title": "Task",
+    "subtitle": "Manage Workflows Efficiently",
+    "description": [
+      "Handle self-assigned tasks, manager-assigned responsibilities, and sprint-based activities in one place. Plan start and due dates, allocate ownership, and monitor progress to ensure timely completion and team alignment."
+    ],
+    "image": "/images/task2.png",
+    "href": "#taskmonitoring",
+    "badge": "Core",
+    "reverse": true,
+    "icon": "mdi:clipboard-check-outline"
+  },
+  {
+    "title": "Project Enquiry",
+    "subtitle": "Capture Real-Time Events",
+    "description": [
+      "Project Enquiry provides detailed information about project tasks based on the project, milestone, operational stage, and associated activities."
+    ],
+    "image": "/images/onsite.png",
+    "href": "#onsiteactivity",
+    "badge": "Core",
+    "reverse": false,
+    "icon": "mdi:map-marker"
+  },
+  {
+    "title": "Project Status Report",
+    "subtitle": "Product Status Based on Project & Employee",
+    "description": [
+      "It provides a status report of the product based on the project and employee, within a specified date range (From Date to To Date)",
+      "Works within a specified date range (From Date – To Date).",
+      "Efforts – List of Tasks: Displays details of tasks taken up by an employee, including descriptions and time taken.",
+      "Efforts – List of Employee Tasks: Shows task completion information, including estimated effort vs. actual time spent.",
+      "Efforts – List of Projects: Displays projects assigned to an employee, including estimated hours and actual contributed hours (effort)."
+    ],
+    "image": "/images/projectstatus.png",
+    "href": "#projectstatus",
+    "badge": "Reports",
+    "reverse": true,
+    "icon": "mdi:file-chart"
+  }
+]

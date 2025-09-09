@@ -1,0 +1,19 @@
+{
+  "topCta": {
+    "title": "Experience the Future of Efficiency",
+    "subtitle": "Book a free demo and see how our solution can transform your workflow.",
+    "ctaLink": { "label": "Contact Us", "href": "/contactus" }
+  },
+  "contactInfo": {
+    "address": [
+      "Door#: 25/31, Lakshmi Nagar II Main Road, Porur, Chennai,",
+      "Tamil Nadu - 600116"
+    ],
+    "email": "govee@beyondexs.com",
+    "phone": "+91 944 440 8804",
+    "mobile": "+91 944 440 8804"
+  },
+  "links": [
+   
+  ]
+}

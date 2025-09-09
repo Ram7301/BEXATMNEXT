@@ -132,7 +132,7 @@ const Header: React.FC = () => {
 
   <div
   ref={sideMenuRef}
-  className={`fixed top-0 right-0 h-full w-full bg-dark shadow-lg transition-transform duration-300 max-w-lg ${navbarOpen ? 'translate-x-0' : 'translate-x-full'} z-50 px-6 overflow-auto no-scrollbar`}
+  className={`fixed top-0 right-0 h-full w-95 bg-dark shadow-lg transition-transform duration-300 max-w-lg ${navbarOpen ? 'translate-x-0' : 'translate-x-full'} z-50 px-6 overflow-auto no-scrollbar`}
 >
 
         <div className="flex flex-col h-full justify-between">

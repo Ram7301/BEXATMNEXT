@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import contentData from "../../../Mock.db/A001.json"; // <-- Import JSON
 
 interface Feature {
   title: string;
@@ -18,77 +19,12 @@ interface Feature {
 
 const Assesment: React.FC = () => {
   const [showEditor, setShowEditor] = useState(false);
-  const [features, setFeatures] = useState<Feature[]>([]);
+  const [features, setFeatures] = useState<any>(contentData);
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState("");
 
-  const loadFeatures = async () => {
-    const data: Feature[] = [
-      {
-        title: "Category",
-        subtitle: "Review and Manage Requests",
-        description:
-          "Category is a section that groups related evaluation criteria together. Each category focuses on a specific aspect of performance or skills, such as technical skills, communication, teamwork, productivity, or behaviour and attitude, helping make the assessment more structured and organized.",
-        image: "/images/categories.png",
-        href: "#approval",
-        badge: "Core",
-        reverse: true,
-        icon: "mdi:check-decagram", // example icon
-      },
-
-      {
-        title: "Assessment",
-        subtitle: "Capture Real-Time Events",
-        description:
-          "In an assessment, you can define the number of questions, the minimum score required to pass, the number of attempts permitted, and the duration of the assessment (in days), allowing the system to structure and manage the evaluation effectively. ",
-        image: "/images/assesmentlist.png",
-        href: "#onsiteactivity",
-        badge: "Core",
-        reverse: false,
-        icon: "mdi:map-marker",
-      },
-      {
-        title: "Question Groups",
-        subtitle: "Organize Evaluation Topics",
-        description:
-          "Question Groups are sets of related questions grouped under a specific topic or category. They help organize the assessment by focusing on particular skills, knowledge areas, or competencies, making it easier to evaluate employees in a structured and consistent way .",
-        image: "/images/questiongroup.png",
-        href: "#timesheet",
-        badge: "Core",
-        reverse: true,
-        icon: "mdi:clock-time-eight",
-      },
-      {
-        title: "Question & Answer",
-        subtitle: "Capture Candidate Responses",
-        description:
-          "Question & Answer refer to the individual questions presented to candidates and the corresponding answers they provide. This component captures the candidates’ responses to evaluate skills, knowledge, or performance based on predefined criteria, allowing managers or the system to assess competencies accurately.",
-        image: "/images/q&a.png",
-        href: "#timesheet",
-        badge: "Core",
-        reverse: false,
-        icon: "mdi:clock-time-eight",
-      },
-      {
-        title: "Session",
-        subtitle: "Log Work Hours & Tasks",
-        description:
-          "Within a session, documents can be uploaded for each category, and links to study materials on websites or YouTube can be provided, enabling participants to access relevant resources while taking the assessment. ",
-        image: "/images/session.png",
-        href: "#timesheet",
-        badge: "Core",
-        reverse: true,
-        icon: "mdi:clock-time-eight",
-      },
-
-
-
-    ];
-    setFeatures(data);
-  };
-
   useEffect(() => {
-    loadFeatures();
+    // setFeatures(featuresData); // Load directly from JSON
   }, []);
 
   const handleChange = (
@@ -143,8 +79,9 @@ const Assesment: React.FC = () => {
         {features.map((feature, index) => (
           <div
             key={index}
-            className={`flex flex-col ${feature.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
-              } items-center gap-10 mb-24`}
+            className={`flex flex-col ${
+              feature.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
+            } items-center gap-10 mb-24`}
           >
             {/* Text Block */}
             <div className="lg:w-1/2">

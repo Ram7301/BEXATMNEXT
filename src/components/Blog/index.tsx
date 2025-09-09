@@ -2,6 +2,7 @@ import React from 'react';
 import BlogCard from '@/components/shared/Blog/blogCard';
 import { getAllPosts } from '@/components/utils/markdown';
 
+
 interface Blog {
     title: string;
     date: string;

@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("filePath", "/images/hero/");
-    await fetch("/api/uploads", { method: "POST", body: formData });
+    await fetch("https://bexatm.com/ImageUpload.php", { method: "POST", body: formData });
     }
   };
 
@@ -58,11 +58,11 @@ const Hero: React.FC = () => {
 
   const loadPages = async () => {
     try {
-      const res = await fetch("/api/content-manage?contentId=C001");
+      const res = await fetch("https://bexatm.com/ContentManageSys.php?contentId=C001");
       if (!res.ok) throw new Error("Failed to fetch pages");
       const data = await res.json();
       setPages(data);
-      setPreview(data.image);
+      setPreview(`https://bexatm.com${data.image}`);
     } catch (err) {
       console.error("Error loading pages:", err);
     }
@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
   }, []);
 
   const savePages = async () => {
-    await fetch("/api/content-manage?contentId=C001", {
+    await fetch("https://bexatm.com/ContentManageSys.php?contentId=C001", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(pages),
@@ -87,7 +87,7 @@ const Hero: React.FC = () => {
     const formData = new FormData();
     formData.append("file", image);
     formData.append("filePath", "/images/hero/");
-    await fetch("/api/uploads", { method: "POST", body: formData });
+    await fetch("https://bexatm.com/ImageUpload.php", { method: "POST", body: formData });
   };
 
   return (
@@ -138,7 +138,7 @@ const Hero: React.FC = () => {
                   <div key={lbl.id} className="flex items-center gap-4 mb-2 border p-2 rounded">
                     {/* Label Image Preview */}
                     {lbl.src && (
-                      <Image src={lbl.src} alt="icon" width={40} height={40} unoptimized />
+                      <Image src={`https://bexatm.com${lbl.src}`} alt="icon" width={40} height={40} unoptimized />
                     )}
                     <input
                       type="file"

@@ -6,43 +6,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+import contentData from '../../../Mock.db/C001.json'
 const Hero: React.FC = () => {
   const router = useRouter();
-  const [showEditor, setShowEditor] = useState(false);
-  const [preview, setPreview] = useState("");
-  const [image, setImage] = useState<File | null>(null)
-
-  // Handle text input changes
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setPages((prev) => ({ ...prev, [name]: value }));
-  };
-
-
-  // Handle image file selection
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setImage(file)
-      setPreview(URL.createObjectURL(file));
-      // Store only the file name, not the full path
-      setPages((prev) => ({ ...prev, image: `/images/hero/${file.name}` }));
-    }
-  };
-
-
-
-
   const [pages, setPages] = useState<any>({});
 
   const loadPages = async () => {
     try {
-      const res = await fetch("/api/content-manage?contentId=C001");
+      // const res = await fetch("/api/content-manage?contentId=C001");
+      const res = await fetch("https://bexatm.com/ContentManageSys.php?contentId=C001");
       if (!res.ok) throw new Error("Failed to fetch pages");
       const data = await res.json();
       console.log(data, "333333333333333333");
       setPages(data);
-      setPreview(data.image)
+
     } catch (err) {
       console.error("Error loading pages:", err);
     }
@@ -52,26 +29,8 @@ const Hero: React.FC = () => {
   }, []);
 
 
-  const savePages = async () => {
-    await fetch('/api/content-manage?contentId=C001', {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(pages)
-    })
-    uploadImage()
-    alert('Pages saved!')
-  }
 
-  const uploadImage = async () => {
-    if (!image) return
-    const formData = new FormData()
-    formData.append('file', image)
-    formData.append('filePath', "/images/hero/")
-    // formData.append('fileName', "/images/hero/")
-    const res = await fetch('/api/uploads', { method: 'POST', body: formData })
-    const data = await res.json()
-    setPreview(data?.filePath)
-  }
+
 
 
   return (
@@ -94,7 +53,8 @@ const Hero: React.FC = () => {
           </div>
           <div className="hidden md:block absolute top-18 -right-15">
             {pages?.image && <Image
-              src={pages?.image || null}
+              // src={pages?.image || null}
+              src={`https://bexatm.com${pages?.image || null}`}
               alt="heroImg"
               width={882}
               height={816}
@@ -109,7 +69,8 @@ const Hero: React.FC = () => {
             {pages && pages?.lables?.map((item, i) => (
               <div key={i} className="flex flex-col sm:items-center gap-2">
                 <Image
-                  src={item.src || null}
+                  // src={item.src || null}
+                  src={`https://bexatm.com${item.src}`}
                   alt={item.label}
                   width={35}
                   height={35}
@@ -117,7 +78,8 @@ const Hero: React.FC = () => {
                   unoptimized
                 />
                 <Image
-                  src={item.src || null}
+                  src={`https://bexatm.com${item.src}`}
+                  // src={item.src || null}
                   alt={item.label}
                   width={35}
                   height={35}
@@ -156,86 +118,7 @@ const Hero: React.FC = () => {
         </svg>
       </button>
 
-      {/* Hero Edit Modal */}
-      {showEditor && (
-        <div className="fixed inset-0  bg-opacity-60 z-[999] flex items-center justify-center">
-          <div className="bg-white dark:bg-dark w-full h-full max-w-3xl mx-auto p-8 overflow-auto relative rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">Edit Hero Section</h2>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                savePages();
-              }}
-            >
-              <label className="block mb-2 text-sm font-medium">
-                Hero Title
-              </label>
-              <input
-                type="text"
-                name="title"
-                value={pages.title}
-                onChange={handleChange}
-                className="w-full mb-4 p-2 border rounded"
-              />
 
-              <label className="block mb-2 text-sm font-medium">
-                Button Text
-              </label>
-              <input
-                type="text"
-                name="Button1"
-                value={pages.Button1}
-                onChange={handleChange}
-                className="w-full mb-4 p-2 border rounded"
-              />
-
-              <label className="block mb-2 text-sm font-medium">
-                Hero Image
-              </label>
-              {preview && (
-                <div className="mb-4">
-                  <Image
-                    src={preview}
-                    alt="Preview"
-                    width={200}
-                    height={150}
-                    unoptimized
-                  />
-                </div>
-              )}
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
-                className="mb-4"
-              />
-
-              <label className="block mb-2 text-sm font-medium">
-                Labels (comma separated)
-              </label>
-              <input
-                type="text"
-                name="labels"
-                value={pages?.lables.map(v => v.label).join(",")}
-                onChange={handleChange}
-                className="w-full mb-4 p-2 border rounded"
-              />
-
-              <button className="px-4 py-2 bg-primary text-white rounded hover:bg-opacity-90">
-                Save
-              </button>
-            </form>
-
-            {/* Close Button */}
-            <button
-              className="absolute top-4 right-6 text-gray-500 hover:text-black dark:hover:text-white text-3xl"
-              onClick={() => setShowEditor(false)}
-            >
-              ✕
-            </button>
-          </div>
-        </div>
-      )}
     </section>
   );
 };

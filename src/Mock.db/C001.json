@@ -1,0 +1,35 @@
+{
+  "id": "HE001",
+  "section": "HERO",
+  "title": "Agile Task Manager",
+  "Button1": "Contact Us",
+  "image": "/images/hero/hero_section.svg",
+  "lables": [
+    {
+      "id": 1,
+      "src": "/images/hero/clock.svg",
+      "label": "Time Management"
+    },
+    {
+      "id": 2,
+      "src": "/images/hero/self-service.svg",
+      "label": "Employee Self Service"
+    },
+    {
+      "id": 3,
+      "src": "/images/hero/manager-desk.svg",
+      "label": "Manager Desk"
+    },
+    {
+      "id": 4,
+      "src": "/images/hero/dark-agile.png",
+      "label": "Agile"
+    },
+    {
+      "id": 5,
+      "src": "/images/hero/download.jfif",
+      "label": "My Profile"
+    }
+  ],
+  "labels": "Time management,Self service,Manager desk,Agile,My profile"
+}

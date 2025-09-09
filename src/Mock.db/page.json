@@ -1,0 +1,8 @@
+  {
+    "id": "HE001",
+    "section": "HERO",
+    "title": "Agile Task Manager",
+    "Button1": "Contact Us",
+    "image": "/images/hero/hero_section.svg",
+    "lables": ["Time management", "Self service", "Manager desk", "Agile", "My profile"]
+  }

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "EF001",
+    "title": "HRMS Integration",
+    "subtitle": "Seamless integration with any HRMS for Payroll, Attendance & More",
+    "description": "Our platform offers robust integration with leading HRMS solutions, enabling seamless management of employee records, payroll, and attendance tracking. This smart integration streamlines HR operations, reduces manual effort, and ensures data consistency across systems.",
+    "image": "/images/hrms.png",
+    "badge": "HRMS System Sync",
+    "href": "/hrms-integration",
+    "icon": "mdi:account-sync",
+    "reverse": false
+  },
+  {
+    "id": "EF002",
+    "title": "Manufacturing IT Solutions",
+    "subtitle": "Integration with any Manufacturing / Production system",
+    "description": "Seamlessly integrate your production systems with our agile task tracker – enabling full accountability, real-time cost tracking, and optimized operational efficiency.",
+    "image": "/images/manufacturing.png",
+    "badge": "Manufacturing Sync",
+    "href": "/hrms-integration",
+    "icon": "mdi:factory",
+    "reverse": true
+  }
+]

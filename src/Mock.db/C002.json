@@ -1,0 +1,57 @@
+[
+  {
+    "id": "SS001",
+
+    "title": "Smart Attendance",
+    "icon": "fluent:apps-list-detail-24-filled",
+    "description": "Integration of Bio-Metric, Geo-Fencing, Work from home and office Check In & Out.",
+    "detail": "To modernize attendance tracking and enhance operational transparency, a unified system integrating biometric authentication, geo-fencing, and multi-mode check-in/check-out (office and work from home) is essential. This integrated solution ensures accuracy, security, and flexibility for both remote and on-site employees.",
+    "image": "/images/categories/biometric.png",
+    "badge": "Time Management",
+    "reverse": false
+  },
+  {
+    "id": "SS002",
+
+    "title": "Employee Self Service",
+    "icon": "fluent:apps-list-detail-24-filled",
+    "description": "Enablement of Employee Self Service in Mobile App as well as Cloud.",
+    "detail": "Track and manage employee attendance, including when they check in, check out, and record their work hours. Leave, On-duty, Overtime, Expenses, Salary Advance, Regularization, Items in custody, Spot activity (Mobile App for field tasks)",
+    "image": "/images/categories/enable.png",
+    "badge": "Self Service",
+    "reverse": true
+  },
+  {
+    "id": "SS003",
+
+    "title": "Approval Workflows",
+    "icon": "fluent:apps-list-detail-24-filled",
+    "description": "Vertical and Hierarchical Approval workflow for Managers.",
+    "detail": "To streamline decision-making and maintain organizational accountability, a Vertical and Hierarchical Approval Workflow system is essential. This structured workflow ensures that requests—such as leave applications, expense claims, attendance exceptions, or project approvals—are reviewed and authorized through appropriate managerial levels.",
+    "image": "/images/categories/vertical.png",
+    "badge": "Manager Desk",
+    "reverse": false
+  },
+  {
+    "id": "SS004",
+
+    "title": "Timesheet & Workforce Records",
+    "icon": "fluent:apps-list-detail-24-filled",
+    "description": "Employee enrollment and timesheet management.",
+    "detail": "A streamlined Employee Enrollment and Timesheet Management system is essential for maintaining accurate workforce records, ensuring compliance, and optimizing productivity tracking. Probation, Confirmed, In-sourced staff, Out-sourced staff.",
+    "image": "/images/categories/employee.png",
+    "badge": "Time Sheet",
+    "reverse": true
+  },
+  {
+    "id": "SS005",
+
+    "title": "Agile Project Management",
+    "icon": "fluent:apps-list-detail-24-filled",
+    "description": "Agile-based Project Planning, Management, Costing, and Monitoring.",
+    "detail": "Integrating Agile-based project planning, management, costing, and monitoring empowers organizations to deliver high-quality outputs while maintaining control over timelines and budgets. Includes: Self-Initiated Tasks, Manager-Assigned Tasks, Agile Sprint Tasks, Spot Activity.",
+    "image": "/images/categories/image3.png",
+    "badge": "Agile",
+    "reverse": false
+  }
+]

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useContentManage } from "@/app/context/ContentManageContext";
 
 interface FooterLink {
   label: string;
@@ -27,8 +28,9 @@ interface FooterData {
 const Footer: React.FC = () => {
   const router = useRouter();
   const [footerData, setFooterData] = useState<FooterData | null>(null);
+  const { user } = useContentManage();
 
-  // Load footer data (like Properties does)
+  // Load footer data
   const loadFooter = async () => {
     try {
       const res = await fetch(
@@ -52,6 +54,30 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-dark text-white relative">
+      {/* Edit Button moved to top-right */}
+      {user?.isAdmin ? (
+        <button
+          onClick={() => router.push("/content/footer")}
+          className="absolute top-5 right-5 z-50 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
+          title="Edit Footer Section"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-5 h-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+            />
+          </svg>
+        </button>
+      ) : null}
+
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         {/* Top CTA */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-white/10 pb-8">
@@ -126,30 +152,6 @@ const Footer: React.FC = () => {
           <p className="text-white/40 text-sm text-center">
             © {new Date().getFullYear()} Beyondexs. All Rights Reserved
           </p>
-        </div>
-
-        {/* Edit Button */}
-        <div className="flex justify-end mt-10">
-          <button
-            onClick={() => router.push("/content/footer")}
-            className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
-            title="Edit Footer Section"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
-              />
-            </svg>
-          </button>
         </div>
       </div>
     </footer>

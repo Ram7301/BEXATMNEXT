@@ -1,5 +1,6 @@
 "use client";
 import datacontnt from '@/Mock.db/Home.json'
+import { useRouter } from 'next/navigation';
 import React, {
   createContext,
   useContext,
@@ -8,61 +9,55 @@ import React, {
   ReactNode,
 } from "react";
 
-type ContentType = {
-  title: string;
-  description: string;
+
+type UserType = {
+  user: any | null;
+  SignIn: (user:string,password:string) => void;
+  SignOut: () => void;
 };
 
-type ContentManageContextType = {
-  content: any | null;
-  setContent: (content: any) => void;
-  loading: boolean;
-  error: string | null;
-  getContent: (content: any) => void;
-};
 
-const ContentManageContext = createContext<ContentManageContextType | undefined>(undefined);
+const userData = {
+  user:"admin",
+  password:"admin123",
+  isAdmin:true,
+}
+
+const ContentManageContext = createContext<UserType | undefined>(undefined);
 
 export const ContentManageProvider = ({ children }: { children: ReactNode }) => {
-  const [content, setContent] = useState<any | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  // Fetch initial content from API
-  useEffect(() => {
-    // const fetchContent = async () => {
-    //   try {
-    //     const res = await fetch("/Mock.db/Home.json");
-    //     if (!res.ok) throw new Error("Failed to fetch content");
-
-    //     const data: any = await res.json();
-    //     console.log(data,'---------------');
-        
-    //     setContent(data);
-    //   } catch (err: any) {
-    //     setError(err.message || "Something went wrong");
-    //   } finally {
-    //     setLoading(false);
-    //   }
-    // };
-console.log(datacontnt);
-
-    // fetchContent();
-     setContent(datacontnt);
-  }, []);
+  const [user, setUser] = useState<any | null>({});
+  const router = useRouter()
+  // useEffect(() => {;
+  //    setContent(datacontnt);
+  // }, []);
 
 
-  function  getContent(id:any){
-    if(content){
-     return content.find((val:any) => val.id == id)
-    }else{
-      return {}
+  function  SignIn(user:string,password:string){
+    try{
+
+      if(userData.user === user && userData.password  == password){
+        setUser(userData)
+        return{status:200,message:"success"}
+      }else{
+         return{status:404,message:"Error"}
+      }
+    }catch(e){
+        return{status:500,message:"Error"}
     }
   }
 
 
+  
+  function  SignOut(){
+       setUser({})
+       router.replace('/')
+  }
+
+
+
   return (
-    <ContentManageContext.Provider value={{ content, setContent, loading, error,getContent }}>
+    <ContentManageContext.Provider value={{ user, SignIn, SignOut }}>
       {children}
     </ContentManageContext.Provider>
   );

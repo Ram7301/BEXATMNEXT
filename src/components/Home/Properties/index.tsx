@@ -5,12 +5,14 @@ import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useContentManage } from "@/app/context/ContentManageContext";
 
 const Properties: React.FC = () => {
   const router = useRouter();
   const [features, setFeatures] = useState<any[]>([]);
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState("");
+  const { user } = useContentManage();
 
   // Handle text input changes
   const handleChange = (
@@ -43,7 +45,6 @@ const Properties: React.FC = () => {
   // Load features from API
   const loadFeatures = async () => {
     try {
-      // const res = await fetch("/api/content-manage?contentId=C003");
       const res = await fetch(
         "https://bexatm.com/ContentManageSys.php?contentId=C003"
       );
@@ -84,10 +85,39 @@ const Properties: React.FC = () => {
   return (
     <section>
       <div className="container max-w-8xl mx-auto px-5 2xl:px-0 -mt-65">
-        <div className="mb-16 flex flex-col gap-3 -mt-28">
-          <h2 className="text-40 lg:text-52 font-medium text-black dark:text-white text-center tracking-tight leading-11">
+        {/* Heading + Edit Button */}
+        <div className="flex items-center justify-between mb-16 -mt-28">
+          {/* Spacer for symmetry */}
+          <div className="w-10"></div>
+
+          <h2 className="flex-1 text-center text-40 lg:text-52 font-medium text-black dark:text-white tracking-tight leading-11">
             Enhancement Features
           </h2>
+
+          {user?.isAdmin ? (
+            <button
+              onClick={() => router.push("/content/properties")}
+              className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
+              title="Edit Properties Section"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                />
+              </svg>
+            </button>
+          ) : (
+            <div className="w-10"></div>
+          )}
         </div>
 
         {features?.map((feature, index) => (
@@ -116,7 +146,6 @@ const Properties: React.FC = () => {
               <div className="relative rounded-2xl overflow-hidden group">
                 <Link href={feature.href}>
                   <Image
-                    // prepend domain like Hero
                     src={`https://bexatm.com${feature.image}`}
                     alt={feature.title}
                     width={680}
@@ -136,30 +165,6 @@ const Properties: React.FC = () => {
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Edit Button */}
-      <div className="flex justify-end mt-10">
-        <button
-          onClick={() => router.push("/content/properties")}
-          className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
-          title="Edit Properties Section"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-5 h-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
-            />
-          </svg>
-        </button>
       </div>
     </section>
   );

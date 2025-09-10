@@ -7,57 +7,40 @@ import SocialSignIn from "../SocialSignIn";
 import toast, { Toaster } from 'react-hot-toast';
 import AuthDialogContext from "@/app/context/AuthDialogContext";
 import Logo from "@/components/Layout/Header/BrandLogo/Logo";
+import { useContentManage } from "@/app/context/ContentManageContext";
 
 const Signin = ({ signInOpen }: { signInOpen?: any }) => {
   const { data: session } = useSession();
-  const [username, setUsername] = useState("admin");
-  const [password, setPassword] = useState("admin123");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const authDialog = useContext(AuthDialogContext);
+  const router = useRouter();
+  const {SignIn }  = useContentManage()
 
 
   const handleSubmit = async (e: any) => {
     const notify = () => toast('Here is your toast.');
     e.preventDefault();
-    const result = await signIn("credentials", {
-      redirect: false,
+
+    const result: any = await SignIn(
       username,
       password,
-    });
-    if (result?.error) {
-      setError(result.error);
-    }
-    if (result?.status === 200) {
-      setTimeout(() => {
-        signInOpen(false);
-      }, 1200);
-      authDialog?.setIsSuccessDialogOpen(true);
-      setTimeout(() => {
-        authDialog?.setIsSuccessDialogOpen(false);
-      }, 1100);
+    );
+    if (result.status === 200) {
+      router.push("/")
     } else {
-      authDialog?.setIsFailedDialogOpen(true);
-      setTimeout(() => {
-        authDialog?.setIsFailedDialogOpen(false);
-      }, 1100);
+    alert("Error")
     }
   };
 
   return (
     <>
       <div className="mb-10 text-center flex justify-center">
-        <Logo />
+        {/* <Logo /> */}Signin
       </div>
 
-      <SocialSignIn />
 
-      <span className="z-1 relative my-8 block text-center">
-        <span className="-z-1 absolute left-0 top-1/2 block h-px w-full bg-black/10 dark:bg-white/20"></span>
-        <span className="text-body-secondary relative z-10 inline-block bg-white px-3 text-base dark:bg-black">
-          OR
-        </span>
-        <Toaster />
-      </span>
 
       <form onSubmit={handleSubmit}>
         <div className="mb-[22px]">
@@ -92,18 +75,18 @@ const Signin = ({ signInOpen }: { signInOpen?: any }) => {
       </form>
 
       <div className="text-center">
-        <Link
+        {/* <Link
           href="/"
           className="mb-2 text-base text-dark hover:text-primary dark:text-white dark:hover:text-primary"
         >
           Forget Password?
-        </Link>
+        </Link> */}
       </div>
       <p className="text-body-secondary text-base text-center">
-        Not a member yet?{" "}
+        {/* Not a member yet?{" "}
         <Link href="/" className="text-primary hover:underline">
           Sign Up
-        </Link>
+        </Link> */}
       </p>
     </>
   );

@@ -28,6 +28,7 @@ export default function RootLayout({
   const pathname = usePathname();
 
   const hideHeaderFooter = pathname.startsWith("/content");
+  const SininPage = pathname.startsWith("/signin");
   return (
     <html lang='en'>
       <body className={`${font.className} bg-white dark:bg-black antialiased`}>
@@ -38,9 +39,9 @@ export default function RootLayout({
             attribute='class'
             enableSystem={true}
             defaultTheme='light'>
-              {!hideHeaderFooter && <Header />}
+              {!hideHeaderFooter && !SininPage ? <Header />:false}
               {children}
-             {!hideHeaderFooter && <Footer />}
+             {!hideHeaderFooter && !SininPage ? <Footer />: false}
           </ThemeProvider>
         </SessionProviderComp>
          </ContentManageProvider>

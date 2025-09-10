@@ -170,7 +170,7 @@ const BackOfficeSystem: React.FC = () => {
       {/* ✅ Edit Button (Router) */}
       <div className="flex justify-end mt-10">
         <button
-          onClick={() => router.push("/content/backofficesystem")}
+          onClick={() => router.push("/content/bos")}
           className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
           title="Edit Back Office System"
         >

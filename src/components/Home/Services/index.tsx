@@ -4,9 +4,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
-import contentData from '../../../Mock.db/C002.json'
 import { useRouter } from "next/navigation";
-
+import { useContentManage } from "@/app/context/ContentManageContext";
 
 interface FeatureItem {
   name: string;
@@ -22,12 +21,29 @@ interface Feature {
   badge: string;
   reverse: boolean;
   features?: (string | FeatureItem)[];
+  isBullet?: boolean;
+  name1?: string;
+  description1?: string;
+  name2?: string;
+  description2?: string;
+  name3?: string;
+  description3?: string;
+  name4?: string;
+  description4?: string;
+  name5?: string;
+  description5?: string;
+  name6?: string;
+  description6?: string;
+  name7?: string;
+  description7?: string;
+  name8?: string;
+  description8?: string;
 }
 
 const Categories = () => {
-    const router = useRouter();
-  const [features, setFeatures] = useState<any>({});
-  const [showEditor, setShowEditor] = useState(false);
+  const router = useRouter();
+  const [features, setFeatures] = useState<Feature[]>([]);
+  const { user } = useContentManage();
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState("");
 
@@ -35,10 +51,12 @@ const Categories = () => {
   useEffect(() => {
     const loadFeatures = async () => {
       try {
-        const res = await fetch("https://bexatm.com/ContentManageSys.php?contentId=C002");
+        const res = await fetch(
+          "https://bexatm.com/ContentManageSys.php?contentId=C002"
+        );
         const data = await res.json();
         setFeatures(data);
-              setPreview(data.image)
+        setPreview(data.image);
       } catch (error) {
         console.error("Error loading categories:", error);
       }
@@ -58,7 +76,10 @@ const Categories = () => {
   };
 
   // Handle image change
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
+  const handleImageChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
     const file = e.target.files?.[0];
     if (file) {
       setImage(file);
@@ -116,11 +137,41 @@ const Categories = () => {
       </div>
 
       <div className="container max-w-8xl mx-auto px-5 2xl:px-0 relative z-10 pt-24 pb-10 -mt-45">
-        {/* Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-40 lg:text-52 font-medium text-black dark:text-white tracking-tight leading-11">
+        {/* Heading with Centered Title & Right-Aligned Edit Button */}
+        <div className="flex items-center justify-between mb-16">
+          {/* Spacer for left alignment */}
+          <div className="w-10"></div>
+
+          {/* Centered Heading */}
+          <h2 className="flex-1 text-center text-40 lg:text-52 font-medium text-black dark:text-white tracking-tight leading-11">
             Key Features
           </h2>
+
+          {/* Edit Button on Right */}
+          {user?.isAdmin ? (
+            <button
+              onClick={() => router.push("/content/services")}
+              className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
+              title="Edit Services Section"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                />
+              </svg>
+            </button>
+          ) : (
+            <div className="w-10"></div> // keeps layout balanced if no button
+          )}
         </div>
 
         {/* Feature Cards */}
@@ -144,77 +195,58 @@ const Categories = () => {
                 {feature.detail}
               </p>
 
-               {feature.isBullet && (
-
+              {feature.isBullet && (
                 <ul className="mt-4 list-disc list-inside text-dark/70 dark:text-white/70 text-base space-y-2">
-                   <li >
-                     
-                          <strong>{feature.name1}</strong>
-                          {feature.description1 && ` – ${feature.description1}`}
-                     
+                  {feature.name1 && (
+                    <li>
+                      <strong>{feature.name1}</strong>
+                      {feature.description1 && ` – ${feature.description1}`}
                     </li>
-                   <li >
-                     
-                          <strong>{feature.name2}</strong>
-                          {feature.description2 && ` – ${feature.description2}`}
-                     
+                  )}
+                  {feature.name2 && (
+                    <li>
+                      <strong>{feature.name2}</strong>
+                      {feature.description2 && ` – ${feature.description2}`}
                     </li>
-                   <li >
-                     
-                          <strong>{feature.name3}</strong>
-                          {feature.description3 && ` – ${feature.description3}`}
-                     
+                  )}
+                  {feature.name3 && (
+                    <li>
+                      <strong>{feature.name3}</strong>
+                      {feature.description3 && ` – ${feature.description3}`}
                     </li>
-                   <li >
-                     
-                          <strong>{feature.name4}</strong>
-                          {feature.description4 && ` – ${feature.description4}`}
-                     
+                  )}
+                  {feature.name4 && (
+                    <li>
+                      <strong>{feature.name4}</strong>
+                      {feature.description4 && ` – ${feature.description4}`}
                     </li>
-                      {feature.name5 &&<li >
-                     
-                          <strong>{feature.name5}</strong>
-                          {feature.description5 && ` – ${feature.description5}`}
-                     
-                    </li>}
-                      {feature.name6 &&<li >
-                     
-                          <strong>{feature.name6}</strong>
-                          {feature.description6 && ` – ${feature.description6}`}
-                     
-                    </li>}
-                     {feature.name7 && <li >
-                     
-                          <strong>{feature.name7}</strong>
-                          {feature.description7 && ` – ${feature.description7}`}
-                     
-                    </li>}
-                      {feature.name8 && <li >
-                     
-                          <strong>{feature.name8}</strong>
-                          {feature.description8 && ` – ${feature.description8}`}
-                     
-                    </li>}
+                  )}
+                  {feature.name5 && (
+                    <li>
+                      <strong>{feature.name5}</strong>
+                      {feature.description5 && ` – ${feature.description5}`}
+                    </li>
+                  )}
+                  {feature.name6 && (
+                    <li>
+                      <strong>{feature.name6}</strong>
+                      {feature.description6 && ` – ${feature.description6}`}
+                    </li>
+                  )}
+                  {feature.name7 && (
+                    <li>
+                      <strong>{feature.name7}</strong>
+                      {feature.description7 && ` – ${feature.description7}`}
+                    </li>
+                  )}
+                  {feature.name8 && (
+                    <li>
+                      <strong>{feature.name8}</strong>
+                      {feature.description8 && ` – ${feature.description8}`}
+                    </li>
+                  )}
                 </ul>
               )}
-
-              {/* ✅ Render Feature List */}
-              {/* {feature.features && feature.features.length > 0 && (
-                <ul className="mt-4 list-disc list-inside text-dark/70 dark:text-white/70 text-base space-y-2">
-                  {feature.features.map((item, idx) => (
-                    <li key={idx}>
-                      {typeof item === "string" ? (
-                        item
-                      ) : (
-                        <>
-                          <strong>{item.name}</strong>
-                          {item.description && ` – ${item.description}`}
-                        </>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              )} */}
             </div>
 
             {/* Image Block */}
@@ -242,33 +274,7 @@ const Categories = () => {
             </div>
           </div>
         ))}
-
-        {/* Edit Button */}
-        <div className="flex justify-end mt-10">
-          <button
-               onClick={() => router.push("/content/services")}
-            className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
-            title="Edit Services Section"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
-              />
-            </svg>
-          </button>
-        </div>
       </div>
-
- 
     </section>
   );
 };

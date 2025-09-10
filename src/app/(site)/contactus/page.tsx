@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Icon } from '@iconify/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,15 +14,22 @@ const generateCaptcha = () => {
 };
 
 export default function ContactUs() {
-  const [captcha, setCaptcha] = useState(generateCaptcha());
+  const [captcha, setCaptcha] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     mobile: '',
     message: '',
-    captchaInput: ''
+    captchaInput: '',
+    questionPhone: '',
+    questionEmail: '',
+    questionText: ''
   });
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setCaptcha(generateCaptcha());
+  }, []);
 
   const refreshCaptcha = () => {
     setCaptcha(generateCaptcha());
@@ -38,7 +45,6 @@ export default function ContactUs() {
 
     const { name, email, mobile, captchaInput } = formData;
 
-    // Validation
     if (!name || !email || !mobile || !captchaInput) {
       toast.error('Please fill all required fields.');
       return;
@@ -82,7 +88,10 @@ export default function ContactUs() {
           email: '',
           mobile: '',
           message: '',
-          captchaInput: ''
+          captchaInput: '',
+          questionPhone: '',
+          questionEmail: '',
+          questionText: ''
         });
         refreshCaptcha();
       } else {
@@ -99,6 +108,7 @@ export default function ContactUs() {
     <div className="container max-w-8xl mx-auto px-5 2xl:px-0 pt-32 md:pt-44 pb-14 md:pb-28 -mt-60">
       <ToastContainer position="top-right" autoClose={3000} />
 
+      {/* Top Heading */}
       <div className="mb-16 text-center">
         <div className="flex gap-2.5 items-center justify-center mb-3">
           <Icon icon="ph:house-simple-fill" width={20} height={20} className="text-primary" />
@@ -107,11 +117,49 @@ export default function ContactUs() {
         <h3 className="text-4xl sm:text-52 font-medium tracking-tighter text-black dark:text-white mb-3 leading-10 sm:leading-14">
           Have questions? We are ready to help!
         </h3>
+
+        {/* ✅ Horizontal Form */}
+        <div className="mt-8 w-full max-w-5xl border border-black/10 dark:border-white/10 
+                        rounded-2xl shadow-lg p-6 mx-auto bg-white dark:bg-black/40">
+          <form className="flex flex-col lg:flex-row items-center gap-4">
+            <input
+              type="number"
+              name="questionPhone"
+              placeholder="Phone number"
+              value={formData.questionPhone}
+              onChange={handleChange}
+              className="flex-1 px-4 py-3 border border-black/10 dark:border-white/10 rounded-lg outline-primary"
+            />
+            <input
+              type="email"
+              name="questionEmail"
+              placeholder="Email address"
+              value={formData.questionEmail}
+              onChange={handleChange}
+              className="flex-1 px-4 py-3 border border-black/10 dark:border-white/10 rounded-lg outline-primary"
+            />
+            <input
+              type="text"
+              name="questionText"
+              placeholder="Your question"
+              value={formData.questionText}
+              onChange={handleChange}
+              className="flex-1 px-4 py-3 border border-black/10 dark:border-white/10 rounded-lg outline-primary"
+            />
+            <button
+              type="button"
+              className="px-6 py-3 rounded-full bg-primary text-white font-semibold hover:bg-dark duration-300"
+              onClick={() => toast.success("Question submitted! (demo only)")}
+            >
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
 
+      {/* Existing Contact & Trial Box */}
       <div className="border border-black/10 dark:border-white/10 rounded-2xl p-4 shadow-xl dark:shadow-white/10">
         <div className="flex flex-col lg:flex-row gap-12">
-          
           {/* Left Side - Contact Info */}
           <div className="relative w-fit">
             <Image
@@ -124,7 +172,7 @@ export default function ContactUs() {
             />
             <div className="absolute top-6 left-6 lg:top-12 lg:left-12 text-white space-y-2">
               <h5 className="text-xl xs:text-2xl mobile:text-3xl font-medium tracking-tight">
-                Contact information
+                Contact Information
               </h5>
               <p className="text-sm xs:text-base mobile:text-xm font-normal text-white/80">
                 We’re here to help!
@@ -151,7 +199,6 @@ export default function ContactUs() {
 
           {/* Right Side - Trial Request + Form */}
           <div className="flex-1 w-full space-y-6">
-            {/* Trial Heading */}
             <div>
               <h3 className="text-2xl sm:text-3xl font-semibold text-black dark:text-white mb-2">
                 Request for 28-days free trial
@@ -201,7 +248,7 @@ export default function ContactUs() {
                 <p className="mb-2 text-sm font-medium">CAPTCHA</p>
                 <div className="flex items-center gap-4 mb-2">
                   <div className="bg-black text-white font-mono text-lg font-semibold px-4 py-2 rounded-md">
-                    {captcha}
+                    {captcha || "------"}
                   </div>
                   <button type="button" onClick={refreshCaptcha} className="text-sm underline text-primary">
                     Refresh

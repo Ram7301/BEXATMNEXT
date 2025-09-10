@@ -5,15 +5,24 @@ import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+<<<<<<< HEAD
 import ContentData from '../../../Mock.db/C003.json';
 const Properties: React.FC = () => {
   const router = useRouter();
   const [showEditor, setShowEditor] = useState(false);
   const [features, setFeatures] = useState<any[]>(ContentData);
+=======
+import { useContentManage } from "@/app/context/ContentManageContext";
+
+const Properties: React.FC = () => {
+  const router = useRouter();
+  const [features, setFeatures] = useState<any[]>([]);
+>>>>>>> b7284a74710eace5f9dad38a4fd851592e729613
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState("");
+  const { user } = useContentManage();
 
-  // Handle input change (for single feature edit at a time)
+  // Handle text input changes
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     index: number
@@ -24,8 +33,11 @@ const Properties: React.FC = () => {
     );
   };
 
-  // Handle image file
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
+  // Handle image selection
+  const handleImageChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
     const file = e.target.files?.[0];
     if (file) {
       setImage(file);
@@ -38,10 +50,12 @@ const Properties: React.FC = () => {
     }
   };
 
-  // Load properties
+  // Load features from API
   const loadFeatures = async () => {
     try {
-      const res = await fetch("/api/content-manage?contentId=C003");
+      const res = await fetch(
+        "https://bexatm.com/ContentManageSys.php?contentId=C003"
+      );
       if (!res.ok) throw new Error("Failed to fetch features");
       const data = await res.json();
       setFeatures(data);
@@ -56,7 +70,7 @@ const Properties: React.FC = () => {
 
   // Save features
   const saveFeatures = async () => {
-    await fetch("/api/content-manage?contentId=C003", {
+    await fetch("https://bexatm.com/ContentManageSys.php?contentId=C003", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(features),
@@ -79,13 +93,42 @@ const Properties: React.FC = () => {
   return (
     <section>
       <div className="container max-w-8xl mx-auto px-5 2xl:px-0 -mt-65">
-        <div className="mb-16 flex flex-col gap-3 -mt-28">
-          <h2 className="text-40 lg:text-52 font-medium text-black dark:text-white text-center tracking-tight leading-11">
+        {/* Heading + Edit Button */}
+        <div className="flex items-center justify-between mb-16 -mt-28">
+          {/* Spacer for symmetry */}
+          <div className="w-10"></div>
+
+          <h2 className="flex-1 text-center text-40 lg:text-52 font-medium text-black dark:text-white tracking-tight leading-11">
             Enhancement Features
           </h2>
+
+          {user?.isAdmin ? (
+            <button
+              onClick={() => router.push("/content/properties")}
+              className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
+              title="Edit Properties Section"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                />
+              </svg>
+            </button>
+          ) : (
+            <div className="w-10"></div>
+          )}
         </div>
 
-        {features.map((feature, index) => (
+        {features?.map((feature, index) => (
           <div
             key={index}
             className={`flex flex-col ${
@@ -111,7 +154,7 @@ const Properties: React.FC = () => {
               <div className="relative rounded-2xl overflow-hidden group">
                 <Link href={feature.href}>
                   <Image
-                    src={feature.image}
+                    src={`https://bexatm.com${feature.image}`}
                     alt={feature.title}
                     width={680}
                     height={386}
@@ -131,116 +174,6 @@ const Properties: React.FC = () => {
           </div>
         ))}
       </div>
-
-{/* Edit Button (below section, right side) */}
-<div className="flex justify-end mt-10">
-  <button
-    onClick={() => setShowEditor(true)}
-    className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
-    title="Edit Properties Section"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
-      />
-    </svg>
-  </button>
-</div>
-
-
-      {/* Edit Modal */}
-      {showEditor && (
-        <div className="fixed inset-0 bg-black/60 z-[999] flex items-center justify-center">
-          <div className="bg-white dark:bg-dark w-full h-full max-w-4xl mx-auto p-8 overflow-auto relative rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">Edit Properties Section</h2>
-
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                saveFeatures();
-              }}
-            >
-              {features.map((feature, index) => (
-                <div key={index} className="mb-8 border-b pb-6">
-                  <label className="block mb-2 text-sm font-medium">
-                    Title
-                  </label>
-                  <input
-                    type="text"
-                    name="title"
-                    value={feature.title}
-                    onChange={(e) => handleChange(e, index)}
-                    className="w-full mb-4 p-2 border rounded"
-                  />
-
-                  <label className="block mb-2 text-sm font-medium">
-                    Subtitle
-                  </label>
-                  <input
-                    type="text"
-                    name="subtitle"
-                    value={feature.subtitle}
-                    onChange={(e) => handleChange(e, index)}
-                    className="w-full mb-4 p-2 border rounded"
-                  />
-
-                  <label className="block mb-2 text-sm font-medium">
-                    Description
-                  </label>
-                  <textarea
-                    name="description"
-                    value={feature.description}
-                    onChange={(e) => handleChange(e, index)}
-                    className="w-full mb-4 p-2 border rounded"
-                  />
-
-                  <label className="block mb-2 text-sm font-medium">
-                    Image
-                  </label>
-                  {preview && (
-                    <div className="mb-4">
-                      <Image
-                        src={preview}
-                        alt="Preview"
-                        width={200}
-                        height={150}
-                        unoptimized
-                      />
-                    </div>
-                  )}
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={(e) => handleImageChange(e, index)}
-                    className="mb-4"
-                  />
-                </div>
-              ))}
-
-              <button className="px-4 py-2 bg-primary text-white rounded hover:bg-opacity-90">
-                Save
-              </button>
-            </form>
-
-            {/* Close */}
-            <button
-              className="absolute top-4 right-6 text-gray-500 hover:text-black dark:hover:text-white text-3xl"
-              onClick={() => setShowEditor(false)}
-            >
-              ✕
-            </button>
-          </div>
-        </div>
-      )}
     </section>
   );
 };

@@ -4,6 +4,13 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useContentManage } from "@/app/context/ContentManageContext";
+
+interface FeatureItem {
+  name: string;
+  description?: string;
+}
 
 import ContentData from '../../../Mock.db/C002.json';
 
@@ -15,11 +22,35 @@ interface Feature {
   image: string;
   badge: string;
   reverse: boolean;
+  features?: (string | FeatureItem)[];
+  isBullet?: boolean;
+  name1?: string;
+  description1?: string;
+  name2?: string;
+  description2?: string;
+  name3?: string;
+  description3?: string;
+  name4?: string;
+  description4?: string;
+  name5?: string;
+  description5?: string;
+  name6?: string;
+  description6?: string;
+  name7?: string;
+  description7?: string;
+  name8?: string;
+  description8?: string;
 }
 
 const Categories = () => {
+<<<<<<< HEAD
   const [features, setFeatures] = useState<Feature[]>(ContentData);
   const [showEditor, setShowEditor] = useState(false);
+=======
+  const router = useRouter();
+  const [features, setFeatures] = useState<Feature[]>([]);
+  const { user } = useContentManage();
+>>>>>>> b7284a74710eace5f9dad38a4fd851592e729613
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState("");
 
@@ -27,9 +58,12 @@ const Categories = () => {
   useEffect(() => {
     const loadFeatures = async () => {
       try {
-        const res = await fetch("/api/content-manage?contentId=C002");
+        const res = await fetch(
+          "https://bexatm.com/ContentManageSys.php?contentId=C002"
+        );
         const data = await res.json();
         setFeatures(data);
+        setPreview(data.image);
       } catch (error) {
         console.error("Error loading categories:", error);
       }
@@ -49,7 +83,10 @@ const Categories = () => {
   };
 
   // Handle image change
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
+  const handleImageChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
     const file = e.target.files?.[0];
     if (file) {
       setImage(file);
@@ -64,7 +101,7 @@ const Categories = () => {
 
   // Save features
   const saveFeatures = async () => {
-    await fetch("/api/content-manage?contentId=C002", {
+    await fetch("https://bexatm.com/ContentManageSys.php?contentId=C002", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(features),
@@ -107,11 +144,41 @@ const Categories = () => {
       </div>
 
       <div className="container max-w-8xl mx-auto px-5 2xl:px-0 relative z-10 pt-24 pb-10 -mt-45">
-        {/* Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-40 lg:text-52 font-medium text-black dark:text-white tracking-tight leading-11">
+        {/* Heading with Centered Title & Right-Aligned Edit Button */}
+        <div className="flex items-center justify-between mb-16">
+          {/* Spacer for left alignment */}
+          <div className="w-10"></div>
+
+          {/* Centered Heading */}
+          <h2 className="flex-1 text-center text-40 lg:text-52 font-medium text-black dark:text-white tracking-tight leading-11">
             Key Features
           </h2>
+
+          {/* Edit Button on Right */}
+          {user?.isAdmin ? (
+            <button
+              onClick={() => router.push("/content/services")}
+              className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
+              title="Edit Services Section"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                />
+              </svg>
+            </button>
+          ) : (
+            <div className="w-10"></div> // keeps layout balanced if no button
+          )}
         </div>
 
         {/* Feature Cards */}
@@ -134,6 +201,59 @@ const Categories = () => {
               <p className="text-dark/50 dark:text-white/50 text-lg leading-[1.3]">
                 {feature.detail}
               </p>
+
+              {feature.isBullet && (
+                <ul className="mt-4 list-disc list-inside text-dark/70 dark:text-white/70 text-base space-y-2">
+                  {feature.name1 && (
+                    <li>
+                      <strong>{feature.name1}</strong>
+                      {feature.description1 && ` – ${feature.description1}`}
+                    </li>
+                  )}
+                  {feature.name2 && (
+                    <li>
+                      <strong>{feature.name2}</strong>
+                      {feature.description2 && ` – ${feature.description2}`}
+                    </li>
+                  )}
+                  {feature.name3 && (
+                    <li>
+                      <strong>{feature.name3}</strong>
+                      {feature.description3 && ` – ${feature.description3}`}
+                    </li>
+                  )}
+                  {feature.name4 && (
+                    <li>
+                      <strong>{feature.name4}</strong>
+                      {feature.description4 && ` – ${feature.description4}`}
+                    </li>
+                  )}
+                  {feature.name5 && (
+                    <li>
+                      <strong>{feature.name5}</strong>
+                      {feature.description5 && ` – ${feature.description5}`}
+                    </li>
+                  )}
+                  {feature.name6 && (
+                    <li>
+                      <strong>{feature.name6}</strong>
+                      {feature.description6 && ` – ${feature.description6}`}
+                    </li>
+                  )}
+                  {feature.name7 && (
+                    <li>
+                      <strong>{feature.name7}</strong>
+                      {feature.description7 && ` – ${feature.description7}`}
+                    </li>
+                  )}
+                  {feature.name8 && (
+                    <li>
+                      <strong>{feature.name8}</strong>
+                      {feature.description8 && ` – ${feature.description8}`}
+                    </li>
+                  )}
+                </ul>
+              )}
             </div>
 
             {/* Image Block */}
@@ -141,7 +261,7 @@ const Categories = () => {
               <div className="relative rounded-2xl overflow-hidden group">
                 <Link href="#">
                   <Image
-                    src={feature.image}
+                    src={`https://bexatm.com/${feature.image}`}
                     alt={feature.title}
                     width={680}
                     height={386}
@@ -161,118 +281,7 @@ const Categories = () => {
             </div>
           </div>
         ))}
-
-    {/* Edit Button (below section, right side, same as Properties) */}
-<div className="flex justify-end mt-10">
-  <button
-    onClick={() => setShowEditor(true)}
-    className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
-    title="Edit Services Section"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
-      />
-    </svg>
-  </button>
-</div>
-</div>
-
-
-
-      {/* Edit Modal */}
-      {showEditor && (
-        <div className="fixed inset-0 bg-black/60 z-[999] flex items-center justify-center">
-          <div className="bg-white dark:bg-dark w-full h-full max-w-4xl mx-auto p-8 overflow-auto relative rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">Edit Services Section</h2>
-
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                saveFeatures();
-              }}
-            >
-              {features.map((feature, index) => (
-                <div key={index} className="mb-8 border-b pb-6">
-                  <label className="block mb-2 text-sm font-medium">
-                    Title
-                  </label>
-                  <input
-                    type="text"
-                    name="title"
-                    value={feature.title}
-                    onChange={(e) => handleChange(e, index)}
-                    className="w-full mb-4 p-2 border rounded"
-                  />
-
-                  <label className="block mb-2 text-sm font-medium">
-                    Description
-                  </label>
-                  <input
-                    type="text"
-                    name="description"
-                    value={feature.description}
-                    onChange={(e) => handleChange(e, index)}
-                    className="w-full mb-4 p-2 border rounded"
-                  />
-
-                  <label className="block mb-2 text-sm font-medium">
-                    Detail
-                  </label>
-                  <textarea
-                    name="detail"
-                    value={feature.detail}
-                    onChange={(e) => handleChange(e, index)}
-                    className="w-full mb-4 p-2 border rounded"
-                  />
-
-                  <label className="block mb-2 text-sm font-medium">
-                    Image
-                  </label>
-                  {preview && (
-                    <div className="mb-4">
-                      <Image
-                        src={preview}
-                        alt="Preview"
-                        width={200}
-                        height={150}
-                        unoptimized
-                      />
-                    </div>
-                  )}
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={(e) => handleImageChange(e, index)}
-                    className="mb-4"
-                  />
-                </div>
-              ))}
-
-              <button className="px-4 py-2 bg-primary text-white rounded hover:bg-opacity-90">
-                Save
-              </button>
-            </form>
-
-            {/* Close */}
-            <button
-              className="absolute top-4 right-6 text-gray-500 hover:text-black dark:hover:text-white text-3xl"
-              onClick={() => setShowEditor(false)}
-            >
-              ✕
-            </button>
-          </div>
-        </div>
-      )}
+      </div>
     </section>
   );
 };

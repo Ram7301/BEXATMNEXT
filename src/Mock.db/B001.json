@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Employee",
+    "subtitle": "Manage Profiles & Work Records",
+    "description": "An employee is a person who is hired by an organization or company to perform specific tasks or duties in exchange for compensation, such as a salary or wages. Employees can be categorized based on their employment type and responsibilities:\n\n• Probationary – Track performance and attendance during the probation period.\n• Confirmed – Maintain ongoing timesheet records and monitor productivity metrics.\n• In-sourced Staff – Manage internal teams with full visibility into work hours and deliverables.\n• Out-sourced Staff – Monitor attendance and output of contracted or third-party personnel.\n\nApart from these categories and attendance records, an employee’s profile also includes contact details, list of skills, approval flows they are part of, reporting manager, and deployment information such as designation, location, project/product assignment, shift details, and weekly off schedule.\n\nThe system also tracks how the employee records their check-in and check-out, which could be via biometric devices, mobile geofencing, cloud application, manager manual entry, or default present status.\n\nAdditionally, it maintains leave configurations and the list of documents associated with the employee, ensuring comprehensive management of all employee-related information.",
+    "image": "/images/employee23.png",
+    "href": "#employee",
+    "badge": "Core",
+    "reverse": true,
+    "icon": "mdi:account-tie"
+  },
+  {
+    "title": "Project",
+    "subtitle": "Manage Work Assignments",
+    "description": "In the system, a Project refers to a specific work assignment or client engagement to which employees are mapped. It represents the task, service, or solution that the organization is delivering, and employees associated with a project can have their attendance, timesheets, and performance tracked under it. A project record also includes information about who is in charge of the project and its status, which may be Current, On Hold, or Completed. Additionally, projects can be classified as Routine Tasks or Service & Maintenance, depending on their nature.",
+    "image": "/images/project12.png",
+    "href": "#managerdashboard",
+    "badge": "Core",
+    "reverse": false,
+    "icon": "mdi:account-tie"
+  },
+  {
+    "title": "Assessment",
+    "subtitle": "Evaluate Employee Competencies",
+    "description": "Assessment is a structured platform or process used to evaluate employees’ skills, knowledge, performance, and overall competencies against predefined standards. It helps organizations identify strengths and areas for improvement, provide constructive feedback, support training and development, and ensure fair performance evaluations, promoting accountability, enhancing productivity, and aligning employee growth with organizational goals. In this system, we have Categories, Assessment, Question Groups, and Questions, which are organized to evaluate employee competencies effectively. Administrators can assign employees to specific assessments, ensuring that only the relevant individuals participate in the evaluation process. This structured approach allows organizations to measure skills, knowledge, and performance accurately while managing the assessment workflow efficiently.",
+    "image": "/images/assessment2.png",
+    "href": "#scrummaster",
+    "badge": "Agile",
+    "reverse": true,
+    "icon": "mdi:chart-timeline"
+  }
+]

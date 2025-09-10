@@ -7,12 +7,14 @@ import NavLink from './Navigation/NavLink'
 import { useTheme } from 'next-themes'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
+import { useContentManage } from '@/app/context/ContentManageContext'
 
 const Header: React.FC = () => {
   const [sticky, setSticky] = useState(false)
   const [navbarOpen, setNavbarOpen] = useState(false)
   const { theme, setTheme } = useTheme()
   const pathname = usePathname()
+  const {SignOut } = useContentManage()
 
   const sideMenuRef = useRef<HTMLDivElement>(null)
 
@@ -130,10 +132,11 @@ const Header: React.FC = () => {
         )
       }
 
-      <div
-        ref={sideMenuRef}
-        className={`fixed top-0 right-0 h-full w-full bg-dark shadow-lg transition-transform duration-300 max-w-2xl ${navbarOpen ? 'translate-x-0' : 'translate-x-full'} z-50 px-20 overflow-auto no-scrollbar`}
-      >
+  <div
+  ref={sideMenuRef}
+  className={`fixed top-0 right-0 h-full w-95 bg-dark shadow-lg transition-transform duration-300 max-w-lg ${navbarOpen ? 'translate-x-0' : 'translate-x-full'} z-50 px-6 overflow-auto no-scrollbar`}
+>
+
         <div className="flex flex-col h-full justify-between">
           <div className="">
             <div className='flex items-center justify-start py-10'>
@@ -163,12 +166,12 @@ const Header: React.FC = () => {
                   <NavLink key={index} item={item} onClick={() => setNavbarOpen(false)} />
                 ))}
                 <li className='flex items-center gap-4'>
-                  {/* <Link href="/signin" className='py-4 px-8 bg-primary text-base leading-4 block w-fit text-white rounded-full border border-primary font-semibold mt-3 hover:bg-transparent hover:text-primary duration-300'>
+                <Link href="/signin" className='py-4 px-8 bg-primary text-base leading-4 block w-fit text-white rounded-full border border-primary font-semibold mt-3 hover:bg-transparent hover:text-primary duration-300'>
                     Sign In
                   </Link>
-                  <Link href="/" className='py-4 px-8 bg-transparent border border-primary text-base leading-4 block w-fit text-primary rounded-full font-semibold mt-3 hover:bg-primary hover:text-white duration-300'>
-                    Sign up
-                  </Link> */}
+                    <button onClick={SignOut} className='py-4 px-8 bg-transparent border border-primary text-base leading-4 block w-fit text-primary rounded-full font-semibold mt-3 hover:bg-primary hover:text-white duration-300'>
+                    Sign Out
+                  </button>
                 </li>
               </ul>
             </nav>
@@ -179,10 +182,10 @@ const Header: React.FC = () => {
               Contact
             </p>
             <Link href="#" className='text-base sm:text-xm font-medium text-inherit hover:text-primary'>
-              hello@homely.com
+              govee@beyondexs.com
             </Link>
             <Link href="#" className='text-base sm:text-xm font-medium text-inherit hover:text-primary'>
-              +1-212-456-7890{' '}
+              +91 944 440 8804{' '}
             </Link>
           </div>
         </div>

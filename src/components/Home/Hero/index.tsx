@@ -5,6 +5,7 @@ import { useContentManage } from "@/app/context/ContentManageContext";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import ContentData from '../../../Mock.db/C001.json';
 
 const Hero: React.FC = () => {
    const router = useRouter();
@@ -33,7 +34,7 @@ const Hero: React.FC = () => {
 
 
 
-  const [pages, setPages] = useState<any>({});
+  const [pages, setPages] = useState<any>(ContentData);
 
   const loadPages = async () => {
     try {
@@ -47,7 +48,7 @@ const Hero: React.FC = () => {
     }
   };
   useEffect(() => {
-    loadPages();
+    // loadPages();
   }, []);
 
  

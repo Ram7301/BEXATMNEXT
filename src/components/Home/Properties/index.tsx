@@ -5,11 +5,11 @@ import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-
+import ContentData from '../../../Mock.db/C003.json';
 const Properties: React.FC = () => {
   const router = useRouter();
   const [showEditor, setShowEditor] = useState(false);
-  const [features, setFeatures] = useState<any[]>([]);
+  const [features, setFeatures] = useState<any[]>(ContentData);
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState("");
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
+import ContentData from '../../../Mock.db/FOOTER001.json';
 interface FooterLink {
   label: string;
   href: string;
@@ -24,7 +24,7 @@ interface FooterData {
 }
 
 const Footer: React.FC = () => {
-  const [footerData, setFooterData] = useState<FooterData | null>(null);
+  const [footerData, setFooterData] = useState<FooterData | null>(ContentData);
   const [showEditor, setShowEditor] = useState(false);
 
   // Load Footer Data
@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
         console.error("Error loading footer data:", error);
       }
     };
-    loadFooterData();
+    // loadFooterData();
   }, []);
 
   // Handle input change

@@ -5,6 +5,8 @@ import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 
+import ContentData from '../../../Mock.db/C002.json';
+
 interface Feature {
   title: string;
   icon: string;
@@ -16,7 +18,7 @@ interface Feature {
 }
 
 const Categories = () => {
-  const [features, setFeatures] = useState<Feature[]>([]);
+  const [features, setFeatures] = useState<Feature[]>(ContentData);
   const [showEditor, setShowEditor] = useState(false);
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState("");
@@ -32,7 +34,7 @@ const Categories = () => {
         console.error("Error loading categories:", error);
       }
     };
-    loadFeatures();
+    // loadFeatures();
   }, []);
 
   // Handle input change

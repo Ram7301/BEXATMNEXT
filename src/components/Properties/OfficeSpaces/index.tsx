@@ -1,4 +1,4 @@
-import PropertyCard from '@/components/Home/Properties/Card/Card'
+// import PropertyCard from '@/components/Home/Properties/Card/Card'
 import { propertyHomes } from '@/app/api/propertyhomes'
 
 const OfficeSpace: React.FC = () => {
@@ -8,7 +8,7 @@ const OfficeSpace: React.FC = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10'>
                     {propertyHomes.slice(0, 3).map((item, index) => (
                         <div key={index} className=''>
-                            <PropertyCard item={item} />
+                            {/* <PropertyCard item={item} /> */}
                         </div>
                     ))}
                 </div>

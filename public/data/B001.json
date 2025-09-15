@@ -1,14 +1,45 @@
 [
-  {
-    "title": "Employee",
-    "subtitle": "Manage Profiles & Work Records",
-    "description": "An employee is a person who is hired by an organization or company to perform specific tasks or duties in exchange for compensation, such as a salary or wages. Employees can be categorized based on their employment type and responsibilities:\n\n• Probationary – Track performance and attendance during the probation period.\n• Confirmed – Maintain ongoing timesheet records and monitor productivity metrics.\n• In-sourced Staff – Manage internal teams with full visibility into work hours and deliverables.\n• Out-sourced Staff – Monitor attendance and output of contracted or third-party personnel.\n\nApart from these categories and attendance records, an employee’s profile also includes contact details, list of skills, approval flows they are part of, reporting manager, and deployment information such as designation, location, project/product assignment, shift details, and weekly off schedule.\n\nThe system also tracks how the employee records their check-in and check-out, which could be via biometric devices, mobile geofencing, cloud application, manager manual entry, or default present status.\n\nAdditionally, it maintains leave configurations and the list of documents associated with the employee, ensuring comprehensive management of all employee-related information.",
-    "image": "/images/employee23.png",
-    "href": "#employee",
-    "badge": "Core",
-    "reverse": true,
-    "icon": "mdi:account-tie"
-  },
+ {
+  "id": "EMP001",
+  "title": "Employee",
+  "subtitle": "Manage Profiles & Work Records",
+  "icon": "mdi:account-tie",
+  "description": "An employee is a person who is hired by an organization or company to perform specific tasks or duties in exchange for compensation, such as a salary or wages.",
+  "detail": "Employees can be categorized based on their employment type and responsibilities:",
+  "image": "/images/employee23.png",
+  "href": "#employee",
+  "badge": "Core",
+  "reverse": true,
+  "isBullet": true,
+  "name1": "Probationary",
+  "description1": "Track performance and attendance during the probation period.",
+  "name2": "Confirmed",
+  "description2": "Maintain ongoing timesheet records and monitor productivity metrics.",
+  "name3": "In-sourced Staff",
+  "description3": "Manage internal teams with full visibility into work hours and deliverables.",
+  "name4": "Out-sourced Staff",
+  "description4": "Monitor attendance and output of contracted or third-party personnel.",
+  "features": [
+    {
+      "name": "Probationary",
+      "description": "Track performance and attendance during the probation period."
+    },
+    {
+      "name": "Confirmed",
+      "description": "Maintain ongoing timesheet records and monitor productivity metrics."
+    },
+    {
+      "name": "In-sourced Staff",
+      "description": "Manage internal teams with full visibility into work hours and deliverables."
+    },
+    {
+      "name": "Out-sourced Staff",
+      "description": "Monitor attendance and output of contracted or third-party personnel."
+    }
+  ],
+  "afterDescription": "Apart from these categories and attendance records, an employee’s profile also includes contact details, list of skills, approval flows they are part of, reporting manager, and deployment information such as designation, location, project/product assignment, shift details, and weekly off schedule.\n\nThe system also tracks how the employee records their check-in and check-out, which could be via biometric devices, mobile geofencing, cloud application, manager manual entry, or default present status.\n\nAdditionally, it maintains leave configurations and the list of documents associated with the employee, ensuring comprehensive management of all employee-related information."
+},
+
   {
     "title": "Project",
     "subtitle": "Manage Work Assignments",

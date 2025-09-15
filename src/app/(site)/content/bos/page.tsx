@@ -9,11 +9,25 @@ interface Feature {
   title: string;
   subtitle: string;
   description: string;
+  detail?: string;
   image: string;
   href: string;
   badge: string;
   reverse: boolean;
   preview?: string;
+
+  // 🔹 Extra fields you use in JSON
+  isBullet?: boolean;
+  name1?: string;
+  description1?: string;
+  name2?: string;
+  description2?: string;
+  name3?: string;
+  description3?: string;
+  name4?: string;
+  description4?: string;
+  afterDescription?: string;
+  features?: { name: string; description: string }[];
 }
 
 const BackOfficeSystemEdit: React.FC = () => {
@@ -44,9 +58,13 @@ const BackOfficeSystemEdit: React.FC = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     index: number
   ) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target as any;
     setFeatures((prev) =>
-      prev.map((f, i) => (i === index ? { ...f, [name]: value } : f))
+      prev.map((f, i) =>
+        i === index
+          ? { ...f, [name]: type === "checkbox" ? checked : value }
+          : f
+      )
     );
   };
 
@@ -69,7 +87,11 @@ const BackOfficeSystemEdit: React.FC = () => {
       setFeatures((prev) =>
         prev.map((f, i) =>
           i === index
-            ? { ...f, image: `/images/${file.name}`, preview: URL.createObjectURL(file) }
+            ? {
+              ...f,
+              image: `/images/${file.name}`,
+              preview: URL.createObjectURL(file),
+            }
             : f
         )
       );
@@ -92,7 +114,7 @@ const BackOfficeSystemEdit: React.FC = () => {
     }
   };
 
-  if (!features.length) return null;
+  if (!features.length) return <p className="text-center py-6">Loading...</p>;
 
   return (
     <section className="!py-0 relative">
@@ -111,9 +133,8 @@ const BackOfficeSystemEdit: React.FC = () => {
             >
               {features.map((feature, index) => (
                 <div key={index} className="mb-8 border-b pb-6">
-                  <label className="block mb-2 text-sm font-medium">
-                    Title
-                  </label>
+                  {/* Title */}
+                  <label className="block mb-2 text-sm font-medium">Title</label>
                   <input
                     type="text"
                     name="title"
@@ -122,6 +143,7 @@ const BackOfficeSystemEdit: React.FC = () => {
                     className="w-full mb-4 p-2 border rounded"
                   />
 
+                  {/* Subtitle */}
                   <label className="block mb-2 text-sm font-medium">
                     Subtitle
                   </label>
@@ -133,6 +155,7 @@ const BackOfficeSystemEdit: React.FC = () => {
                     className="w-full mb-4 p-2 border rounded"
                   />
 
+                  {/* Description */}
                   <label className="block mb-2 text-sm font-medium">
                     Description
                   </label>
@@ -143,12 +166,144 @@ const BackOfficeSystemEdit: React.FC = () => {
                     className="w-full mb-4 p-2 border rounded h-24"
                   />
 
+                  {/* Detail */}
+                  <label className="block mb-2 text-sm font-medium">Detail</label>
+                  <textarea
+                    name="detail"
+                    value={feature.detail || ""}
+                    onChange={(e) => handleChange(e, index)}
+                    className="w-full mb-4 p-2 border rounded h-20"
+                  />
+
+
+                  {/* Bullet Fields */}
+
+                  {feature.isBullet && <React.Fragment>
+                    <label className="block mb-2 text-sm font-medium">
+                      Bullets 1
+                    </label>
+                    <div className="flex items-center gap-4 mb-2 border p-2 rounded">
+
+                      {/* Name Text */}
+                      <input
+                        type="text"
+                        value={feature.name1}
+                        name="name1"
+                        onChange={(e) => handleChange(e, index)}
+                        placeholder="Enter label"
+                        className="flex-1 p-2 border rounded"
+                      />
+                      {/* Description Text */}
+                      <input
+                        type="text"
+                        value={feature.description1}
+                        name="description1"
+                        onChange={(e) => handleChange(e, index)}
+                        placeholder="Enter label"
+                        className="flex-1 p-2 border rounded"
+                      />
+                    </div>
+
+                    <label className="block mb-2 text-sm font-medium">
+                      Bullets 2
+                    </label>
+                    <div className="flex items-center gap-4 mb-2 border p-2 rounded">
+
+                      {/* Name Text */}
+                      <input
+                        type="text"
+                        value={feature.name2}
+                        name="name2"
+                        onChange={(e) => handleChange(e, index)}
+                        placeholder="Enter label"
+                        className="flex-1 p-2 border rounded"
+                      />
+                      {/* Description Text */}
+                      <input
+                        type="text"
+                        value={feature.description2}
+                        name="description2"
+                        onChange={(e) => handleChange(e, index)}
+                        placeholder="Enter label"
+                        className="flex-1 p-2 border rounded"
+                      />
+                    </div>
+                    <label className="block mb-2 text-sm font-medium">
+                      Bullets 3
+                    </label>
+                    <div className="flex items-center gap-4 mb-2 border p-2 rounded">
+
+                      {/* Name Text */}
+                      <input
+                        type="text"
+                        value={feature.name3}
+                        name="name3"
+                        onChange={(e) => handleChange(e, index)}
+                        placeholder="Enter label"
+                        className="flex-1 p-2 border rounded"
+                      />
+                      {/* Description Text */}
+                      <input
+                        type="text"
+                        value={feature.description3}
+                        name="description3"
+                        onChange={(e) => handleChange(e, index)}
+                        placeholder="Enter label"
+                        className="flex-1 p-2 border rounded"
+                      />
+                    </div>
+
+                    <label className="block mb-2 text-sm font-medium">
+                      Bullets 4
+                    </label>
+                    <div className="flex items-center gap-4 mb-2 border p-2 rounded">
+
+                      {/* Name Text */}
+                      <input
+                        type="text"
+                        value={feature.name4}
+                        name="name4"
+                        onChange={(e) => handleChange(e, index)}
+                        placeholder="Enter label"
+                        className="flex-1 p-2 border rounded"
+                      />
+                      {/* Description Text */}
+                      <input
+                        type="text"
+                        value={feature.description4}
+                        name="description4"
+                        onChange={(e) => handleChange(e, index)}
+                        placeholder="Enter label"
+                        className="flex-1 p-2 border rounded"
+                      />
+                    </div>
+
+                  </React.Fragment>}
+
+                  {/* After Description */}
+                  <label className="block mb-2 text-sm font-medium">
+                    After Description
+                  </label>
+                  <textarea
+                    name="afterDescription"
+                    value={feature.afterDescription || ""}
+                    onChange={(e) => handleChange(e, index)}
+                    className="w-full mb-4 p-2 border rounded h-20"
+                  />
+
+
+
+
+
+                  {/* Image */}
                   <div className="mb-4">
                     <label className="block mb-2 text-sm font-medium">
                       Image
                     </label>
                     <Image
-                      src={feature.preview || `https://bexatm.com${feature.image}`}
+                      src={
+                        feature.preview || `https://bexatm.com${feature.image}`
+                      }
                       alt="Preview"
                       width={200}
                       height={150}

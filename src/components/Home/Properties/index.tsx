@@ -96,7 +96,7 @@ const Properties: React.FC = () => {
 
           {user?.isAdmin ? (
             <button
-              onClick={() => router.push("/content/properties")}
+              onClick={() => router.push("/content/enhancement")}
               className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
               title="Edit Properties Section"
             >

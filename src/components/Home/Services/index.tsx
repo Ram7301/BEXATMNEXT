@@ -12,6 +12,8 @@ interface FeatureItem {
   description?: string;
 }
 
+import ContentData from '../../../Mock.db/C002.json';
+
 interface Feature {
   title: string;
   icon: string;
@@ -41,9 +43,14 @@ interface Feature {
 }
 
 const Categories = () => {
+<<<<<<< HEAD
+  const [features, setFeatures] = useState<Feature[]>(ContentData);
+  const [showEditor, setShowEditor] = useState(false);
+=======
   const router = useRouter();
   const [features, setFeatures] = useState<Feature[]>([]);
   const { user } = useContentManage();
+>>>>>>> b7284a74710eace5f9dad38a4fd851592e729613
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState("");
 
@@ -61,7 +68,7 @@ const Categories = () => {
         console.error("Error loading categories:", error);
       }
     };
-    loadFeatures();
+    // loadFeatures();
   }, []);
 
   // Handle input change

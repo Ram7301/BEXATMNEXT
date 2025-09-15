@@ -2,9 +2,13 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+<<<<<<< HEAD
+import ContentData from '../../../Mock.db/FOOTER001.json';
+=======
 import { useRouter } from "next/navigation";
 import { useContentManage } from "@/app/context/ContentManageContext";
 
+>>>>>>> b7284a74710eace5f9dad38a4fd851592e729613
 interface FooterLink {
   label: string;
   href: string;
@@ -26,6 +30,10 @@ interface FooterData {
 }
 
 const Footer: React.FC = () => {
+<<<<<<< HEAD
+  const [footerData, setFooterData] = useState<FooterData | null>(ContentData);
+  const [showEditor, setShowEditor] = useState(false);
+=======
   const router = useRouter();
   const [footerData, setFooterData] = useState<FooterData | null>(null);
   const { user } = useContentManage();
@@ -43,9 +51,23 @@ const Footer: React.FC = () => {
       console.error("Error loading footer:", error);
     }
   };
+>>>>>>> b7284a74710eace5f9dad38a4fd851592e729613
 
   useEffect(() => {
+<<<<<<< HEAD
+    const loadFooterData = async () => {
+      try {
+        const res = await fetch("/api/content-manage?contentId=FOOTER001");
+        const data = await res.json();
+        setFooterData(data);
+      } catch (error) {
+        console.error("Error loading footer data:", error);
+      }
+    };
+    // loadFooterData();
+=======
     loadFooter();
+>>>>>>> b7284a74710eace5f9dad38a4fd851592e729613
   }, []);
 
   if (!footerData) return null;

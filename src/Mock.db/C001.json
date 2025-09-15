@@ -8,17 +8,29 @@
     {
       "id": 1,
       "src": "/images/hero/clock.svg",
+<<<<<<< HEAD
+      "label": "Time management"
+=======
       "label": "Time Management"
+>>>>>>> b7284a74710eace5f9dad38a4fd851592e729613
     },
     {
       "id": 2,
       "src": "/images/hero/self-service.svg",
+<<<<<<< HEAD
+      "label": "Self service"
+=======
       "label": "Employee Self Service"
+>>>>>>> b7284a74710eace5f9dad38a4fd851592e729613
     },
     {
       "id": 3,
       "src": "/images/hero/manager-desk.svg",
+<<<<<<< HEAD
+      "label": "Manager desk"
+=======
       "label": "Manager Desk"
+>>>>>>> b7284a74710eace5f9dad38a4fd851592e729613
     },
     {
       "id": 4,
@@ -28,7 +40,11 @@
     {
       "id": 5,
       "src": "/images/hero/download.jfif",
+<<<<<<< HEAD
+      "label": "My profile"
+=======
       "label": "My Profile"
+>>>>>>> b7284a74710eace5f9dad38a4fd851592e729613
     }
   ],
   "labels": "Time management,Self service,Manager desk,Agile,My profile"

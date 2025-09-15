@@ -27,22 +27,22 @@
     },
     {
       "id": 4,
-      "src": "/images/hero/dark-agile.png",
+      "src": "/images/hero/school.png",
       "label": "Assesment"
     },
     {
       "id": 5,
-      "src": "/images/hero/download.jfif",
+      "src": "/images/hero/dark-agile.png",
       "label": "Agile"
     },
       {
       "id": 6,
-      "src": "/images/hero/download.jfif",
+      "src": "/images/hero/insight.png",
       "label": "Insights"
     },
       {
       "id": 7,
-      "src": "/images/hero/download.jfif",
+      "src": "/images/hero/conversation.png",
       "label": "FAQ"
     }
     

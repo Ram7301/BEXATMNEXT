@@ -1,10 +1,4 @@
-{
-  "heading": {
-    "title": "Employee Self Service",
-    "description": "Enablement of Employee Self Service in the Mobile App as well as Cloud, allowing employees to apply for Leave, On-duty, Overtime, and other requests seamlessly. This screen empowers users to manage their own attendance-related activities anytime, anywhere.",
-    "background": "/images/background.png"
-  },
-  "features": [
+[
     {
       "title": "Permission",
       "subtitle": "Manage Attendance Adjustments",
@@ -75,5 +69,5 @@
       "reverse": true,
       "icon": "mdi:wallet"
     }
+  
   ]
-}

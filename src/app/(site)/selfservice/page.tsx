@@ -6,12 +6,6 @@ import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-interface Heading {
-  title: string;
-  description: string;
-  background: string;
-}
-
 interface Feature {
   id?: string;
   title: string;
@@ -26,41 +20,94 @@ interface Feature {
 
 const Selfservice: React.FC = () => {
   const router = useRouter();
-  const [heading, setHeading] = useState<Heading | null>(null);
-  const [features, setFeatures] = useState<Feature[]>([]);
+  const [features, setFeatures] = useState<any[]>([]);
+  const [image, setImage] = useState<File | null>(null);
+  const [preview, setPreview] = useState("");
 
-  // ✅ Load from JSON/API
-  const loadData = async () => {
+  // ✅ Load features from API
+  const loadFeatures = async () => {
     try {
-      const res = await fetch("/data/selfservice.json"); // 👈 or API
-      if (!res.ok) throw new Error("Failed to fetch");
+      const res = await fetch(
+        "https://bexatm.com/ContentManageSys.php?contentId=S001"
+      );
+      if (!res.ok) throw new Error("Failed to fetch features");
       const data = await res.json();
-      setHeading(data.heading);
-      setFeatures(data.features);
+      setFeatures(data);
     } catch (err) {
-      console.error("Error loading data:", err);
+      console.error("Error loading features:", err);
     }
   };
 
   useEffect(() => {
-    loadData();
+    loadFeatures();
   }, []);
 
-  if (!heading || !features.length) return null;
+  // ✅ Handle text change
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    index: number
+  ) => {
+    const { name, value } = e.target;
+    setFeatures((prev) =>
+      prev.map((f, i) => (i === index ? { ...f, [name]: value } : f))
+    );
+  };
+
+  // ✅ Handle image change
+  const handleImageChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setImage(file);
+      const url = URL.createObjectURL(file);
+      setPreview(url);
+      setFeatures((prev) =>
+        prev.map((f, i) =>
+          i === index ? { ...f, image: `/images/${file.name}` } : f
+        )
+      );
+    }
+  };
+
+  // ✅ Save changes
+  const saveFeatures = async () => {
+    await fetch("https://bexatm.com/ContentManageSys.php?contentId=S001", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(features),
+    });
+    uploadImage();
+    alert("✅ Features saved!");
+  };
+
+  // ✅ Upload image
+  const uploadImage = async () => {
+    if (!image) return;
+    const formData = new FormData();
+    formData.append("file", image);
+    formData.append("filePath", "/images/"); // 👈 store inside /images/
+    const res = await fetch("/api/uploads", { method: "POST", body: formData });
+    const data = await res.json();
+    setPreview(data?.filePath);
+  };
+
+  if (!features.length) return null;
 
   return (
     <section className="relative overflow-hidden">
-      {/* ✅ Dynamic Heading */}
-      <div
-        className="relative text-center mb-16 mt-12 bg-cover bg-center bg-no-repeat rounded-2xl shadow-lg"
-        style={{ backgroundImage: `url(${heading.background})` }}
-      >
+      {/* ✅ Heading with Background */}
+      <div className="relative text-center mb-16 mt-12 bg-[url('/images/background.png')] bg-cover bg-center bg-no-repeat rounded-2xl shadow-lg">
         <div className="bg-black/50 rounded-2xl px-6 py-16">
           <h2 className="text-4xl lg:text-5xl font-medium text-white tracking-tight leading-tight">
-            {heading.title}
+            Employee Self Service
           </h2>
           <p className="mt-4 max-w-4xl mx-auto text-lg text-gray-200">
-            {heading.description}
+            Enablement of Employee Self Service in the Mobile App as well as
+            Cloud, allowing employees to apply for Leave, On-duty, Overtime,
+            and other requests seamlessly. This screen empowers users to manage
+            their own attendance-related activities anytime, anywhere.
           </p>
         </div>
       </div>
@@ -95,7 +142,7 @@ const Selfservice: React.FC = () => {
               <div className="relative rounded-2xl overflow-hidden group shadow-lg">
                 <Link href={feature.href}>
                   <Image
-                    src={feature.image}
+                    src={feature.image} // 👈 directly from /images/
                     alt={`${feature.title} illustration`}
                     width={680}
                     height={386}
@@ -114,7 +161,7 @@ const Selfservice: React.FC = () => {
         ))}
       </div>
 
-      {/* ✅ Edit Button */}
+      {/* ✅ Edit Button (Router) */}
       <div className="flex justify-end mt-10">
         <button
           onClick={() => router.push("/content/emp")}

@@ -9,6 +9,7 @@ import NextTopLoader from 'nextjs-toploader';
 import SessionProviderComp from '@/components/nextauth/SessionProvider'
 import {ContentManageProvider} from '@/app/context/ContentManageContext'
 import { usePathname } from 'next/navigation'
+import { Suspense } from 'react'
 
 const font = Bricolage_Grotesque({ subsets: ["latin"] });
 
@@ -35,6 +36,7 @@ export default function RootLayout({
         <NextTopLoader color="#07be8a" />
          <ContentManageProvider>
         <SessionProviderComp session={session}>
+          <Suspense>
           <ThemeProvider
             attribute='class'
             enableSystem={true}
@@ -43,6 +45,7 @@ export default function RootLayout({
               {children}
              {!hideHeaderFooter && !SininPage ? <Footer />: false}
           </ThemeProvider>
+          </Suspense>
         </SessionProviderComp>
          </ContentManageProvider>
       </body>

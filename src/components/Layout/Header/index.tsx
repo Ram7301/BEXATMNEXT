@@ -14,7 +14,7 @@ const Header: React.FC = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
   const { theme, setTheme } = useTheme()
   const pathname = usePathname()
-  const {SignOut } = useContentManage()
+  const { SignOut } = useContentManage()
 
   const sideMenuRef = useRef<HTMLDivElement>(null)
 
@@ -132,22 +132,22 @@ const Header: React.FC = () => {
         )
       }
 
-  <div
-  ref={sideMenuRef}
-  className={`fixed top-0 right-0 h-full w-95 bg-dark shadow-lg transition-transform duration-300 max-w-lg ${navbarOpen ? 'translate-x-0' : 'translate-x-full'} z-50 px-6 overflow-auto no-scrollbar`}
->
+      <div
+        ref={sideMenuRef}
+        className={`fixed top-0 right-0 h-full w-120 bg-dark shadow-lg transition-transform duration-300 max-w-lg ${navbarOpen ? 'translate-x-0' : 'translate-x-full'} z-50 px-6 overflow-auto no-scrollbar`}
+      >
 
         <div className="flex flex-col h-full justify-between">
           <div className="">
-            <div className='flex items-center justify-start py-10'>
+            <div className='flex items-center justify-start py-1'>
               <button
                 onClick={() => setNavbarOpen(false)}
                 aria-label='Close mobile menu'
                 className='bg-white p-3 rounded-full hover:cursor-pointer'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
-                  width='24'
-                  height='24'
+                  width='14'
+                  height='14'
                   viewBox='0 0 24 24'>
                   <path
                     fill='none'
@@ -165,11 +165,11 @@ const Header: React.FC = () => {
                 {navLinks.map((item, index) => (
                   <NavLink key={index} item={item} onClick={() => setNavbarOpen(false)} />
                 ))}
-                <li className='flex items-center gap-4'>
-                <Link href="/signin" className='py-4 px-8 bg-primary text-base leading-4 block w-fit text-white rounded-full border border-primary font-semibold mt-3 hover:bg-transparent hover:text-primary duration-300'>
+                <li className='flex items-center gap-2'>
+                  <Link href="/signin" className='py-4 px-8 bg-primary text-sm leading-4 block w-fit text-white rounded-full border border-primary font-semibold mt-1 hover:bg-transparent hover:text-primary duration-300'>
                     Sign In
                   </Link>
-                    <button onClick={SignOut} className='py-4 px-8 bg-transparent border border-primary text-base leading-4 block w-fit text-primary rounded-full font-semibold mt-3 hover:bg-primary hover:text-white duration-300'>
+                  <button onClick={SignOut} className='py-4 px-8 bg-transparent border border-primary text-sm leading-4 block w-fit text-primary rounded-full font-semibold mt-1 hover:bg-primary hover:text-white duration-300'>
                     Sign Out
                   </button>
                 </li>
@@ -177,14 +177,14 @@ const Header: React.FC = () => {
             </nav>
           </div>
 
-          <div className='flex flex-col gap-1 my-16 text-white'>
-            <p className='text-base sm:text-xm font-normal text-white/40'>
+          <div className='flex flex-col gap-1 my-3 text-white'>
+            <p className='text-sm sm:text-xm font-normal text-white/40'>
               Contact
             </p>
-            <Link href="#" className='text-base sm:text-xm font-medium text-inherit hover:text-primary'>
+            <Link href="#" className='text-sm sm:text-xm font-medium text-inherit hover:text-primary'>
               govee@beyondexs.com
             </Link>
-            <Link href="#" className='text-base sm:text-xm font-medium text-inherit hover:text-primary'>
+            <Link href="#" className='text-sm sm:text-xm font-medium text-inherit hover:text-primary'>
               +91 944 440 8804{' '}
             </Link>
           </div>

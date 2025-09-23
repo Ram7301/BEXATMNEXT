@@ -117,9 +117,8 @@ const Selfservice: React.FC = () => {
         {features.map((feature, index) => (
           <div
             key={index}
-            className={`flex flex-col ${
-              feature.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
-            } items-center gap-10 mb-24`}
+            className={`flex flex-col ${feature.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
+              } items-center gap-10 mb-24`}
           >
             {/* Text Block */}
             <div className="lg:w-1/2">
@@ -161,12 +160,11 @@ const Selfservice: React.FC = () => {
         ))}
       </div>
 
-      {/* ✅ Edit Button (Router) */}
-      <div className="flex justify-end mt-10">
+      {/* <div className="absolute top-6 right-6 z-[9999]">
         <button
           onClick={() => router.push("/content/emp")}
           className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
-          title="Edit Self Service"
+          title="Edit Back Office System"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -183,7 +181,8 @@ const Selfservice: React.FC = () => {
             />
           </svg>
         </button>
-      </div>
+      </div> */}
+
     </section>
   );
 };

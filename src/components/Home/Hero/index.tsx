@@ -7,11 +7,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import contentData from "../../../Mock.db/C001.json";
-import ContentData from '../../../Mock.db/C001.json';
 
 const Hero: React.FC = () => {
   const router = useRouter();
-  const [pages, setPages] = useState<any>(ContentData);
+  const [pages, setPages] = useState<any>({});
   const { user } = useContentManage();
 
   const loadPages = async () => {
@@ -30,7 +29,7 @@ const Hero: React.FC = () => {
   };
 
   useEffect(() => {
-    // loadPages();
+    loadPages();
   }, []);
 
   return (

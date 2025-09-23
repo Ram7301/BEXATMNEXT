@@ -8,4 +8,6 @@ export const FooterLinks: footerlinks[] = [
     { label: 'Blog', href: '/blogs' },
     { label: '404 Page', href: '/not-found' },
     { label: 'Documentation', href: '/documentation' },
+    { label: 'Terms & Policy', href: '/terms&policy' },
+
 ]

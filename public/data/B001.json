@@ -1,45 +1,25 @@
 [
- {
-  "id": "EMP001",
-  "title": "Employee",
-  "subtitle": "Manage Profiles & Work Records",
-  "icon": "mdi:account-tie",
-  "description": "An employee is a person who is hired by an organization or company to perform specific tasks or duties in exchange for compensation, such as a salary or wages.",
-  "detail": "Employees can be categorized based on their employment type and responsibilities:",
-  "image": "/images/employee23.png",
-  "href": "#employee",
-  "badge": "Core",
-  "reverse": true,
-  "isBullet": true,
-  "name1": "Probationary",
-  "description1": "Track performance and attendance during the probation period.",
-  "name2": "Confirmed",
-  "description2": "Maintain ongoing timesheet records and monitor productivity metrics.",
-  "name3": "In-sourced Staff",
-  "description3": "Manage internal teams with full visibility into work hours and deliverables.",
-  "name4": "Out-sourced Staff",
-  "description4": "Monitor attendance and output of contracted or third-party personnel.",
-  "features": [
-    {
-      "name": "Probationary",
-      "description": "Track performance and attendance during the probation period."
-    },
-    {
-      "name": "Confirmed",
-      "description": "Maintain ongoing timesheet records and monitor productivity metrics."
-    },
-    {
-      "name": "In-sourced Staff",
-      "description": "Manage internal teams with full visibility into work hours and deliverables."
-    },
-    {
-      "name": "Out-sourced Staff",
-      "description": "Monitor attendance and output of contracted or third-party personnel."
-    }
-  ],
-  "afterDescription": "Apart from these categories and attendance records, an employee’s profile also includes contact details, list of skills, approval flows they are part of, reporting manager, and deployment information such as designation, location, project/product assignment, shift details, and weekly off schedule.\n\nThe system also tracks how the employee records their check-in and check-out, which could be via biometric devices, mobile geofencing, cloud application, manager manual entry, or default present status.\n\nAdditionally, it maintains leave configurations and the list of documents associated with the employee, ensuring comprehensive management of all employee-related information."
-},
-
+  {
+    "id": "EMP001",
+    "title": "Employee",
+    "subtitle": "Onboard Employee & Work Records",
+    "icon": "mdi:account-tie",
+    "description": "An employee is a person who is hired by an organization or company to perform specific tasks or duties in exchange for compensation, such as a salary or wages.",
+    "image": "/images/employee23.png",
+    "href": "#employee",
+    "badge": "Core",
+    "reverse": true
+  },
+  {
+    "title": "Deployment & Time Management",
+    "subtitle": "Track Attendance & Work Status",
+    "description": "Employees can be categorized as contract, probation, or permanent staff, based on their employment type and status. To manage attendance, organizations may provide multiple provisions such as manual attendance entry, geo-fencing for location-based tracking, default present marking, biometric verification, and cloud-based applications",
+    "image": "/images/deploymenttime.png",
+    "href": "#deploymentmanagement",
+    "badge": "Core",
+    "reverse": false,
+    "icon": "mdi:clock-time-eight"
+  },
   {
     "title": "Project",
     "subtitle": "Manage Work Assignments",
@@ -47,7 +27,7 @@
     "image": "/images/project12.png",
     "href": "#managerdashboard",
     "badge": "Core",
-    "reverse": false,
+    "reverse": true,
     "icon": "mdi:account-tie"
   },
   {
@@ -57,7 +37,7 @@
     "image": "/images/assessment2.png",
     "href": "#scrummaster",
     "badge": "Agile",
-    "reverse": true,
+    "reverse": false,
     "icon": "mdi:chart-timeline"
   }
 ]

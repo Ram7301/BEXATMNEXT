@@ -43,7 +43,7 @@
     "title": "Default Present",
     "subtitle": "Auto-Mark Presence for Employees",
     "description": "Default present attendance automatically marks employees as present for the day. If an employee is absent or on leave, the system updates their record accordingly, helping maintain accurate attendance records.",
-    "image": "",
+    "image": "/images/Stakeholder.png",
     "href": "#checkin",
     "badge": "Attendance",
     "reverse": false,

@@ -7,119 +7,43 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useContentManage } from "@/app/context/ContentManageContext";
 
-interface FeatureItem {
-  name: string;
-  description?: string;
-}
 
-import ContentData from '../../../Mock.db/C002.json';
 
-interface Feature {
-  title: string;
-  icon: string;
-  description: string;
-  detail: string;
-  image: string;
-  badge: string;
-  reverse: boolean;
-  features?: (string | FeatureItem)[];
-  isBullet?: boolean;
-  name1?: string;
-  description1?: string;
-  name2?: string;
-  description2?: string;
-  name3?: string;
-  description3?: string;
-  name4?: string;
-  description4?: string;
-  name5?: string;
-  description5?: string;
-  name6?: string;
-  description6?: string;
-  name7?: string;
-  description7?: string;
-  name8?: string;
-  description8?: string;
-}
 
-const Categories = () => {
-<<<<<<< HEAD
-  const [features, setFeatures] = useState<Feature[]>(ContentData);
-  const [showEditor, setShowEditor] = useState(false);
-=======
+
+const EmployeeSelfService = () => {
   const router = useRouter();
-  const [features, setFeatures] = useState<Feature[]>([]);
+  const [features, setFeatures] = useState<any>({});
   const { user } = useContentManage();
->>>>>>> b7284a74710eace5f9dad38a4fd851592e729613
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState("");
+
+  // const { user } = useContentManage();
 
   // Load features
   useEffect(() => {
     const loadFeatures = async () => {
       try {
         const res = await fetch(
-          "https://bexatm.com/ContentManageSys.php?contentId=C002"
+          "https://bexatm.com/ContentManageSys.php?contentId=CON1002"
         );
         const data = await res.json();
+        console.log(data, "mahe");
         setFeatures(data);
-        setPreview(data.image);
+        // setPreview(data.image);
       } catch (error) {
         console.error("Error loading categories:", error);
       }
     };
-    // loadFeatures();
+    loadFeatures();
   }, []);
 
-  // Handle input change
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    index: number
-  ) => {
-    const { name, value } = e.target;
-    setFeatures((prev) =>
-      prev.map((f, i) => (i === index ? { ...f, [name]: value } : f))
-    );
-  };
 
-  // Handle image change
-  const handleImageChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    index: number
-  ) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setImage(file);
-      setPreview(URL.createObjectURL(file));
-      setFeatures((prev) =>
-        prev.map((f, i) =>
-          i === index ? { ...f, image: `/images/categories/${file.name}` } : f
-        )
-      );
-    }
-  };
 
-  // Save features
-  const saveFeatures = async () => {
-    await fetch("https://bexatm.com/ContentManageSys.php?contentId=C002", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(features),
-    });
-    uploadImage();
-    alert("Services updated!");
-  };
 
-  // Upload image
-  const uploadImage = async () => {
-    if (!image) return;
-    const formData = new FormData();
-    formData.append("file", image);
-    formData.append("filePath", "/images/categories/");
-    await fetch("/api/uploads", { method: "POST", body: formData });
-  };
 
-  if (!features.length) return null;
+
+  if (!features) return null;
 
   return (
     <section className="relative overflow-hidden">
@@ -176,114 +100,1826 @@ const Categories = () => {
                 />
               </svg>
             </button>
-          ) : (
-            <div className="w-10"></div> // keeps layout balanced if no button
-          )}
+          ) :
+            (
+              <div className="w-10"></div> // keeps layout balanced if no button
+            )}
+        </div>
+
+
+        <div
+
+          className={`flex flex-col  lg:flex-row
+             items-center gap-10 mb-24`}
+        >
+          {/* Text Block */}
+          <div className="lg:w-1/2">
+            <p className="text-dark/75 dark:text-white/75 text-base font-semibold flex gap-2.5">
+
+              <Icon icon={features.CON100102} className="text-2xl text-primary" />
+
+              {features.CON100101}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100101&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </p>
+            <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
+              {features.CON100103}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100102&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+
+            </h2>
+            <p className="text-dark/50 dark:text-white/50 text-lg leading-[1.3]">
+              {features.CON100104}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100103&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+
+            </p>
+
+            {features && (
+              <ul className="mt-4 list-disc list-inside text-dark/70 dark:text-white/70 text-base space-y-2">
+                {features.CON100107 && (
+                  <li>
+                    <strong>{features.CON100107}</strong>
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100107&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                    {features.CON100108 && ` – ${features.CON100108}`}
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100108&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                  </li>
+                )}
+                {features.CON100109 && (
+                  <li>
+                    <strong>{features.CON100109}</strong>
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100109&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                    {features.CON100110 && ` – ${features.CON100110}`}
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100110&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                  </li>
+                )}
+                {features.CON100111 && (
+                  <li>
+                    <strong>{features.CON100111}</strong>
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100111&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                    {features.CON100112 && ` – ${features.CON100112}`}
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100112&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                  </li>
+                )}
+                {features.CON100113 && (
+                  <li>
+                    <strong>{features.CON100113}</strong>
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100113&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                    {features.CON100114 && ` – ${features.CON100114}`}
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100114&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                  </li>
+                )}
+
+              </ul>
+            )}
+          </div>
+
+          {/* Image Block */}
+          <div className="lg:w-1/2">
+            <div className="relative rounded-2xl overflow-hidden group">
+              <Link href="#">
+                <Image
+                  src={`https://bexatm.com/${features.CON100105}`}
+                  alt={features.title}
+                  width={680}
+                  height={386}
+                  className="w-full"
+                  unoptimized
+                />
+              </Link>
+              <Link
+                href="#"
+                className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
+              >
+                {user?.isAdmin ? (
+
+                  <button
+                    onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100105&contentType=T")}
+                    className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                    title="Edit Section"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                      />
+                    </svg>
+                  </button>
+                ) : null}
+                <div className="flex flex-col gap-2.5">
+                  <h3 className="text-white text-2xl">{features.CON100106}</h3>
+                  {user?.isAdmin ? (
+
+                    <button
+                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100106&contentType=T")}
+                      className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                      title="Edit Section"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-5 h-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                        />
+                      </svg>
+                    </button>
+                  ) : null}
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={`flex flex-col ${true ? "lg:flex-row-reverse" : "lg:flex-row"
+            } items-center gap-10 mb-24`}
+        >
+          {/* Text Block */}
+          <div className="lg:w-1/2">
+            <p className="text-dark/75 dark:text-white/75 text-base font-semibold flex gap-2.5">
+              <Icon icon={features.CON100116} className="text-2xl text-primary" />
+              {features.CON100115}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100115&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </p>
+            <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
+              {features.CON100117}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100117&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </h2>
+            <p className="text-dark/50 dark:text-white/50 text-lg leading-[1.3]">
+              {features.CON100118}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100118&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </p>
+          </div>
+
+          {/* Image Block */}
+          <div className="lg:w-1/2">
+            <div className="relative rounded-2xl overflow-hidden group">
+              <Link href="#">
+                <Image
+                  src={`https://bexatm.com/${features.CON100119}`}
+                  alt={features.title}
+                  width={680}
+                  height={386}
+                  className="w-full"
+                  unoptimized
+                />
+              </Link>
+              <Link
+                href="#"
+                className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
+              >
+                {user?.isAdmin ? (
+
+                  <button
+                    onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100119&contentType=T")}
+                    className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                    title="Edit Section"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                      />
+                    </svg>
+                  </button>
+                ) : null}
+                <div className="flex flex-col gap-2.5">
+                  <h3 className="text-white text-2xl">{features.CON100120}</h3>
+                  {user?.isAdmin ? (
+
+                    <button
+                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100120&contentType=T")}
+                      className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                      title="Edit Section"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-5 h-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                        />
+                      </svg>
+                    </button>
+                  ) : null}
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={`flex flex-col  lg:flex-row
+            } items-center gap-10 mb-24`}
+        >
+          {/* Text Block */}
+          <div className="lg:w-1/2">
+            <p className="text-dark/75 dark:text-white/75 text-base font-semibold flex gap-2.5">
+              <Icon icon={features.CON100122} className="text-2xl text-primary" />
+              {features.CON100121}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON1001121&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </p>
+            <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
+              {features.CON100123}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100123&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </h2>
+            <p className="text-dark/50 dark:text-white/50 text-lg leading-[1.3]">
+              {features.CON100124}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100124&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </p>
+            {features && (
+              <ul className="mt-4 list-disc list-inside text-dark/70 dark:text-white/70 text-base space-y-2">
+                {features.CON100127 && (
+                  <li>
+                    <strong>{features.CON100127}</strong>
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100127&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                    {features.CON100128 && ` – ${features.CON100128}`}
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100128&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                  </li>
+                )}
+                {features.CON100129 && (
+                  <li>
+                    <strong>{features.CON100129}</strong>
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100129&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                    {features.CON100130 && ` – ${features.CON100130}`}
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100130&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                  </li>
+                )}
+                {features.CON100131 && (
+                  <li>
+                    <strong>{features.CON100131}</strong>
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100131&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                    {features.CON100132 && ` – ${features.CON100132}`}
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100132&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                  </li>
+                )}
+                {features.CON100133 && (
+                  <li>
+                    <strong>{features.CON100133}</strong>
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100133&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                    {features.CON100134 && ` – ${features.CON100134}`}
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100134&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                  </li>
+                )}
+                {features.CON100135 && (
+                  <li>
+                    <strong>{features.CON100135}</strong>
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100135&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                    {features.CON100136 && ` – ${features.CON100136}`}
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100136&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                  </li>
+                )}
+                {features.CON100137 && (
+                  <li>
+                    <strong>{features.CON100137}</strong>
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100137&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                    {features.CON100138 && ` – ${features.CON100138}`}
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100138&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                  </li>
+                )}
+                {features.CON100139 && (
+                  <li>
+                    <strong>{features.CON100139}</strong>
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100139&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                    {features.CON100140 && ` – ${features.CON100140}`}
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100140&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                  </li>
+                )}
+                {features.CON100141 && (
+                  <li>
+                    <strong>{features.CON100141}</strong>
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100141&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                    {features.CON100142 && ` – ${features.CON100142}`}
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100142&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                  </li>
+                )}
+              </ul>
+            )}
+          </div>
+
+          {/* Image Block */}
+          <div className="lg:w-1/2">
+            <div className="relative rounded-2xl overflow-hidden group">
+              <Link href="#">
+                <Image
+                  src={`https://bexatm.com/${features.CON100125}`}
+                  alt={features.title}
+                  width={680}
+                  height={386}
+                  className="w-full"
+                  unoptimized
+                />
+              </Link>
+              <Link
+                href="#"
+                className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
+              >
+                {user?.isAdmin ? (
+
+                  <button
+                    onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100125&contentType=T")}
+                    className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                    title="Edit Section"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                      />
+                    </svg>
+                  </button>
+                ) : null}
+                <div className="flex flex-col gap-2.5">
+                  <h3 className="text-white text-2xl">{features.CON100126}</h3>
+                  {user?.isAdmin ? (
+
+                    <button
+                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100126&contentType=T")}
+                      className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                      title="Edit Section"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-5 h-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                        />
+                      </svg>
+                    </button>
+                  ) : null}
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={`flex flex-col ${true ? "lg:flex-row-reverse" : "lg:flex-row"
+            } items-center gap-10 mb-24`}
+        >
+          {/* Text Block */}
+          <div className="lg:w-1/2">
+            <p className="text-dark/75 dark:text-white/75 text-base font-semibold flex gap-2.5">
+              <Icon icon={features.CON100144} className="text-2xl text-primary" />
+              {features.CON100143}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100143&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </p>
+            <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
+              {features.CON100145}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100145&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </h2>
+            <p className="text-dark/50 dark:text-white/50 text-lg leading-[1.3]">
+              {features.CON100146}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100146&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </p>
+
+
+          </div>
+
+          {/* Image Block */}
+          <div className="lg:w-1/2">
+            <div className="relative rounded-2xl overflow-hidden group">
+              <Link href="#">
+                <Image
+                  src={`https://bexatm.com/${features.CON100147}`}
+                  alt={features.title}
+                  width={680}
+                  height={386}
+                  className="w-full"
+                  unoptimized
+                />
+              </Link>
+              <Link
+                href="#"
+                className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
+              >
+                {user?.isAdmin ? (
+
+                  <button
+                    onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100147&contentType=T")}
+                    className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                    title="Edit Section"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                      />
+                    </svg>
+                  </button>
+                ) : null}
+                <div className="flex flex-col gap-2.5">
+                  <h3 className="text-white text-2xl">{features.CON100148}</h3>
+                  {user?.isAdmin ? (
+
+                    <button
+                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100148&contentType=T")}
+                      className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                      title="Edit Section"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-5 h-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                        />
+                      </svg>
+                    </button>
+                  ) : null}
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={`flex flex-col  lg:flex-row
+           items-center gap-10 mb-24`}
+        >
+          {/* Text Block */}
+          <div className="lg:w-1/2">
+            <p className="text-dark/75 dark:text-white/75 text-base font-semibold flex gap-2.5">
+              <Icon icon={features.CON100150} className="text-2xl text-primary" />
+              {features.CON100149}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100149&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </p>
+
+
+
+            <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
+              {features.CON100152}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100152&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </h2>
+            <p className="text-dark/50 dark:text-white/50 text-lg leading-[1.3]">
+              {features.CON100153}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100153&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </p>
+          </div>
+
+          {/* Image Block */}
+          <div className="lg:w-1/2">
+            <div className="relative rounded-2xl overflow-hidden group">
+              <Link href="#">
+                <Image
+                  src={`https://bexatm.com/${features.CON100154}`}
+                  alt={features.title}
+                  width={680}
+                  height={386}
+                  className="w-full"
+                  unoptimized
+                />
+              </Link>
+              <Link
+                href="#"
+                className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
+              >
+                {user?.isAdmin ? (
+
+                  <button
+                    onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100154&contentType=T")}
+                    className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                    title="Edit Section"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                      />
+                    </svg>
+                  </button>
+                ) : null}
+                <div className="flex flex-col gap-2.5">
+                  <h3 className="text-white text-2xl">{features.CON100155}</h3>
+                  {user?.isAdmin ? (
+
+                    <button
+                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100155&contentType=T")}
+                      className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                      title="Edit Section"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-5 h-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                        />
+                      </svg>
+                    </button>
+                  ) : null}
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={`flex flex-col ${true ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-10 mb-24`}
+        >
+          {/* Text Block */}
+          <div className="lg:w-1/2">
+            <p className="text-dark/75 dark:text-white/75 text-base font-semibold flex gap-2.5">
+              <Icon icon={features.CON100157} className="text-2xl text-primary" />
+              {features.CON100156}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100156&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </p>
+
+            <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
+              {features.CON100158}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100158&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </h2>
+            <p className="text-dark/50 dark:text-white/50 text-lg leading-[1.3]">
+              {features.CON100159}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100159&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </p>
+
+            {features && (
+              <ul className="mt-4 list-disc list-inside text-dark/70 dark:text-white/70 text-base space-y-2">
+                {features.CON100162 && (
+                  <li>
+                    <strong>{features.CON100162}</strong>
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100162&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                    {features.CON100163 && ` – ${features.CON100163}`}
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100163&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                  </li>
+                )}
+                {features.CON100164 && (
+                  <li>
+                    <strong>{features.CON100164}</strong>
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100164&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                    {features.CON100165 && ` – ${features.CON100165}`}
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100165&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                  </li>
+                )}
+                {features.CON100166 && (
+                  <li>
+                    <strong>{features.CON100166}</strong>
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100166&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                    {features.CON100167 && ` – ${features.CON100167}`}
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100167&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                  </li>
+                )}
+                {features.CON100168 && (
+                  <li>
+                    <strong>{features.CON100168}</strong>
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100168&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                    {features.CON100169 && ` – ${features.CON100169}`}
+                    {user?.isAdmin ? (
+
+                      <button
+                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100169&contentType=T")}
+                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        title="Edit Section"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </svg>
+                      </button>
+                    ) : null}
+                  </li>
+                )}
+
+              </ul>
+            )}
+          </div>
+
+
+
+          {/* Image Block */}
+          <div className="lg:w-1/2">
+            <div className="relative rounded-2xl overflow-hidden group">
+              <Link href="#">
+                <Image
+                  src={`https://bexatm.com/${features.CON100160}`}
+                  alt={features.title}
+                  width={680}
+                  height={386}
+                  className="w-full"
+                  unoptimized
+                />
+              </Link>
+              <Link
+                href="#"
+                className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
+              >
+                {user?.isAdmin ? (
+
+                  <button
+                    onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100160&contentType=T")}
+                    className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                    title="Edit Section"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                      />
+                    </svg>
+                  </button>
+                ) : null}
+                <div className="flex flex-col gap-2.5">
+                  <h3 className="text-white text-2xl">{features.CON100161}</h3>
+                  {user?.isAdmin ? (
+
+                    <button
+                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100161&contentType=T")}
+                      className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                      title="Edit Section"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-5 h-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                        />
+                      </svg>
+                    </button>
+                  ) : null}
+                </div>
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Feature Cards */}
-        {features.map((feature, index) => (
-          <div
-            key={index}
-            className={`flex flex-col ${
-              feature.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
-            } items-center gap-10 mb-24`}
-          >
-            {/* Text Block */}
-            <div className="lg:w-1/2">
-              <p className="text-dark/75 dark:text-white/75 text-base font-semibold flex gap-2.5">
-                <Icon icon={feature.icon} className="text-2xl text-primary" />
-                {feature.title}
-              </p>
-              <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
-                {feature.description}
-              </h2>
-              <p className="text-dark/50 dark:text-white/50 text-lg leading-[1.3]">
-                {feature.detail}
-              </p>
 
-              {feature.isBullet && (
-                <ul className="mt-4 list-disc list-inside text-dark/70 dark:text-white/70 text-base space-y-2">
-                  {feature.name1 && (
-                    <li>
-                      <strong>{feature.name1}</strong>
-                      {feature.description1 && ` – ${feature.description1}`}
-                    </li>
-                  )}
-                  {feature.name2 && (
-                    <li>
-                      <strong>{feature.name2}</strong>
-                      {feature.description2 && ` – ${feature.description2}`}
-                    </li>
-                  )}
-                  {feature.name3 && (
-                    <li>
-                      <strong>{feature.name3}</strong>
-                      {feature.description3 && ` – ${feature.description3}`}
-                    </li>
-                  )}
-                  {feature.name4 && (
-                    <li>
-                      <strong>{feature.name4}</strong>
-                      {feature.description4 && ` – ${feature.description4}`}
-                    </li>
-                  )}
-                  {feature.name5 && (
-                    <li>
-                      <strong>{feature.name5}</strong>
-                      {feature.description5 && ` – ${feature.description5}`}
-                    </li>
-                  )}
-                  {feature.name6 && (
-                    <li>
-                      <strong>{feature.name6}</strong>
-                      {feature.description6 && ` – ${feature.description6}`}
-                    </li>
-                  )}
-                  {feature.name7 && (
-                    <li>
-                      <strong>{feature.name7}</strong>
-                      {feature.description7 && ` – ${feature.description7}`}
-                    </li>
-                  )}
-                  {feature.name8 && (
-                    <li>
-                      <strong>{feature.name8}</strong>
-                      {feature.description8 && ` – ${feature.description8}`}
-                    </li>
-                  )}
-                </ul>
-              )}
-            </div>
-
-            {/* Image Block */}
-            <div className="lg:w-1/2">
-              <div className="relative rounded-2xl overflow-hidden group">
-                <Link href="#">
-                  <Image
-                    src={`https://bexatm.com/${feature.image}`}
-                    alt={feature.title}
-                    width={680}
-                    height={386}
-                    className="w-full"
-                    unoptimized
-                  />
-                </Link>
-                <Link
-                  href="#"
-                  className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
-                >
-                  <div className="flex flex-col gap-2.5">
-                    <h3 className="text-white text-2xl">{feature.badge}</h3>
-                  </div>
-                </Link>
-              </div>
-            </div>
-          </div>
-        ))}
       </div>
     </section>
   );
 };
 
-export default Categories;
+export default EmployeeSelfService;

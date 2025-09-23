@@ -14,7 +14,6 @@
     "mobile": "+91 944 440 8804"
   },
   "links": [
-<<<<<<< HEAD
     { "label": "Home", "href": "/" },
     { "label": "About", "href": "/about" },
     { "label": "Services", "href": "/services" },
@@ -23,8 +22,5 @@
     { "label": "Contact", "href": "/contact" },
     { "label": "Support", "href": "/support" },
     { "label": "FAQ", "href": "/faq" }
-=======
-   
->>>>>>> b7284a74710eace5f9dad38a4fd851592e729613
   ]
 }

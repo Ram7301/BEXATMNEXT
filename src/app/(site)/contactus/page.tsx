@@ -25,6 +25,12 @@ export default function ContactUs() {
     questionEmail: '',
     questionText: ''
   });
+
+  const [formData1, setFormData1] = useState({
+    phoneNumber: '',
+    email: '',
+    qustions: '',
+  });
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -37,7 +43,27 @@ export default function ContactUs() {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (e.target.name === 'mobile') {
+      // Allow only numeric input and ensure the length is 10
+      const value = e.target.value.replace(/\D/g, '');  // Remove non-digit characters
+      if (value.length <= 10) {
+        setFormData({ ...formData, [e.target.name]: value });
+      }
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
+  };
+
+  const handleChange1 = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    if (e.target.name === 'phoneNumber') {
+      // Allow only numeric input and ensure the length is 10
+      const value = e.target.value.replace(/\D/g, ''); // Remove non-digit characters
+      if (value.length <= 10) {
+        setFormData1({ ...formData1, [e.target.name]: value });
+      }
+    } else {
+      setFormData1({ ...formData1, [e.target.name]: e.target.value });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -65,12 +91,14 @@ export default function ContactUs() {
     try {
       setLoading(true);
       const response = await axios.post(
-        'https://dvmtapi.bexatm.com/ess/api/TrailMailRequestInsertController1.php',
+        'https://dvmtapi.bexatm.com/ess/api/TrailMailRequestInsertController.php',
         {
           RecordID: '',
           MailID: email,
           Name: name,
           MobileNumber: mobile,
+          TrailType: "R",
+          Description: ""
         },
         {
           headers: {
@@ -104,6 +132,67 @@ export default function ContactUs() {
     }
   };
 
+  const handleSubmit2 = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const { phoneNumber, email, qustions } = formData1;
+
+    if (!phoneNumber || !email || !qustions) {
+      toast.error('Please fill all required fields.');
+      return;
+    }
+    if (!/^[0-9]{10}$/.test(phoneNumber)) {
+      toast.error('Enter a valid 10-digit mobile number.');
+      return;
+    }
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      toast.error('Invalid email address.');
+      return;
+    }
+    if (!qustions.trim()) {
+      toast.error('Question is required.');
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const response = await axios.post(
+        'https://dvmtapi.bexatm.com/ess/api/TrailMailRequestInsertController.php',
+        {
+          RecordID: '',
+          MailID: email,
+          Name: "",
+          phoneNumber: phoneNumber,
+          TrailType: "Q",
+          Description: qustions
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization:
+              'eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJzdWIiOiJCZXhAMTIzIiwibmFtZSI6IkJleCIsImFkbWluIjp0cnVlLCJleHAiOjE2Njk5ODQzNDl9.uxE3r3X4lqV_WKrRKRPXd-Jub9BnVcCXqCtLL4I0fpU',
+          },
+        }
+      );
+
+      if (response.data.Status === "Y") {
+        toast.success('Message sent successfully!');
+        setFormData1({
+          phoneNumber: '',
+          email: '',
+          qustions: '',
+        });
+        // refreshCaptcha();
+      } else {
+        toast.error('Failed: ' + (response.data.Msg || 'Unknown error'));
+      }
+    } catch (error: any) {
+      toast.error('Request error: ' + error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="container max-w-8xl mx-auto px-5 2xl:px-0 pt-32 md:pt-44 pb-14 md:pb-28 -mt-60">
       <ToastContainer position="top-right" autoClose={3000} />
@@ -123,33 +212,33 @@ export default function ContactUs() {
                         rounded-2xl shadow-lg p-6 mx-auto bg-white dark:bg-black/40">
           <form className="flex flex-col lg:flex-row items-center gap-4">
             <input
-              type="number"
-              name="questionPhone"
+              type="text"
+              name="phoneNumber"
               placeholder="Phone number"
-              value={formData.questionPhone}
-              onChange={handleChange}
+              value={formData1.phoneNumber}
+              onChange={handleChange1}
               className="flex-1 px-4 py-3 border border-black/10 dark:border-white/10 rounded-lg outline-primary"
             />
             <input
               type="email"
-              name="questionEmail"
+              name="email"
               placeholder="Email address"
-              value={formData.questionEmail}
-              onChange={handleChange}
+              value={formData1.email}
+              onChange={handleChange1}
               className="flex-1 px-4 py-3 border border-black/10 dark:border-white/10 rounded-lg outline-primary"
             />
             <input
               type="text"
-              name="questionText"
+              name="qustions"
               placeholder="Your question"
-              value={formData.questionText}
-              onChange={handleChange}
+              value={formData1.qustions}
+              onChange={handleChange1}
               className="flex-1 px-4 py-3 border border-black/10 dark:border-white/10 rounded-lg outline-primary"
             />
             <button
-              type="button"
+              // type="submit"
               className="px-6 py-3 rounded-full bg-primary text-white font-semibold hover:bg-dark duration-300"
-              onClick={() => toast.success("Question submitted! (demo only)")}
+              onClick={handleSubmit2}
             >
               Submit
             </button>

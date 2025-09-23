@@ -5,95 +5,32 @@ import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useContentManage } from "@/app/context/ContentManageContext";
 
-interface Feature {
-  id?: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  image: string;
-  href: string;
-  badge: string;
-  reverse: boolean;
-  icon?: string;
-}
-
-const BackOfficeSystem: React.FC = () => {
+const BackOfficeSystem = () => {
   const router = useRouter();
-  const [features, setFeatures] = useState<any[]>([]);
-  const [image, setImage] = useState<File | null>(null);
-  const [preview, setPreview] = useState("");
+  const [features, setFeatures] = useState<any>({});
+  const { user } = useContentManage();
 
-  // ✅ Load features from API
-  const loadFeatures = async () => {
-    try {
-      const res = await fetch(
-        "https://bexatm.com/ContentManageSys.php?contentId=B001"
-      );
-      if (!res.ok) throw new Error("Failed to fetch features");
-      const data = await res.json();
-      setFeatures(data);
-    } catch (err) {
-      console.error("Error loading features:", err);
-    }
-  };
-
+  // Load features
   useEffect(() => {
+    const loadFeatures = async () => {
+      try {
+        const res = await fetch(
+          "https://bexatm.com/ContentManageSys.php?contentId=CON1004"
+        );
+        const data = await res.json();
+        console.log(data, "bos"); // Check API response
+        setFeatures(data); // Set features to the API response
+      } catch (error) {
+        console.error("Error loading categories:", error);
+      }
+    };
     loadFeatures();
   }, []);
 
-  // ✅ Handle text change
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    index: number
-  ) => {
-    const { name, value } = e.target;
-    setFeatures((prev) =>
-      prev.map((f, i) => (i === index ? { ...f, [name]: value } : f))
-    );
-  };
-
-  // ✅ Handle image change
-  const handleImageChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    index: number
-  ) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setImage(file);
-      const url = URL.createObjectURL(file);
-      setPreview(url);
-      setFeatures((prev) =>
-        prev.map((f, i) =>
-          i === index ? { ...f, image: `/images/${file.name}` } : f
-        )
-      );
-    }
-  };
-
-  // ✅ Save changes
-  const saveFeatures = async () => {
-    await fetch("https://bexatm.com/ContentManageSys.php?contentId=B001", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(features),
-    });
-    uploadImage();
-    alert("✅ Features saved!");
-  };
-
-  // ✅ Upload image
-  const uploadImage = async () => {
-    if (!image) return;
-    const formData = new FormData();
-    formData.append("file", image);
-    formData.append("filePath", "/images/"); // 👈 changed
-    const res = await fetch("/api/uploads", { method: "POST", body: formData });
-    const data = await res.json();
-    setPreview(data?.filePath);
-  };
-
-  if (!features.length) return null;
+  // Check if features object has keys, if not, return null
+  if (!Object.keys(features).length) return null;
 
   return (
     <section className="relative overflow-hidden">
@@ -118,78 +55,635 @@ const BackOfficeSystem: React.FC = () => {
         </div>
       </div>
 
-      {/* ✅ Features */}
-      <div className="container max-w-7xl mx-auto px-5 mt-10">
-        {features.map((feature, index) => (
-          <div
-            key={index}
-            className={`flex flex-col ${
-              feature.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
+            <div className="container max-w-7xl mx-auto px-5 mt-10">
+
+  <div
+          className={`flex flex-col ${features.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
             } items-center gap-10 mb-24`}
-          >
-            {/* Text Block */}
-            <div className="lg:w-1/2">
-              <p className="text-dark/75 dark:text-white/75 text-base font-semibold flex gap-2.5">
-                {feature.icon && (
-                  <Icon icon={feature.icon} className="text-2xl text-primary" />
-                )}
-                {feature.title}
-              </p>
-              <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
-                {feature.subtitle}
-              </h2>
-              <p className="text-dark/50 dark:text-white/50 text-base leading-snug whitespace-pre-line">
-                {feature.description}
-              </p>
-            </div>
+        >        {/* Text Block */}
+        <div className="lg:w-1/2 order-1 lg:order-1">
+          <p className="text-dark/75 dark:text-white/75 text-base font-semibold flex gap-2.5">
+            <Icon icon={features.CON100103} className="text-2xl text-primary" />
+            {features.CON100101}
+            {user?.isAdmin ? (
 
-            {/* Image Block */}
-            <div className="lg:w-1/2">
-              <div className="relative rounded-2xl overflow-hidden group shadow-lg">
-                <Link href={feature.href}>
-                  <Image
-                    src={feature.image} // 👈 directly from /images/
-                    alt={`${feature.title} illustration`}
-                    width={680}
-                    height={386}
-                    unoptimized
-                  />
-                </Link>
-                <Link
-                  href={feature.href}
-                  className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-end pl-10 pb-10 group-hover:top-0 duration-500"
+              <button
+                onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100101&contentType=T")}
+                className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                title="Edit Section"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
                 >
-                  <h3 className="text-white text-2xl">{feature.badge}</h3>
-                </Link>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                  />
+                </svg>
+              </button>
+            ) : null}
+          </p>
+          <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
+            {features.CON100102}
+            {user?.isAdmin ? (
+
+              <button
+                onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100102&contentType=T")}
+                className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                title="Edit Section"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                  />
+                </svg>
+              </button>
+            ) : null}
+          </h2>
+          <p className="text-dark/50 dark:text-white/50 text-base leading-snug whitespace-pre-line">
+            {features.CON100104}
+            {user?.isAdmin ? (
+
+              <button
+                onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100104&contentType=T")}
+                className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                title="Edit Section"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                  />
+                </svg>
+              </button>
+            ) : null}
+          </p>
+        </div>
+
+        {/* Image Block */}
+        <div className="lg:w-1/2 order-2 lg:order-2">
+          <div className="relative rounded-2xl overflow-hidden group">
+            <Link href="#">
+              <Image
+                src={`https://bexatm.com${features.CON100106}`.trim()}
+                alt={features.title}
+                width={680}
+                height={386}
+                unoptimized
+              />
+            </Link>
+            <Link
+              href="#"
+              className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
+            >
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100106&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+              <div className="flex flex-col gap-2.5">
+                <h3 className="text-white text-2xl">{features.CON100108}</h3>
+                {user?.isAdmin ? (
+
+                  <button
+                    onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100108&contentType=T")}
+                    className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                    title="Edit Section"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                      />
+                    </svg>
+                  </button>
+                ) : null}
               </div>
-            </div>
+            </Link>
           </div>
-        ))}
+        </div>
       </div>
 
-      {/* ✅ Edit Button (Router) */}
-      <div className="flex justify-end mt-10">
-        <button
-          onClick={() => router.push("/content/bos")}
-          className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
-          title="Edit Back Office System"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-5 h-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
-            />
-          </svg>
-        </button>
+     <div
+          className={`flex flex-col ${true ? "lg:flex-row-reverse" : "lg:flex-row"
+            } items-center gap-10 mb-24`}
+        >        {/* Text Block */}
+        <div className="lg:w-1/2 order-1 lg:order-1">
+          <p className="text-dark/75 dark:text-white/75 text-base font-semibold flex gap-2.5">
+            <Icon icon={features.CON100115} className="text-2xl text-primary" />
+            {features.CON100109}
+            {user?.isAdmin ? (
+
+              <button
+                onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100109&contentType=T")}
+                className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                title="Edit Section"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                  />
+                </svg>
+              </button>
+            ) : null}
+          </p>
+          <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
+            {features.CON100110}
+            {user?.isAdmin ? (
+
+              <button
+                onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100110&contentType=T")}
+                className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                title="Edit Section"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                  />
+                </svg>
+              </button>
+            ) : null}
+          </h2>
+          <p className="text-dark/50 dark:text-white/50 text-base leading-snug whitespace-pre-line">
+            {features.CON100111}
+            {user?.isAdmin ? (
+
+              <button
+                onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100111&contentType=T")}
+                className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                title="Edit Section"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                  />
+                </svg>
+              </button>
+            ) : null}
+          </p>
+        </div>
+
+        {/* Image Block */}
+        <div className="lg:w-1/2 order-2 lg:order-2">
+          <div className="relative rounded-2xl overflow-hidden group">
+            <Link href="#">
+              <Image
+                src={`https://bexatm.com${features.CON100112}`.trim()}
+                alt={features.title}
+                width={680}
+                height={386}
+                unoptimized
+              />
+            </Link>
+            <Link
+              href="#"
+              className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
+            >
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100112&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+              <div className="flex flex-col gap-2.5">
+                <h3 className="text-white text-2xl">{features.CON100114}</h3>
+                {user?.isAdmin ? (
+
+                  <button
+                    onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100114&contentType=T")}
+                    className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                    title="Edit Section"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                      />
+                    </svg>
+                  </button>
+                ) : null}
+              </div>
+            </Link>
+          </div>
+        </div>
       </div>
+
+
+<div
+          className={`flex flex-col ${features.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
+            } items-center gap-10 mb-24`}
+        >         {/* Text Block */}
+        <div className="lg:w-1/2 order-1 lg:order-1">
+          <p className="text-dark/75 dark:text-white/75 text-base font-semibold flex gap-2.5">
+            <Icon icon={features.CON100122} className="text-2xl text-primary" />
+            {features.CON100116}
+            {user?.isAdmin ? (
+
+              <button
+                onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100116&contentType=T")}
+                className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                title="Edit Section"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                  />
+                </svg>
+              </button>
+            ) : null}
+          </p>
+          <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
+            {features.CON100117}
+            {user?.isAdmin ? (
+
+              <button
+                onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100117&contentType=T")}
+                className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                title="Edit Section"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                  />
+                </svg>
+              </button>
+            ) : null}
+          </h2>
+          <p className="text-dark/50 dark:text-white/50 text-base leading-snug whitespace-pre-line">
+            {features.CON100118}
+            {user?.isAdmin ? (
+
+              <button
+                onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100118&contentType=T")}
+                className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                title="Edit Section"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                  />
+                </svg>
+              </button>
+            ) : null}
+          </p>
+        </div>
+
+        {/* Image Block */}
+        <div className="lg:w-1/2 order-2 lg:order-2">
+          <div className="relative rounded-2xl overflow-hidden group">
+            <Link href="#">
+              <Image
+                src={`https://bexatm.com${features.CON100119}`.trim()}
+                alt={features.title}
+                width={680}
+                height={386}
+                unoptimized
+              />
+            </Link>
+            <Link
+              href="#"
+              className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
+            >
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100119&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+              <div className="flex flex-col gap-2.5">
+                <h3 className="text-white text-2xl">{features.CON100121}</h3>
+                {user?.isAdmin ? (
+
+                  <button
+                    onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100121&contentType=T")}
+                    className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                    title="Edit Section"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                      />
+                    </svg>
+                  </button>
+                ) : null}
+              </div>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+<div
+          className={`flex flex-col ${true ? "lg:flex-row-reverse" : "lg:flex-row"
+            } items-center gap-10 mb-24`}
+        >          {/* Text Block */}
+        <div className="lg:w-1/2 order-1 lg:order-1">
+          <p className="text-dark/75 dark:text-white/75 text-base font-semibold flex gap-2.5">
+            <Icon icon={features.CON100129} className="text-2xl text-primary" />
+            {features.CON100123}
+            {user?.isAdmin ? (
+
+              <button
+                onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100123&contentType=T")}
+                className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                title="Edit Section"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                  />
+                </svg>
+              </button>
+            ) : null}
+          </p>
+          <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
+            {features.CON100124}
+            {user?.isAdmin ? (
+
+              <button
+                onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100124&contentType=T")}
+                className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                title="Edit Section"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                  />
+                </svg>
+              </button>
+            ) : null}
+          </h2>
+          <p className="text-dark/50 dark:text-white/50 text-base leading-snug whitespace-pre-line">
+            {features.CON100125}
+            {user?.isAdmin ? (
+
+              <button
+                onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100125&contentType=T")}
+                className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                title="Edit Section"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                  />
+                </svg>
+              </button>
+            ) : null}
+          </p>
+        </div>
+
+        {/* Image Block */}
+        <div className="lg:w-1/2 order-2 lg:order-2">
+          <div className="relative rounded-2xl overflow-hidden group">
+            <Link href="#">
+              <Image
+                src={`https://bexatm.com${features.CON100126}`.trim()}
+                alt={features.title}
+                width={680}
+                height={386}
+                unoptimized
+              />
+            </Link>
+            <Link
+              href="#"
+              className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
+            >
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100126&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+              <div className="flex flex-col gap-2.5">
+                <h3 className="text-white text-2xl">{features.CON100128}</h3>
+                {user?.isAdmin ? (
+
+                  <button
+                    onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100128&contentType=T")}
+                    className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                    title="Edit Section"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                      />
+                    </svg>
+                  </button>
+                ) : null}
+              </div>
+            </Link>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
     </section>
   );
 };

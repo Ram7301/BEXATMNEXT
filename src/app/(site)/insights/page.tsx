@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
-import contentData from "../../../Mock.db/I001.json"; // <-- Import JSON
+import { useRouter } from "next/navigation";
 
 interface Feature {
+  id?: string;
   title: string;
   subtitle: string;
   description: string;
@@ -18,15 +19,32 @@ interface Feature {
 }
 
 const Insights: React.FC = () => {
-  const [showEditor, setShowEditor] = useState(false);
-  const [features, setFeatures] = useState<any>(contentData);
+  const router = useRouter();
+  const [features, setFeatures] = useState<Feature[]>([]);
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState("");
 
+  // ✅ Load features from API or fallback to JSON
+  const loadFeatures = async () => {
+    try {
+      const res = await fetch(
+        "https://bexatm.com/ContentManageSys.php?contentId=I001"
+      );
+      if (!res.ok) throw new Error("Failed to fetch features");
+      const data = await res.json();
+      setFeatures(data);
+    } catch (err) {
+      console.error("Error loading features, using JSON fallback:", err);
+      const fallback = await import("../../../Mock.db/I001.json");
+      setFeatures(fallback.default);
+    }
+  };
+
   useEffect(() => {
-    // setFeatures(featuresData); // ✅ Load JSON into state
+    loadFeatures();
   }, []);
 
+  // ✅ Handle text change
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     index: number
@@ -37,6 +55,7 @@ const Insights: React.FC = () => {
     );
   };
 
+  // ✅ Handle image change
   const handleImageChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     index: number
@@ -44,29 +63,47 @@ const Insights: React.FC = () => {
     const file = e.target.files?.[0];
     if (file) {
       setImage(file);
-      setPreview(URL.createObjectURL(file));
+      const url = URL.createObjectURL(file);
+      setPreview(url);
       setFeatures((prev) =>
         prev.map((f, i) =>
-          i === index ? { ...f, image: URL.createObjectURL(file) } : f
+          i === index ? { ...f, image: `/images/${file.name}` } : f
         )
       );
     }
   };
 
+  // ✅ Save changes
   const saveFeatures = async () => {
-    console.log("Saving features:", features);
-    alert("Features saved (mock). Replace with API call!");
+    await fetch("https://bexatm.com/ContentManageSys.php?contentId=I001", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(features),
+    });
+    uploadImage();
+    alert("✅ Features saved!");
+  };
+
+  // ✅ Upload image
+  const uploadImage = async () => {
+    if (!image) return;
+    const formData = new FormData();
+    formData.append("file", image);
+    formData.append("filePath", "/images/");
+    const res = await fetch("/api/uploads", { method: "POST", body: formData });
+    const data = await res.json();
+    setPreview(data?.filePath);
   };
 
   if (!features.length) return null;
 
   return (
     <section className="relative overflow-hidden">
-      {/* ✅ Heading with Background Image */}
+      {/* ✅ Heading with Background */}
       <div className="relative text-center mb-16 mt-12 bg-[url('/images/insights.png')] bg-cover bg-center bg-no-repeat rounded-2xl shadow-lg">
         <div className="bg-black/60 rounded-2xl px-6 py-16">
-          <h2 className="text-4xl lg:text-5xl font-medium text-white tracking-tight leading-tight">
-            Insights
+          <h2 className="text-40 lg:text-52 font-medium text-white tracking-tight leading-11">
+            Insights & Dashboards
           </h2>
           <p className="mt-4 max-w-4xl mx-auto text-lg text-gray-200">
             Insights provide role-based dashboards that give Scrum Masters, Employees, Managers, and Project Managers real-time visibility into work. With centralized analytics, teams can track progress, identify bottlenecks, and make smarter, data-driven decisions to improve performance and achieve goals.
@@ -74,7 +111,7 @@ const Insights: React.FC = () => {
         </div>
       </div>
 
-      {/* ✅ Feature Cards with Icons */}
+      {/* ✅ Feature Cards */}
       <div className="container max-w-7xl mx-auto px-5 mt-10">
         {features.map((feature, index) => (
           <div
@@ -100,35 +137,37 @@ const Insights: React.FC = () => {
             </div>
 
             {/* Image Block */}
-            <div className="lg:w-1/2">
-              <div className="relative rounded-2xl overflow-hidden group shadow-lg">
-                <Link href={feature.href}>
-                  <Image
-                    src={feature.image}
-                    alt={feature.title}
-                    width={680}
-                    height={386}
-                    unoptimized
-                  />
-                </Link>
-                <Link
-                  href={feature.href}
-                  className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-end pl-10 pb-10 group-hover:top-0 duration-500"
-                >
-                  <h3 className="text-white text-2xl">{feature.badge}</h3>
-                </Link>
+            {feature.image && (
+              <div className="lg:w-1/2">
+                <div className="relative rounded-2xl overflow-hidden group shadow-lg">
+                  <Link href={feature.href}>
+                    <Image
+                      src={feature.image}
+                      alt={feature.title}
+                      width={680}
+                      height={386}
+                      unoptimized
+                    />
+                  </Link>
+                  <Link
+                    href={feature.href}
+                    className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-end pl-10 pb-10 group-hover:top-0 duration-500"
+                  >
+                    <h3 className="text-white text-2xl">{feature.badge}</h3>
+                  </Link>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         ))}
       </div>
 
       {/* ✅ Edit Button */}
-      <div className="flex justify-end mt-10">
+      {/* <div className="absolute top-6 right-6 z-[9999]">
         <button
-          onClick={() => setShowEditor(true)}
+          onClick={() => router.push("/content/insights")}
           className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
-          title="Edit Features"
+          title="Edit Insights"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -145,84 +184,7 @@ const Insights: React.FC = () => {
             />
           </svg>
         </button>
-      </div>
-
-      {/* ✅ Edit Modal */}
-      {showEditor && (
-        <div className="fixed inset-0 bg-black/60 z-[999] flex items-center justify-center">
-          <div className="bg-white dark:bg-dark w-full h-full max-w-4xl mx-auto p-8 overflow-auto relative rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">Edit Manager Desk Features</h2>
-
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                saveFeatures();
-              }}
-            >
-              {features.map((feature, index) => (
-                <div key={index} className="mb-8 border-b pb-6">
-                  <label className="block mb-2 text-sm font-medium">Title</label>
-                  <input
-                    type="text"
-                    name="title"
-                    value={feature.title}
-                    onChange={(e) => handleChange(e, index)}
-                    className="w-full mb-4 p-2 border rounded"
-                  />
-
-                  <label className="block mb-2 text-sm font-medium">Subtitle</label>
-                  <input
-                    type="text"
-                    name="subtitle"
-                    value={feature.subtitle}
-                    onChange={(e) => handleChange(e, index)}
-                    className="w-full mb-4 p-2 border rounded"
-                  />
-
-                  <label className="block mb-2 text-sm font-medium">Description</label>
-                  <textarea
-                    name="description"
-                    value={feature.description}
-                    onChange={(e) => handleChange(e, index)}
-                    className="w-full mb-4 p-2 border rounded"
-                  />
-
-                  <label className="block mb-2 text-sm font-medium">Image</label>
-                  {preview && (
-                    <div className="mb-4">
-                      <Image
-                        src={preview}
-                        alt="Preview"
-                        width={200}
-                        height={150}
-                        unoptimized
-                      />
-                    </div>
-                  )}
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={(e) => handleImageChange(e, index)}
-                    className="mb-4"
-                  />
-                </div>
-              ))}
-
-              <button className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-opacity-90">
-                Save
-              </button>
-            </form>
-
-            {/* Close */}
-            <button
-              className="absolute top-4 right-6 text-gray-500 hover:text-black dark:hover:text-white text-3xl"
-              onClick={() => setShowEditor(false)}
-            >
-              ✕
-            </button>
-          </div>
-        </div>
-      )}
+      </div> */}
     </section>
   );
 };

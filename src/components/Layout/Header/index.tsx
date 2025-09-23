@@ -182,7 +182,7 @@ const Header: React.FC = () => {
               Contact
             </p>
             <Link href="#" className='text-sm sm:text-xm font-medium text-inherit hover:text-primary'>
-              govee@beyondexs.com
+              contact@bexatm.com
             </Link>
             <Link href="#" className='text-sm sm:text-xm font-medium text-inherit hover:text-primary'>
               +91 944 440 8804{' '}

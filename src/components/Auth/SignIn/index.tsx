@@ -37,7 +37,7 @@ const Signin = ({ signInOpen }: { signInOpen?: any }) => {
   return (
     <>
       <div className="mb-10 text-center flex justify-center">
-        {/* <Logo /> */}Signin
+        {/* <Logo /> */}Sign In
       </div>
 
 

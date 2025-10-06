@@ -1,0 +1,23 @@
+[
+  {
+    "type": "sectionHeading",
+    "breadcrumb": "Contact Us",
+    "mainTitle": "Have questions? We are ready to help!"
+  },
+  {
+    "type": "contactInfo",
+    "imageAlt": "contact",
+    "heading": "Contact Information",
+    "subText": "We’re here to help!",
+    "phoneLabel": "+91 944 440 8804",
+    "emailPrefix": "contact",
+    "emailDomain": "bexatm.com",
+    "address": "Door#: 25/31, Lakshmi Nagar II Main Road, Porur, Chennai, Tamil Nadu - 600116"
+  },
+  {
+    "type": "trialSection",
+    "heading": "Request for 28-days free trial",
+    "subHeading": "Thanks for trying out our - Agile Task Manager",
+    "description": "Kindly fill the following details!"
+  }
+]

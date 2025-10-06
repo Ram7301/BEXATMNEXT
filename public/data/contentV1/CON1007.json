@@ -1,0 +1,34 @@
+{
+    "CON100101": "Approval",
+    "CON100102": "Review and Manage Requests",
+    "CON100103": "The Approval screen allows managers to review, approve, or reject various employee requests, including leave, overtime, expenses, and task completions.",
+    "CON100104": "/images/Approval.png",
+    "CON100105": "Essential",
+    "CON100106": "mdi:briefcase-check",
+    "CON100107": "mdi:check-decagram",
+    "CON100108": "mdi:home",
+    "CON100109": "mdi:settings",
+    "CON100110": "mdi:account",
+
+    "CON1001011": "On-Site Activity",
+    "CON1001012": "Capture Real-Time Events",
+    "CON1001013": "Spot Activity captures real-time events or actions that occur spontaneously. It helps in tracking immediate issues or tasks requiring urgent attention.",
+    "CON1001014": "/images/onsite.png",
+    "CON1001015": "Operational",
+    "CON1001016": "mdi:map-marker",
+
+    "CON1001017": "Time Sheet",
+    "CON1001018": "Monitor Daily Work Hours",
+    "CON1001019": "The Time Sheet module allows employees to record daily work hours, assigned tasks, and project contributions, enabling accurate payroll and productivity tracking.",
+    "CON1001020": "/images/TimeSheet.png",
+    "CON1001021": "Productivity",
+    "CON1001022": "mdi:clock-time-eight",
+
+    "CON1001023": "Manager Desk",
+    "CON1001024": "A Manager Approval Screen is used by managers to review, approve, or reject requests made by their team members. This may include leave applications, on-duty requests, shift changes, timesheet approvals, and other HR-related actions.",
+    "CON1001025": "/images/background.png"
+
+
+
+
+}

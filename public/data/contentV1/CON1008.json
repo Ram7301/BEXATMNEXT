@@ -1,0 +1,36 @@
+{
+    "CON100101": "Category",
+    "CON100102": "Review and Manage Requests",
+    "CON100103": "Category is a section that groups related evaluation criteria together. Each category focuses on a specific aspect of performance or skills, such as technical skills, communication, teamwork, productivity, or behaviour and attitude, helping make the assessment more structured and organized.",
+    "CON100104": "/images/categories.png",
+    "CON100105": "Structure",
+    "CON100106": "mdi:check-decagram",
+
+    "CON100107": "Assessment",
+    "CON100108": "Capture Real-Time Events",
+    "CON100109": "In an assessment, you can define the number of questions, the minimum score required to pass, the number of attempts permitted, and the duration of the assessment (in days), allowing the system to structure and manage the evaluation effectively.",
+    "CON100110": "/images/assesmentlist.png",
+    "CON100111": "Evaluation",
+    "CON100112": "mdi:map-marker",
+
+    "CON100113": "Question Groups",
+    "CON100114": "Organize Evaluation Topics",
+    "CON100115": "Question Groups are sets of related questions grouped under a specific topic or category. They help organize the assessment by focusing on particular skills, knowledge areas, or competencies, making it easier to evaluate employees in a structured and consistent way .",
+    "CON100116": "/images/questiongroup.png",
+    "CON100117": "Organization",
+    "CON100118": "mdi:clock-time-eight",
+
+    "CON100119": "Question & Answer",
+    "CON100120": "Capture Candidate Responses",
+    "CON100121": "Question & Answer refer to the individual questions presented to candidates and the corresponding answers they provide. This component captures the candidates’ responses to evaluate skills, knowledge, or performance based on predefined criteria, allowing managers or the system to assess competencies accurately.",
+    "CON100122": "/images/q&a.png",
+    "CON100123": "Interaction",
+    "CON100124": "mdi:clock-time-eight",
+    
+    "CON100125": "Session",
+    "CON100126": "Manage Sessions with Ease",
+    "CON100127": "Within a session, documents can be uploaded for each category, and links to study materials on websites or YouTube can be provided, enabling participants to access relevant resources while taking the assessment.",
+    "CON100128": "/images/session.png",
+    "CON100129": "Resources",
+    "CON100130": "mdi:clock-time-eight"
+}

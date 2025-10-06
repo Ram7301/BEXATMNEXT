@@ -6,6 +6,8 @@ import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useContentManage } from "@/app/context/ContentManageContext";
+import Head from "next/head";
+import Script from "next/script";
 
 const BackOfficeSystem = () => {
   const router = useRouter();
@@ -33,6 +35,44 @@ const BackOfficeSystem = () => {
   if (!Object.keys(features).length) return null;
 
   return (
+    <>
+     <Head>
+            <title>Back Office System</title>
+            <meta
+              name="description"
+              content="Reach out to BexATM for a 28-day free trial or support. Contact us via phone, email, or by submitting your queries online."
+            />
+          <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "url": "https://bexatm.com/backofficesystem",
+          "name": "Back Office System",
+          "description": "Contact BexATM for support, questions or free trial."
+        }),
+      }}
+    />
+    
+    
+    
+            <link rel="canonical" href="https://bexatm.com/backofficesystem" />
+          </Head>
+    
+          {/* ✅ Google Analytics */}
+          <Script
+            strategy="afterInteractive"
+            src="https://www.googletagmanager.com/gtag/js?id=G-DVX38ML9PE"
+          />
+          <Script id="gtag-init" strategy="afterInteractive">
+            {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'G-DVX38ML9PE');
+                `}
+          </Script>
     <section className="relative overflow-hidden">
       {/* ✅ Heading with Background */}
       <div className="relative text-center mb-16 mt-12 bg-[url('/images/backoffice.png')] bg-cover bg-center bg-no-repeat rounded-2xl shadow-lg">
@@ -685,6 +725,7 @@ const BackOfficeSystem = () => {
 
 
     </section>
+    </>
   );
 };
 

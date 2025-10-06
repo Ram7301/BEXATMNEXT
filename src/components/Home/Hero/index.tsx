@@ -166,8 +166,9 @@ const Hero: React.FC = () => {
 
         {/* Bottom feature icons */}
         <div className="md:absolute bottom-0 md:right-0 xl:-right-1 bg-white dark:bg-black py-12 px-8 mobile:px-16 md:pl-16 md:pr-[95px] rounded-2xl md:rounded-none md:rounded-tl-2xl mt-24">
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:flex gap-16 md:gap-24 sm:text-center dark:text-white text-black">
-            <div className="flex flex-col sm:items-center gap-2">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 text-center">
+
+            <div className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-auto flex flex-col items-center gap-2">
               <div className="flex items-center justify-center w-full">
                 <Image
                   src={`https://bexatm.com${pages?.CON100104}`}
@@ -207,12 +208,21 @@ const Hero: React.FC = () => {
               </div>
 
 
-              <p className="text-sm sm:text-base font-normal text-inherit">
-                {pages?.CON100105}
-                {user?.isAdmin ? (
+              <div className="flex items-center gap-2 whitespace-nowrap">
+                {/* Left Icon */}
+                {/* Text */}
+                <p className="text-sm sm:text-base font-normal text-inherit">
+                  {pages?.CON100105 || "Back Office System"}
+                </p>
 
+                {/* Edit Button (for admin only) */}
+                {user?.isAdmin && (
                   <button
-                    onClick={() => router.push("/content/cms?contentID=CON1001&contentTextID=CON100105&contentType=T")}
+                    onClick={() =>
+                      router.push(
+                        "/content/cms?contentID=CON1001&contentTextID=CON100105&contentType=T"
+                      )
+                    }
                     className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                     title="Edit Section"
                   >
@@ -231,13 +241,12 @@ const Hero: React.FC = () => {
                       />
                     </svg>
                   </button>
-                ) : null}
-
-              </p>
+                )}
+              </div>
             </div>
 
 
-            <div className="flex flex-col sm:items-center gap-2">
+            <div className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-auto flex flex-col items-center gap-2">
               <div className="flex items-center justify-center w-full">
                 <Image
                   src={`https://bexatm.com${pages?.CON100106}`}
@@ -275,12 +284,15 @@ const Hero: React.FC = () => {
 
               </div>
 
-              <p className="text-sm sm:text-base font-normal text-inherit">
+              <p className="text-sm sm:text-base font-normal text-inherit flex items-center gap-1 whitespace-nowrap">
                 {pages?.CON100107}
                 {user?.isAdmin ? (
-
                   <button
-                    onClick={() => router.push("/content/cms?contentID=CON1001&contentTextID=CON100107&contentType=T")}
+                    onClick={() =>
+                      router.push(
+                        "/content/cms?contentID=CON1001&contentTextID=CON100107&contentType=T"
+                      )
+                    }
                     className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                     title="Edit Section"
                   >
@@ -300,12 +312,12 @@ const Hero: React.FC = () => {
                     </svg>
                   </button>
                 ) : null}
-
               </p>
+
             </div>
 
 
-            <div className="flex flex-col sm:items-center gap-2">
+            <div className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-auto flex flex-col items-center gap-2">
               <div className="flex items-center justify-center w-full">
                 <Image
                   src={`https://bexatm.com${pages?.CON100108}`}
@@ -343,7 +355,7 @@ const Hero: React.FC = () => {
 
               </div>
 
-              <p className="text-sm sm:text-base font-normal text-inherit">
+              <p className="text-sm sm:text-base font-normal text-inherit flex items-center gap-1 whitespace-nowrap">
                 {pages?.CON100109}
                 {user?.isAdmin ? (
 
@@ -372,7 +384,7 @@ const Hero: React.FC = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:items-center gap-2">
+            <div className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-auto flex flex-col items-center gap-2">
               <div className="flex items-center justify-center w-full">
                 <Image
                   src={`https://bexatm.com${pages?.CON100110}`}
@@ -410,7 +422,7 @@ const Hero: React.FC = () => {
 
               </div>
 
-              <p className="text-sm sm:text-base font-normal text-inherit">
+              <p className="text-sm sm:text-base font-normal text-inherit flex items-center gap-1 whitespace-nowrap">
                 {pages?.CON100111}
                 {user?.isAdmin ? (
 
@@ -440,7 +452,7 @@ const Hero: React.FC = () => {
             </div>
 
 
-            <div className="flex flex-col sm:items-center gap-2">
+            <div className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-auto flex flex-col items-center gap-2">
               <div className="flex items-center justify-center w-full">
                 <Image
                   src={`https://bexatm.com${pages?.CON100112}`}
@@ -478,7 +490,7 @@ const Hero: React.FC = () => {
 
               </div>
 
-              <p className="text-sm sm:text-base font-normal text-inherit">
+              <p className="text-sm sm:text-base font-normal text-inherit flex items-center gap-1 whitespace-nowrap">
                 {pages?.CON100113}
                 {user?.isAdmin ? (
 
@@ -508,7 +520,7 @@ const Hero: React.FC = () => {
             </div>
 
 
-            <div className="flex flex-col sm:items-center gap-2">
+            <div className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-auto flex flex-col items-center gap-2">
               <div className="flex items-center justify-center w-full">
                 <Image
                   src={`https://bexatm.com${pages?.CON100115}`}
@@ -546,7 +558,7 @@ const Hero: React.FC = () => {
 
               </div>
 
-              <p className="text-sm sm:text-base font-normal text-inherit">
+              <p className="text-sm sm:text-base font-normal text-inherit flex items-center gap-1 whitespace-nowrap">
                 {pages?.CON100114}
                 {user?.isAdmin ? (
 
@@ -576,7 +588,7 @@ const Hero: React.FC = () => {
             </div>
 
 
-            <div className="flex flex-col sm:items-center gap-2">
+            <div className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-auto flex flex-col items-center gap-2">
               <div className="flex items-center justify-center w-full">
                 <Image
                   src={`https://bexatm.com${pages?.CON100117}`}
@@ -614,7 +626,7 @@ const Hero: React.FC = () => {
 
               </div>
 
-              <p className="text-sm sm:text-base font-normal text-inherit">
+              <p className="text-sm sm:text-base font-normal text-inherit flex items-center gap-1 whitespace-nowrap">
                 {pages?.CON100116}
                 {user?.isAdmin ? (
 
@@ -644,7 +656,7 @@ const Hero: React.FC = () => {
             </div>
 
 
-            <div className="flex flex-col sm:items-center gap-2 relative">
+            <div className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-auto flex flex-col items-center gap-2">
               <div className="flex items-center justify-center w-full">
                 <Image
                   src={`https://bexatm.com${pages?.CON100119}`}
@@ -682,7 +694,7 @@ const Hero: React.FC = () => {
 
               </div>
 
-              <p className="text-sm sm:text-base font-normal text-inherit">
+              <p className="text-sm sm:text-base font-normal text-inherit flex items-center gap-2 whitespace-nowrap">
                 {pages?.CON100118}
                 {user?.isAdmin ? (
 

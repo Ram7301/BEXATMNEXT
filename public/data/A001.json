@@ -5,7 +5,7 @@
     "description": "Category is a section that groups related evaluation criteria together. Each category focuses on a specific aspect of performance or skills, such as technical skills, communication, teamwork, productivity, or behaviour and attitude, helping make the assessment more structured and organized.",
     "image": "/images/categories.png",
     "href": "#approval",
-    "badge": "Core",
+    "badge": "Structure",
     "reverse": true,
     "icon": "mdi:check-decagram"
   },
@@ -15,7 +15,7 @@
     "description": "In an assessment, you can define the number of questions, the minimum score required to pass, the number of attempts permitted, and the duration of the assessment (in days), allowing the system to structure and manage the evaluation effectively. ",
     "image": "/images/assesmentlist.png",
     "href": "#onsiteactivity",
-    "badge": "Core",
+    "badge": "Evaluation",
     "reverse": false,
     "icon": "mdi:map-marker"
   },
@@ -25,7 +25,7 @@
     "description": "Question Groups are sets of related questions grouped under a specific topic or category. They help organize the assessment by focusing on particular skills, knowledge areas, or competencies, making it easier to evaluate employees in a structured and consistent way .",
     "image": "/images/questiongroup.png",
     "href": "#timesheet",
-    "badge": "Core",
+    "badge": "Organization",
     "reverse": true,
     "icon": "mdi:clock-time-eight"
   },
@@ -35,7 +35,7 @@
     "description": "Question & Answer refer to the individual questions presented to candidates and the corresponding answers they provide. This component captures the candidates’ responses to evaluate skills, knowledge, or performance based on predefined criteria, allowing managers or the system to assess competencies accurately.",
     "image": "/images/q&a.png",
     "href": "#timesheet",
-    "badge": "Core",
+    "badge": "Interaction",
     "reverse": false,
     "icon": "mdi:clock-time-eight"
   },
@@ -45,7 +45,7 @@
     "description": "Within a session, documents can be uploaded for each category, and links to study materials on websites or YouTube can be provided, enabling participants to access relevant resources while taking the assessment. ",
     "image": "/images/session.png",
     "href": "#timesheet",
-    "badge": "Core",
+    "badge": "Resources",
     "reverse": true,
     "icon": "mdi:clock-time-eight"
   }

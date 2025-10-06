@@ -6,6 +6,7 @@ import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useContentManage } from "@/app/context/ContentManageContext";
+import { Metadata } from "next";
 
 
 

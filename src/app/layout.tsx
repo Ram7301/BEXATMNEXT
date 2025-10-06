@@ -10,6 +10,7 @@ import SessionProviderComp from '@/components/nextauth/SessionProvider'
 import {ContentManageProvider} from '@/app/context/ContentManageContext'
 import { usePathname } from 'next/navigation'
 import { Suspense } from 'react'
+import Script from 'next/script'
 
 const font = Bricolage_Grotesque({ subsets: ["latin"] });
 
@@ -32,6 +33,20 @@ export default function RootLayout({
   const SininPage = pathname.startsWith("/signin");
   return (
     <html lang='en'>
+      <head>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-DVX38ML9PE"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-DVX38ML9PE');
+          `}
+        </Script>
+      </head>
       <body className={`${font.className} bg-white dark:bg-black antialiased`}>
         <NextTopLoader color="#07be8a" />
          <ContentManageProvider>

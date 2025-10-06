@@ -9,8 +9,7 @@ export const navLinks: NavLinks[] = [
   { label: 'Assessment System', href: '/assesment' },
   { label: 'Agile Project Management', href: '/agile' },
   { label: 'Insights & Dashboards', href: 'insights' },
-  { label: 'Why ATM', href: '/whyatm' },
+  { label: 'Why ATM?', href: '/whyatm' },
   { label: 'FAQ & Workflow', href: 'faq' },
   { label: 'Contact Us', href: '/contactus' },
-
 ]

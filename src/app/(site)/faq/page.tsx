@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { useRouter } from "next/navigation";
+import Script from "next/script";
+import Head from "next/head";
 
 interface FAQItem {
   question: string;
@@ -94,8 +96,44 @@ const FAQ: React.FC = () => {
   }, []);
 
   if (!faqs.length) return null;
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer,
+    }
+  }))
+};
 
   return (
+    <>
+     <Head>
+        <title>FAQ & Workflow | Employee Dashboard</title>
+        <meta name="description" content="Explore frequently asked questions about employee work hours, leave, attendance, and assessments." />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <link rel="canonical" href="https://bexatm.com/faq" />
+      </Head>
+
+      {/* ✅ Google Analytics */}
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-DVX38ML9PE"
+      />
+      <Script id="gtag-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-DVX38ML9PE');
+        `}
+      </Script>
     <section className="relative overflow-hidden">
       {/* ✅ Heading with background */}
       <div className="relative text-center mb-16 mt-12 bg-[url('/images/faq.png')] bg-cover bg-center bg-no-repeat rounded-2xl shadow-lg">
@@ -170,6 +208,7 @@ const FAQ: React.FC = () => {
         })}
       </div>
     </section>
+    </>
   );
 };
 

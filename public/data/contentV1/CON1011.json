@@ -1,0 +1,41 @@
+{
+  "CON100101": "Why ATM?",
+  "CON100102": "/images/whyatm.png",
+  "CON100103": "Provides organizations with smarter project and task management by addressing common challenges such as limited visibility, redundant data entry, unclear role assignments, and inefficient approvals. With real-time tracking, drill-down dashboards, cost monitoring, and seamless integrations, it ensures projects stay on schedule, within budget, and aligned with organizational goals.",
+
+  "CON100104": "Limited Project Visibility",
+  "CON100105": "Lack of real-time progress tracking, causing delays in meeting project timelines and staying within budget. \nSolution: The comprehensive Project Manager Dashboard and escalation system allow for better visibility and timely alerts for Managers and Stakeholders.",
+  "CON100106": "mdi:check-decagram",
+
+  "CON100107": "Redundant Data Entry",
+  "CON100108": "Teams struggle with repeated data entry, often using Excel or spreadsheets, leading to inefficiency. \nSolution: The system eliminates redundant data entry by capturing task data through Self, Manager, and sprint task modules, ensuring streamlined workflow.",
+  "CON100109": "mdi:check-decagram",
+
+  "CON100110": "Unclear Role Assignments",
+  "CON100111": "Poor role-based task allocation leads to confusion and low productivity. \nSolution: The system ensures clear role-based task visualization from the planning stage to execution, reducing confusion and improving efficiency.",
+  "CON100112": "mdi:check-decagram",
+
+  "CON100113": "No Employee Drill-Down View",
+  "CON100114": "Managers find it hard to track individual employee contributions. \nSolution: Managers can drill down into employee performance using dashboards and detailed reports, improving task allocation and performance monitoring.",
+  "CON100115": "mdi:check-decagram",
+
+  "CON100116": "Cumbersome Approval Process",
+  "CON100117": "Rigid, delayed, and complex approval processes slow down decision-making. \nSolution: Simplifies the approval process through integration with cloud, mobile apps, email and even WhatsApp, making approvals more seamless.",
+  "CON100118": "mdi:check-decagram",
+
+  "CON100119": "Absence of Cost Tracking",
+  "CON100120": "Lack of visibility into the project’s budget and costing. \nSolution: Provides in-depth cost tracking through the Project Manager Dashboard, ensuring projects stay within budget from the start to the end.",
+  "CON100121": "mdi:check-decagram",
+
+  "CON100122": "Lack of Real-Time Tracking",
+  "CON100123": "Difficulty tracking work hours and task statuses (backlogs, to-dos, and completed tasks). \nSolution: Real-time task status updates and scrum meetings provide Managers with up-to-date visibility, allowing them to make adjustments as needed.",
+  "CON100124": "mdi:check-decagram",
+
+  "CON100125": "Inefficient Task Rescheduling",
+  "CON100126": "Bottlenecks and unfinished tasks are hard to identify and resolve. \nSolution: Helps managers track task dependencies and reschedule efficiently, preventing delays and ensuring smooth project execution.",
+  "CON100127": "mdi:check-decagram",
+
+  "CON100128": "Onsite Activity with Limited Connectivity",
+  "CON100129": "Onsite activities are often difficult to track due to poor connectivity. \nSolution: Integrates features like voice recognition, image uploads, and camera capture, making it easier to manage onsite activities, even with limited connectivity.",
+  "CON100130": "mdi:check-decagram"
+}

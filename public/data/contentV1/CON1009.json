@@ -1,0 +1,56 @@
+{
+    "CON100101": "Project",
+    "CON100102": "Manage Project Phases and Team Workflow",
+    "CON100103": "This section provides details about projects, including the list of milestones, their weightages, operational stages, activities, tasks, task details, and assigned team members. Milestones are organized by operational stages, stages are further divided into activities, and activities are broken down into tasks with specific details based on team member designations. Milestones, operational stages, activities, and tasks are all assigned weightages, and the total of these weightages must not exceed 100%.",
+    "CON100104": "/images/project00.png",
+    "CON100105": "Workflow",
+    "CON100106": "mdi:check-decagram",
+
+    "CON100107": "Team Collaboration",
+    "CON100108": "Enhance Communication & Coordination",
+    "CON100109": "Team allocation for a project means assigning the right employees to specific roles and tasks based on their skills, experience, availability and cost to ensure balanced workloads, effective resource utilization and successful project execution.",
+    "CON100110": "/images/teamcollaboration.png",
+    "CON100111": "Collaboration",
+    "CON100112": "mdi:account-group",
+
+    "CON100113": "Sprint",
+    "CON100114": "Track Progress and Outcome",
+    "CON100115": "The manager assigns tasks to team members based on the project plan, schedules the start and due dates, allocates the responsible person, and tracks the actual completion date to ensure timely delivery.",
+    "CON100116": "/images/sprint.png",
+    "CON100117": "Agile",
+    "CON100118": "mdi:chart-line",
+
+    "CON100119": "Task",
+    "CON100120": "Manage Workflows Efficiently",
+    "CON100121": "Handle self-assigned tasks, manager-assigned responsibilities, and sprint-based activities in one place. Plan start and due dates, allocate ownership, and monitor progress to ensure timely completion and team alignment.",
+    "CON100122": "/images/task2.png",
+    "CON100123": "Productivity",
+    "CON100124": "mdi:clipboard-check-outline",
+
+    "CON100125": "Project Enquiry",
+    "CON100126": "Capture Real-Time Events",
+    "CON100127": "Project Enquiry provides detailed information about project tasks based on the project, milestone, operational stage, and associated activities.",
+    "CON100128": "/images/projectenquiry.png",
+    "CON100129": "Insights",
+    "CON100130": "mdi:map-marker",
+
+    "CON100131": "Project Status Report",
+    "CON100132": "Product Status Based on Project & Employee",
+    "CON100133": [
+        "It provides a status report of the product based on the project and employee, within a specified date range (From Date to To Date).",
+        "Works within a specified date range (From Date – To Date).",
+        "Efforts – List of Tasks: Displays details of tasks taken up by an employee, including descriptions and time taken.",
+        "Efforts – List of Employee Tasks: Shows task completion information, including estimated effort vs. actual time spent.",
+        "Efforts – List of Projects: Displays projects assigned to an employee, including estimated hours and actual contributed hours (effort)."
+    ],
+    "CON100134": "/images/projectstatus.png",
+    "CON100135": "Analytics",
+    "CON100136": "mdi:file-chart",
+    
+    "CON100137": "Escalation System",
+    "CON100138": "Resolve Issues with Defined Workflows",
+    "CON100139": "An Escalation System provides a structured process for addressing critical project issues such as schedule time delays or increased budget. It ensures that unresolved problems are systematically reported to higher levels of management, enabling timely decision-making, resource reallocation, and corrective actions to keep the project on track.",
+    "CON100140": "/images/escalation.png",
+    "CON100141": "Governance",
+    "CON100142": "mdi:alert-decagram"
+}

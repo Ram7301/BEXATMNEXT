@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Limited Project Visibility",
+    "description": "Lack of real-time progress tracking, causing delays in meeting project timelines and staying within budget. \nSolution: The comprehensive Project Manager Dashboard and escalation system allow for better visibility and timely alerts for Managers and Stakeholders.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "title": "Redundant Data Entry",
+    "description": "Teams struggle with repeated data entry, often using Excel or spreadsheets, leading to inefficiency. \nSolution: The system eliminates redundant data entry by capturing task data through Self, Manager, and sprint task modules, ensuring streamlined workflow.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "title": "Unclear Role Assignments",
+    "description": "Poor role-based task allocation leads to confusion and low productivity. \nSolution: The system ensures clear role-based task visualization from the planning stage to execution, reducing confusion and improving efficiency.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "title": "No Employee Drill-Down View",
+    "description": "Managers find it hard to track individual employee contributions. \nSolution: Managers can drill down into employee performance using dashboards and detailed reports, improving task allocation and performance monitoring.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "title": "Cumbersome Approval Process",
+    "description": "Rigid, delayed, and complex approval processes slow down decision-making. \nSolution: Simplifies the approval process through integration with cloud, mobile apps, email and even WhatsApp, making approvals more seamless.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "title": "Absence of Cost Tracking",
+    "description": "Lack of visibility into the project’s budget and costing. \nSolution: Provides in-depth cost tracking through the Project Manager Dashboard, ensuring projects stay within budget from the start to the end.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "title": "Lack of Real-Time Tracking",
+    "description": "Difficulty tracking work hours and task statuses (backlogs, to-dos, and completed tasks). \nSolution: Real-time task status updates and scrum meetings provide Managers with up-to-date visibility, allowing them to make adjustments as needed.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "title": "Inefficient Task Rescheduling",
+    "description": "Bottlenecks and unfinished tasks are hard to identify and resolve. \nSolution: Helps managers track task dependencies and reschedule efficiently, preventing delays and ensuring smooth project execution.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "title": "Onsite Activity with Limited Connectivity",
+    "description": "Onsite activities are often difficult to track due to poor connectivity. \nSolution: Integrates features like voice recognition, image uploads, and camera capture, making it easier to manage onsite activities, even with limited connectivity.",
+    "icon": "mdi:check-decagram"
+  }
+]

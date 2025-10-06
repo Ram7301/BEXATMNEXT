@@ -8,6 +8,8 @@ import { useTheme } from 'next-themes'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { useContentManage } from '@/app/context/ContentManageContext'
+import { FaAt } from 'react-icons/fa';
+
 
 const Header: React.FC = () => {
   const [sticky, setSticky] = useState(false)
@@ -41,36 +43,39 @@ const Header: React.FC = () => {
   const isHomepage = pathname === '/'
 
   return (
-    <header className={`fixed h-24 py-1 z-50 w-full bg-transparent transition-all duration-300 lg:px-0 px-4 ${sticky ? "top-3" : "top-0"}`}>
-      <nav className={`container mx-auto max-w-8xl flex items-center justify-between py-4 duration-300 ${sticky ? "shadow-lg bg-white rounded-full   dark:bg-dark  top-5 px-4 " : "shadow-none top-0"}`}>
+    <header
+      className={`fixed py-2 z-50 w-full bg-transparent transition-all duration-300 lg:px-0 px-4 ${sticky ? "top-1" : "top-1"
+        }`}
+    >
+
+      <nav
+        className={`container mx-auto max-w-7xl flex items-center justify-between h-22 px-4 duration-300 ${sticky
+          ? "shadow-lg bg-white rounded-full dark:bg-dark"
+          : "shadow-none"
+          }`}
+      >
         <div className='flex justify-between items-center gap-2 w-full'>
-          <div className='mx-4 flex justify-between items-center '>
+          <div className="flex justify-between items-center">
             <Link href='/'>
               <Image
-                src={'/images/header/logo.png'}
+                src={'/images/header/bexx1.png'}
                 alt='logo'
-                width={50}
-                height={50}
-
+                width={200}  // increased size
+                height={200} // increased size
                 unoptimized={true}
-                className={`${isHomepage ? sticky ? "block dark:hidden" : "hidden" : sticky ? "block dark:hidden" : "block dark:hidden"}`}
+                className={`object-contain ${isHomepage ? sticky ? "block dark:hidden" : "hidden" : sticky ? "block dark:hidden" : "block dark:hidden"}`}
               />
               <Image
-                src={'/images/header/logo.png'}
+                src={'/images/header/bexx1.png'}
                 alt='logo'
-                width={50}
-                height={50}
+                width={200}  // increased size
+                height={200} // increased size
                 unoptimized={true}
-                className={`${isHomepage ? sticky ? "hidden dark:block" : "block" : sticky ? "dark:block hidden" : "dark:block hidden"}`}
+                className={`object-contain ${isHomepage ? sticky ? "hidden dark:block" : "block" : sticky ? "dark:block hidden" : "dark:block hidden"}`}
               />
             </Link>
-            <span className={`text-base text-inherit flex items-center gap-2 pr-6 ${isHomepage
-              ? sticky
-                ? 'text-dark dark:text-white hover:text-primary border-dark dark:border-white'
-                : 'text-dark hover:text-primary'
-              : 'text-dark hover:text-primary'
-              } mt-5`}>ATM</span>
           </div>
+
           <div className='flex items-center gap-2 sm:gap-6'>
             <button
               className='hover:cursor-pointer'
@@ -109,18 +114,20 @@ const Header: React.FC = () => {
             <div>
               <button
                 onClick={() => setNavbarOpen(!navbarOpen)}
-                className={`flex items-center gap-3 p-2 sm:px-5 sm:py-3 rounded-full font-semibold hover:cursor-pointer border ${isHomepage
-                  ? sticky
-                    ? 'text-white bg-primary dark:bg-white dark:text-dark dark:hover:text-white dark:hover:bg-dark hover:text-dark hover:bg-white border-dark dark:border-white'
-                    : 'text-dark bg-primary dark:text-dark hover:bg-transparent hover:text-white border-white'
-                  : 'bg-dark text-white hover:bg-transparent hover:text-dark dark:bg-white dark:text-dark dark:hover:bg-transparent dark:hover:text-white duration-300'
+                className={`flex items-center gap-2 p-1 sm:px-3 sm:py-2 rounded-full font-medium text-sm hover:cursor-pointer border ${isHomepage
+                    ? sticky
+                      ? 'text-white bg-primary dark:bg-white dark:text-dark dark:hover:text-white dark:hover:bg-dark hover:text-dark hover:bg-white border-dark dark:border-white'
+                      : 'text-dark bg-primary dark:text-dark hover:bg-transparent hover:text-white border-white'
+                    : 'bg-dark text-white hover:bg-transparent hover:text-dark dark:bg-white dark:text-dark dark:hover:bg-transparent dark:hover:text-white duration-300'
                   }`}
-                aria-label='Toggle mobile menu'>
+                aria-label="Toggle mobile menu"
+              >
                 <span>
-                  <Icon icon={'ph:list'} width={24} height={24} />
+                  <Icon icon={'ph:list'} width={16} height={16} />
                 </span>
-                <span className='hidden sm:block'>Menu</span>
+                <span className="hidden sm:block">Menu</span>
               </button>
+
             </div>
           </div>
         </div>
@@ -134,7 +141,8 @@ const Header: React.FC = () => {
 
       <div
         ref={sideMenuRef}
-        className={`fixed top-0 right-0 h-full w-120 bg-dark shadow-lg transition-transform duration-300 max-w-lg ${navbarOpen ? 'translate-x-0' : 'translate-x-full'} z-50 px-6 overflow-auto no-scrollbar`}
+        className={`fixed top-0 right-0 h-full w-[90%] sm:w-50 md:w-56 bg-dark shadow-lg transition-transform duration-300 ${navbarOpen ? 'translate-x-0' : 'translate-x-full'
+          } z-50 px-4 sm:px-6 overflow-auto no-scrollbar`}
       >
 
         <div className="flex flex-col h-full justify-between">
@@ -143,7 +151,7 @@ const Header: React.FC = () => {
               <button
                 onClick={() => setNavbarOpen(false)}
                 aria-label='Close mobile menu'
-                className='bg-white p-3 rounded-full hover:cursor-pointer'>
+                className='bg-white p-1 rounded-full hover:cursor-pointer'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='14'
@@ -160,31 +168,47 @@ const Header: React.FC = () => {
                 </svg>
               </button>
             </div>
-            <nav className='flex flex-col items-start gap-4'>
-              <ul className='w-full'>
+            <nav className="flex flex-col items-start gap-2">
+              <ul className="w-full text-xs sm:text-sm md:text-base font-medium">
                 {navLinks.map((item, index) => (
-                  <NavLink key={index} item={item} onClick={() => setNavbarOpen(false)} />
+                  <NavLink
+                    key={index}
+                    item={item}
+                    onClick={() => setNavbarOpen(false)}
+                  />
                 ))}
-                <li className='flex items-center gap-2'>
-                  <Link href="/signin" className='py-4 px-8 bg-primary text-sm leading-4 block w-fit text-white rounded-full border border-primary font-semibold mt-1 hover:bg-transparent hover:text-primary duration-300'>
+
+                <li className="flex items-center gap-2 mt-2">
+                  <Link
+                    href="/signin"
+                    className="py-1 px-3 bg-primary text-xs sm:text-1*2 leading-4 block w-fit text-white rounded-full border border-primary font-medium hover:bg-transparent hover:text-primary duration-300"
+                  >
                     Sign In
                   </Link>
-                  <button onClick={SignOut} className='py-4 px-8 bg-transparent border border-primary text-sm leading-4 block w-fit text-primary rounded-full font-semibold mt-1 hover:bg-primary hover:text-white duration-300'>
+                  <button
+                    onClick={SignOut}
+                    className="py-1 px-3 bg-transparent border border-primary text-xs sm:text-1*2 leading-4 block w-fit text-primary rounded-full font-medium hover:bg-primary hover:text-white duration-300"
+                  >
                     Sign Out
                   </button>
                 </li>
               </ul>
             </nav>
+
           </div>
 
           <div className='flex flex-col gap-1 my-3 text-white'>
-            <p className='text-sm sm:text-xm font-normal text-white/40'>
+            <p className='text-sm sm:text-1*2 font-normal text-white/40'>
               Contact
             </p>
-            <Link href="#" className='text-sm sm:text-xm font-medium text-inherit hover:text-primary'>
-              contact@bexatm.com
-            </Link>
-            <Link href="#" className='text-sm sm:text-xm font-medium text-inherit hover:text-primary'>
+  <Link
+  href="/email"
+  className="text-sm font-medium text-white hover:text-primary transition-colors"
+>
+  contact<FaAt className="inline align-middle mx-0 px-0" />bexatm.com
+</Link>
+
+            <Link href="#" className='text-sm sm:text-1*2 font-medium text-inherit hover:text-primary'>
               +91 944 440 8804{' '}
             </Link>
           </div>

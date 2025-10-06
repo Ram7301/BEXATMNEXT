@@ -7,7 +7,7 @@
     ],
     "image": "/images/project00.png",
     "href": "#approval",
-    "badge": "Core",
+    "badge": "Workflow",
     "reverse": true,
     "icon": "mdi:check-decagram"
   },
@@ -17,7 +17,7 @@
     "description": "Team allocation for a project means assigning the right employees to specific roles and tasks based on their skills, experience, availability and cost to ensure balanced workloads, effective resource utilization and successful project execution.",
     "image": "/images/teamcollaboration.png",
     "href": "#teamcollaboration",
-    "badge": "Core",
+    "badge": "Collaboration",
     "reverse": false,
     "icon": "mdi:account-group"
   },
@@ -29,7 +29,7 @@
     ],
     "image": "/images/sprint.png",
     "href": "#taskmonitoring",
-    "badge": "Core",
+    "badge": "Agile",
     "reverse": true,
     "icon": "mdi:chart-line"
   },
@@ -41,7 +41,7 @@
     ],
     "image": "/images/task2.png",
     "href": "#taskmonitoring",
-    "badge": "Core",
+    "badge": "Productivity",
     "reverse": false,
     "icon": "mdi:clipboard-check-outline"
   },
@@ -53,7 +53,7 @@
     ],
     "image": "/images/projectenquiry.png",
     "href": "#onsiteactivity",
-    "badge": "Core",
+    "badge": "Insights",
     "reverse": true,
     "icon": "mdi:map-marker"
   },
@@ -69,9 +69,10 @@
     ],
     "image": "/images/projectstatus.png",
     "href": "#projectstatus",
-    "badge": "Reports",
+    "badge": "Analytics",
     "reverse": false,
-    "icon": "mdi:file-chart"
+    "icon": "mdi:file-chart",
+    "isBullet": true
   },
   {
     "title": "Escalation System",
@@ -79,7 +80,7 @@
     "description": "An Escalation System provides a structured process for addressing critical project issues such as schedule time delays or increased budget. It ensures that unresolved problems are systematically reported to higher levels of management, enabling timely decision-making, resource reallocation, and corrective actions to keep the project on track.",
     "image": "/images/escalation.png",
     "href": "#escalationsystem",
-    "badge": "Core",
+    "badge": "Governance",
     "reverse": true,
     "icon": "mdi:alert-decagram"
   }

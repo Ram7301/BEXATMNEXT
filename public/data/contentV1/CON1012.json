@@ -1,0 +1,53 @@
+{
+  "CON100101": "FAQ & Workflow",
+  "CON100102": "/images/faq.png",
+  "CON100103": "Explore frequently asked questions about employee work hours, leave, attendance, and assessments.",
+
+  "CON100104": "How can employees’ work hours be tracked effectively?",
+  "CON100105": "Work hours can be tracked using timesheets, attendance systems, or the employee dashboard, which allows monitoring of the time spent on each task accurately.",
+  "CON100106": "mdi:check-decagram",
+
+  "CON100107": "How can Time Management improve productivity?",
+  "CON100108": "By allocating the right amount of time to tasks, avoiding distractions, and setting clear deadlines, you can complete work faster and more accurately.",
+  "CON100109": "mdi:check-decagram",
+
+  "CON100110": "How can time be managed for multiple projects at once?",
+  "CON100111": "By using project/task management tools, scheduling tasks, and tracking deadlines, time can be managed across multiple projects effectively.",
+  "CON100112": "mdi:check-decagram",
+
+  "CON100113": "What is the process for employees to log in to the ESS portal?",
+  "CON100114": "Employees can log in using their employee ID and password provided by HR or IT. Some portals may also support Single Sign-On (SSO) for secure access.",
+  "CON100115": "mdi:check-decagram",
+
+  "CON100116": "How can leave be applied and leave balance checked?",
+  "CON100117": "In the Leave section, employees can submit leave requests for approval and view their current leave balance.",
+  "CON100118": "mdi:check-decagram",
+
+  "CON100119": "How do employees track approval status for leave or timesheets?",
+  "CON100120": "Employees can check the status of submitted requests (approved, pending, or rejected) in the Leave or Timesheet sections.",
+  "CON100121": "mdi:check-decagram",
+
+  "CON100122": "How are employees assigned to assessments?",
+  "CON100123": "Administrators can assign employees to specific assessments, ensuring that only the relevant individuals participate in the evaluation process.",
+  "CON100124": "mdi:check-decagram",
+
+  "CON100125": "How is assessment performance tracked?",
+  "CON100126": "The system tracks scores, completion status, and individual question responses, allowing managers and HR to evaluate employee performance accurately.",
+  "CON100127": "mdi:check-decagram",
+
+  "CON100128": "How frequently are assessments conducted?",
+  "CON100129": "The frequency of assessments depends on organizational policies, project requirements, or training programs, and can range from monthly, quarterly, or annually.",
+  "CON100130": "mdi:check-decagram",
+
+  "CON100131": "How can approvers provide comments or feedback?",
+  "CON100132": "Approvers can add comments or notes in the system when approving, rejecting, or requesting additional information.",
+  "CON100133": "mdi:check-decagram",
+
+  "CON100134": "How are late arrivals or early departures tracked?",
+  "CON100135": "The system logs exact check-in and check-out times, allowing managers to monitor punctuality and compliance with work schedules.",
+  "CON100136": "mdi:check-decagram",
+
+  "CON100137": "Can attendance be corrected if there is an error?",
+  "CON100138": "Yes, employees can request corrections, which are then reviewed and approved by their manager or HR.",
+  "CON100139": "mdi:check-decagram"
+}

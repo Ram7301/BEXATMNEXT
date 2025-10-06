@@ -3,151 +3,272 @@
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { useRouter } from "next/navigation";
-
-interface WHYATMItem {
-    question: string;
-    answer: string;
-    icon?: string;
-}
+import Head from "next/head";
+import Script from "next/script";
+import { useContentManage } from "@/app/context/ContentManageContext";
 
 const Whyatm: React.FC = () => {
-    const [faqs, setFaqs] = useState<WHYATMItem[]>([]);
-    const [openIndex, setOpenIndex] = useState<number | null>(null);
-    const router = useRouter();
+  const router = useRouter();
+  const [features, setFeatures] = useState<any>({});
+  const { user } = useContentManage();
 
-    useEffect(() => {
-        const data: WHYATMItem[] = [
-            {
-                question: "Limited Project Visibility",
-                answer:
-                    "Lack of real-time progress tracking, causing delays in meeting project timelines and staying within budget. \nSolution: The comprehensive Project Manager Dashboard and escalation system allow for better visibility and timely alerts for Managers and Stakeholders.",
-                icon: "mdi:check-decagram",
-            },
-            {
-                question: "Redundant Data Entry",
-                answer:
-                    "Teams struggle with repeated data entry, often using Excel or spreadsheets, leading to inefficiency. \nSolution: The system eliminates redundant data entry by capturing task data through Self, Manager, and sprint task modules, ensuring streamlined workflow.",
-                icon: "mdi:check-decagram",
-            },
-            {
-                question: "Unclear Role Assignments",
-                answer:
-                    "Poor role-based task allocation leads to confusion and low productivity. \nSolution: The system ensures clear role-based task visualization from the planning stage to execution, reducing confusion and improving efficiency.",
-                icon: "mdi:check-decagram",
-            },
-            {
-                question: "No Employee Drill-Down View",
-                answer:
-                    "Managers find it hard to track individual employee contributions. \nSolution: Managers can drill down into employee performance using dashboards and detailed reports, improving task allocation and performance monitoring.",
-                icon: "mdi:check-decagram",
-            },
-            {
-                question: "Cumbersome Approval Process",
-                answer:
-                    "Rigid, delayed, and complex approval processes slow down decision-making. \nSolution: Simplifies the approval process through integration with cloud, mobile apps, email and even WhatsApp, making approvals more seamless.",
-                icon: "mdi:check-decagram",
-            },
-            {
-                question: "Absence of Cost Tracking",
-                answer:
-                    "Lack of visibility into the project’s budget and costing. \nSolution: Provides in-depth cost tracking through the Project Manager Dashboard, ensuring projects stay within budget from the start to the end.",
-                icon: "mdi:check-decagram",
-            },
-            {
-                question: "Lack of Real-Time Tracking",
-                answer:
-                    "Difficulty tracking work hours and task statuses (backlogs, to-dos, and completed tasks). \nSolution: Real-time task status updates and scrum meetings provide Managers with up-to-date visibility, allowing them to make adjustments as needed.",
-                icon: "mdi:check-decagram",
-            },
-            {
-                question: "Inefficient Task Rescheduling",
-                answer:
-                    "Bottlenecks and unfinished tasks are hard to identify and resolve. \nSolution: Helps managers track task dependencies and reschedule efficiently, preventing delays and ensuring smooth project execution.",
-                icon: "mdi:check-decagram",
-            },
-            {
-                question: "Onsite Activity with Limited Connectivity",
-                answer:
-                    "Onsite activities are often difficult to track due to poor connectivity. \nSolution: Integrates features like voice recognition, image uploads, and camera capture, making it easier to manage onsite activities, even with limited connectivity.",
-                icon: "mdi:check-decagram",
-            },
-        ];
+  // ✅ Fix: added missing state
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-        setFaqs(data);
-    }, []);
+  // Load features
+  useEffect(() => {
+    const loadFeatures = async () => {
+      try {
+        const res = await fetch(
+          "https://bexatm.com/ContentManageSys.php?contentId=CON1011"
+        );
+        const data = await res.json();
+        console.log(data, "whyatm"); // Check API response
+        setFeatures(data); // Set features to the API response
+      } catch (error) {
+        console.error("Error loading categories:", error);
+      }
+    };
+    loadFeatures();
+  }, []);
 
-    if (!faqs.length) return null;
+  // Check if features object has keys, if not, return null
+  if (!Object.keys(features).length) return null;
 
-    return (
-        <section className="relative overflow-hidden">
-            {/* ✅ Heading with background */}
-            <div className="relative text-center mb-16 mt-12 bg-[url('/images/whyatm.png')] bg-cover bg-center bg-no-repeat rounded-2xl shadow-lg">
-                <div className="bg-black/50 rounded-2xl px-6 py-16 relative">
-                    <h2 className="text-40 lg:text-52 font-medium text-white tracking-tight leading-11">
-                        Why ATM
-                    </h2>
-                    <p className="mt-4 max-w-4xl mx-auto text-lg text-gray-200">
-                        Provides organizations with smarter project and task management by addressing common
-                        challenges such as limited visibility, redundant data entry, unclear role assignments, and
-                        inefficient approvals. With real-time tracking, drill-down dashboards, cost monitoring, and
-                        seamless integrations, it ensures projects stay on schedule, within budget, and aligned with
-                        organizational goals.
-                    </p>
-                </div>
-            </div>
+  return (
+    <>
+      <Head>
+        <title>Why ATM?</title>
+        <meta
+          name="description"
+          content="Try BexATM's Bitcoin ATM free for 28 days. Contact us for setup, support, or more info via phone, email, or online form."
+        />
 
-            {/* ✅ FAQ Accordion */}
-            <div className="container max-w-4xl mx-auto px-5 space-y-6">
-                {faqs.map((faq, index) => {
-                    const isOpen = openIndex === index;
-                    return (
-                        <div
-                            key={index}
-                            className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-sm"
-                        >
-                            <button
-                                className="flex w-full items-center justify-between px-5 py-4 text-left text-lg font-medium text-dark dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition"
-                                onClick={() => setOpenIndex(isOpen ? null : index)}
-                                aria-expanded={isOpen}
-                            >
-                                <div className="flex items-center gap-3">
-                                    <span>{faq.question}</span>
-                                </div>
-                                <Icon
-                                    icon={isOpen ? "mdi:chevron-up" : "mdi:chevron-down"}
-                                    className="text-xl text-gray-600 dark:text-gray-300"
-                                />
-                            </button>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ContactPage",
+              "url": "https://bexatm.com/whyatm",
+              "name": "Why ATM?",
+              "description":
+                "Contact BexATM for support, questions or free trial."
+            }),
+          }}
+        />
 
-                            {isOpen && (
-                                <div className="px-5 pb-4 text-dark/70 dark:text-white/70 text-base leading-relaxed whitespace-pre-line">
-                                    {faq.answer.includes("Solution:") ? (
-                                        <>
-                                            {/* 🔴 Problem Statement */}
-                                            <p className="mb-3">
-                                                <span className="font-bold text-red-600">Problem Statement: </span>
-                                                {faq.answer.split("Solution:")[0]}
-                                            </p>
-                                            {/* ✅ Solution part */}
-                                            <div className="flex items-start gap-2">
-                                                <Icon
-                                                    icon="mdi:check-circle"
-                                                    className="text-green-600 text-xl flex-shrink-0"
-                                                />
-                                                <p>{faq.answer.split("Solution:")[1]}</p>
-                                            </div>
-                                        </>
-                                    ) : (
-                                        faq.answer
-                                    )}
-                                </div>
-                            )}
+        <link rel="canonical" href="https://bexatm.com/whyatm" />
+      </Head>
+
+      {/* ✅ Google Analytics */}
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-DVX38ML9PE"
+      />
+      <Script id="gtag-init" strategy="afterInteractive">
+        {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-DVX38ML9PE');
+            `}
+      </Script>
+
+      <section className="relative overflow-hidden">
+        {/* ✅ Heading with background */}
+        <div
+          className="relative text-center mb-16 mt-12 bg-[url('/images/whyatm.png')] bg-cover bg-center bg-no-repeat rounded-2xl shadow-lg"
+        >
+          <div className="bg-black/50 rounded-2xl px-6 py-16 relative">
+            <h2 className="text-40 lg:text-52 font-medium text-white tracking-tight leading-11">
+              {features.CON100101}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1011&contentTextID=CON100101&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </h2>
+            <p className="mt-4 max-w-4xl mx-auto text-lg text-gray-200">
+              {features.CON100103}
+              {user?.isAdmin ? (
+
+                <button
+                  onClick={() => router.push("/content/cms?contentID=CON1011&contentTextID=CON100103&contentType=T")}
+                  className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Section"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </p>
+          </div>
+        </div>
+
+        {/* ✅ Accordion Style Cards */}
+        <div className="container max-w-4xl mx-auto px-5 space-y-6">
+          {[
+            {
+              title: features.CON100104,
+              desc: features.CON100105,
+              icon: features.CON100106,
+              // button: user?.isAdmin ? (
+              //   <button
+              //     onClick={() =>
+              //       router.push(
+              //         "/content/cms?contentID=CON1005&contentTextID=CON100101&contentType=T"
+              //       )
+              //     }
+              //     className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+              //     title="Edit Section"
+              //   >
+              //     <svg
+              //       xmlns="http://www.w3.org/2000/svg"
+              //       className="w-5 h-5"
+              //       fill="none"
+              //       viewBox="0 0 24 24"
+              //       stroke="currentColor"
+              //       strokeWidth={2}
+              //     >
+              //       <path
+              //         strokeLinecap="round"
+              //         strokeLinejoin="round"
+              //         d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+              //       />
+              //     </svg>
+              //   </button>
+              // ) : null,
+            },
+
+            {
+              title: features.CON100107,
+              desc: features.CON100108,
+              icon: features.CON100109,
+            },
+            {
+              title: features.CON100110,
+              desc: features.CON100111,
+              icon: features.CON100112,
+            },
+            {
+              title: features.CON100113,
+              desc: features.CON100114,
+              icon: features.CON100115,
+            },
+            {
+              title: features.CON100116,
+              desc: features.CON100117,
+              icon: features.CON100118,
+            },
+            {
+              title: features.CON100119,
+              desc: features.CON100120,
+              icon: features.CON100121,
+            },
+            {
+              title: features.CON100122,
+              desc: features.CON100123,
+              icon: features.CON100124,
+            },
+            {
+              title: features.CON100125,
+              desc: features.CON100126,
+              icon: features.CON100127,
+            },
+            {
+              title: features.CON100128,
+              desc: features.CON100129,
+              icon: features.CON100130,
+            },
+          ].map((item, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div
+                key={index}
+                className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-sm"
+              >
+                {/* Button header */}
+                <button
+                  className="flex w-full items-center justify-between px-5 py-4 text-left text-lg font-medium text-dark dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  aria-expanded={isOpen}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg">
+                      <Icon icon={item.icon} className="text-primary text-xl" />
+                    </div>
+                    <span>{item.title}</span>
+                  </div>
+                  <Icon
+                    icon={isOpen ? "mdi:chevron-up" : "mdi:chevron-down"}
+                    className="text-xl text-gray-600 dark:text-gray-300"
+                  />
+                </button>
+
+                {/* Open content */}
+                {isOpen && (
+                  <div className="px-5 pb-4 text-dark/70 dark:text-white/70 text-base leading-relaxed whitespace-pre-line">
+                    {item.desc.includes("Solution:") ? (
+                      <>
+                        {/* 🔴 Problem Statement */}
+                        <p className="mb-3">
+                          <span className="font-bold text-red-600">
+                            Problem Statement:{" "}
+                          </span>
+                          {item.desc.split("Solution:")[0]}
+                        </p>
+                        {/* ✅ Solution part */}
+                        <div className="flex items-start gap-2">
+                          <Icon
+                            icon="mdi:check-circle"
+                            className="text-green-600 text-xl flex-shrink-0"
+                          />
+                          <p>{item.desc.split("Solution:")[1]}</p>
                         </div>
-                    );
-                })}
-            </div>
-        </section>
-    );
+                      </>
+                    ) : (
+                      item.desc
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    </>
+  );
 };
 
 export default Whyatm;

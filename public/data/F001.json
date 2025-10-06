@@ -1,0 +1,67 @@
+[
+  {
+    "heading": "FAQ & Workflow",
+    "background": "/images/faq.png",
+    "intro": "Explore frequently asked questions about employee work hours, leave, attendance, and assessments."
+  },
+  {
+    "question": "How can employees’ work hours be tracked effectively?",
+    "answer": "Work hours can be tracked using timesheets, attendance systems, or the employee dashboard, which allows monitoring of the time spent on each task accurately.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "question": "How can Time Management improve productivity?",
+    "answer": "By allocating the right amount of time to tasks, avoiding distractions, and setting clear deadlines, you can complete work faster and more accurately.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "question": "How can time be managed for multiple projects at once?",
+    "answer": "By using project/task management tools, scheduling tasks, and tracking deadlines, time can be managed across multiple projects effectively.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "question": "What is the process for employees to log in to the ESS portal?",
+    "answer": "Employees can log in using their employee ID and password provided by HR or IT. Some portals may also support Single Sign-On (SSO) for secure access.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "question": "How can leave be applied and leave balance checked?",
+    "answer": "In the Leave section, employees can submit leave requests for approval and view their current leave balance.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "question": "How do employees track approval status for leave or timesheets?",
+    "answer": "Employees can check the status of submitted requests (approved, pending, or rejected) in the Leave or Timesheet sections.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "question": "How are employees assigned to assessments?",
+    "answer": "Administrators can assign employees to specific assessments, ensuring that only the relevant individuals participate in the evaluation process.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "question": "How is assessment performance tracked?",
+    "answer": "The system tracks scores, completion status, and individual question responses, allowing managers and HR to evaluate employee performance accurately.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "question": "How frequently are assessments conducted?",
+    "answer": "The frequency of assessments depends on organizational policies, project requirements, or training programs, and can range from monthly, quarterly, or annually.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "question": "How can approvers provide comments or feedback?",
+    "answer": "Approvers can add comments or notes in the system when approving, rejecting, or requesting additional information.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "question": "How are late arrivals or early departures tracked?",
+    "answer": "The system logs exact check-in and check-out times, allowing managers to monitor punctuality and compliance with work schedules.",
+    "icon": "mdi:check-decagram"
+  },
+  {
+    "question": "Can attendance be corrected if there is an error?",
+    "answer": "Yes, employees can request corrections, which are then reviewed and approved by their manager or HR.",
+    "icon": "mdi:check-decagram"
+  }
+]

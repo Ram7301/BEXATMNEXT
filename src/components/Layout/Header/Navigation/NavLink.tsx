@@ -12,13 +12,13 @@ const NavLink: React.FC<NavLinkProps> = ({ item, onClick }) => {
   const path = usePathname()
   const itemLabelToPath = `/${item.label.toLowerCase().replace(/\s+/g, '-')}`
 
-const linkclasses = clsx(
-  'py-3 text-2xl sm:text-3xl font-semibold text-white/40 rounded-full group-hover:text-primary',
-  {
-    '!text-primary': item.href === path,
-    'text-primary': path.startsWith(itemLabelToPath),
-  }
-);
+  const linkclasses = clsx(
+    'py-1.5 text-sm sm:text-1xl  font-medium text-white/70 rounded-full group-hover:text-primary',
+    {
+      '!text-primary': item.href === path,
+      'text-primary': path.startsWith(itemLabelToPath),
+    }
+  );
 
 
 

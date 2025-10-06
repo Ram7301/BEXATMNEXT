@@ -5,7 +5,7 @@
     "description": "The Project Manager Dashboard gives a complete view of project timelines, milestones, risks, and team performance. It helps in tracking progress, allocating resources, and ensuring projects are delivered on time, within scope, and aligned with organizational goals.",
     "image": "/images/projectmanager.png",
     "href": "#projectmanager",
-    "badge": "Leadership",
+    "badge": "Execution",
     "reverse": true,
     "icon": "mdi:briefcase-check"
   },
@@ -15,7 +15,7 @@
     "description": "The Manager Dashboard offers real-time visibility into team productivity, task progress, and resource utilization. It helps managers monitor workloads, identify bottlenecks, and make data-driven decisions to improve efficiency and achieve organizational goals.",
     "image": "/images/managerdash.png",
     "href": "#managerdashboard",
-    "badge": "Core",
+    "badge": "Teamwork",
     "reverse": false,
     "icon": "mdi:account-tie"
   },
@@ -25,7 +25,7 @@
     "description": "The Scrum Master Dashboard provides visibility into sprint progress, task allocation, and team collaboration. It helps monitor agile workflows, remove impediments, and ensure the team follows best practices for delivering value consistently.",
     "image": "/images/scrummaster.png",
     "href": "#scrummaster",
-    "badge": "Agile",
+    "badge": "Workflow",
     "reverse": true,
     "icon": "mdi:chart-timeline"
   },
@@ -35,7 +35,7 @@
     "description": "The Employee Dashboard provides a clear view of individual tasks, goals, and performance metrics. It helps employees monitor their progress, manage daily responsibilities, and stay aligned with team and organizational objectives.",
     "image": "/images/employeedash.png",
     "href": "#employee",
-    "badge": "Core",
+    "badge": "Personal Growth",
     "reverse": false,
     "icon": "mdi:account-circle"
   }

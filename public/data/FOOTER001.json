@@ -1,19 +1,55 @@
-{
-  "topCta": {
-    "title": "Experience the Future of Efficiency",
-    "subtitle": "Book a free demo and see how our solution can transform your workflow.",
-    "ctaLink": { "label": "Contact Us", "href": "/contactus" }
-  },
-  "contactInfo": {
-    "address": [
-      "Door#: 25/31, Lakshmi Nagar II Main Road, Porur, Chennai,",
-      "Tamil Nadu - 600116"
-    ],
-    "email": "contact@bexatm.com",
-    "phone": "+91 944 440 8804",
-    "mobile": "+91 944 440 8804"
-  },
-  "links": [
-   
-  ]
-}
+[
+  {
+    "topCta": {
+      "title": "Experience the Future of Efficiency",
+      "subtitle": "Book a free demo and see how our solution can transform your workflow.",
+      "ctaLink": {
+        "label": "Contact Us",
+        "href": "/contactus"
+      }
+    },
+    "contactInfo": {
+      "address": [
+        "Door#: 25/31, Lakshmi Nagar II Main Road, Porur, Chennai,",
+        "Tamil Nadu - 600116"
+      ],
+      "email": "contact@bexatm.com",
+      "phone": "+91 944 440 8804",
+      "mobile": "+91 944 440 8804"
+    },
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "About Us",
+        "href": "/about"
+      },
+      {
+        "label": "Solutions",
+        "href": "/solutions"
+      },
+      {
+        "label": "Pricing",
+        "href": "/pricing"
+      },
+      {
+        "label": "Blog",
+        "href": "/blog"
+      },
+      {
+        "label": "Careers",
+        "href": "/careers"
+      },
+      {
+        "label": "Support",
+        "href": "/support"
+      },
+      {
+        "label": "FAQs",
+        "href": "/faq"
+      }
+    ]
+  }
+]

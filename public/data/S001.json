@@ -1,4 +1,9 @@
 [
+ {
+  "title": "Employee Self Service",
+  "description": "Enablement of Employee Self Service in both the Mobile App and Cloud platform, allowing employees to apply for leave, on-duty, overtime, and other requests seamlessly. This feature empowers users to manage their attendance-related activities anytime, anywhere."
+},
+
     {
       "title": "Permission",
       "subtitle": "Manage Attendance Adjustments",

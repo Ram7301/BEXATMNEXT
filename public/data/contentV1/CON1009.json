@@ -52,5 +52,10 @@
     "CON100139": "An Escalation System provides a structured process for addressing critical project issues such as schedule time delays or increased budget. It ensures that unresolved problems are systematically reported to higher levels of management, enabling timely decision-making, resource reallocation, and corrective actions to keep the project on track.",
     "CON100140": "/images/escalation.png",
     "CON100141": "Governance",
-    "CON100142": "mdi:alert-decagram"
+    "CON100142": "mdi:alert-decagram",
+
+    "CON100143": "Agile Project Management",
+    "CON100144": "The Agile Project Management screen provides a vertical, hierarchical approval workflow, ensuring that requests—such as leave, attendance regularization, expense claims, or timesheet entries—are routed through the appropriate chain of command. Each management level reviews and processes requests sequentially based on predefined rules and role-based hierarchies."
+
+ 
 }

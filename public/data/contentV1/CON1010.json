@@ -25,5 +25,9 @@
     "CON100121": "The Employee Dashboard provides a clear view of individual tasks, goals, and performance metrics. It helps employees monitor their progress, manage daily responsibilities, and stay aligned with team and organizational objectives.",
     "CON100122": "/images/employeedash.png",
     "CON100123": "Personal Growth",
-    "CON100124": "mdi:account-circle"
+    "CON100124": "mdi:account-circle",
+
+    "CON100125": "Insights & Dashboards",
+    "CON100126": "Insights offer role-based dashboards that give Scrum Masters, Employees, Managers, and Project Managers real-time visibility into work. With centralized analytics, teams can track progress, identify bottlenecks, and make data-driven decisions to enhance performance and achieve goals."
+ 
 }

@@ -5,14 +5,14 @@
     "CON100104": "An employee is a person who is hired by an organization or company to perform specific tasks or duties in exchange for compensation, such as a salary or wages.",
     "CON100106": "/images/employee23.png ",
     "CON100107": "#employee",
-    "CON100108": "Core",
+    "CON100108": "People",
 
     "CON100109": "Deployment & Time Management",
     "CON100110": "Track Attendance & Work Status",
     "CON100111": "Employees can be categorized as contract, probation, or permanent staff, based on their employment type and status. To manage attendance, organizations may provide multiple provisions such as manual attendance entry, geo-fencing for location-based tracking, default present marking, biometric verification, and cloud-based applications",
     "CON100112": "/images/deploymenttime.png",
     "CON100113": "#deploymentmanagement",
-    "CON100114": "Core",
+    "CON100114": "Operations",
     "CON100115": "mdi:clock-time-eight",
 
     "CON100116": "Project",
@@ -20,7 +20,7 @@
     "CON100118": "In the system, a Project refers to a specific work assignment or client engagement to which employees are mapped. It represents the task, service, or solution that the organization is delivering, and employees associated with a project can have their attendance, timesheets, and performance tracked under it. A project record also includes information about who is in charge of the project and its status, which may be Current, On Hold, or Completed. Additionally, projects can be classified as Routine Tasks or Service & Maintenance, depending on their nature.",
     "CON100119": "/images/project12.png",
     "CON100120": "#managerdashboard",
-    "CON100121": "#Core",
+    "CON100121": "Workflow",
     "CON100122": "mdi:account-tie",
 
     "CON100123": "Assessment",
@@ -28,8 +28,12 @@
     "CON100125": "Assessment is a structured platform or process used to evaluate employees’ skills, knowledge, performance, and overall competencies against predefined standards. It helps organizations identify strengths and areas for improvement, provide constructive feedback, support training and development, and ensure fair performance evaluations, promoting accountability, enhancing productivity, and aligning employee growth with organizational goals. In this system, we have Categories, Assessment, Question Groups, and Questions, which are organized to evaluate employee competencies effectively. Administrators can assign employees to specific assessments, ensuring that only the relevant individuals participate in the evaluation process. This structured approach allows organizations to measure skills, knowledge, and performance accurately while managing the assessment workflow efficiently.",
     "CON100126": "/images/assessment2.png",
     "CON100127": "#scrummaster",
-    "CON100128": "Agile",
-    "CON100129": "mdi:chart-timeline"
+    "CON100128": "Evaluation",
+    "CON100129": "mdi:chart-timeline",
+
+    "CON100130": "Back Office System",
+    "CON100131": "Back Office System is an internal platform that manages and supports a company’s administrative and operational functions, including HR, payroll, accounting, and data management. It ensures smooth workflows, accurate record-keeping, and provides managers and HR teams with insights for decision-making. The system also includes essential employee credentials and information such as Designation, Departments, Leave Types, Functions, Holiday List, Daily and Monthly Attendance, Attendance Register, and Timesheet, enabling employees to access and manage their records efficiently while helping HR maintain accurate data and monitor work activities."
+
 
 }
 

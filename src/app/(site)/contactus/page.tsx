@@ -251,7 +251,7 @@ export default function ContactUs() {
           </h3>
 
           {/* ✅ Horizontal Form */}
-          <div className="mt-8 w-full max-w-5xl border border-black/10 dark:border-white/10 
+          {/* <div className="mt-8 w-full max-w-5xl border border-black/10 dark:border-white/10 
                         rounded-2xl shadow-lg p-6 mx-auto bg-white dark:bg-black/40">
             <form className="flex flex-col lg:flex-row items-center gap-4">
               <input
@@ -286,7 +286,7 @@ export default function ContactUs() {
                 Submit
               </button>
             </form>
-          </div>
+          </div> */}
         </div>
 
         {/* Existing Contact & Trial Box */}

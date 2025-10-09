@@ -1,4 +1,8 @@
 [
+{
+  "title": "Manager Desk",
+  "description": "The Manager Desk allows managers to review, approve, or reject requests from their team members, including leave applications, on-duty requests, shift changes, timesheet approvals, and other HR-related actions."
+},
   {
     "heading": "Manager Desk",
     "description": "A Manager Approval Screen is used by managers to review, approve, or reject requests made by their team members. This may include leave applications, on-duty requests, shift changes, timesheet approvals, and other HR-related actions.",
@@ -25,7 +29,7 @@
     "description": "Spot Activity captures real-time events or actions that occur spontaneously. It helps in tracking immediate issues or tasks requiring urgent attention.",
     "image": "/images/onsite.png",
     "href": "#onsiteactivity",
-    "badge": "Operational",
+    "badge": "Field",
     "reverse": false,
     "icon": "mdi:map-marker"
   },

@@ -96,7 +96,7 @@ const Hero: React.FC = () => {
               >
                 {pages?.CON100102}
               </Link>
-              {user?.isAdmin ? (
+              {/* {user?.isAdmin ? (
                 <button
                   onClick={() => router.push("/content/cms?contentID=CON1001&contentTextID=CON100102&contentType=T")}
                   className="absolute  z-50 bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
@@ -117,10 +117,7 @@ const Hero: React.FC = () => {
                     />
                   </svg>
                 </button>
-              ) : null}
-
-
-
+              ) : null} */}
             </div>
           </div>
 

@@ -6,21 +6,21 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 const Hero: React.FC = () => {
 
-  
+
   const searchParams = useSearchParams();
-  
+
   const contentID = searchParams.get("contentID");
   const contentTextID = searchParams.get("contentTextID");
   const contentType = searchParams.get("contentType");
   const router = useRouter();
 
   const [preview, setPreview] = useState("");
-  const [text, setText ] = useState("")
+  const [text, setText] = useState("")
   const [image, setImage] = useState<File | null>(null);
   const [pages, setPages] = useState<any>({ lables: [] });
-  
+
   // Handle text input changes
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { value } = e.target;
     setText(value);
   };
@@ -36,22 +36,19 @@ const Hero: React.FC = () => {
   };
 
 
-
-
-
   const loadPages = async () => {
     try {
       const res = await fetch(`https://bexatm.com/ContentManageSys.php?contentId=${contentID}`);
       if (!res.ok) throw new Error("Failed to fetch pages");
       const data = await res.json();
-      console.log(data,'----------');
-      
+      console.log(data, '----------');
+
       setPages(data);
-      if(data){
-        if(contentType == "T"){
+      if (data) {
+        if (contentType == "T") {
           setText(data[`${contentTextID}`])
         }
-        if(contentType == "I"){
+        if (contentType == "I") {
           // setText(data[`${contentTextID}`])
           setPreview(`https://bexatm.com${data[`${contentTextID}`]}`);
         }
@@ -69,9 +66,9 @@ const Hero: React.FC = () => {
     await fetch(`https://bexatm.com/ContentManageSysV1.php?contentId=${contentID}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({cmsTextID:contentTextID,cmsText:text}),
+      body: JSON.stringify({ cmsTextID: contentTextID, cmsText: text }),
     });
-    if(contentType == 'I'){
+    if (contentType == 'I') {
 
       uploadImage();
     }
@@ -98,29 +95,33 @@ const Hero: React.FC = () => {
                 savePages();
               }}
             >
-             {contentType == "T" ? <Fragment> 
-              <label className="block mb-2 text-sm font-medium">Caption</label>
-              <input
-                type="text"
-                name="title"
-                value={text || ""}
-                onChange={handleChange}
-                className="w-full mb-4 p-2 border rounded"
-              /></Fragment>: false}
+              {contentType == "T" ? (
+                <Fragment>
+                  <label className="block mb-2 text-sm font-medium">Caption</label>
+                  <textarea
+                    name="title"
+                    value={text || ""}
+                    onChange={handleChange}
+                    className="w-full mb-4 p-2 border rounded"
+                    rows={4} // adjust the height
+                  />
+                </Fragment>
+              ) : false}
 
 
-             {contentType == "I" ? <Fragment> 
-              {/* Hero Image */}
-              <label className="block mb-2 text-sm font-medium">Image</label>
-              {preview && (
-                <div className="mb-4">
-                  <Image src={preview} alt="Preview" width={200} height={150} unoptimized />
-                </div>
-              )}
+
+              {contentType == "I" ? <Fragment>
+                {/* Hero Image */}
+                <label className="block mb-2 text-sm font-medium">Image</label>
+                {preview && (
+                  <div className="mb-4">
+                    <Image src={preview} alt="Preview" width={200} height={150} unoptimized />
+                  </div>
+                )}
 
 
-              <input type="file" accept="image/*" onChange={handleImageChange} className="mb-4" />
-              </Fragment>: false}
+                <input type="file" accept="image/*" onChange={handleImageChange} className="mb-4" />
+              </Fragment> : false}
               <button className="px-4 py-2 bg-primary text-white rounded hover:bg-opacity-90">
                 Save
               </button>

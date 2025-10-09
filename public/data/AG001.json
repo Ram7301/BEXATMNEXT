@@ -1,4 +1,8 @@
 [
+ {
+  "title": "Agile Project Management",
+  "description": "The Agile Project Management screen provides a vertical, hierarchical approval workflow, ensuring that requests—such as leave, attendance regularization, expense claims, or timesheet entries—are routed through the appropriate chain of command. Each management level reviews and processes requests sequentially based on predefined rules and role-based hierarchies."
+},
   {
     "title": "Project",
     "subtitle": "Manage Project Phases and Team Workflow",

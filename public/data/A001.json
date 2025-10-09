@@ -1,5 +1,9 @@
 [
   {
+  "title": "Assessment System",
+  "description": " Assessment is a structured platform or process used to evaluate employees’ skills, knowledge, performance, and overall competencies against predefined standards. It helps organizations measure employee strengths and areas for improvement, provide constructive feedback, support training and development, and ensure fair performance evaluations. Such a system promotes accountability, improves productivity, and aligns employee growth with organizational goals."
+},
+  {
     "title": "Category",
     "subtitle": "Review and Manage Requests",
     "description": "Category is a section that groups related evaluation criteria together. Each category focuses on a specific aspect of performance or skills, such as technical skills, communication, teamwork, productivity, or behaviour and attitude, helping make the assessment more structured and organized.",

@@ -8,9 +8,6 @@ import { useRouter } from "next/navigation";
 import { useContentManage } from "@/app/context/ContentManageContext";
 
 
-
-
-
 const EmployeeSelfService = () => {
   const router = useRouter();
   const [features, setFeatures] = useState<any>({});
@@ -37,11 +34,6 @@ const EmployeeSelfService = () => {
     };
     loadFeatures();
   }, []);
-
-
-
-
-
 
   if (!features) return null;
 
@@ -75,37 +67,32 @@ const EmployeeSelfService = () => {
 
           {/* Centered Heading */}
           <h2 className="flex-1 text-center text-40 lg:text-52 font-medium text-black dark:text-white tracking-tight leading-11">
-            Key Features
-          </h2>
+            {features.CON100170}
+            {user?.isAdmin ? (
 
-          {/* Edit Button on Right */}
-          {user?.isAdmin ? (
-            <button
-              onClick={() => router.push("/content/services")}
-              className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
-              title="Edit Services Section"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
+              <button
+                onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100170&contentType=T")}
+                className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                title="Edit Section"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
-                />
-              </svg>
-            </button>
-          ) :
-            (
-              <div className="w-10"></div> // keeps layout balanced if no button
-            )}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                  />
+                </svg>
+              </button>
+            ) : null}
+          </h2>
         </div>
-
 
         <div
 
@@ -143,12 +130,12 @@ const EmployeeSelfService = () => {
                 </button>
               ) : null}
             </p>
-            <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
+            <h2 className="lg:text-3xl text-2xl mt-2 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
               {features.CON100103}
               {user?.isAdmin ? (
 
                 <button
-                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100102&contentType=T")}
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100103&contentType=T")}
                   className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                   title="Edit Section"
                 >
@@ -175,7 +162,7 @@ const EmployeeSelfService = () => {
               {user?.isAdmin ? (
 
                 <button
-                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100103&contentType=T")}
+                  onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100104&contentType=T")}
                   className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                   title="Edit Section"
                 >
@@ -408,7 +395,6 @@ const EmployeeSelfService = () => {
                     ) : null}
                   </li>
                 )}
-
               </ul>
             )}
           </div>
@@ -431,7 +417,6 @@ const EmployeeSelfService = () => {
                 className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
               >
                 {user?.isAdmin ? (
-
                   <button
                     onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100105&contentType=T")}
                     className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
@@ -517,7 +502,7 @@ const EmployeeSelfService = () => {
                 </button>
               ) : null}
             </p>
-            <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
+            <h2 className="lg:text-3xl text-2xl mt-2 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
               {features.CON100117}
               {user?.isAdmin ? (
 
@@ -675,7 +660,7 @@ const EmployeeSelfService = () => {
                 </button>
               ) : null}
             </p>
-            <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
+            <h2 className="lg:text-3xl text-2xl mt-2 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
               {features.CON100123}
               {user?.isAdmin ? (
 
@@ -1253,7 +1238,7 @@ const EmployeeSelfService = () => {
                 </button>
               ) : null}
             </p>
-            <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
+            <h2 className="lg:text-3xl text-2xl mt-2 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
               {features.CON100145}
               {user?.isAdmin ? (
 
@@ -1413,10 +1398,7 @@ const EmployeeSelfService = () => {
                 </button>
               ) : null}
             </p>
-
-
-
-            <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
+            <h2 className="lg:text-3xl text-2xl mt-2 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
               {features.CON100152}
               {user?.isAdmin ? (
 
@@ -1574,7 +1556,7 @@ const EmployeeSelfService = () => {
               ) : null}
             </p>
 
-            <h2 className="lg:text-42 text-40 mt-4 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
+            <h2 className="lg:text-3xl text-2xl mt-2 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
               {features.CON100158}
               {user?.isAdmin ? (
 

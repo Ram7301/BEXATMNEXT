@@ -46,5 +46,10 @@
     "CON100139": "This screen enables employees to request early salary payouts for emergencies, while maintaining a transparent record for payroll.",
     "CON100140": "/images/salaryAdvance.png",
     "CON100141": "Finance",
-    "CON100142": "mdi:wallet"
+    "CON100142": "mdi:wallet",
+
+   "CON100143": "Employee Self Service",
+   "CON100144": "Enablement of Employee Self Service in both the Mobile App and Cloud platform, allowing employees to apply for leave, on-duty, overtime, and other requests seamlessly. This feature empowers users to manage their attendance-related activities anytime, anywhere."
+
+
 }

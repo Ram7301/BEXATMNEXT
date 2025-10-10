@@ -96,22 +96,22 @@ const FAQ: React.FC = () => {
   }, []);
 
   if (!faqs.length) return null;
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": faqs.map(faq => ({
-    "@type": "Question",
-    "name": faq.question,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": faq.answer,
-    }
-  }))
-};
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer,
+      }
+    }))
+  };
 
   return (
     <>
-     <Head>
+      <Head>
         <title>FAQ & Workflow | Employee Dashboard</title>
         <meta name="description" content="Explore frequently asked questions about employee work hours, leave, attendance, and assessments." />
         <script
@@ -134,12 +134,37 @@ const faqSchema = {
           gtag('config', 'G-DVX38ML9PE');
         `}
       </Script>
-    <section className="relative overflow-hidden">
-      {/* ✅ Heading with background */}
-      <div className="relative text-center mb-16 mt-12 bg-[url('/images/faq.png')] bg-cover bg-center bg-no-repeat rounded-2xl shadow-lg">
-        <div className="bg-black/50 rounded-2xl px-6 py-16 relative">
-          {/* ✅ Edit Button */}
-          {/* <div className="absolute top-6 right-6 z-[9999]">
+
+      {/* ✅ Facebook Pixel Code */}
+      <Script id="facebook-pixel" strategy="afterInteractive">
+        {`
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '826986713605921');
+    fbq('track', 'PageView');
+  `}
+      </Script>
+      <noscript>
+        <img
+          height="1"
+          width="1"
+          style={{ display: "none" }}
+          src="https://www.facebook.com/tr?id=826986713605921&ev=PageView&noscript=1"
+        />
+      </noscript>
+
+      <section className="relative overflow-hidden">
+        {/* ✅ Heading with background */}
+        <div className="relative text-center mb-16 mt-12 bg-[url('/images/faq.png')] bg-cover bg-center bg-no-repeat rounded-2xl shadow-lg">
+          <div className="bg-black/50 rounded-2xl px-6 py-16 relative">
+            {/* ✅ Edit Button */}
+            {/* <div className="absolute top-6 right-6 z-[9999]">
             <button
               onClick={() => router.push("/content/agile")}
               className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-80 transition"
@@ -162,52 +187,52 @@ const faqSchema = {
             </button>
           </div> */}
 
-          <h2 className="text-40 lg:text-52 font-medium text-white tracking-tight leading-11">
-            FAQ & Workflow
-          </h2>
-          <p className="mt-4 max-w-4xl mx-auto text-lg text-gray-200">
-            Explore frequently asked questions about employee work hours, leave,
-            attendance, and assessments.
-          </p>
+            <h2 className="text-40 lg:text-52 font-medium text-white tracking-tight leading-11">
+              FAQ & Workflow
+            </h2>
+            <p className="mt-4 max-w-4xl mx-auto text-lg text-gray-200">
+              Explore frequently asked questions about employee work hours, leave,
+              attendance, and assessments.
+            </p>
+          </div>
         </div>
-      </div>
 
-      {/* ✅ FAQ Accordion */}
-      <div className="container max-w-4xl mx-auto px-5 space-y-6">
-        {faqs.map((faq, index) => {
-          const isOpen = openIndex === index;
-          return (
-            <div
-              key={index}
-              className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-sm"
-            >
-              <button
-                className="flex w-full items-center justify-between px-5 py-4 text-left text-lg font-medium text-dark dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition"
-                onClick={() => setOpenIndex(isOpen ? null : index)}
-                aria-expanded={isOpen}
+        {/* ✅ FAQ Accordion */}
+        <div className="container max-w-4xl mx-auto px-5 space-y-6">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div
+                key={index}
+                className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-sm"
               >
-                <div className="flex items-center gap-3">
-                  {faq.icon && (
-                    <Icon icon={faq.icon} className="text-xl text-primary" />
-                  )}
-                  <span>{faq.question}</span>
-                </div>
-                <Icon
-                  icon={isOpen ? "mdi:chevron-up" : "mdi:chevron-down"}
-                  className="text-xl text-gray-600 dark:text-gray-300"
-                />
-              </button>
+                <button
+                  className="flex w-full items-center justify-between px-5 py-4 text-left text-lg font-medium text-dark dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  aria-expanded={isOpen}
+                >
+                  <div className="flex items-center gap-3">
+                    {faq.icon && (
+                      <Icon icon={faq.icon} className="text-xl text-primary" />
+                    )}
+                    <span>{faq.question}</span>
+                  </div>
+                  <Icon
+                    icon={isOpen ? "mdi:chevron-up" : "mdi:chevron-down"}
+                    className="text-xl text-gray-600 dark:text-gray-300"
+                  />
+                </button>
 
-              {isOpen && (
-                <div className="px-5 pb-4 text-dark/70 dark:text-white/70 text-base leading-relaxed">
-                  {faq.answer}
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-    </section>
+                {isOpen && (
+                  <div className="px-5 pb-4 text-dark/70 dark:text-white/70 text-base leading-relaxed">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
     </>
   );
 };

@@ -264,9 +264,12 @@ const BackOfficeSystem = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100106&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1004&contentTextID=CON100106&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -286,6 +289,7 @@ const BackOfficeSystem = () => {
                       </svg>
                     </button>
                   ) : null}
+
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100108}</h3>
                     {user?.isAdmin ? (

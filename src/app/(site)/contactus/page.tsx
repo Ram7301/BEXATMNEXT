@@ -95,7 +95,7 @@ export default function ContactUs() {
     try {
       setLoading(true);
       const response = await axios.post(
-        'https://dvmtapi.bexatm.com/ess/api/TrailMailRequestInsertController.php',
+        'https://bexatm.com/api/TrailMailRequestInsertController.php',
         {
           RecordID: '',
           MailID: email,
@@ -161,7 +161,7 @@ export default function ContactUs() {
     try {
       setLoading(true);
       const response = await axios.post(
-        'https://dvmtapi.bexatm.com/ess/api/TrailMailRequestInsertController.php',
+        'https://bexatm.com/api/TrailMailRequestInsertController.php',
         {
           RecordID: '',
           MailID: email,

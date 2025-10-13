@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://bexatm.com
+
+# Sitemaps
+Sitemap: https://bexatm.com/sitemap.xml

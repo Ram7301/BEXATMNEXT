@@ -102,11 +102,11 @@ const Managerdesk: React.FC = () => {
         <div className="relative text-center mb-16 mt-12 bg-[url('/images/background.png')] bg-cover bg-center bg-no-repeat rounded-2xl shadow-lg">
           <div className="bg-black/70 rounded-2xl px-6 py-6 relative">
             <h2 className="text-4xl lg:text-5xl font-medium text-white tracking-tight leading-tight">
-              {features.CON1001026}
+              {features.CON100126}
               {user?.isAdmin ? (
 
                 <button
-                  onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON1001026&contentType=T")}
+                  onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON100126&contentType=T")}
                   className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                   title="Edit Section"
                 >
@@ -129,11 +129,11 @@ const Managerdesk: React.FC = () => {
             </h2>
 
             <p className="mt-2 max-w-4xl mx-auto text-md text-gray-200 leading-relaxed">
-              {features.CON1001027}
+              {features.CON100127}
               {user?.isAdmin ? (
 
                 <button
-                  onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON1001027&contentType=T")}
+                  onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON100127&contentType=T")}
                   className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                   title="Edit Section"
                 >
@@ -274,11 +274,13 @@ const Managerdesk: React.FC = () => {
                   href="#"
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
-                  {user?.isAdmin && (
+                  {user?.isAdmin ? (
                     <button
-                      onClick={() =>
-                        router.push("/content/cms?contentID=CON1007&contentTextID=CON100104&contentType=T")
-                      }
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1007&contentTextID=CON100104&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -297,13 +299,13 @@ const Managerdesk: React.FC = () => {
                         />
                       </svg>
                     </button>
-                  )}
+                  ) : null}
                   <div className="flex flex-col gap-2.5">
-                    <h3 className="text-white text-2xl">{features.CON1001015}</h3>
+                    <h3 className="text-white text-2xl">{features.CON100115}</h3>
                     {user?.isAdmin && (
                       <button
                         onClick={() =>
-                          router.push("/content/cms?contentID=CON1007&contentTextID=CON1001015&contentType=T")
+                          router.push("/content/cms?contentID=CON1007&contentTextID=CON100115&contentType=T")
                         }
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
@@ -337,12 +339,12 @@ const Managerdesk: React.FC = () => {
             {/* Text Block */}
             <div className="lg:w-1/2">
               <p className="text-dark/75 dark:text-white/75 text-base font-semibold flex gap-2.5">
-                <Icon icon={features.CON1001016} className="text-2xl text-primary" />
+                <Icon icon={features.CON100116} className="text-2xl text-primary" />
                 {features.CON1001011}
                 {user?.isAdmin ? (
 
                   <button
-                    onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON1001011&contentType=T")}
+                    onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON100111&contentType=T")}
                     className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                     title="Edit Section"
                   >
@@ -368,7 +370,7 @@ const Managerdesk: React.FC = () => {
                 {user?.isAdmin ? (
 
                   <button
-                    onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON1001012&contentType=T")}
+                    onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON100112&contentType=T")}
                     className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                     title="Edit Section"
                   >
@@ -394,7 +396,7 @@ const Managerdesk: React.FC = () => {
                 {user?.isAdmin ? (
 
                   <button
-                    onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON1001013&contentType=T")}
+                    onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON100113&contentType=T")}
                     className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                     title="Edit Section"
                   >
@@ -421,7 +423,7 @@ const Managerdesk: React.FC = () => {
               <div className="relative rounded-2xl overflow-hidden group">
                 <Link href="#">
                   <Image
-                    src={`https://bexatm.com${features.CON1001014}`}
+                    src={`https://bexatm.com${features.CON100114}`}
                     alt={features.title}
                     width={680}
                     height={386}
@@ -433,9 +435,12 @@ const Managerdesk: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON1001014&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1007&contentTextID=CON100114&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -456,11 +461,11 @@ const Managerdesk: React.FC = () => {
                     </button>
                   ) : null}
                   <div className="flex flex-col gap-2.5">
-                    <h3 className="text-white text-2xl">{features.CON1001015}</h3>
+                    <h3 className="text-white text-2xl">{features.CON100115}</h3>
                     {user?.isAdmin ? (
 
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON100106&contentType=T")}
+                        onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON100115&contentType=T")}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -493,12 +498,12 @@ const Managerdesk: React.FC = () => {
             {/* Text Block */}
             <div className="lg:w-1/2">
               <p className="text-dark/75 dark:text-white/75 text-base font-semibold flex gap-2.5">
-                <Icon icon={features.CON1001022} className="text-2xl text-primary" />
-                {features.CON1001017}
+                <Icon icon={features.CON100122} className="text-2xl text-primary" />
+                {features.CON100117}
                 {user?.isAdmin ? (
 
                   <button
-                    onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON1001017&contentType=T")}
+                    onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON100117&contentType=T")}
                     className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                     title="Edit Section"
                   >
@@ -520,11 +525,11 @@ const Managerdesk: React.FC = () => {
                 ) : null}
               </p>
               <h2 className="lg:text-3xl text-2xl mt-2 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
-                {features.CON1001018}
+                {features.CON100118}
                 {user?.isAdmin ? (
 
                   <button
-                    onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON1001018&contentType=T")}
+                    onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON100118&contentType=T")}
                     className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                     title="Edit Section"
                   >
@@ -546,11 +551,11 @@ const Managerdesk: React.FC = () => {
                 ) : null}
               </h2>
               <p className="text-dark/50 dark:text-white/50 text-lg leading-[1.3]">
-                {features.CON1001019}
+                {features.CON100119}
                 {user?.isAdmin ? (
 
                   <button
-                    onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON1001019&contentType=T")}
+                    onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON100119&contentType=T")}
                     className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                     title="Edit Section"
                   >
@@ -577,7 +582,7 @@ const Managerdesk: React.FC = () => {
               <div className="relative rounded-2xl overflow-hidden group">
                 <Link href="#">
                   <Image
-                    src={`https://bexatm.com${features.CON1001020}`}
+                    src={`https://bexatm.com${features.CON100120}`}
                     alt={features.title}
                     width={680}
                     height={386}
@@ -589,9 +594,12 @@ const Managerdesk: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON1001020&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1007&contentTextID=CON100120&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -612,11 +620,11 @@ const Managerdesk: React.FC = () => {
                     </button>
                   ) : null}
                   <div className="flex flex-col gap-2.5">
-                    <h3 className="text-white text-2xl">{features.CON1001021}</h3>
+                    <h3 className="text-white text-2xl">{features.CON100121}</h3>
                     {user?.isAdmin ? (
 
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON1001021&contentType=T")}
+                        onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON100121&contentType=T")}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >

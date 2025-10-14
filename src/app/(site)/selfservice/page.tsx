@@ -266,9 +266,12 @@ const Selfservice: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1006&contentTextID=CON100104&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1006&contentTextID=CON100104&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -423,9 +426,12 @@ const Selfservice: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1006&contentTextID=CON100110&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1006&contentTextID=CON100110&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -580,9 +586,12 @@ const Selfservice: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1006&contentTextID=CON100116&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1006&contentTextID=CON100116&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -737,9 +746,12 @@ const Selfservice: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1006&contentTextID=CON100122&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1006&contentTextID=CON100122&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -894,9 +906,12 @@ const Selfservice: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1006&contentTextID=CON100128&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1006&contentTextID=CON100128&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -1051,9 +1066,12 @@ const Selfservice: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1006&contentTextID=CON100134&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1006&contentTextID=CON100134&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -1208,9 +1226,12 @@ const Selfservice: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1006&contentTextID=CON100140&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1006&contentTextID=CON100140&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >

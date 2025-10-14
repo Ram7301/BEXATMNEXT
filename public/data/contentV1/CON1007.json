@@ -10,26 +10,26 @@
     "CON100109": "mdi:settings",
     "CON100110": "mdi:account",
 
-    "CON1001011": "On-Site Activity",
-    "CON1001012": "Capture Real-Time Events",
-    "CON1001013": "Spot Activity captures real-time events or actions that occur spontaneously. It helps in tracking immediate issues or tasks requiring urgent attention.",
-    "CON1001014": "/images/onsite.png",
-    "CON1001015": "Field",
-    "CON1001016": "mdi:map-marker",
+    "CON100111": "On-Site Activity",
+    "CON100112": "Capture Real-Time Events",
+    "CON100113": "Spot Activity captures real-time events or actions that occur spontaneously. It helps in tracking immediate issues or tasks requiring urgent attention.",
+    "CON100114": "/images/onsite.png",
+    "CON100115": "Field",
+    "CON100116": "mdi:map-marker",
 
-    "CON1001017": "Time Sheet",
-    "CON1001018": "Monitor Daily Work Hours",
-    "CON1001019": "The Time Sheet module allows employees to record daily work hours, assigned tasks, and project contributions, enabling accurate payroll and productivity tracking.",
-    "CON1001020": "/images/TimeSheet.png",
-    "CON1001021": "Productivity",
-    "CON1001022": "mdi:clock-time-eight",
+    "CON100117": "Time Sheet",
+    "CON100118": "Monitor Daily Work Hours",
+    "CON100119": "The Time Sheet module allows employees to record daily work hours, assigned tasks, and project contributions, enabling accurate payroll and productivity tracking.",
+    "CON100120": "/images/TimeSheet.png",
+    "CON100121": "Productivity",
+    "CON100122": "mdi:clock-time-eight",
 
-    "CON1001023": "Manager Desk",
-    "CON1001024": "A Manager Approval Screen is used by managers to review, approve, or reject requests made by their team members. This may include leave applications, on-duty requests, shift changes, timesheet approvals, and other HR-related actions.",
-    "CON1001025": "/images/background.png",
+    "CON100123": "Manager Desk",
+    "CON100124": "A Manager Approval Screen is used by managers to review, approve, or reject requests made by their team members. This may include leave applications, on-duty requests, shift changes, timesheet approvals, and other HR-related actions.",
+    "CON100125": "/images/background.png",
 
-    "CON1001026": "Manager Desk",
-    "CON1001027": "The Manager Desk allows managers to review, approve, or reject requests from their team members, including leave applications, on-duty requests, shift changes, timesheet approvals, and other HR-related actions."
+    "CON100126": "Manager Desk",
+    "CON100127": "The Manager Desk allows managers to review, approve, or reject requests from their team members, including leave applications, on-duty requests, shift changes, timesheet approvals, and other HR-related actions."
 
 
 }

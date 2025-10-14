@@ -259,9 +259,13 @@ const Insights: React.FC = () => {
                   href="#"
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
-                  {user?.isAdmin && (
+                  {user?.isAdmin ? (
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1010&contentTextID=CON100104&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1010&contentTextID=CON100104&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -280,12 +284,17 @@ const Insights: React.FC = () => {
                         />
                       </svg>
                     </button>
-                  )}
+                  ) : null}
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100105}</h3>
                     {user?.isAdmin && (
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1010&contentTextID=CON100105&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push(
+                            "/content/cms?contentID=CON1010&contentTextID=CON100105&contentType=T"
+                          );
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -411,9 +420,13 @@ const Insights: React.FC = () => {
                   href="#"
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
-                  {user?.isAdmin && (
+                  {user?.isAdmin ? (
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1010&contentTextID=CON100110&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1010&contentTextID=CON100110&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -432,12 +445,17 @@ const Insights: React.FC = () => {
                         />
                       </svg>
                     </button>
-                  )}
+                  ) : null}
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100111}</h3>
                     {user?.isAdmin && (
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1010&contentTextID=CON100111&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push(
+                            "/content/cms?contentID=CON1010&contentTextID=CON100111&contentType=T"
+                          );
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -563,9 +581,13 @@ const Insights: React.FC = () => {
                   href="#"
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
-                  {user?.isAdmin && (
+                  {user?.isAdmin ? (
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1010&contentTextID=CON100116&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1010&contentTextID=CON100116&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -584,12 +606,18 @@ const Insights: React.FC = () => {
                         />
                       </svg>
                     </button>
-                  )}
+                  ) : null}
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100117}</h3>
                     {user?.isAdmin && (
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1010&contentTextID=CON100117&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push(
+                            "/content/cms?contentID=CON1010&contentTextID=CON100117&contentType=T"
+                          );
+                        }}
+
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -715,9 +743,13 @@ const Insights: React.FC = () => {
                   href="#"
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
-                  {user?.isAdmin && (
+                  {user?.isAdmin ? (
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1010&contentTextID=CON100122&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1010&contentTextID=CON100122&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -736,12 +768,18 @@ const Insights: React.FC = () => {
                         />
                       </svg>
                     </button>
-                  )}
+                  ) : null}
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100123}</h3>
                     {user?.isAdmin && (
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1010&contentTextID=CON100123&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push(
+                            "/content/cms?contentID=CON1010&contentTextID=CON100123&contentType=T"
+                          );
+                        }}
+
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >

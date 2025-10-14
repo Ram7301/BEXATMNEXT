@@ -266,9 +266,12 @@ const Timemanagement = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100104&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1005&contentTextID=CON100104&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -424,9 +427,12 @@ const Timemanagement = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100111&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1005&contentTextID=CON100111&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -582,9 +588,12 @@ const Timemanagement = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100118&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1005&contentTextID=CON100118&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -740,9 +749,12 @@ const Timemanagement = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100125&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1005&contentTextID=CON100125&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -898,9 +910,12 @@ const Timemanagement = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100132&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1005&contentTextID=CON100132&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -1056,9 +1071,12 @@ const Timemanagement = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100139&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1005&contentTextID=CON100139&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -1214,9 +1232,12 @@ const Timemanagement = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100146&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1005&contentTextID=CON100146&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -1372,9 +1393,12 @@ const Timemanagement = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100153&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1005&contentTextID=CON100153&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -1530,9 +1554,12 @@ const Timemanagement = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100160&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1005&contentTextID=CON100160&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -1688,9 +1715,12 @@ const Timemanagement = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100167&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1005&contentTextID=CON100167&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >

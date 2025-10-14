@@ -264,9 +264,12 @@ const Agile: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100104&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1009&contentTextID=CON100104&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -291,8 +294,12 @@ const Agile: React.FC = () => {
                     {user?.isAdmin ? (
 
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100105&contentType=T")}
-                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push(
+                            "/content/cms?contentID=CON1009&contentTextID=CON100105&contentType=T"
+                          );
+                        }} className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
                         <svg
@@ -421,9 +428,12 @@ const Agile: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100110&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1009&contentTextID=CON100110&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -448,8 +458,12 @@ const Agile: React.FC = () => {
                     {user?.isAdmin ? (
 
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100111&contentType=T")}
-                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push(
+                            "/content/cms?contentID=CON1009&contentTextID=CON100111&contentType=T"
+                          );
+                        }} className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
                         <svg
@@ -578,9 +592,12 @@ const Agile: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100116&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1009&contentTextID=CON100116&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -605,8 +622,12 @@ const Agile: React.FC = () => {
                     {user?.isAdmin ? (
 
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100117&contentType=T")}
-                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push(
+                            "/content/cms?contentID=CON1009&contentTextID=CON100117&contentType=T"
+                          );
+                        }} className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
                         <svg
@@ -735,9 +756,12 @@ const Agile: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100122&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1009&contentTextID=CON100122&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -762,8 +786,12 @@ const Agile: React.FC = () => {
                     {user?.isAdmin ? (
 
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100123&contentType=T")}
-                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push(
+                            "/content/cms?contentID=CON1009&contentTextID=CON100123&contentType=T"
+                          );
+                        }} className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
                         <svg
@@ -892,9 +920,12 @@ const Agile: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100128&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1009&contentTextID=CON100128&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -919,8 +950,12 @@ const Agile: React.FC = () => {
                     {user?.isAdmin ? (
 
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100129&contentType=T")}
-                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push(
+                            "/content/cms?contentID=CON1009&contentTextID=CON100129&contentType=T"
+                          );
+                        }} className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
                         <svg
@@ -1052,9 +1087,13 @@ const Agile: React.FC = () => {
                   href="#"
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
-                  {user?.isAdmin && (
+                  {user?.isAdmin ? (
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100134&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1009&contentTextID=CON100134&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -1073,13 +1112,17 @@ const Agile: React.FC = () => {
                         />
                       </svg>
                     </button>
-                  )}
+                  ) : null}
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100135}</h3>
                     {user?.isAdmin && (
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100135&contentType=T")}
-                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push(
+                            "/content/cms?contentID=CON1009&contentTextID=CON100135&contentType=T"
+                          );
+                        }} className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
                         <svg
@@ -1208,9 +1251,12 @@ const Agile: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100140&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1009&contentTextID=CON100140&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -1235,7 +1281,12 @@ const Agile: React.FC = () => {
                     {user?.isAdmin ? (
 
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100141&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push(
+                            "/content/cms?contentID=CON1009&contentTextID=CON100141&contentType=T"
+                          );
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >

@@ -10,7 +10,7 @@
       "description": "Permission allows employees to request time away from work for personal, medical, or other approved absences. It helps maintain accurate attendance records, provides clear records of approved absences, tracks employee availability, and supports smooth payroll processing.",
       "image": "/images/permission.png",
       "href": "#permission",
-      "badge": "Attendance",
+      "badge": "Time-Off",
       "reverse": true,
       "icon": "mdi:shield-key"
     },
@@ -20,7 +20,7 @@
       "description": "Allows employees to formally submit leave for vacations, medical, personal, casual, or other approved absences. This feature supports accurate attendance tracking and helps maintain up-to-date work hours and leave information.",
       "image": "/images/LeaveEntry.png",
       "href": "#leaveentry",
-      "badge": "Attendance",
+      "badge": "Leave",
       "reverse": false,
       "icon": "mdi:calendar-plus"
     },
@@ -30,7 +30,7 @@
       "description": "The On-Duty screen allows employees to record time spent on official tasks outside the workplace, such as client meetings, field visits, business travel, work from client locations, official events, training sessions, and audits.",
       "image": "/images/OnDuty.png",
       "href": "#onduty",
-      "badge": "Attendance",
+      "badge": "Field Work",
       "reverse": true,
       "icon": "mdi:briefcase"
     },
@@ -40,7 +40,7 @@
       "description": "The Overtime screen allows employees to log hours worked beyond their regular schedule, such as for project deadlines, client support, or emergency tasks. Employees can enter the start and end times for overtime, specify the date, and provide any relevant details.",
       "image": "/images/OverTime.png",
       "href": "#overtime",
-      "badge": "Attendance",
+      "badge": "Extra Hours",
       "reverse": false,
       "icon": "mdi:clock-plus-outline"
     },
@@ -50,7 +50,7 @@
       "description": "Allows employees to correct missed check-ins or check-outs, as well as incorrect logins or logouts. Employees can submit a regularization request specifying the correct time, which is then reviewed and approved by the manager.",
       "image": "/images/Regularization.png",
       "href": "#regularization",
-      "badge": "Attendance",
+      "badge": "Corrections",
       "reverse": true,
       "icon": "mdi:file-document-edit"
     },
@@ -60,7 +60,7 @@
       "description": "Expenses refer to the costs incurred by employees or the organization while carrying out work-related activities. These costs are usually reimbursable or recorded in the company’s financial records and may include travel, meals or entertainment, project-related expenses, training and development, or miscellaneous work expenses.",
       "image": "/images/ExpenseEntry.png",
       "href": "#expenseentry",
-      "badge": "Finance",
+      "badge": "Expenses",
       "reverse": false,
       "icon": "mdi:cash-multiple"
     },
@@ -70,7 +70,7 @@
       "description": "This screen enables employees to request early salary payouts for emergencies, while maintaining a transparent record for payroll.",
       "image": "/images/salaryAdvance.png",
       "href": "#salaryadvance",
-      "badge": "Finance",
+      "badge": "Payroll",
       "reverse": true,
       "icon": "mdi:wallet"
     }

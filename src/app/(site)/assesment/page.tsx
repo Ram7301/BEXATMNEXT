@@ -269,9 +269,12 @@ const Assessment: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1008&contentTextID=CON100104&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1008&contentTextID=CON100104&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -296,8 +299,12 @@ const Assessment: React.FC = () => {
                     {user?.isAdmin ? (
 
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1008&contentTextID=CON100105&contentType=T")}
-                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push(
+                            "/content/cms?contentID=CON1008&contentTextID=CON100101&contentType=T"
+                          );
+                        }} className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
                         <svg
@@ -426,9 +433,12 @@ const Assessment: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1008&contentTextID=CON100110&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1008&contentTextID=CON100110&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -453,8 +463,12 @@ const Assessment: React.FC = () => {
                     {user?.isAdmin ? (
 
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1008&contentTextID=CON100111&contentType=T")}
-                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push(
+                            "/content/cms?contentID=CON1008&contentTextID=CON100111&contentType=T"
+                          );
+                        }} className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
                         <svg
@@ -541,9 +555,12 @@ const Assessment: React.FC = () => {
               <p className="text-dark/50 dark:text-white/50 text-lg leading-[1.3]">
                 {features.CON100115}
                 {user?.isAdmin ? (
-
                   <button
-                    onClick={() => router.push("/content/cms?contentID=CON1008&contentTextID=CON100115&contentType=T")}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      e.preventDefault();
+                      router.push("/content/cms?contentID=CON1008&contentTextID=CON100115&contentType=I");
+                    }}
                     className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                     title="Edit Section"
                   >
@@ -583,9 +600,12 @@ const Assessment: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1008&contentTextID=CON100116&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1008&contentTextID=CON100116&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -610,8 +630,12 @@ const Assessment: React.FC = () => {
                     {user?.isAdmin ? (
 
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1008&contentTextID=CON100117&contentType=T")}
-                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push(
+                            "/content/cms?contentID=CON1008&contentTextID=CON100117&contentType=T"
+                          );
+                        }} className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
                         <svg
@@ -740,9 +764,12 @@ const Assessment: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1008&contentTextID=CON100122&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1008&contentTextID=CON100122&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -897,9 +924,12 @@ const Assessment: React.FC = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1008&contentTextID=CON100128&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1008&contentTextID=CON100128&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -924,8 +954,12 @@ const Assessment: React.FC = () => {
                     {user?.isAdmin ? (
 
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1008&contentTextID=CON100129&contentType=T")}
-                        className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push(
+                            "/content/cms?contentID=CON1008&contentTextID=CON100129&contentType=T"
+                          );
+                        }} className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
                         <svg

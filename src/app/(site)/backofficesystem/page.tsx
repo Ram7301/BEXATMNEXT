@@ -252,7 +252,7 @@ const BackOfficeSystem = () => {
               <div className="relative rounded-2xl overflow-hidden group">
                 <Link href="#">
                   <Image
-                    src={`https://bexatm.com${features.CON100106}`.trim()}
+                    src={`https://bexatm.com${features.CON100106}`}
                     alt={features.title}
                     width={680}
                     height={386}
@@ -412,7 +412,7 @@ const BackOfficeSystem = () => {
               <div className="relative rounded-2xl overflow-hidden group">
                 <Link href="#">
                   <Image
-                    src={`https://bexatm.com${features.CON100112}`.trim()}
+                    src={`https://bexatm.com${features.CON100112}`}
                     alt={features.title}
                     width={680}
                     height={386}
@@ -424,9 +424,12 @@ const BackOfficeSystem = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100112&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1004&contentTextID=CON100112&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -569,7 +572,7 @@ const BackOfficeSystem = () => {
               <div className="relative rounded-2xl overflow-hidden group">
                 <Link href="#">
                   <Image
-                    src={`https://bexatm.com${features.CON100119}`.trim()}
+                    src={`https://bexatm.com${features.CON100119}`}
                     alt={features.title}
                     width={680}
                     height={386}
@@ -581,9 +584,12 @@ const BackOfficeSystem = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100119&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1004&contentTextID=CON100119&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -725,7 +731,7 @@ const BackOfficeSystem = () => {
               <div className="relative rounded-2xl overflow-hidden group">
                 <Link href="#">
                   <Image
-                    src={`https://bexatm.com${features.CON100126}`.trim()}
+                    src={`https://bexatm.com${features.CON100126}`}
                     alt={features.title}
                     width={680}
                     height={386}
@@ -737,9 +743,12 @@ const BackOfficeSystem = () => {
                   className="absolute w-full h-full bg-gradient-to-b from-black/0 to-black/80 top-full flex flex-col justify-between pl-10 pb-10 group-hover:top-0 duration-500"
                 >
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100126&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        router.push("/content/cms?contentID=CON1004&contentTextID=CON100126&contentType=I");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >

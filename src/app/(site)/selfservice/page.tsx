@@ -292,11 +292,13 @@ const Selfservice: React.FC = () => {
                     </button>
                   ) : null}
                   <div className="flex flex-col gap-2.5">
-                    <h3 className="text-white text-2xl">{features.CON100106}</h3>
+                    <h3 className="text-white text-2xl">{features.CON100105}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1006&contentTextID=CON100106&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1006&contentTextID=CON100105&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -316,6 +318,7 @@ const Selfservice: React.FC = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -454,9 +457,11 @@ const Selfservice: React.FC = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100111}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1006&contentTextID=CON100111&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1006&contentTextID=CON100111&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -476,6 +481,7 @@ const Selfservice: React.FC = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -614,9 +620,11 @@ const Selfservice: React.FC = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100117}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1006&contentTextID=CON100117&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1006&contentTextID=CON100117&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -636,6 +644,7 @@ const Selfservice: React.FC = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -774,9 +783,11 @@ const Selfservice: React.FC = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100123}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1006&contentTextID=CON100123&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1006&contentTextID=CON100123&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -796,6 +807,7 @@ const Selfservice: React.FC = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -934,9 +946,11 @@ const Selfservice: React.FC = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100129}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1006&contentTextID=CON100129&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1006&contentTextID=CON100129&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -956,6 +970,7 @@ const Selfservice: React.FC = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -1094,9 +1109,11 @@ const Selfservice: React.FC = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100135}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1006&contentTextID=CON100135&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1006&contentTextID=CON100135&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -1116,6 +1133,7 @@ const Selfservice: React.FC = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -1254,9 +1272,11 @@ const Selfservice: React.FC = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100141}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1006&contentTextID=CON100141&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1006&contentTextID=CON100141&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -1276,6 +1296,7 @@ const Selfservice: React.FC = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>

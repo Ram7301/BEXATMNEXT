@@ -5,7 +5,10 @@ import { Icon } from "@iconify/react";
 import { useRouter } from "next/navigation";
 import Script from "next/script";
 import Head from "next/head";
-
+// export const metadata = {
+//   title: "FAQ & Workflow | BexATM ",
+//   description: "Try BexATM's Bitcoin ATM free for 28 days...",
+// };
 interface FAQItem {
   question: string;
   answer: string;
@@ -122,18 +125,20 @@ const FAQ: React.FC = () => {
       </Head>
 
       {/* ✅ Google Analytics */}
-      <Script
-        strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-DVX38ML9PE"
-      />
-      <Script id="gtag-init" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-DVX38ML9PE');
-        `}
-      </Script>
+    <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-DVX38ML9PE"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-DVX38ML9PE', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
 
       {/* ✅ Facebook Pixel Code */}
       <Script id="facebook-pixel" strategy="afterInteractive">

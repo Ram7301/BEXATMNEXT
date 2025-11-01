@@ -294,9 +294,11 @@ const Timemanagement = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100106}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100106&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1005&contentTextID=CON100108&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -316,6 +318,7 @@ const Timemanagement = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -455,9 +458,11 @@ const Timemanagement = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100113}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100113&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1005&contentTextID=CON100113&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -477,6 +482,7 @@ const Timemanagement = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -616,9 +622,11 @@ const Timemanagement = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100120}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100120&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1005&contentTextID=CON100120&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -638,6 +646,7 @@ const Timemanagement = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -777,9 +786,11 @@ const Timemanagement = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100127}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100127&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1005&contentTextID=CON100127&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -799,6 +810,7 @@ const Timemanagement = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -938,9 +950,11 @@ const Timemanagement = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100134}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100134&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1005&contentTextID=CON100134&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -960,6 +974,7 @@ const Timemanagement = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -1099,9 +1114,11 @@ const Timemanagement = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100141}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100141&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1005&contentTextID=CON100141&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -1121,6 +1138,7 @@ const Timemanagement = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -1260,9 +1278,11 @@ const Timemanagement = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100148}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100148&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1005&contentTextID=CON100148&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -1282,6 +1302,7 @@ const Timemanagement = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -1421,9 +1442,11 @@ const Timemanagement = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100155}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100155&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1005&contentTextID=CON100155&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -1443,6 +1466,7 @@ const Timemanagement = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -1582,9 +1606,11 @@ const Timemanagement = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100162}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100162&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1005&contentTextID=CON100162&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -1604,6 +1630,7 @@ const Timemanagement = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -1743,9 +1770,11 @@ const Timemanagement = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100169}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100169&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1005&contentTextID=CON100169&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -1765,6 +1794,7 @@ const Timemanagement = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>

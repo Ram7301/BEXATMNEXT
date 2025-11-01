@@ -8,21 +8,25 @@ import { useTheme } from 'next-themes'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { useContentManage } from '@/app/context/ContentManageContext'
-import { FaAt } from 'react-icons/fa';
-
+import { FaAt } from 'react-icons/fa'
 
 const Header: React.FC = () => {
   const [sticky, setSticky] = useState(false)
   const [navbarOpen, setNavbarOpen] = useState(false)
+  const [productOpen, setProductOpen] = useState(false) // 👈 dropdown toggle
   const { theme, setTheme } = useTheme()
   const pathname = usePathname()
   const { SignOut } = useContentManage()
 
   const sideMenuRef = useRef<HTMLDivElement>(null)
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
   const handleClickOutside = (event: MouseEvent) => {
     if (sideMenuRef.current && !sideMenuRef.current.contains(event.target as Node)) {
       setNavbarOpen(false)
+    }
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      setProductOpen(false)
     }
   }
 
@@ -55,27 +59,67 @@ const Header: React.FC = () => {
           }`}
       >
         <div className='flex justify-between items-center gap-2 w-full'>
+          {/* ------------------- Logo ------------------- */}
           <div className="flex justify-between items-center">
             <Link href='/'>
               <Image
                 src={'/images/header/bexx1.png'}
                 alt='logo'
-                width={200}  // increased size
-                height={200} // increased size
+                width={200}
+                height={200}
                 unoptimized={true}
                 className={`object-contain ${isHomepage ? sticky ? "block dark:hidden" : "hidden" : sticky ? "block dark:hidden" : "block dark:hidden"}`}
               />
               <Image
                 src={'/images/header/bexx1.png'}
                 alt='logo'
-                width={200}  // increased size
-                height={200} // increased size
+                width={200}
+                height={200}
                 unoptimized={true}
                 className={`object-contain ${isHomepage ? sticky ? "hidden dark:block" : "block" : sticky ? "dark:block hidden" : "dark:block hidden"}`}
               />
             </Link>
           </div>
 
+          {/* ------------------- Center Navigation Links ------------------- */}
+          <div className="hidden md:flex items-center gap-8 text-base font-medium">
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setProductOpen(!productOpen)}
+                className="hover:text-primary transition flex items-center gap-1"
+              >
+                Products
+                <Icon
+                  icon={productOpen ? 'mdi:chevron-up' : 'mdi:chevron-down'}
+                  width={20}
+                  height={20}
+                />
+              </button>
+              {productOpen && (
+                <div className="absolute top-full left-0 bg-white dark:bg-dark shadow-lg rounded-md mt-2">
+                  <ul className="min-w-[150px] py-2">
+                    <li>
+                      <Link href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">POS</Link>
+                    </li>
+                    <li>
+                      <Link href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Invoice</Link>
+                    </li>
+                    <li>
+                      <Link href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Purchase</Link>
+                    </li>
+                    <li>
+                      <Link href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Tasks</Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            <Link href="#" className="hover:text-primary transition">About Us</Link>
+            <Link href="#" className="hover:text-primary transition">Careers</Link>
+          </div>
+
+          {/* ------------------- Right Side Icons ------------------- */}
           <div className='flex items-center gap-2 sm:gap-6'>
             <button
               className='hover:cursor-pointer'
@@ -99,6 +143,7 @@ const Header: React.FC = () => {
                 className='dark:block hidden text-white'
               />
             </button>
+
             <div className={`hidden md:block`}>
               <Link href='#' className={`text-base text-inherit flex items-center gap-2 border-r pr-6 ${isHomepage
                 ? sticky
@@ -111,14 +156,15 @@ const Header: React.FC = () => {
                 +91 944 440 8804
               </Link>
             </div>
+
             <div>
               <button
                 onClick={() => setNavbarOpen(!navbarOpen)}
                 className={`flex items-center gap-2 p-1 sm:px-3 sm:py-2 rounded-full font-medium text-sm hover:cursor-pointer border ${isHomepage
-                    ? sticky
-                      ? 'text-white bg-primary dark:bg-white dark:text-dark dark:hover:text-white dark:hover:bg-dark hover:text-dark hover:bg-white border-dark dark:border-white'
-                      : 'text-dark bg-primary dark:text-dark hover:bg-transparent hover:text-white border-white'
-                    : 'bg-dark text-white hover:bg-transparent hover:text-dark dark:bg-white dark:text-dark dark:hover:bg-transparent dark:hover:text-white duration-300'
+                  ? sticky
+                    ? 'text-white bg-primary dark:bg-white dark:text-dark dark:hover:text-white dark:hover:bg-dark hover:text-dark hover:bg-white border-dark dark:border-white'
+                    : 'text-dark bg-primary dark:text-dark hover:bg-transparent hover:text-white border-white'
+                  : 'bg-dark text-white hover:bg-transparent hover:text-dark dark:bg-white dark:text-dark dark:hover:bg-transparent dark:hover:text-white duration-300'
                   }`}
                 aria-label="Toggle mobile menu"
               >
@@ -127,18 +173,17 @@ const Header: React.FC = () => {
                 </span>
                 <span className="hidden sm:block">Menu</span>
               </button>
-
             </div>
           </div>
         </div>
       </nav>
 
-      {
-        navbarOpen && (
-          <div className='fixed top-0 left-0 w-full h-full bg-black/50 z-40' />
-        )
-      }
+      {/* ------------------- Overlay ------------------- */}
+      {navbarOpen && (
+        <div className='fixed top-0 left-0 w-full h-full bg-black/50 z-40' />
+      )}
 
+      {/* ------------------- Side Menu ------------------- */}
       <div
         ref={sideMenuRef}
         className={`fixed top-0 right-0 h-full w-[90%] sm:w-50 md:w-56 bg-dark shadow-lg transition-transform duration-300 ${navbarOpen ? 'translate-x-0' : 'translate-x-full'
@@ -194,19 +239,18 @@ const Header: React.FC = () => {
                 </li>
               </ul>
             </nav>
-
           </div>
 
           <div className='flex flex-col gap-1 my-3 text-white'>
             <p className='text-sm sm:text-1*2 font-normal text-white/40'>
               Contact
             </p>
-  <Link
-  href="/email"
-  className="text-sm font-medium text-white hover:text-primary transition-colors"
->
-  contact<FaAt className="inline align-middle mx-0 px-0" />bexatm.com
-</Link>
+            <Link
+              href="/email"
+              className="text-sm font-medium text-white hover:text-primary transition-colors"
+            >
+              contact<FaAt className="inline align-middle mx-0 px-0" />bexatm.com
+            </Link>
 
             <Link href="#" className='text-sm sm:text-1*2 font-medium text-inherit hover:text-primary'>
               +91 944 440 8804{' '}

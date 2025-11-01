@@ -444,9 +444,11 @@ const EmployeeSelfService = () => {
                 <div className="flex flex-col gap-2.5">
                   <h3 className="text-white text-2xl">{features.CON100106}</h3>
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100106&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        router.push("/content/cms?contentID=CON1002&contentTextID=CON100106&contentType=T");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -466,6 +468,7 @@ const EmployeeSelfService = () => {
                       </svg>
                     </button>
                   ) : null}
+
                 </div>
               </Link>
             </div>
@@ -605,30 +608,30 @@ const EmployeeSelfService = () => {
                 <div className="flex flex-col gap-2.5">
                   <h3 className="text-white text-2xl">{features.CON100120}</h3>
                   {user?.isAdmin ? (
-  <button
-    onClick={(e) => {
-      e.stopPropagation();
-      router.push("/content/cms?contentID=CON1002&contentTextID=CON100120&contentType=T");
-    }}
-    className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
-    title="Edit Section"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
-      />
-    </svg>
-  </button>
-) : null}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        router.push("/content/cms?contentID=CON1002&contentTextID=CON100120&contentType=T");
+                      }}
+                      className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                      title="Edit Section"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-5 h-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                        />
+                      </svg>
+                    </button>
+                  ) : null}
 
                 </div>
               </Link>
@@ -1189,9 +1192,11 @@ const EmployeeSelfService = () => {
                 <div className="flex flex-col gap-2.5">
                   <h3 className="text-white text-2xl">{features.CON100126}</h3>
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100126&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        router.push("/content/cms?contentID=CON1002&contentTextID=CON100126&contentType=T");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -1211,6 +1216,7 @@ const EmployeeSelfService = () => {
                       </svg>
                     </button>
                   ) : null}
+
                 </div>
               </Link>
             </div>
@@ -1352,9 +1358,11 @@ const EmployeeSelfService = () => {
                 <div className="flex flex-col gap-2.5">
                   <h3 className="text-white text-2xl">{features.CON100148}</h3>
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100148&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        router.push("/content/cms?contentID=CON1002&contentTextID=CON100148&contentType=T");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -1374,6 +1382,7 @@ const EmployeeSelfService = () => {
                       </svg>
                     </button>
                   ) : null}
+
                 </div>
               </Link>
             </div>
@@ -1513,9 +1522,11 @@ const EmployeeSelfService = () => {
                 <div className="flex flex-col gap-2.5">
                   <h3 className="text-white text-2xl">{features.CON100155}</h3>
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100155&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        router.push("/content/cms?contentID=CON1002&contentTextID=CON100155&contentType=T");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -1535,6 +1546,7 @@ const EmployeeSelfService = () => {
                       </svg>
                     </button>
                   ) : null}
+
                 </div>
               </Link>
             </div>
@@ -1890,9 +1902,11 @@ const EmployeeSelfService = () => {
                 <div className="flex flex-col gap-2.5">
                   <h3 className="text-white text-2xl">{features.CON100161}</h3>
                   {user?.isAdmin ? (
-
                     <button
-                      onClick={() => router.push("/content/cms?contentID=CON1002&contentTextID=CON100161&contentType=T")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        router.push("/content/cms?contentID=CON1002&contentTextID=CON100161&contentType=T");
+                      }}
                       className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                       title="Edit Section"
                     >
@@ -1912,6 +1926,7 @@ const EmployeeSelfService = () => {
                       </svg>
                     </button>
                   ) : null}
+
                 </div>
               </Link>
             </div>

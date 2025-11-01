@@ -3,12 +3,12 @@
     "CON100102": "Review and Manage Requests",
     "CON100103": "The Approval screen allows managers to review, approve, or reject various employee requests, including leave, overtime, expenses, and task completions.",
     "CON100104": "/images/Approval.png",
-    "CON100105": "Operational",
-    "CON100106": "mdi:briefcase-check",
-    "CON100107": "mdi:check-decagram",
-    "CON100108": "mdi:home",
-    "CON100109": "mdi:settings",
-    "CON100110": "mdi:account",
+    "CON100105": "Essential",
+    "CON100106": "mdi:account-card-details-outline",
+    "CON100107": "mdi:account-multiple-outline",
+    "CON100108": "mdi:briefcase-outline",
+    "CON100109": "mdi:clock-time-outline",
+    "CON100110": "mdi:information-outline",
 
     "CON100111": "On-Site Activity",
     "CON100112": "Capture Real-Time Events",
@@ -29,7 +29,13 @@
     "CON100125": "/images/background.png",
 
     "CON100126": "Manager Desk",
-    "CON100127": "The Manager Desk allows managers to review, approve, or reject requests from their team members, including leave applications, on-duty requests, shift changes, timesheet approvals, and other HR-related actions."
+    "CON100127": "The Manager Desk allows managers to review, approve, or reject requests from their team members, including leave applications, on-duty requests, shift changes, timesheet approvals, and other HR-related actions.",
+
+    "CON100128": "mdi:currency-inr",
+    "CON100129": "mdi:file-document-outline",
+    "CON100130": "mdi:account-group-outline"
+
+
 
 
 }

@@ -12,4 +12,5 @@ export const navLinks: NavLinks[] = [
   { label: 'Why ATM?', href: '/whyatm' },
   { label: 'FAQ & Workflow', href: 'faq' },
   { label: 'Contact Us', href: '/contactus' },
+
 ]

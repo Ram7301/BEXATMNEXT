@@ -8,7 +8,10 @@ import { useRouter } from "next/navigation";
 import { useContentManage } from "@/app/context/ContentManageContext";
 import Head from "next/head";
 import Script from "next/script";
-
+// export const metadata = {
+//   title: "Manager Desk | BexATM",
+//   description: "Try BexATM's Bitcoin ATM free for 28 days...",
+// };
 const Managerdesk: React.FC = () => {
   const router = useRouter();
   const [features, setFeatures] = useState<any>({});
@@ -61,18 +64,33 @@ const Managerdesk: React.FC = () => {
       </Head>
 
       {/* ✅ Google Analytics */}
-      <Script
+      {/* <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-DVX38ML9PE"
-      />
-      <Script id="gtag-init" strategy="afterInteractive">
+      /> */}
+       {/* ✅ Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-DVX38ML9PE"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-DVX38ML9PE', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+      {/* <Script id="gtag-init" strategy="afterInteractive">
         {`
                           window.dataLayer = window.dataLayer || [];
                           function gtag(){dataLayer.push(arguments);}
                           gtag('js', new Date());
                           gtag('config', 'G-DVX38ML9PE');
                         `}
-      </Script>
+      </Script> */}
       {/* ✅ Facebook Pixel Code */}
       <Script id="facebook-pixel" strategy="afterInteractive">
         {`
@@ -250,12 +268,41 @@ const Managerdesk: React.FC = () => {
               </p>
 
               {/* Icons Section */}
-              <div className="flex gap-2.5 mt-4">
-                {features.CON100106 && <Icon icon={features.CON100106} className="text-2xl text-primary" />}
-                {features.CON100107 && <Icon icon={features.CON100107} className="text-2xl text-primary" />}
-                {features.CON100108 && <Icon icon={features.CON100108} className="text-2xl text-primary" />}
-                {features.CON100109 && <Icon icon={features.CON100109} className="text-2xl text-primary" />}
+              <div className="flex gap-4 mt-4">
+                <div className="flex flex-col items-center">
+                  {features.CON100106 && <Icon icon={features.CON100106} className="text-2xl text-primary" />}
+                  <span className="text-xs mt-1">Profile</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  {features.CON100107 && <Icon icon={features.CON100107} className="text-2xl text-primary" />}
+                  <span className="text-xs mt-1">Permission</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  {features.CON100108 && <Icon icon={features.CON100108} className="text-2xl text-primary" />}
+                  <span className="text-xs mt-1">On Duty</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  {features.CON100109 && <Icon icon={features.CON100109} className="text-2xl text-primary" />}
+                  <span className="text-xs mt-1">Overtime</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  {features.CON100110 && <Icon icon={features.CON100110} className="text-2xl text-primary" />}
+                  <span className="text-xs mt-1">Regularization</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  {features.CON100128 && <Icon icon={features.CON100128} className="text-2xl text-primary" />}
+                  <span className="text-xs mt-1">Expense</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  {features.CON100129 && <Icon icon={features.CON100129} className="text-2xl text-primary" />}
+                  <span className="text-xs mt-1">Salary Advance</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  {features.CON100130 && <Icon icon={features.CON100130} className="text-2xl text-primary" />}
+                  <span className="text-xs mt-1">Employee</span>
+                </div>
               </div>
+
             </div>
 
             {/* Image Block */}
@@ -301,12 +348,13 @@ const Managerdesk: React.FC = () => {
                     </button>
                   ) : null}
                   <div className="flex flex-col gap-2.5">
-                    <h3 className="text-white text-2xl">{features.CON100115}</h3>
-                    {user?.isAdmin && (
+                    <h3 className="text-white text-2xl">{features.CON100105}</h3>
+                    {user?.isAdmin ? (
                       <button
-                        onClick={() =>
-                          router.push("/content/cms?contentID=CON1007&contentTextID=CON100115&contentType=T")
-                        }
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1007&contentTextID=CON100105&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -325,12 +373,14 @@ const Managerdesk: React.FC = () => {
                           />
                         </svg>
                       </button>
-                    )}
+                    ) : null}
+
                   </div>
                 </Link>
               </div>
             </div>
           </div>
+
 
           <div
             className={`flex flex-col ${true ? "lg:flex-row-reverse" : "lg:flex-row"
@@ -340,7 +390,7 @@ const Managerdesk: React.FC = () => {
             <div className="lg:w-1/2">
               <p className="text-dark/75 dark:text-white/75 text-base font-semibold flex gap-2.5">
                 <Icon icon={features.CON100116} className="text-2xl text-primary" />
-                {features.CON1001011}
+                {features.CON100111}
                 {user?.isAdmin ? (
 
                   <button
@@ -366,7 +416,7 @@ const Managerdesk: React.FC = () => {
                 ) : null}
               </p>
               <h2 className="lg:text-3xl text-2xl mt-2 mb-2 font-medium leading-[1.2] text-dark dark:text-white">
-                {features.CON1001012}
+                {features.CON100112}
                 {user?.isAdmin ? (
 
                   <button
@@ -392,7 +442,7 @@ const Managerdesk: React.FC = () => {
                 ) : null}
               </h2>
               <p className="text-dark/50 dark:text-white/50 text-lg leading-[1.3]">
-                {features.CON1001013}
+                {features.CON100113}
                 {user?.isAdmin ? (
 
                   <button
@@ -463,9 +513,11 @@ const Managerdesk: React.FC = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100115}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON100115&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1007&contentTextID=CON100115&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -485,6 +537,7 @@ const Managerdesk: React.FC = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -622,9 +675,11 @@ const Managerdesk: React.FC = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100121}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1007&contentTextID=CON100121&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1007&contentTextID=CON100121&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -644,6 +699,7 @@ const Managerdesk: React.FC = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>

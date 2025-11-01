@@ -104,6 +104,8 @@ const BackOfficeSystem = () => {
           <div className="bg-black/70 rounded-2xl px-6 py-6 relative">
             <h2 className="text-4xl lg:text-5xl font-medium text-white tracking-tight leading-tight">
               {features.CON100130}
+
+              
               {user?.isAdmin ? (
 
                 <button
@@ -293,9 +295,11 @@ const BackOfficeSystem = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100108}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100108&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1004&contentTextID=CON100108&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -315,6 +319,7 @@ const BackOfficeSystem = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -452,9 +457,11 @@ const BackOfficeSystem = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100114}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100114&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1004&contentTextID=CON100114&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -474,6 +481,7 @@ const BackOfficeSystem = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -612,9 +620,11 @@ const BackOfficeSystem = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100121}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100121&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1004&contentTextID=CON100121&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -634,6 +644,7 @@ const BackOfficeSystem = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>
@@ -771,9 +782,11 @@ const BackOfficeSystem = () => {
                   <div className="flex flex-col gap-2.5">
                     <h3 className="text-white text-2xl">{features.CON100128}</h3>
                     {user?.isAdmin ? (
-
                       <button
-                        onClick={() => router.push("/content/cms?contentID=CON1004&contentTextID=CON100128&contentType=T")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push("/content/cms?contentID=CON1004&contentTextID=CON100128&contentType=T");
+                        }}
                         className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                         title="Edit Section"
                       >
@@ -793,6 +806,7 @@ const BackOfficeSystem = () => {
                         </svg>
                       </button>
                     ) : null}
+
                   </div>
                 </Link>
               </div>

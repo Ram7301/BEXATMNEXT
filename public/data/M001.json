@@ -17,10 +17,14 @@
     "badge": "Essential",
     "reverse": true,
     "icon": [
-      "mdi:check-decagram",
-      "mdi:home",
-      "mdi:settings",
-      "mdi:account"
+      "mdi:lock-open-outline",
+      "mdi:calendar-account",
+      "mdi:briefcase-check-outline",
+      "mdi:clock-plus-outline",
+      "mdi:calendar-check-outline",
+      "mdi:cash-multiple",
+      "mdi:cash-fast",
+      "mdi:account-group-outline"
     ]
   },
   {

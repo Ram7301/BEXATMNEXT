@@ -121,3 +121,10 @@ section {
 .blog-details p {
   @apply text-dark dark:text-white text-xm leading-[1.2]
 }
+
+@layer base {
+  .font-manrope {
+    font-family: 'Manrope', sans-serif;
+  }
+}
+

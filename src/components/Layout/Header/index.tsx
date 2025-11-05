@@ -82,7 +82,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* ------------------- Center Navigation Links ------------------- */}
-          <div className="hidden md:flex items-center gap-8 text-base font-medium">
+          {/* <div className="hidden md:flex items-center gap-8 text-base font-medium">
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setProductOpen(!productOpen)}
@@ -117,11 +117,11 @@ const Header: React.FC = () => {
 
             <Link href="#" className="hover:text-primary transition">About Us</Link>
             <Link href="#" className="hover:text-primary transition">Careers</Link>
-          </div>
+          </div> */}
 
           {/* ------------------- Right Side Icons ------------------- */}
           <div className='flex items-center gap-2 sm:gap-6'>
-            <button
+            {/* <button
               className='hover:cursor-pointer'
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             >
@@ -142,7 +142,7 @@ const Header: React.FC = () => {
                 height={32}
                 className='dark:block hidden text-white'
               />
-            </button>
+            </button> */}
 
             <div className={`hidden md:block`}>
               <Link href='#' className={`text-base text-inherit flex items-center gap-2 border-r pr-6 ${isHomepage
@@ -171,7 +171,7 @@ const Header: React.FC = () => {
                 <span>
                   <Icon icon={'ph:list'} width={16} height={16} />
                 </span>
-                <span className="hidden sm:block">Menu</span>
+                <span className="hidden sm:block">Key Features</span>
               </button>
             </div>
           </div>

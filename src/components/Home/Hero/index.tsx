@@ -56,6 +56,7 @@ const Hero: React.FC = () => {
           </svg>
         </button>
       ) : null}
+      
 
       {/* Main Hero Content */}
       <div className="bg-gradient-to-b from-skyblue via-lightskyblue dark:via-[#4298b0] to-white/10 dark:to-black/10 overflow-hidden relative">
@@ -63,8 +64,7 @@ const Hero: React.FC = () => {
          <div className="relative flex flex-col items-center justify-center text-center text-white dark:text-dark z-10 min-h-[20vh] px-5">
   {/* Paragraph 1 */}
   <div className="relative max-w-2xl">
-<p className="text-3xl sm:text-5xl md:text-4xl font-semibold leading-snug mb-4 mt-12 text-black/90">
-      {pages?.CON100101}
+<p className="font-manrope text-7xl md:text-7xl md:text-5xl lg:text-5xl lg:text-4xl font-semibold leading-tight text-black text-center">  {pages?.CON100101}
     </p>
     {user?.isAdmin && (
       <button
@@ -96,8 +96,9 @@ const Hero: React.FC = () => {
 
   {/* Paragraph 2 */}
   <div className="relative max-w-2xl">
-<p className="text-base sm:text-lg md:text-xl text-gray-300 mb-10 leading-relaxed" style={{ color: '#080808ff' }}>
-      {pages?.CON100121}
+<p
+  className="text-lg sm:text-xl md:text-2xl text-[#0b0b0b]/80 mb-10 leading-relaxed font-manrope text-center"
+>     {pages?.CON100121}
     </p>
     {user?.isAdmin && (
       <button

@@ -7,7 +7,7 @@ import Footer from '@/components/Layout/Footer'
 import { ThemeProvider } from 'next-themes'
 import NextTopLoader from 'nextjs-toploader';
 import SessionProviderComp from '@/components/nextauth/SessionProvider'
-import {ContentManageProvider} from '@/app/context/ContentManageContext'
+import { ContentManageProvider } from '@/app/context/ContentManageContext'
 import { usePathname } from 'next/navigation'
 import { Suspense } from 'react'
 import Script from 'next/script'
@@ -31,6 +31,15 @@ export default function RootLayout({
 
   const hideHeaderFooter = pathname.startsWith("/content");
   const SininPage = pathname.startsWith("/signin");
+  
+  // ✅ Add both pages here to hide Header/Footer
+  const projectManagementPage =
+  pathname === "/projectmanagementstartups" ||
+  pathname === "/projectmanagement" ||
+  pathname === "/projectmanagementcommunities";
+
+
+
   return (
     <html lang='en'>
       <head>
@@ -49,20 +58,25 @@ export default function RootLayout({
       </head>
       <body className={`${font.className} bg-white dark:bg-black antialiased`}>
         <NextTopLoader color="#07be8a" />
-         <ContentManageProvider>
-        <SessionProviderComp session={session}>
-          <Suspense>
-          <ThemeProvider
-            attribute='class'
-            enableSystem={true}
-            defaultTheme='light'>
-              {!hideHeaderFooter && !SininPage ? <Header />:false}
-              {children}
-             {!hideHeaderFooter && !SininPage ? <Footer />: false}
-          </ThemeProvider>
-          </Suspense>
-        </SessionProviderComp>
-         </ContentManageProvider>
+        <ContentManageProvider>
+          <SessionProviderComp session={session}>
+            <Suspense>
+              <ThemeProvider
+                attribute='class'
+                enableSystem={true}
+                defaultTheme='light'
+              >
+                {/* ✅ Hide Header on selected pages */}
+                {!hideHeaderFooter && !SininPage && !projectManagementPage ? <Header /> : false}
+
+                {children}
+
+                {/* ✅ Hide Footer on selected pages */}
+                {!hideHeaderFooter && !SininPage && !projectManagementPage ? <Footer /> : false}
+              </ThemeProvider>
+            </Suspense>
+          </SessionProviderComp>
+        </ContentManageProvider>
       </body>
     </html>
   )

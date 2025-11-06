@@ -3,20 +3,121 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useRef } from "react";
+
 
 
 export default function ProjectManagementPage() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const [openIndex, setOpenIndex] = useState<number | null>(null);
+  // Scroll reference for form section
+  const formRef = useRef<HTMLDivElement | null>(null);
 
+  // Form state
+  const [formData, setFormData] = useState({
+    name: "",
+    jobTitle: "",
+    company: "",
+    email: "",
+    phone: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  // Handle input change
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // Handle form submit
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const { name, jobTitle, company, email, phone } = formData;
+
+    // ✅ Basic validation
+    if (!name || !email || !phone) {
+      setMessage("❌ Please fill all required fields.");
+      return;
+    }
+    if (!/^[0-9]{10}$/.test(phone)) {
+      setMessage("❌ Enter a valid 10-digit mobile number.");
+      return;
+    }
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      setMessage("❌ Invalid email address.");
+      return;
+    }
+
+    setLoading(true);
+    setMessage("");
+
+
+    try {
+      const response = await fetch(
+        "https://bexatm.com/api/TrailMailRequestInsertController.php",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJzdWIiOiJCZXhAMTIzIiwibmFtZSI6IkJleCIsImFkbWluIjp0cnVlLCJleHAiOjE2Njk5ODQzNDl9.uxE3r3X4lqV_WKrRKRPXd-Jub9BnVcCXqCtLL4I0fpU",
+          },
+          body: JSON.stringify({
+            RecordID: "",
+            MailID: email,
+            Name: name,
+            MobileNumber: phone,
+            TrailType: "R",
+            Description: `${jobTitle ? `Job Title: ${jobTitle}, ` : ""}${
+              company ? `Company: ${company}` : ""
+            }`,
+          }),
+        }
+      );
+
+      const result = await response.json();
+
+      if (result.Status === "Y") {
+        setMessage("✅ Demo request sent successfully!");
+        setFormData({
+          name: "",
+          jobTitle: "",
+          company: "",
+          email: "",
+          phone: "",
+        });
+      } else {
+        setMessage(`❌ Failed: ${result.Msg || "Unknown error"}`);
+      }
+    } catch (error) {
+      console.error("Request error:", error);
+      setMessage("⚠️ Something went wrong. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Scroll smoothly to form section
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <main className="min-h-screen bg-white text-black-800">
       {/* Hero Section */}
-      <section className="relative flex flex-col md:flex-row items-center justify-between py-20 px-6 md:px-20 bg-[#2b2b2b] text-white overflow-hidden">
+      <section
+        className="relative flex flex-col md:flex-row items-center justify-between py-20 px-6 -mb-17 md:px-20 text-white overflow-hidden bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/images/Construction.png')",
+        }}
+      >
+        {/* 🔹 Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent"></div>
+
         {/* 🔹 Top-left Logo */}
         <div className="absolute top-0 left-8 z-20 flex items-center space-x-2">
           <Image
-            src="/images/header/bexx1.png" // 👈 update this path if needed
+            src="/images/header/bexx1.png"
             alt="BexATM Logo"
             width={248}
             height={248}
@@ -26,50 +127,40 @@ export default function ProjectManagementPage() {
         </div>
 
         {/* 🔹 Left Content */}
-        <div className="text-center md:text-left max-w-xl md:max-w-lg mt-16 md:mt-0 md:ml-4">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 mt-7 leading-tight">
+        <div className="text-center md:text-left max-w-xl md:max-w-lg mt-16 md:mt-0 md:ml-4 relative z-10">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 mt-7 leading-tight text-white">
             AI-Powered Project Management <br /> for Construction Teams
           </h1>
 
-          <p className="text-base sm:text-lg text-gray-300 mb-2 leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-100 font-medium mb-4 leading-relaxed">
             Plan smarter, execute faster, and deliver projects on time — every time.
             <br />
-            <span className="text-gray-400">
+            <span className="text-gray-200 font-normal">
               BexATM helps construction companies streamline site progress, track
               resources, and eliminate delays with AI-driven insights.
             </span>
           </p>
 
           <div className="flex flex-wrap justify-center md:justify-start gap-4">
-            <Button className="bg-[#F6B200] text-black font-semibold hover:bg-yellow-400 px-6 py-3 rounded-md transition-all duration-300">
+           <Button
+              onClick={scrollToForm}
+              className="bg-[#F6B200] text-black font-semibold hover:bg-yellow-400 px-8 py-3 rounded-md transition-all duration-300"
+            >
               Book a Demo
             </Button>
+
             <Button
               variant="outline"
-              className="border border-[#F6B200] text-[#F6B200] hover:bg-[#F6B200] hover:text-black px-6 py-3 rounded-md transition-all duration-300"
+              className="border border-[#F6B200] text-[#F6B200] font-semibold hover:bg-[#F6B200] hover:text-black px-6 py-3 rounded-md transition-all duration-300"
             >
               How it Works
             </Button>
           </div>
         </div>
-
-        {/* 🔹 Right Image */}
-        <div className="mt-12 md:mt-0 md:-ml-12 flex justify-center md:justify-end">
-          <Image
-            src="/images/TransBG.png" // 👈 replace with your final image
-            alt="Laptop Banner Mockup"
-            width={750}
-            height={400}
-            className="object-contain drop-shadow-2xl transition-all duration-500"
-            priority
-          />
-        </div>
       </section>
 
-
-
       {/* Pain Points Section */}
-      <section className="flex flex-col md:flex-row items-center justify-between py-20 px-6 md:px-20 bg-white">
+      <section className="flex flex-col md:flex-row items-center justify-between py-20 -mb-17 px-6 md:px-20 bg-white">
         {/* Left Content */}
         <div className="md:w-1/2 space-y-6">
           <h2 className="text-4xl md:text-5xl font-bold text-black leading-tight">
@@ -127,9 +218,8 @@ export default function ProjectManagementPage() {
         </div>
       </section>
 
-
       {/* Before BexATM */}
-      <section className="py-20 px-6 md:px-20 bg-white flex flex-col lg:flex-row items-center justify-between">
+      <section className="py-20 px-6 -mb-17 md:px-20 bg-white flex flex-col lg:flex-row items-center justify-between">
         {/* Left Content */}
         <div className="lg:w-1/2 text-left space-y-6">
           <h1 className="text-3xl md:text-4xl font-bold text-black-900 leading-tight">
@@ -253,7 +343,7 @@ export default function ProjectManagementPage() {
 
       {/* With BexATM */}
       <section
-        className="relative py-20 px-6 md:px-20 text-center bg-no-repeat bg-cover bg-center"
+        className="relative py-20 px-6 -mb-17 md:px-20 text-center bg-no-repeat bg-cover bg-center"
         style={{ backgroundImage: "url('/images/Benefits.png')" }}
       >
         {/* White overlay for clarity */}
@@ -322,11 +412,9 @@ export default function ProjectManagementPage() {
         </div>
       </section>
 
-
-
       {/* Built for Every Type of Project */}
       <section
-        className="relative py-20 px-6 md:px-20 text-white bg-cover bg-center overflow-hidden"
+        className="relative py-20 px-6 -mb-17 md:px-20 text-white bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: "url('/images/Industry2.png')" }} // background image
       >
         {/* Dark overlay */}
@@ -416,11 +504,8 @@ export default function ProjectManagementPage() {
         </div>
       </section>
 
-
-
-
       {/* AI Co-Manager */}
-      <section className="py-20 px-6 md:px-20 bg-black-50 text-center">
+      <section className="py-20 px-6 -mb-17 md:px-20 bg-black-50 text-center">
         <h2 className="text-3xl font-bold mb-12">Client Reviews</h2>
 
         <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
@@ -485,7 +570,7 @@ export default function ProjectManagementPage() {
 
       {/* FAQ + Book a Demo Section */}
       <section
-        className="relative py-20 px-6 md:px-20 bg-cover bg-center"
+        className="relative py-20 px-6 -mb-17 md:px-20 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/Form2.png')" }}
       >
         {/* White Overlay */}
@@ -497,7 +582,6 @@ export default function ProjectManagementPage() {
             <h2 className="text-2xl md:text-3xl font-bold mb-8 text-black-800">
               Frequently Asked Questions
             </h2>
-
             <div className="space-y-3">
               {[
                 "How is BexATM different from other project management tools?",
@@ -531,80 +615,104 @@ export default function ProjectManagementPage() {
             </div>
           </div>
 
-          {/* Right: Book a Demo Form */}
-          <div className="bg-white shadow-lg rounded-md p-8 w-full">
-            <h2 className="text-xl md:text-2xl font-bold text-black-800">
-              Ready to Build Smarter with BexATM?
-            </h2>
-            <p className="text-black-600 mb-6 text-sm">
-              Book Your Free Demo Now
-            </p>
+          {/* ✅ Right: Book a Demo Form (now functional) */}
+          <div ref={formRef} className="bg-white shadow-lg rounded-md p-8 w-full">
+  <h2 className="text-xl md:text-2xl font-bold text-black-800">
+    Ready to Build Smarter with BexATM?
+  </h2>
+  <p className="text-black-600 mb-6 text-sm">Book Your Free Demo Now</p>
 
-            <form className="space-y-4">
-              <div>
-                <label className="block text-sm font-semibold mb-1">
-                  Name<span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  className="w-full border border-[#F6B200] rounded-md p-2 text-sm focus:ring-2 focus:ring-[#F6B200] focus:outline-none"
-                />
-              </div>
+  <form className="space-y-4" onSubmit={handleSubmit}>
+    <div>
+      <label className="block text-sm font-semibold mb-1">
+        Name<span className="text-red-500">*</span>
+      </label>
+      <input
+        type="text"
+        name="name"
+        value={formData.name}
+        onChange={handleChange}
+        required
+        className="w-full border border-[#F6B200] rounded-md p-2 text-sm focus:ring-2 focus:ring-[#F6B200] focus:outline-none"
+      />
+    </div>
 
-              <div>
-                <label className="block text-sm font-semibold mb-1">
-                  Job title<span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  className="w-full border border-[#F6B200] rounded-md p-2 text-sm focus:ring-2 focus:ring-[#F6B200] focus:outline-none"
-                />
-              </div>
+    <div>
+      <label className="block text-sm font-semibold mb-1">
+        Job title<span className="text-red-500">*</span>
+      </label>
+      <input
+        type="text"
+        name="jobTitle"
+        value={formData.jobTitle}
+        onChange={handleChange}
+        required
+        className="w-full border border-[#F6B200] rounded-md p-2 text-sm focus:ring-2 focus:ring-[#F6B200] focus:outline-none"
+      />
+    </div>
 
-              <div>
-                <label className="block text-sm font-semibold mb-1">
-                  Company Name<span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  className="w-full border border-[#F6B200] rounded-md p-2 text-sm focus:ring-2 focus:ring-[#F6B200] focus:outline-none"
-                />
-              </div>
+    <div>
+      <label className="block text-sm font-semibold mb-1">
+        Company Name<span className="text-red-500">*</span>
+      </label>
+      <input
+        type="text"
+        name="company"
+        value={formData.company}
+        onChange={handleChange}
+        required
+        className="w-full border border-[#F6B200] rounded-md p-2 text-sm focus:ring-2 focus:ring-[#F6B200] focus:outline-none"
+      />
+    </div>
 
-              <div>
-                <label className="block text-sm font-semibold mb-1">
-                  Work Email<span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  className="w-full border border-[#F6B200] rounded-md p-2 text-sm focus:ring-2 focus:ring-[#F6B200] focus:outline-none"
-                />
-              </div>
+    <div>
+      <label className="block text-sm font-semibold mb-1">
+        Work Email<span className="text-red-500">*</span>
+      </label>
+      <input
+        type="email"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        required
+        className="w-full border border-[#F6B200] rounded-md p-2 text-sm focus:ring-2 focus:ring-[#F6B200] focus:outline-none"
+      />
+    </div>
 
-              <div>
-                <label className="block text-sm font-semibold mb-1">
-                  Phone Number<span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="tel"
-                  placeholder="With country code"
-                  className="w-full border border-[#F6B200] rounded-md p-2 text-sm focus:ring-2 focus:ring-[#F6B200] focus:outline-none"
-                />
-              </div>
+    <div>
+      <label className="block text-sm font-semibold mb-1">
+        Phone Number<span className="text-red-500">*</span>
+      </label>
+      <input
+        type="tel"
+        name="phone"
+        value={formData.phone}
+        onChange={handleChange}
+        required
+        placeholder="With country code"
+        className="w-full border border-[#F6B200] rounded-md p-2 text-sm focus:ring-2 focus:ring-[#F6B200] focus:outline-none"
+      />
+    </div>
 
-              <button
-                type="submit"
-                className="w-full bg-[#F6B200] hover:bg-yellow-400 text-black font-semibold py-2 rounded-md mt-4 transition-all duration-300"
-              >
-                Book a Demo
-              </button>
-            </form>
-          </div>
+    <button
+      type="submit"
+      disabled={loading}
+      className="w-full bg-[#F6B200] hover:bg-yellow-400 text-black font-semibold py-2 rounded-md mt-4 transition-all duration-300"
+    >
+      {loading ? "Sending..." : "Book a Demo"}
+    </button>
+
+    {message && (
+      <p className="text-center text-sm mt-3 text-gray-700">{message}</p>
+    )}
+  </form>
+</div>
+
         </div>
       </section>
-
-
-
     </main>
   );
 }
+
+
+

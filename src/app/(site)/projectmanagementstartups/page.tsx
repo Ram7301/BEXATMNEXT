@@ -3,27 +3,105 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function ProjectManagementForStartups() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const formRef = useRef<HTMLDivElement | null>(null);
+
+  // 🔹 Form state
+  const [formData, setFormData] = useState({
+    name: "",
+    jobTitle: "",
+    company: "",
+    email: "",
+    phone: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  // 🔹 Scroll function
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // 🔹 Handle input change
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // 🔹 Submit handler
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const { name, jobTitle, company, email, phone } = formData;
+
+    if (!name || !email || !phone || !jobTitle || !company) {
+      setMessage("❌ Please fill all required fields.");
+      return;
+    }
+
+    if (!/^[0-9]{10,15}$/.test(phone)) {
+      setMessage("❌ Please enter a valid phone number (with or without country code).");
+      return;
+    }
+
+    setLoading(true);
+    setMessage("");
+
+    try {
+      const response = await fetch(
+        "https://bexatm.com/api/TrailMailRequestInsertController.php",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJzdWIiOiJCZXhAMTIzIiwibmFtZSI6IkJleCIsImFkbWluIjp0cnVlLCJleHAiOjE2Njk5ODQzNDl9.uxE3r3X4lqV_WKrRKRPXd-Jub9BnVcCXqCtLL4I0fpU",
+          },
+          body: JSON.stringify({
+            RecordID: "",
+            MailID: email,
+            Name: name,
+            MobileNumber: phone,
+            TrailType: "R",
+            Description: `Job Title: ${jobTitle}, Company: ${company}`,
+          }),
+        }
+      );
+
+      const result = await response.json();
+
+      if (result.Status === "Y") {
+        setMessage("✅ Demo request sent successfully!");
+        setFormData({
+          name: "",
+          jobTitle: "",
+          company: "",
+          email: "",
+          phone: "",
+        });
+      } else {
+        setMessage(`❌ Failed: ${result.Msg || "Unknown error"}`);
+      }
+    } catch (error) {
+      console.error("Request error:", error);
+      setMessage("⚠️ Something went wrong. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <main className="min-h-screen bg-white text-gray-800">
       {/* HERO SECTION */}
-      <section
-        className="relative flex flex-col items-center justify-center text-center py-20 px-6 md:px-20 text-white overflow-hidden min-h-[70vh]"
-      >
-        {/* Background Layer */}
+      <section className="relative flex flex-col items-center justify-center text-center py-20 px-6 md:px-20 text-white overflow-hidden min-h-[70vh]">
         <div className="absolute inset-0 bg-[#1E1E1E]"></div>
 
-        {/* Optional background image overlay */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: "url('/images/.png')" }}
-        ></div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: "url('/images/.png')" }}></div>
 
-        {/* Top-left Logo */}
         <div className="absolute top-0 left-10 z-20 flex items-center space-x-2">
           <Image
             src="/images/header/bexx1.png"
@@ -34,7 +112,6 @@ export default function ProjectManagementForStartups() {
           />
         </div>
 
-        {/* Content Layer */}
         <div className="relative z-10 max-w-2xl mx-auto mt-5">
           <h1 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
             Your AI-Powered Project Partner for Startup Success
@@ -42,12 +119,14 @@ export default function ProjectManagementForStartups() {
 
           <p className="text-base sm:text-lg text-blue-100 mb-5 leading-relaxed">
             BexATM helps startups and small businesses manage tasks, deadlines, and
-            growth effortlessly — powered by AI automation, insights, and collaboration
-            tools.
+            growth effortlessly — powered by AI automation, insights, and collaboration tools.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mb-5">
-            <Button className="bg-[#F6B200] text-black font-semibold hover:bg-yellow-400 px-6 py-3 rounded-md transition-all duration-300">
+            <Button
+              onClick={scrollToForm}
+              className="bg-[#F6B200] text-black font-semibold hover:bg-yellow-400 px-6 py-3 rounded-md transition-all duration-300"
+            >
               Book a Demo
             </Button>
 
@@ -64,8 +143,6 @@ export default function ProjectManagementForStartups() {
           </p>
         </div>
       </section>
-
-
 
       {/* PROBLEM SECTION */}
       <section className="relative py-20 px-6 md:px-20 text-gray-800 overflow-hidden">
@@ -125,8 +202,6 @@ export default function ProjectManagementForStartups() {
           </p>
         </div>
       </section>
-
-
 
       {/* SOLUTION SECTION */}
       <section className="py-20 px-6 md:px-20 bg-white flex flex-col lg:flex-row items-center justify-between">
@@ -285,85 +360,81 @@ export default function ProjectManagementForStartups() {
         </p>
       </section>
 
+      {/* BENEFITS */}
+      <section className="py-20 px-6 md:px-20 bg-white text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-14 text-gray-900">
+          How Does BexATM Benefit Your Business?
+        </h2>
 
-    {/* BENEFITS */}
-<section className="py-20 px-6 md:px-20 bg-white text-center">
-  <h2 className="text-3xl md:text-4xl font-bold mb-14 text-gray-900">
-    How Does BexATM Benefit Your Business?
-  </h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            { text: "30% Faster Task Delivery", icon: "⚡" },
+            { text: "45% More Project Visibility", icon: "📊" },
+            { text: "2x Team Efficiency", icon: "👥" },
+            { text: "Paperless Operations & Smart Reporting", icon: "📄" },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="p-8 border border-[#F6B200]/40 rounded-2xl bg-white transition-all duration-300 hover:shadow-[0_0_25px_#F6B200]/50 hover:-translate-y-2"
+            >
+              <div className="text-5xl mb-4">{item.icon}</div>
+              <h3 className="text-lg font-semibold text-gray-800">{item.text}</h3>
+            </div>
+          ))}
+        </div>
 
-  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-    {[
-      { text: "30% Faster Task Delivery", icon: "⚡" },
-      { text: "45% More Project Visibility", icon: "📊" },
-      { text: "2x Team Efficiency", icon: "👥" },
-      { text: "Paperless Operations & Smart Reporting", icon: "📄" },
-    ].map((item, i) => (
-      <div
-        key={i}
-        className="p-8 border border-[#F6B200]/40 rounded-2xl bg-white transition-all duration-300 hover:shadow-[0_0_25px_#F6B200]/50 hover:-translate-y-2"
-      >
-        <div className="text-5xl mb-4">{item.icon}</div>
-        <h3 className="text-lg font-semibold text-gray-800">{item.text}</h3>
-      </div>
-    ))}
-  </div>
+        <p className="text-gray-600 mt-10 text-lg">
+          More control, fewer errors, faster execution.
+        </p>
+      </section>
 
-  <p className="text-gray-600 mt-10 text-lg">
-    More control, fewer errors, faster execution.
-  </p>
-</section>
+      {/* TESTIMONIALS */}
+      <section className="relative py-24 px-6 md:px-20 bg-gradient-to-b from-white to-gray-50 text-center overflow-hidden">
+        {/* Glow backdrop */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(246,178,0,0.12)_0%,transparent_80%)]"></div>
 
+        <h2 className="text-3xl md:text-4xl font-bold mb-14 relative z-10 text-gray-900">
+          Loved by Founders & Teams Alike
+        </h2>
 
-{/* TESTIMONIALS */}
-<section className="relative py-24 px-6 md:px-20 bg-gradient-to-b from-white to-gray-50 text-center overflow-hidden">
-  {/* Glow backdrop */}
-  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(246,178,0,0.12)_0%,transparent_80%)]"></div>
+        <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto relative z-10">
+          {[
+            {
+              name: "Karthik V",
+              title: "Co-founder @CodeCrate Labs",
+              quote:
+                "BexATM turned our chaos into clarity. Our delivery rate improved 40% in just two months.",
+            },
+            {
+              name: "Ananya D",
+              title: "Founder @BrandCove",
+              quote:
+                "For a 5-member team like ours, BexATM acts like an extra project manager.",
+            },
+          ].map((t, i) => (
+            <div
+              key={i}
+              className="bg-white p-8 rounded-2xl shadow-lg border border-yellow-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+            >
+              <div className="text-[#F6B200] text-5xl leading-none mb-4">“</div>
+              <p className="text-gray-700 italic mb-6">{t.quote}</p>
+              <h3 className="font-semibold text-gray-900">{t.name}</h3>
+              <p className="text-sm text-gray-500">{t.title}</p>
+            </div>
+          ))}
+        </div>
 
-  <h2 className="text-3xl md:text-4xl font-bold mb-14 relative z-10 text-gray-900">
-    Loved by Founders & Teams Alike
-  </h2>
-
-  <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto relative z-10">
-    {[
-      {
-        name: "Karthik V",
-        title: "Co-founder @CodeCrate Labs",
-        quote:
-          "BexATM turned our chaos into clarity. Our delivery rate improved 40% in just two months.",
-      },
-      {
-        name: "Ananya D",
-        title: "Founder @BrandCove",
-        quote:
-          "For a 5-member team like ours, BexATM acts like an extra project manager.",
-      },
-    ].map((t, i) => (
-      <div
-        key={i}
-        className="bg-white p-8 rounded-2xl shadow-lg border border-yellow-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
-      >
-        <div className="text-[#F6B200] text-5xl leading-none mb-4">“</div>
-        <p className="text-gray-700 italic mb-6">{t.quote}</p>
-        <h3 className="font-semibold text-gray-900">{t.name}</h3>
-        <p className="text-sm text-gray-500">{t.title}</p>
-      </div>
-    ))}
-  </div>
-
-  <p className="text-gray-500 mt-12 text-sm italic relative z-10">
-    Empowering teams across industries with smarter project management.
-  </p>
-</section>
-
-
+        <p className="text-gray-500 mt-12 text-sm italic relative z-10">
+          Empowering teams across industries with smarter project management.
+        </p>
+      </section>
 
       {/* DEMO + FAQ */}
       <section
+        ref={formRef}
         className="relative py-20 px-6 md:px-20 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/demo-bg.png')" }}
       >
-        {/* Light overlay */}
         <div className="absolute inset-0 bg-white/70"></div>
 
         <div className="relative grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
@@ -380,10 +451,7 @@ export default function ProjectManagementForStartups() {
                 "How secure is my company data?",
                 "What’s the pricing model for startups?",
               ].map((q, i) => (
-                <div
-                  key={i}
-                  className="bg-white border border-[#F6B200] rounded-md shadow-sm"
-                >
+                <div key={i} className="bg-white border border-[#F6B200] rounded-md shadow-sm">
                   <button
                     onClick={() => setOpenIndex(openIndex === i ? null : i)}
                     className="w-full flex justify-between items-center text-left p-4 font-medium text-black-800"
@@ -403,48 +471,100 @@ export default function ProjectManagementForStartups() {
             </div>
           </div>
 
-          {/* Form */}
+          {/* ✅ Book a Demo Form (full functional) */}
           <div className="bg-white shadow-lg rounded-md p-8 w-full">
             <h2 className="text-xl md:text-2xl font-bold text-black-800">
-              Let’s Build Smarter Together
+              Ready to Build Smarter with BexATM?
             </h2>
-            <p className="text-black-600 mb-6 text-sm">
-              Book your free demo now — no credit card needed.
-            </p>
+            <p className="text-black-600 mb-6 text-sm">Book Your Free Demo Now</p>
 
-            <form className="space-y-4">
-              {["Name", "Job Title", "Company Name", "Work Email", "Phone Number"].map(
-                (field, i) => (
-                  <div key={i}>
-                    <label className="block text-sm font-semibold mb-1">
-                      {field}
-                      <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type={
-                        field.includes("Email")
-                          ? "email"
-                          : field.includes("Phone")
-                            ? "tel"
-                            : "text"
-                      }
-                      placeholder={field}
-                      className="w-full border border-[#F6B200] rounded-md p-2 text-sm focus:ring-2 focus:ring-[#F6B200] focus:outline-none"
-                    />
-                  </div>
-                )
-              )}
+            <form className="space-y-4" onSubmit={handleSubmit}>
+              <div>
+                <label className="block text-sm font-semibold mb-1">
+                  Name<span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-[#F6B200] rounded-md p-2 text-sm focus:ring-2 focus:ring-[#F6B200] focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold mb-1">
+                  Job Title<span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="jobTitle"
+                  value={formData.jobTitle}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-[#F6B200] rounded-md p-2 text-sm focus:ring-2 focus:ring-[#F6B200] focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold mb-1">
+                  Company Name<span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-[#F6B200] rounded-md p-2 text-sm focus:ring-2 focus:ring-[#F6B200] focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold mb-1">
+                  Work Email<span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-[#F6B200] rounded-md p-2 text-sm focus:ring-2 focus:ring-[#F6B200] focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold mb-1">
+                  Phone Number<span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  placeholder="With country code"
+                  className="w-full border border-[#F6B200] rounded-md p-2 text-sm focus:ring-2 focus:ring-[#F6B200] focus:outline-none"
+                />
+              </div>
+
               <button
                 type="submit"
+                disabled={loading}
                 className="w-full bg-[#F6B200] hover:bg-yellow-400 text-black font-semibold py-2 rounded-md mt-4 transition-all duration-300"
               >
-                Book My Free Demo
+                {loading ? "Sending..." : "Book a Demo"}
               </button>
+
+              {message && (
+                <p className="text-center text-sm mt-3 text-gray-700">{message}</p>
+              )}
             </form>
           </div>
         </div>
       </section>
-
 
       {/* FOOTER */}
       <footer className="bg-black text-center py-12 border-t border-gray-800">

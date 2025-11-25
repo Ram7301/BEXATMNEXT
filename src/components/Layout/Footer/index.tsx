@@ -203,13 +203,13 @@ const Footer: React.FC = () => {
 
               <h2 className="text-2xl font-semibold mb-1">Email:</h2>
               <Link
-                href="/email"
-                className="flex items-center text-white/80 hover:text-[#00B56A] transition-colors mb-1"
+                href={`mailto:${features.CON100107}`}
+                className="flex items-center gap-3 text-white/80 text-sm font-normal hover:text-[#00B56A] transition-colors mb-1"
               >
-                <span className="flex items-center">
+                <span className="flex items-center text-sm font-normal">
                   {features.CON100107}
 
-                  {user?.isAdmin && (
+                  {user?.isAdmin && (  
                     <button
                       onClick={(e) => {
                         e.preventDefault();
@@ -240,9 +240,6 @@ const Footer: React.FC = () => {
               </Link>
 
 
-
-
-
               <h2 className="text-2xl font-semibold mb-1">Phone:</h2>
               <p className="text-white/80 mb-1">{features.CON100108}
                 {user?.isAdmin ? (
@@ -269,7 +266,7 @@ const Footer: React.FC = () => {
                 ) : null}
               </p>
 
-              <h2 className="text-2xl font-semibold mb-1">Mobile:</h2>
+              {/* <h2 className="text-2xl font-semibold mb-1">Mobile:</h2>
               <p className="text-white/80">{features.CON100109}
                 {user?.isAdmin ? (
                   <button
@@ -293,7 +290,7 @@ const Footer: React.FC = () => {
                     </svg>
                   </button>
                 ) : null}
-              </p>
+              </p> */}
             </div>
 
             {/* Links Column 1 */}

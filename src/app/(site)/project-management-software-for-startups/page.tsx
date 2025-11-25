@@ -66,7 +66,7 @@ export default function ProjectManagementForStartups() {
             MailID: email,
             Name: name,
             MobileNumber: phone,
-            TrailType: "R",
+            TrailType: "S",
             Description: `Job Title: ${jobTitle}, Company: ${company}`,
           }),
         }
@@ -75,7 +75,7 @@ export default function ProjectManagementForStartups() {
       const result = await response.json();
 
       if (result.Status === "Y") {
-        setMessage("✅ Demo request sent successfully!");
+        setMessage("✅ Demo request sent successfully! Please check your email for confirmation.");
         setFormData({
           name: "",
           jobTitle: "",
@@ -269,19 +269,19 @@ export default function ProjectManagementForStartups() {
             {[
               {
                 text: "Manage sprints, releases, and QA cycles.",
-                icon: "/images/icons/17.png", // Spreadsheet icon
+                icon: "/images/icons/1.png", // Spreadsheet icon
               },
               {
                 text: "Track client deliverables and deadlines.",
-                icon: "/images/icons/18.png", // Calendar/Deadline icon
+                icon: "/images/icons/2.png", // Calendar/Deadline icon
               },
               {
                 text: "Collaborate on campaigns and analytics.",
-                icon: "/images/icons/19.png", // Eye/Visibility icon
+                icon: "/images/icons/3.png", // Eye/Visibility icon
               },
               {
                 text: "Streamline daily operations and staff tasks.",
-                icon: "/images/icons/20.png", // Chat icon
+                icon: "/images/icons/4.png", // Chat icon
               },
             ].map((item, i) => (
               <motion.div
@@ -309,84 +309,89 @@ export default function ProjectManagementForStartups() {
 
       {/* AI ADVANTAGE */}
       <section className="relative py-20 px-6 md:px-20 bg-gradient-to-br from-[#F6F8FF] to-[#EAF3FF] text-center overflow-hidden">
-        {/* Decorative radial glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(246,178,0,0.12)_0%,transparent_70%)] pointer-events-none"></div>
+  {/* Decorative radial glow */}
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(252,249,243,0.12)_0%,transparent_70%)] pointer-events-none"></div>
 
-        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-900 relative z-10">
-          Let AI Handle the Busy Work — While You Focus on Growth
-        </h2>
+  <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-900 relative z-10">
+    Let AI Handle the Busy Work — While You Focus on Growth
+  </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mt-10 relative z-10 max-w-6xl mx-auto">
-          {[
-            {
-              icon: "/images/icons/22.png",
-              text: "Auto task suggestions & next-step reminders",
-            },
-            {
-              icon: "/images/icons/23.png",
-              text: "Predictive project completion timeline",
-            },
-            {
-              icon: "/images/icons/24.png",
-              text: "Real-time progress summaries",
-            },
-            {
-              icon: "/images/icons/25.png",
-              text: "Team workload optimization insights",
-            },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="group bg-white/80 backdrop-blur-md border border-[#F6B200]/30 p-8 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
-            >
-              <div className="flex justify-center mb-4">
-                <div className="p-4 bg-[#F6B200]/10 rounded-full group-hover:bg-[#F6B200]/20 transition">
-                  <Image
-                    src={item.icon}
-                    alt="AI Feature Icon"
-                    width={48}
-                    height={48}
-                    className="transition-transform duration-300 group-hover:scale-110"
-                  />
-                </div>
-              </div>
-              <p className="text-gray-700 font-medium text-base">{item.text}</p>
-            </div>
-          ))}
+  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mt-10 relative z-10 max-w-6xl mx-auto">
+    {[
+      {
+        icon: "/images/icons/34.png",
+        text: "Auto task suggestions & next-step reminders",
+      },
+      {
+        icon: "/images/icons/35.png",
+        text: "Predictive project completion timeline",
+      },
+      {
+        icon: "/images/icons/36.png",
+        text: "Real-time progress summaries",
+      },
+      {
+        icon: "/images/icons/37.png",
+        text: "Team workload optimization insights",
+      },
+    ].map((item, i) => (
+      <div
+        key={i}
+        className="group bg-white/80 backdrop-blur-md border border-[#F6B200]/30 p-8 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+      >
+        <div className="flex justify-center mb-4">
+          {/* Removed background glow around icon */}
+          <Image
+            src={item.icon}
+            alt="AI Feature Icon"
+            width={48}
+            height={48}
+            className="transition-transform duration-300 group-hover:scale-110"
+          />
         </div>
+        <p className="text-gray-700 font-medium text-base">{item.text}</p>
+      </div>
+    ))}
+  </div>
 
-        <p className="text-gray-500 mt-12 text-sm italic">
-          Smarter automation, better efficiency, faster growth 🚀
-        </p>
-      </section>
+  <p className="text-gray-500 mt-12 text-sm italic">
+    Smarter automation, better efficiency, faster growth 🚀
+  </p>
+</section>
+
 
       {/* BENEFITS */}
       <section className="py-20 px-6 md:px-20 bg-white text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-14 text-gray-900">
-          How Does BexATM Benefit Your Business?
-        </h2>
+  <h2 className="text-3xl md:text-4xl font-bold mb-14 text-gray-900">
+    How Does BexATM Benefit Your Business?
+  </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            { text: "30% Faster Task Delivery", icon: "⚡" },
-            { text: "45% More Project Visibility", icon: "📊" },
-            { text: "2x Team Efficiency", icon: "👥" },
-            { text: "Paperless Operations & Smart Reporting", icon: "📄" },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="p-8 border border-[#F6B200]/40 rounded-2xl bg-white transition-all duration-300 hover:shadow-[0_0_25px_#F6B200]/50 hover:-translate-y-2"
-            >
-              <div className="text-5xl mb-4">{item.icon}</div>
-              <h3 className="text-lg font-semibold text-gray-800">{item.text}</h3>
-            </div>
-          ))}
-        </div>
+  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    {[
+      { text: "30% Faster Task Delivery", icon: "images/icons/30.png" },
+      { text: "45% More Project Visibility", icon: "images/icons/31.png" },
+      { text: "2x Team Efficiency", icon: "images/icons/32.png" },
+      { text: "Paperless Operations & Smart Reporting", icon: "images/icons/33.png" },
+    ].map((item, i) => (
+      <div
+        key={i}
+        className="p-8 border border-[#F6B200]/40 rounded-2xl bg-white transition-all duration-300 hover:shadow-[0_0_25px_#F6B200]/50 hover:-translate-y-2"
+      >
+        <img
+          src={item.icon}
+          alt={item.text}
+          className="w-16 h-16 mx-auto mb-4 object-contain"
+        />
+        <h3 className="text-lg font-semibold text-gray-800">{item.text}</h3>
+      </div>
+    ))}
+  </div>
 
-        <p className="text-gray-600 mt-10 text-lg">
-          More control, fewer errors, faster execution.
-        </p>
-      </section>
+  <p className="text-gray-600 mt-10 text-lg">
+    More control, fewer errors, faster execution.
+  </p>
+</section>
+
 
       {/* TESTIMONIALS */}
       <section className="relative py-24 px-6 md:px-20 bg-gradient-to-b from-white to-gray-50 text-center overflow-hidden">

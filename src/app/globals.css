@@ -23,10 +23,8 @@
   --text-sm: 0.875rem;
 
   /* Breakpoint */
-  --breakpoint-xs: 23.438rem;
-  /* 375px */
-  --breakpoint-mobile: 32.5rem;
-  /* 520px */
+  --breakpoint-xs: 23.438rem; /* 375px */
+  --breakpoint-mobile: 32.5rem; /* 520px */
 
   /* breakpoint / max-w */
   --spacing-45p: 45%;
@@ -34,10 +32,8 @@
   --spacing-90p: 90%;
   --spacing-68: 17.375rem;
 
-  --spacing-540: 33.75rem;
-  /* 540px */
-  --spacing-8xl: 87.5rem;
-  /* 1400px */
+  --spacing-540: 33.75rem; /* 540px */
+  --spacing-8xl: 87.5rem; /* 1400px */
 
   /* animation */
   --animate-slide: slide 20s linear infinite;
@@ -46,7 +42,6 @@
     0% {
       transform: translateX(0%);
     }
-
     100% {
       transform: translateX(-103%);
     }
@@ -64,17 +59,16 @@ html {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;    /* Firefox */
 }
 
 section {
-  @apply py-24
+  @apply py-24;
 }
 
-.blog-details p, .blog-details hr {
+.blog-details p,
+.blog-details hr {
   @apply mb-8;
 }
 
@@ -95,7 +89,7 @@ section {
 }
 
 .blog-details ol li {
-  @apply mb-0
+  @apply mb-0;
 }
 
 .blog-details h1 {
@@ -115,11 +109,11 @@ section {
 }
 
 .blog-details hr {
-  @apply border-white
+  @apply border-white;
 }
 
 .blog-details p {
-  @apply text-dark dark:text-white text-xm leading-[1.2]
+  @apply text-dark dark:text-white text-xm leading-[1.2];
 }
 
 @layer base {
@@ -128,3 +122,16 @@ section {
   }
 }
 
+/* ---------------------------------------------------------- */
+/* 👇 FIX: Remove auto inserted mail icon before @ symbol */
+/* ---------------------------------------------------------- */
+
+/* BLOCK ALL auto icon replacements on mail links */
+a[href*="@"]::before,
+a[href^="mailto"]::before,
+a[href*="@"]::after,
+a[href^="mailto"]::after {
+    content: "" !important;
+    display: none !important;
+    background: none !important;
+}

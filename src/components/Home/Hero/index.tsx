@@ -5,6 +5,7 @@ import { useContentManage } from "@/app/context/ContentManageContext";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+
 import contentData from "../../../Mock.db/C001.json";
 
 const Hero: React.FC = () => {
@@ -56,91 +57,22 @@ const Hero: React.FC = () => {
           </svg>
         </button>
       ) : null}
-      
 
       {/* Main Hero Content */}
       <div className="bg-gradient-to-b from-skyblue via-lightskyblue dark:via-[#4298b0] to-white/10 dark:to-black/10 overflow-hidden relative">
-<div className="container max-w-8xl mx-auto px-5 2xl:px-0 pt-16 md:pt-38 md:pb-68">
-         <div className="relative flex flex-col items-center justify-center text-center text-white dark:text-dark z-10 min-h-[20vh] px-5">
-  {/* Paragraph 1 */}
-  <div className="relative max-w-2xl">
-<p className="font-manrope text-7xl md:text-7xl md:text-5xl lg:text-5xl lg:text-4xl font-semibold leading-tight text-black text-center">  {pages?.CON100101}
-    </p>
-    {user?.isAdmin && (
-      <button
-        onClick={() =>
-          router.push(
-            "/content/cms?contentID=CON1001&contentTextID=CON100101&contentType=T"
-          )
-        }
-        className="absolute -top-5 -right-5 bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
-        title="Edit Main Paragraph"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-5 h-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
-          />
-        </svg>
-      </button>
-    )}
-  </div>
-
-  {/* Paragraph 2 */}
-  <div className="relative max-w-2xl">
-<p
-  className="text-lg sm:text-xl md:text-2xl text-[#0b0b0b]/80 mb-10 leading-relaxed font-manrope text-center"
->     {pages?.CON100121}
-    </p>
-    {user?.isAdmin && (
-      <button
-        onClick={() =>
-          router.push(
-            "/content/cms?contentID=CON1001&contentTextID=CON100121&contentType=T"
-          )
-        }
-        className="absolute -top-4 -right-4 bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
-        title="Edit Sub Paragraph"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-5 h-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
-          />
-        </svg>
-      </button>
-    )}
-  </div>
-
-  {/* Contact Us Button */}
-    <div className="flex flex-col xs:flex-row justify-center md:justify-start gap-4">
-              <Link
-                href="/contactus"
-                className="px-8 py-4 border border-white dark:border-dark bg-white dark:bg-dark text-dark dark:text-white duration-300 dark:hover:text-dark hover:bg-transparent hover:text-white text-base font-semibold rounded-full hover:cursor-pointer"
-              >
-                {pages?.CON100102}
-              </Link>
-              {/* {user?.isAdmin ? (
+        <div className="container max-w-8xl mx-auto px-5 2xl:px-0 pt-32 md:pt-60 md:pb-68">
+          <div className="relative text-black text-center z-10">      {/* Centered Main Heading */}
+            <h1 className="text-inherit text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mx-auto max-w-2xl mb-4">
+              {pages?.CON100101}
+              {user?.isAdmin ? (
                 <button
-                  onClick={() => router.push("/content/cms?contentID=CON1001&contentTextID=CON100102&contentType=T")}
-                  className="absolute  z-50 bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
-                  title="Edit Hero Section"
+                  onClick={() =>
+                    router.push(
+                      "/content/cms?contentID=CON1001&contentTextID=CON100101&contentType=T"
+                    )
+                  }
+                  className="absolute right-5 top-0 bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Heading"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -157,58 +89,84 @@ const Hero: React.FC = () => {
                     />
                   </svg>
                 </button>
-              ) : null} */}
-            </div>
-</div>
+              ) : null}
+            </h1>
 
-
-          <div className="hidden md:block absolute top-18 -right-15">
-            {pages?.CON100103 && (
-              <>
-                {/* <Image
-                  src={`https://bexatm.com${pages?.CON100103 || null}`}
-                  alt="heroImg"
-                  width={882}
-                  height={816}
-                  unoptimized
-                /> */}
-
-                {/* Edit Button */}
-                {user?.isAdmin ? (
-                  <button
-                    onClick={() => router.push("/content/hero")}
-                    className="absolute top-2 right-2 z-50 bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
-                    title="Edit Hero Section"
+            {/* NEW Paragraph (CON100121) */}
+            <p className="text-lg sm:text-xl md:text-2xl font-normal text-black/90 dark:text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+              {pages?.CON100121}
+              {user?.isAdmin ? (
+                <button
+                  onClick={() =>
+                    router.push(
+                      "/content/cms?contentID=CON1001&contentTextID=CON100121&contentType=T"
+                    )
+                  }
+                  className="ml-2 bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Subtext"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-5 h-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
-                      />
-                    </svg>
-                  </button>
-                ) : null}
-              </>
-            )}
-          </div>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </p>
 
+            {/* Buttons Section */}
+            <div className="flex flex-col xs:flex-row justify-center gap-4">
+              <Link
+                href="/contactus"
+                className="px-8 py-4 border border-white dark:border-dark bg-white dark:bg-dark text-dark dark:text-white duration-300 dark:hover:text-dark hover:bg-transparent hover:text-white text-base font-semibold rounded-full hover:cursor-pointer"
+              >
+                {pages?.CON100102}
+              </Link>
+              {user?.isAdmin ? (
+                <button
+                  onClick={() =>
+                    router.push(
+                      "/content/cms?contentID=CON1001&contentTextID=CON100102&contentType=T"
+                    )
+                  }
+                  className="absolute z-50 bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
+                  title="Edit Button Text"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </button>
+              ) : null}
+            </div>
+          </div>
         </div>
 
+
         {/* Bottom feature icons */}
-<div className="relative w-full bg-white dark:bg-black py-12 px-8 mobile:px-16 md:px-24 rounded-2xl md:rounded-none md:rounded-tl-5xl -mt-54">
-  <div className="flex flex-nowrap justify-center items-center gap-15 overflow-x-auto no-scrollbar text-center">
-
-
-            <div className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-auto flex flex-col items-center gap-2">
-      <div className="flex items-center justify-center w-full">
+        <div className="md:absolute bottom-0 md:right-0 xl:-right-1 bg-white dark:bg-black py-12 px-8 mobile:px-16 md:pl-16 md:pr-[95px] rounded-2xl md:rounded-none md:rounded-tl-2xl mt-24">
+<div className="flex items-center gap-16 md:gap-24 overflow-x-auto no-scrollbar dark:text-white text-black whitespace-nowrap">
+            <div className="flex flex-col sm:items-center gap-2">
+              <div className="flex items-center justify-center w-full">
                 <Image
                   src={`https://bexatm.com${pages?.CON100104}`}
                   alt={pages?.CON100105}
@@ -247,21 +205,12 @@ const Hero: React.FC = () => {
               </div>
 
 
-              <div className="flex items-center gap-2 whitespace-nowrap">
-                {/* Left Icon */}
-                {/* Text */}
-                <p className="text-sm sm:text-base font-normal text-inherit">
-                  {pages?.CON100105 || "Back Office System"}
-                </p>
+              <p className="text-sm sm:text-base font-normal text-inherit">
+                {pages?.CON100105}
+                {user?.isAdmin ? (
 
-                {/* Edit Button (for admin only) */}
-                {user?.isAdmin && (
                   <button
-                    onClick={() =>
-                      router.push(
-                        "/content/cms?contentID=CON1001&contentTextID=CON100105&contentType=T"
-                      )
-                    }
+                    onClick={() => router.push("/content/cms?contentID=CON1001&contentTextID=CON100105&contentType=T")}
                     className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                     title="Edit Section"
                   >
@@ -280,13 +229,13 @@ const Hero: React.FC = () => {
                       />
                     </svg>
                   </button>
-                )}
-              </div>
+                ) : null}
+
+              </p>
             </div>
 
-
-            <div className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-auto flex flex-col items-center gap-2">
-      <div className="flex items-center justify-center w-full">
+            <div className="flex flex-col sm:items-center gap-2">
+              <div className="flex items-center justify-center w-full">
                 <Image
                   src={`https://bexatm.com${pages?.CON100106}`}
                   alt={pages?.CON100107}
@@ -323,15 +272,12 @@ const Hero: React.FC = () => {
 
               </div>
 
-              <p className="text-sm sm:text-base font-normal text-inherit flex items-center gap-1 whitespace-nowrap">
+              <p className="text-sm sm:text-base font-normal text-inherit">
                 {pages?.CON100107}
                 {user?.isAdmin ? (
+
                   <button
-                    onClick={() =>
-                      router.push(
-                        "/content/cms?contentID=CON1001&contentTextID=CON100107&contentType=T"
-                      )
-                    }
+                    onClick={() => router.push("/content/cms?contentID=CON1001&contentTextID=CON100107&contentType=T")}
                     className="bg-primary text-white p-1 rounded-full shadow-lg hover:bg-opacity-80 transition"
                     title="Edit Section"
                   >
@@ -351,12 +297,11 @@ const Hero: React.FC = () => {
                     </svg>
                   </button>
                 ) : null}
-              </p>
 
+              </p>
             </div>
 
-
-            <div className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-auto flex flex-col items-center gap-2">
+            <div className="flex flex-col sm:items-center gap-2">
               <div className="flex items-center justify-center w-full">
                 <Image
                   src={`https://bexatm.com${pages?.CON100108}`}
@@ -394,7 +339,7 @@ const Hero: React.FC = () => {
 
               </div>
 
-              <p className="text-sm sm:text-base font-normal text-inherit flex items-center gap-1 whitespace-nowrap">
+              <p className="text-sm sm:text-base font-normal text-inherit">
                 {pages?.CON100109}
                 {user?.isAdmin ? (
 
@@ -423,7 +368,7 @@ const Hero: React.FC = () => {
               </p>
             </div>
 
-            <div className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-auto flex flex-col items-center gap-2">
+            <div className="flex flex-col sm:items-center gap-2">
               <div className="flex items-center justify-center w-full">
                 <Image
                   src={`https://bexatm.com${pages?.CON100110}`}
@@ -461,7 +406,7 @@ const Hero: React.FC = () => {
 
               </div>
 
-              <p className="text-sm sm:text-base font-normal text-inherit flex items-center gap-1 whitespace-nowrap">
+              <p className="text-sm sm:text-base font-normal text-inherit">
                 {pages?.CON100111}
                 {user?.isAdmin ? (
 
@@ -490,8 +435,7 @@ const Hero: React.FC = () => {
               </p>
             </div>
 
-
-            <div className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-auto flex flex-col items-center gap-2">
+            <div className="flex flex-col sm:items-center gap-2">
               <div className="flex items-center justify-center w-full">
                 <Image
                   src={`https://bexatm.com${pages?.CON100112}`}
@@ -529,7 +473,7 @@ const Hero: React.FC = () => {
 
               </div>
 
-              <p className="text-sm sm:text-base font-normal text-inherit flex items-center gap-1 whitespace-nowrap">
+              <p className="text-sm sm:text-base font-normal text-inherit">
                 {pages?.CON100113}
                 {user?.isAdmin ? (
 
@@ -558,8 +502,7 @@ const Hero: React.FC = () => {
               </p>
             </div>
 
-
-            <div className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-auto flex flex-col items-center gap-2">
+            <div className="flex flex-col sm:items-center gap-2">
               <div className="flex items-center justify-center w-full">
                 <Image
                   src={`https://bexatm.com${pages?.CON100115}`}
@@ -597,7 +540,7 @@ const Hero: React.FC = () => {
 
               </div>
 
-              <p className="text-sm sm:text-base font-normal text-inherit flex items-center gap-1 whitespace-nowrap">
+              <p className="text-sm sm:text-base font-normal text-inherit">
                 {pages?.CON100114}
                 {user?.isAdmin ? (
 
@@ -619,15 +562,14 @@ const Hero: React.FC = () => {
                         strokeLinejoin="round"
                         d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"
                       />
-                    </svg> 
+                    </svg>
                   </button>
                 ) : null}
 
               </p>
             </div>
 
-
-            <div className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-auto flex flex-col items-center gap-2">
+            <div className="flex flex-col sm:items-center gap-2">
               <div className="flex items-center justify-center w-full">
                 <Image
                   src={`https://bexatm.com${pages?.CON100117}`}
@@ -665,7 +607,7 @@ const Hero: React.FC = () => {
 
               </div>
 
-              <p className="text-sm sm:text-base font-normal text-inherit flex items-center gap-1 whitespace-nowrap">
+              <p className="text-sm sm:text-base font-normal text-inherit">
                 {pages?.CON100116}
                 {user?.isAdmin ? (
 
@@ -694,8 +636,7 @@ const Hero: React.FC = () => {
               </p>
             </div>
 
-
-            <div className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-auto flex flex-col items-center gap-2">
+            <div className="flex flex-col sm:items-center gap-2 relative">
               <div className="flex items-center justify-center w-full">
                 <Image
                   src={`https://bexatm.com${pages?.CON100119}`}
@@ -733,7 +674,7 @@ const Hero: React.FC = () => {
 
               </div>
 
-              <p className="text-sm sm:text-base font-normal text-inherit flex items-center gap-2 whitespace-nowrap">
+              <p className="text-sm sm:text-base font-normal text-inherit">
                 {pages?.CON100118}
                 {user?.isAdmin ? (
 
@@ -761,8 +702,6 @@ const Hero: React.FC = () => {
 
               </p>
             </div>
-
-
 
           </div>
         </div>

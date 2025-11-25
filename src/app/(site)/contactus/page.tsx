@@ -338,16 +338,18 @@ export default function ContactUs() {
               <div className="absolute bottom-6 left-6 lg:bottom-12 lg:left-12 text-white space-y-4">
                 <Link href="/" className="flex items-center gap-4 group">
                   <Icon icon="ph:phone" width={32} height={32} />
-                  <p className="text-sm font-normal group-hover:text-primary">+91 944 440 8804</p>
+                  <p className="text-sm font-normal group-hover:text-primary">(+91) 94444 08804</p>
                 </Link>
-                <Link href="/email" className="flex items-center gap-4 group">
+                <Link href="mailto:contact@bexatm.com" className="flex items-center gap-4 group">
                   <Icon icon="ph:envelope-simple" width={32} height={32} />
-                  <p className="text-sm font-normal text-white group-hover:text-primary">
-                    contact
-                    <FaAt className="inline text-white group-hover:text-primary align-middle mx-1" />
-                    bexatm.com
+                  <p
+                    className="text-sm font-normal text-white group-hover:text-primary"
+                    style={{ fontFamily: "sans-serif" }}
+                  >
+                    contact&#64;bexatm.com
                   </p>
                 </Link>
+
 
                 <div className="flex items-center gap-4">
                   <Icon icon="ph:map-pin" width={32} height={32} />

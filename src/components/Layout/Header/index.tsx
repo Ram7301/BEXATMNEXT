@@ -30,6 +30,7 @@ const Header: React.FC = () => {
     }
   }
 
+
   const handleScroll = useCallback(() => {
     setSticky(window.scrollY >= 50)
   }, [])
@@ -63,7 +64,7 @@ const Header: React.FC = () => {
           <div className="flex justify-between items-center">
             <Link href='/'>
               <Image
-                src={'/images/header/bexx1.png'}
+                src={'/images/header/bexatmicon.png'}
                 alt='logo'
                 width={200}
                 height={200}
@@ -71,7 +72,7 @@ const Header: React.FC = () => {
                 className={`object-contain ${isHomepage ? sticky ? "block dark:hidden" : "hidden" : sticky ? "block dark:hidden" : "block dark:hidden"}`}
               />
               <Image
-                src={'/images/header/bexx1.png'}
+                src={'/images/header/bexatmicon.png'}
                 alt='logo'
                 width={200}
                 height={200}
@@ -153,7 +154,7 @@ const Header: React.FC = () => {
                 }`}
               >
                 <Icon icon={'ph:phone-bold'} width={24} height={24} />
-                +91 944 440 8804
+                (+91)94444 08804
               </Link>
             </div>
 
@@ -246,14 +247,18 @@ const Header: React.FC = () => {
               Contact
             </p>
             <Link
-              href="/email"
-              className="text-sm font-medium text-white hover:text-primary transition-colors"
+              href="mailto:contact@bexatm.com"
+              className="flex items-center gap-4 group"
             >
-              contact<FaAt className="inline align-middle mx-0 px-0" />bexatm.com
+
+              <p className="text-sm font-normal text-white group-hover:text-primary">
+                contact&#64;bexatm.com
+              </p>
             </Link>
 
+
             <Link href="#" className='text-sm sm:text-1*2 font-medium text-inherit hover:text-primary'>
-              +91 944 440 8804{' '}
+              (+91) 94444 08804{' '}
             </Link>
           </div>
         </div>

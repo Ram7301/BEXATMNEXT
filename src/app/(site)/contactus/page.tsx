@@ -101,7 +101,7 @@ export default function ContactUs() {
           MailID: email,
           Name: name,
           MobileNumber: mobile,
-          TrailType: "R",
+          TrailType: "ContactUs",
           Description: ""
         },
         {

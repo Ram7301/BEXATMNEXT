@@ -62,7 +62,7 @@ export default function BexATMHome() {
             {/* HERO SECTION */}
             <section
                 className="relative w-full bg-cover bg-center pt-32 pb-20 px-6 md:px-20"
-                style={{ backgroundImage: "url('/images/home/mainbanner.png')" }}
+                style={{ backgroundImage: "url('/images/home/mainbanner.webp')" }}
             >
                 <div className="grid md:grid-cols-2 gap-10 items-center">
                     {/* Left Content */}
@@ -75,8 +75,8 @@ export default function BexATMHome() {
 
                         {/* Sub-heading */}
                         <div className="bg-white text-gray-900 inline-block px-[25px] py-[10px] rounded-lg font-semibold mb-6 shadow-md">
-  Projects – People – Budget
-</div>
+                            Projects – People – Budget
+                        </div>
 
 
 
@@ -133,17 +133,17 @@ export default function BexATMHome() {
                         {
                             title: "Project Management for Startups & SMBs",
                             desc: "Agile workflows, team productivity, remote attendance & client deliverables.",
-                            img: "/images/home/Startup.png",
+                            img: "/images/home/Startup.webp",
                         },
                         {
                             title: "Community Management Software",
                             desc: "Resident services, staff attendance, maintenance tracking & committee dashboards.",
-                            img: "/images/home/Community.png",
+                            img: "/images/home/Community.webp",
                         },
                         {
                             title: "Construction Project Management",
                             desc: "Site attendance, contractor tracking, DPR tasks & milestone-based progress.",
-                            img: "/images/home/Construction.png",
+                            img: "/images/home/Construction.webp",
                         },
                     ].map((card, i) => (
                         <div
@@ -227,9 +227,6 @@ export default function BexATMHome() {
                     </div>
 
                 </div>
-
-
-
             </section>
 
             <section className="py-20 px-6 md:px-20 max-w-7xl mx-auto">
@@ -240,7 +237,7 @@ export default function BexATMHome() {
                     {/* LEFT CIRCULAR GRAPHIC */}
                     <div className="flex justify-center lg:justify-start">
                         <img
-                            src="/images/home/whybexatm.png"
+                            src="/images/home/whybexatm.webp"
                             alt="BexATM Left Graphic"
                             className="w-[500px] sm:w-[600px] md:w-[700px] lg:w-[750px] xl:w-[820px] max-w-none"
                         />
@@ -294,7 +291,7 @@ export default function BexATMHome() {
                             </h2>
 
                             <img
-                                src="/images/home/whybexatm2.png"
+                                src="/images/home/whybexatm2.webp"
                                 alt="Team working"
                                 className="rounded-xl shadow-md w-full h-64 object-cover"
                             />
@@ -311,8 +308,9 @@ export default function BexATMHome() {
                             </p>
 
                             <button className="px-6 py-3 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition">
-                                Let's Start – It's FREE
+                                Let&apos;s Start – It&apos;s FREE
                             </button>
+
 
                         </div>
 
@@ -339,11 +337,17 @@ export default function BexATMHome() {
                     {/* 1 — Agile Task & Sprint Management */}
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
-                            <Image src="/images/startups/icons/agiletask.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">Agile Task & Sprint Management</h3>
+                            <Image src="/images/startups/icons/clients.png" width={45} height={45} alt="" />
+                            <h3 className="font-semibold text-[15px]">HR & Payroll
+                                Hub</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Empower your team with agile workflows, including backlogs, sprints, and task boards that help startups plan efficiently and deliver projects faster.
+                            Centralize employee records,
+                            leave policies, attendance
+                            data, and payroll-ready
+                            reports in one place, ensuring
+                            smooth HR operations with
+                            minimal manual work.
                         </p>
                     </div>
 
@@ -351,21 +355,35 @@ export default function BexATMHome() {
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
                             <Image src="/images/startups/icons/remoteteam.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">Remote Team Attendance</h3>
+                            <h3 className="font-semibold text-[15px]">Smart Time &
+                                Attendance</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Manage remote & hybrid teams with mobile attendance, geolocation verification, and timesheet tracking that keeps productivity transparent.
+                            Track attendance accurately
+                            with biometrics, geofencing,
+
+                            mobile check-ins, and shift-
+                            based logging — eliminating
+
+                            time fraud and boosting
+                            workforce transparency.
                         </p>
                     </div>
 
                     {/* 3 — Projects & Client Deliverables */}
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
-                            <Image src="/images/startups/icons/clients.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">Projects & Client Deliverables</h3>
+                            <Image src="/images/startups/icons/agiletask.png" width={45} height={45} alt="" />
+                            <h3 className="font-semibold text-[15px]">Agile Project &
+                                Task Management</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Organize client projects with milestones, tasks, and timelines ensuring smooth execution and on-time delivery.
+                            Plan sprints, assign tasks,
+                            organize milestones, and
+                            monitor real-time progress
+                            using weightage-based
+                            tracking for precise project
+                            completion insights.
                         </p>
                     </div>
 
@@ -373,10 +391,16 @@ export default function BexATMHome() {
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
                             <Image src="/images/startups/icons/timesheet.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">Timesheet-Based Billing</h3>
+                            <h3 className="font-semibold text-[15px]">Employee Self-
+                                Service (ESS)</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Enable accurate billing by capturing employee effort across tasks & projects, making invoicing transparent for clients & agencies.
+                            Let employees manage leave,
+                            on-duty, overtime, expenses,
+                            and attendance corrections
+                            directly from mobile or web,
+                            reducing dependency on HR
+                            and managers.
                         </p>
                     </div>
 
@@ -384,10 +408,16 @@ export default function BexATMHome() {
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
                             <Image src="/images/startups/icons/selfservice.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">Employee Self-Service</h3>
+                            <h3 className="font-semibold text-[15px]">Manager
+                                Command Center</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Allow team members to request leave, apply for on-duty, correct attendance, and submit expenses through a self-service interface.
+                            A unified approval hub where
+                            managers can review tasks,
+                            timesheets, leave, overtime,
+                            and expenses, supported by
+                            real-time team insights and
+                            notifications.
                         </p>
                     </div>
 
@@ -395,21 +425,33 @@ export default function BexATMHome() {
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
                             <Image src="/images/startups/icons/resource.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">Resource Allocation<br />for Small Teams</h3>
+                            <h3 className="font-semibold text-[15px]">Competency &
+                                Assessment Suite</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Allocate tasks based on skills & workload to ensure balanced resource use and avoid team burnout.
+                            Create structured assessments
+                            with categories, question
+                            groups, pass criteria, and
+                            scored evaluations to measure
+                            employee skills, performance,
+                            and growth paths.
                         </p>
                     </div>
 
                     {/* 7 — Founder & Manager Dashboards */}
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
-                            <Image src="/images/startups/icons/managerdashboards.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">Founder & Manager Dashboards</h3>
+                            <Image src="/images/startups/icons/hrpayroll.png" width={45} height={45} alt="" />
+                            <h3 className="font-semibold text-[15px]">Resource Allocation
+                                & Workload Planning</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Get real-time insights into productivity, project progress, attendance, and bottlenecks at a glance.
+                            Assign employees to tasks or
+                            projects based on skills,
+                            availability, and workload
+                            distribution to balance
+                            responsibilities and improve
+                            delivery efficiency.
                         </p>
                     </div>
 
@@ -417,21 +459,33 @@ export default function BexATMHome() {
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
                             <Image src="/images/startups/icons/escalationmanagement.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">Escalation Management</h3>
+                            <h3 className="font-semibold text-[15px]">Escalation & Issue
+                                Management</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Reduce delays by flagging stuck tasks, missed deadlines, and dependencies needing managerial attention.
+                            Automatically flag delays,
+                            bottlenecks, and unresolved
+                            issues to higher management
+                            using escalation rules that
+                            maintain accountability and
+                            project momentum.
                         </p>
                     </div>
 
                     {/* 9 — HR & Payroll Alignment */}
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
-                            <Image src="/images/startups/icons/hrpayroll.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">HR & Payroll Alignment</h3>
+                            <Image src="/images/startups/icons/managerdashboards.png" width={45} height={45} alt="" />
+                            <h3 className="font-semibold text-[15px]">Dashboards &
+                                Insights</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Sync employee data, attendance, leave & salary processing using unified workflows.
+                            Get real-time, role-based
+                            dashboards for employees,
+                            managers, and project heads,
+                            giving a clear view of tasks,
+                            attendance, timelines, and
+                            productivity metrics.
                         </p>
                     </div>
 
@@ -439,10 +493,16 @@ export default function BexATMHome() {
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
                             <Image src="/images/startups/icons/integrations.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">Integrations for Modern Startups</h3>
+                            <h3 className="font-semibold text-[15px]">Reports, Exports &
+                                Integrations</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Sync calendars, export data, and connect tools with API-driven integrations built for modern teams.
+                            Download payroll-ready
+                            attendance files, timesheets,
+                            project reports, and connect
+                            BexATM with your existing
+                            systems through seamless API
+                            integrations.
                         </p>
                     </div>
 
@@ -462,7 +522,7 @@ export default function BexATMHome() {
                 {/* FULL-WIDTH IMAGE */}
                 <div className="w-full flex justify-center mt-6">
                     <img
-                        src="/images/home/infographic.png"
+                        src="/images/home/infographic.webp"
                         alt="Section Image"
                         className="w-full max-w-[1400px] object-cover"
                     />
@@ -478,11 +538,8 @@ export default function BexATMHome() {
                         Book a Demo
                     </button>
                 </div>
-
             </section>
-
-
-
         </main>
     );
 }
+

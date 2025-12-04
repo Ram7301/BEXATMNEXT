@@ -3,7 +3,7 @@ import { Bricolage_Grotesque } from "next/font/google";
 import ClientLayout from "./ClientLayout";
 
 export const metadata = {
-  title: "BexATM",
+  title: "Agile Task Manager",
   description: "Your site description",
   icons: {
     icon: "/favicon.ico",

@@ -539,6 +539,127 @@ export default function BexATMHome() {
                     </button>
                 </div>
             </section>
+
+            {/* FOOTER SECTION */}
+            <footer className="bg-black text-white pt-20 px-6 md:px-20">
+
+                <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-5 gap-14">
+
+                    {/* 1 — LOGO + DESCRIPTION */}
+                    <div className="col-span-2 lg:col-span-1">
+                        <Image
+                            src="/images/header/bexatm2.png"
+                            alt="ATM Logo"
+                            width={170}
+                            height={75}
+                            className="object-contain mb-5"
+                        />
+
+                        <p className="text-sm leading-relaxed opacity-85 mb-7 pr-4">
+                            ATM is an all-in-one platform for managing projects, boosting team
+                            productivity, and tracking workforce activities. It provides smart
+                            solutions for startups, construction teams, and residential
+                            communities. With integrated tools for tasks, attendance, HR, Agile
+                            workflows, and AI-powered insights, BexATM helps organizations work
+                            smarter and deliver results faster.
+                        </p>
+
+                        <h3 className="text-base font-semibold mb-3">Follow Us</h3>
+
+                        <div className="flex gap-4">
+                            <Image src="/icons/linkedin.png" width={30} height={30} alt="LinkedIn" />
+                            <Image src="/icons/instagram.png" width={30} height={30} alt="Instagram" />
+                            <Image src="/icons/youtube.png" width={30} height={30} alt="YouTube" />
+                        </div>
+                    </div>
+
+                    {/* 2 — PRODUCTS */}
+                    <div>
+                        <h3 className="text-2xl font-semibold mb-2">Our Products</h3>
+                        <div className="w-12 h-1 bg-[#00D0D0] mb-4"></div>
+
+                        <ul className="space-y-0 text-sm opacity-85 list-disc ml-4">
+                            <li>AI Project Management for Startups</li>
+                            <li>Construction Project Management</li>
+                            <li>Apartment Society Management</li>
+                        </ul>
+                    </div>
+
+                    {/* 3 — FEATURES */}
+                    <div>
+                        <h3 className="text-2xl font-semibold mb-2">Key Features</h3>
+                        <div className="w-12 h-1 bg-[#00D0D0] mb-4"></div>
+
+                        <ul className="space-y-0 text-sm opacity-85 list-disc ml-4">
+                            <li>Agile Management</li>
+                            <li>Task & Workflow</li>
+                            <li>Back Office (HRM)</li>
+                            <li>Time & Attendance</li>
+                            <li>Geo Attendance</li>
+                            <li>Employee Self Service</li>
+                            <li>Manager Desk</li>
+                            <li>Assessment System</li>
+                            <li>Cost & Budget</li>
+                            <li>AI Insights</li>
+                        </ul>
+                    </div>
+
+                    {/* 4 — QUICK LINKS */}
+                    <div>
+                        <h3 className="text-2xl font-semibold mb-2">Quick Links</h3>
+                        <div className="w-12 h-1 bg-[#00D0D0] mb-4"></div>
+
+                        <ul className="space-y-2 text-sm opacity-85 list-disc ml-4">
+                            <li>Terms & Conditions</li>
+                            <li>Privacy Policy</li>
+                            <li>Pricing</li>
+                            <li>Case Studies</li>
+                            <li className="font-semibold">Customer Support</li>
+                            <li className="font-semibold">Start Free Plan</li>
+                            <li>Blog Post</li>
+                        </ul>
+                    </div>
+
+                    {/* 5 — CONTACT */}
+                    <div>
+                        <h3 className="text-2xl font-semibold mb-2">Contact Us</h3>
+                        <div className="w-12 h-1 bg-[#00D0D0] mb-4"></div>
+
+                        <p className="text-sm opacity-85 leading-relaxed mb-4">
+                            #25/31, Lakshmi Nagar II Main Road,<br />
+                            Porur, Chennai, Tamil Nadu - 600116
+                        </p>
+
+                        <p className="text-sm font-semibold text-[#00D0D0] mb-2">
+                            Email: contact@bexatm.com
+                        </p>
+
+                        <p className="text-sm font-semibold text-[#F6A800] mb-6">
+                            Phone: (+91)94444 08804
+                        </p>
+
+                        <button className="bg-[#F6A800] text-black text-sm px-5 py-2 rounded-full font-semibold mb-3">
+                            Book a Demo
+                        </button>
+
+                        <button className="bg-[#F6A800] text-black text-sm px-5 py-2 rounded-full font-semibold block">
+                            Chat with Our Expert: (+91)94444 08804
+                        </button>
+                    </div>
+
+                </div>
+
+                <div className="w-full bg-[#00D0D0] h-5 mt-14"></div>
+
+                <div className="text-center py-5 text-sm opacity-75 bg-black">
+                    © 2025 Beyondex Solutions Pvt Ltd.
+                </div>
+
+            </footer>
+
+
+
+
         </main>
     );
 }

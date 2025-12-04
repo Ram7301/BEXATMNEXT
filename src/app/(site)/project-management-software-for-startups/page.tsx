@@ -373,6 +373,7 @@ export default function ProjectManagementForStartups() {
           </div>
         )}
         {/* HERO (PDF-style: bold headline, left content, right stats) */}
+
         <section
           className="
     relative 
@@ -385,7 +386,7 @@ export default function ProjectManagementForStartups() {
           style={{ backgroundImage: "url('/images/startups/mainbanner.webp')" }}
         >
           {/* Dark Overlay for Readability */}
-          <div className="absolute inset-0 bg-black/50 sm:bg-black/40"></div>
+          {/* <div className="absolute inset-0 bg-black/50 sm:bg-black/40"></div> */}
 
           {/* Content wrapper */}
           <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-16">
@@ -453,39 +454,31 @@ export default function ProjectManagementForStartups() {
         </section>
 
         <section
-          className="
-    relative 
-    bg-cover bg-center bg-no-repeat 
-    py-20 px-6 
-    sm:py-28 sm:px-12 
-    lg:px-24
-  "
+          className="relative bg-cover bg-center bg-no-repeat py-28 px-8 lg:px-24"
           style={{ backgroundImage: "url('/images/startups/problembanner.webp')" }}
         >
           <div className="relative max-w-7xl mx-auto">
 
             {/* TITLE + SUBTITLE */}
-            <h2 className="text-[30px] sm:text-[36px] lg:text-[42px] font-extrabold text-[#0A1A2F] mb-3">
+            <h2 className="text-[42px] font-extrabold text-[#0A1A2F] mb-3">
               Growing a Startup Isn’t Easy
             </h2>
 
-            <p className="text-gray-600 text-base sm:text-lg mb-12">
+            <p className="text-gray-600 text-lg mb-16">
               These challenges slow down your growth — BexATM fixes that.
             </p>
 
-            {/* GRID */}
-            <div className="
-      relative 
-      grid 
-      grid-cols-1 
-      sm:grid-cols-2 
-      gap-y-12 
-      gap-x-0
-      px-2 sm:px-6
-    ">
+            {/* GRID + CROSS LINES */}
+            <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-y-14 px-6 py-10">
 
-              {/* 1 — Manual Task Allocation */}
-              <div className="flex flex-col gap-3 pr-0 sm:pr-10">
+              {/* Center Vertical Line */}
+              <div className="hidden sm:block absolute inset-y-0 left-1/2 w-[1px] bg-[#CFCFCF]"></div>
+
+              {/* Center Horizontal Line */}
+              <div className="hidden sm:block absolute left-1/2 top-1/2 h-[1px] w-[600px] -translate-x-1/2 bg-[#CFCFCF]"></div>
+
+              {/* Left Top */}
+              <div className="flex flex-col gap-3 pr-10">
                 <Image src="/images/startups/icons/manual.png" alt="" width={80} height={80} />
                 <h3 className="text-[#0A1A2F] font-bold text-xl">Manual Task Allocation</h3>
                 <p className="text-gray-600 text-sm leading-relaxed max-w-[280px]">
@@ -494,8 +487,8 @@ export default function ProjectManagementForStartups() {
                 </p>
               </div>
 
-              {/* 2 — No Project Visibility */}
-              <div className="flex flex-col gap-3 ml-0 sm:-ml-80">
+              {/* Right Top */}
+              <div className="flex flex-col gap-3 pl-5">
                 <Image src="/images/startups/icons/visibility.png" alt="" width={80} height={80} />
                 <h3 className="text-[#0A1A2F] font-bold text-xl">No Project Visibility</h3>
                 <p className="text-gray-600 text-sm leading-relaxed max-w-[280px]">
@@ -503,8 +496,8 @@ export default function ProjectManagementForStartups() {
                 </p>
               </div>
 
-              {/* 3 — Deadlines Slip */}
-              <div className="flex flex-col gap-3 pr-0 sm:pr-10">
+              {/* Left Bottom */}
+              <div className="flex flex-col gap-3 pr-10">
                 <Image src="/images/startups/icons/deadlines.png" alt="" width={80} height={80} />
                 <h3 className="text-[#0A1A2F] font-bold text-xl">Team Deadlines Slip</h3>
                 <p className="text-gray-600 text-sm leading-relaxed max-w-[280px]">
@@ -512,8 +505,8 @@ export default function ProjectManagementForStartups() {
                 </p>
               </div>
 
-              {/* 4 — Scattered Communication */}
-              <div className="flex flex-col gap-3 ml-0 sm:-ml-80">
+              {/* Right Bottom */}
+              <div className="flex flex-col gap-3 pl-5">
                 <Image src="/images/startups/icons/scattered.png" alt="" width={80} height={80} />
                 <h3 className="text-[#0A1A2F] font-bold text-xl">Scattered Communication</h3>
                 <p className="text-gray-600 text-sm leading-relaxed max-w-[280px]">
@@ -902,7 +895,6 @@ export default function ProjectManagementForStartups() {
             BexATM connecting tasks → teams → deadlines → reports
           </p>
         </section>
-
 
         <section className="relative w-full py-24 bg-[#F4F7FA] overflow-hidden">
           <div className="relative z-10 max-w-7xl mx-auto px-6">

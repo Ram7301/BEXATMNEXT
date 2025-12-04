@@ -342,7 +342,7 @@ export default function BexAtmPdfPage() {
           />
 
           {/* ✅ Optional overlay */}
-          <div className="absolute inset-0 bg-black/30"></div>
+          {/* <div className="absolute inset-0 bg-black/30"></div> */}
 
           {/* ✅ Text Content */}
           <div className="text-center md:text-left max-w-xl md:max-w-lg 

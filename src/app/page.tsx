@@ -1,4 +1,3 @@
-import FeaturedProperty from '@/components/Home/FeaturedProperty'
 import Hero from '@/components/Home/Hero'
 import Properties from '@/components/Home/Properties'
 import Services from '@/components/Home/Services'
@@ -13,17 +12,12 @@ export const metadata: Metadata = {
   description: 'Agile Task Manager',
 }
 
-export default  function Home() {
+export default function Home() {
   return (
     <main>
       <Hero />
       <Services />
       <Properties />
-      {/* <FeaturedProperty /> */}
-      {/* <Testimonial /> */}
-      {/* <BlogSmall /> */}
-      {/* <GetInTouch /> */}
-      {/* <FAQ /> */}
     </main>
   )
 }

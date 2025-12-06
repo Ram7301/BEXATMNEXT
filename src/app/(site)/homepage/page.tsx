@@ -4,12 +4,15 @@ import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useState, useRef, useEffect } from "react";
+import { FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
+import Link from "next/link";
 
 
 function Counter({ end, duration = 2000, isK = false }) {
     const ref = useRef<HTMLSpanElement | null>(null);
     const [count, setCount] = useState(0);
     const animRef = useRef<number | null>(null);
+    const [selectedImage, setSelectedImage] = useState(null);
 
     const startAnimation = () => {
         let start = 0;
@@ -56,64 +59,124 @@ function Counter({ end, duration = 2000, isK = false }) {
     );
 }
 
+
 export default function BexATMHome() {
     return (
         <main className="min-h-screen w-full overflow-x-hidden bg-white text-black">
             {/* HERO SECTION */}
-            <section
-                className="relative w-full bg-cover bg-center pt-32 pb-20 px-6 md:px-20"
+            <section className="relative w-full bg-cover bg-center pt-10 pb-10 px-4 md:px-20"
+
                 style={{ backgroundImage: "url('/images/home/mainbanner.webp')" }}
             >
                 <div className="grid md:grid-cols-2 gap-10 items-center">
-                    {/* Left Content */}
+
+                    {/* LEFT CONTENT */}
                     <div className="text-white max-w-xl">
 
                         {/* Main Heading */}
-                        <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mt-10 mb-1">
+                        <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mt-6 md:mt-10 mb-1">
                             ONE PLATFORM<br />TO MANAGE YOUR
                         </h1>
 
                         {/* Sub-heading */}
-                        <div className="bg-white text-gray-900 inline-block px-[25px] py-[10px] rounded-lg font-semibold mb-6 shadow-md">
+                        <div className="bg-white text-gray-900 inline-block px-6 md:px-25 py-2 rounded-lg font-semibold mb-2 shadow-md text-base md:text-lg">
                             Projects – People – Budget
                         </div>
 
-
-
                         {/* Paragraph */}
-                        <p className="text-lg leading-relaxed mb-8">
-                            Empower your teams with an end-to-end system for project execution, attendance, workforce management,
-                            and real-time insights — built for
+                        <p className="text-base md:text-lg leading-relaxed mb-3">
+                            Empower your teams with an end-to-end system for project execution, attendance,
+                            workforce management, and real-time insights — built for
                             <span className="text-blue-400 font-semibold"> Startups</span>,
                             <span className="text-blue-400 font-semibold"> Communities</span>, and
                             <span className="text-blue-400 font-semibold"> Construction teams</span>.
                         </p>
 
-                        {/* Industry Image */}
-                        <div className="mt-10">
-                            <Image
-                                src="/images/home/industryicon.png"
-                                alt="Industries"
-                                width={800}
-                                height={300}
-                                className="mx-auto"
-                            />
+                        {/* Industry Icons Bar */}
+                        <div className="mt-3">
+                            <div className="
+        w-full bg-[#0C4867] rounded-xl
+        p-2 md:p-4                /* smaller padding on mobile */
+        shadow-lg flex flex-col md:flex-row
+        justify-between items-center
+        gap-3 md:gap-0            /* smaller gap on mobile */
+        max-w-[260px] md:max-w-full mx-auto   /* shrink width on mobile */
+    ">
+
+                                {/* Startups */}
+                                <Link href="/project-management-software-for-startups" className="flex-1">
+                                    <div className="flex flex-col items-center text-white p-1 md:p-2 rounded-md cursor-pointer
+                transition-all duration-300 hover:bg-white/10 hover:scale-105">
+
+                                        <img src="images/home/icons/startup.png"
+                                            className="w-10 h-10 md:w-15 md:h-15 mb-1 md:mb-2"
+                                            alt="Startups & SMBs" />
+
+                                        <p className="text-center text-[11px] md:text-sm font-medium leading-tight">
+                                            Startups &<br /> SMB&apos;s
+                                        </p>
+                                    </div>
+                                </Link>
+
+                                <div className="hidden md:block w-px bg-white/20 h-14"></div>
+
+                                {/* Community */}
+                                <Link href="/apartment-society-management-software" className="flex-1">
+                                    <div className="flex flex-col items-center text-white p-1 md:p-2 rounded-md cursor-pointer
+                transition-all duration-300 hover:bg-white/10 hover:scale-105">
+
+                                        <img src="images/home/icons/community.png"
+                                            className="w-10 h-10 md:w-15 md:h-15 mb-1 md:mb-2"
+                                            alt="Community" />
+
+                                        <p className="text-center text-[11px] md:text-sm font-medium leading-tight">
+                                            Community /<br /> Association
+                                        </p>
+                                    </div>
+                                </Link>
+
+                                <div className="hidden md:block w-px bg-white/20 h-14"></div>
+
+                                {/* Construction */}
+                                <Link href="/construction-project-management-software" className="flex-1">
+                                    <div className="flex flex-col items-center text-white p-1 md:p-2 rounded-md cursor-pointer
+                transition-all duration-300 hover:bg-white/10 hover:scale-105">
+
+                                        <img src="images/home/icons/construction.png"
+                                            className="w-10 h-10 md:w-15 md:h-15 mb-1 md:mb-2"
+                                            alt="Construction Teams" />
+
+                                        <p className="text-center text-[11px] md:text-sm font-medium leading-tight">
+                                            Construction<br /> Teams
+                                        </p>
+                                    </div>
+                                </Link>
+                            </div>
                         </div>
 
+
                         {/* Buttons */}
-                        <div className="flex gap-4 mt-10">
-                            <button className="bg-yellow-400 text-gray-900 font-semibold px-6 py-3 rounded-lg">
-                                Book a Free Demo
-                            </button>
-                            <button className="bg-white text-gray-900 font-semibold px-6 py-3 rounded-lg">
-                                Explore Use Cases
-                            </button>
+                        <div className="flex flex-col sm:flex-row gap-4 mt-5">
+                            <Link href="/demo">
+                                <button className="bg-[#F6A800] hover:bg-[#d99000] transition text-black text-sm px-5 py-2 rounded-full font-semibold">
+                                    Book a Free Demo
+                                </button>
+                            </Link>
+
+                            <Link href="/use-cases">
+                                <button className="bg-[#F6A800] hover:bg-[#d99000] transition text-black text-sm px-5 py-2 rounded-full font-semibold">
+                                    Explore Use Cases
+                                </button>
+                            </Link>
                         </div>
+
                     </div>
+
                 </div>
             </section>
 
-            <section className="py-20 px-6 md:px-20 bg-[#F8FAFC]">
+            <section className="py-10 px-6 md:px-20 bg-[#F8FAFC]">
+
                 {/* TITLE + SUBTITLE */}
                 <div className="text-center max-w-5xl mx-auto -mt-8 mb-16">
                     <h2 className="text-4xl md:text-6xl font-bold mb-4" style={{ color: "#003C71" }}>
@@ -122,56 +185,55 @@ export default function BexATMHome() {
 
                     <p className="text-lg leading-relaxed" style={{ color: "#003C71" }}>
                         Whether you run a fast-growing startup, manage a residential community, or operate
-                        multiple construction sites — BexATM adapts to your workflow
+                        multiple construction sites — ATM adapts to your workflow
                     </p>
                 </div>
 
 
                 {/* 3 CARDS ROW */}
+
                 <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
                     {[
                         {
                             title: "Project Management for Startups & SMBs",
                             desc: "Agile workflows, team productivity, remote attendance & client deliverables.",
                             img: "/images/home/Startup.webp",
+                            href: "/project-management-software-for-startups",
                         },
                         {
                             title: "Community Management Software",
                             desc: "Resident services, staff attendance, maintenance tracking & committee dashboards.",
                             img: "/images/home/Community.webp",
+                            href: "/apartment-society-management-software",
                         },
                         {
                             title: "Construction Project Management",
                             desc: "Site attendance, contractor tracking, DPR tasks & milestone-based progress.",
                             img: "/images/home/Construction.webp",
+                            href: "/construction-project-management-software",
                         },
                     ].map((card, i) => (
-                        <div
-                            key={i}
-                            className="bg-white shadow-lg rounded-2xl p-6 border hover:shadow-xl transition text-center"
-                        >
-                            <img
-                                src={card.img}
-                                alt={card.title}
-                                className="w-full rounded-xl mb-5 h-48 object-cover"
-                            />
+                        <Link key={i} href={card.href}>
+                            <div className="bg-white shadow-lg rounded-2xl p-6 border hover:shadow-2xl hover:scale-105 transform transition cursor-pointer text-center">
+                                <div className="aspect-[4/3] w-full mb-5 overflow-hidden rounded-xl">
+                                    <img
+                                        src={card.img}
+                                        alt={card.title}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
 
-                            {/* Title with exact blue color */}
-                            <h3
-                                className="text-xl font-bold mb-2"
-                                style={{ color: "#0A436A" }}
-                            >
-                                {card.title}
-                            </h3>
+                                {/* Title with exact blue color */}
+                                <h3 className="text-xl font-bold mb-2" style={{ color: "#0A436A" }}>
+                                    {card.title}
+                                </h3>
 
-                            {/* Description with same blue from subtitle */}
-                            <p
-                                className="text-sm leading-relaxed"
-                                style={{ color: "#0A436A" }}
-                            >
-                                {card.desc}
-                            </p>
-                        </div>
+                                {/* Description */}
+                                <p className="text-sm leading-relaxed" style={{ color: "#0A436A" }}>
+                                    {card.desc}
+                                </p>
+                            </div>
+                        </Link>
                     ))}
                 </div>
 
@@ -229,28 +291,27 @@ export default function BexATMHome() {
                 </div>
             </section>
 
-            <section className="py-20 px-6 md:px-20 max-w-7xl mx-auto">
+            <section className="py-10 px-6 md:px-20 max-w-7xl mx-auto">
 
-                {/* 2 columns: left (image) + right (center + right stacked) */}
                 <div className="grid lg:grid-cols-2 gap-12 items-start">
 
                     {/* LEFT CIRCULAR GRAPHIC */}
-                    <div className="flex justify-center lg:justify-start">
+                    <div className="flex justify-center lg:justify-start lg:-mt-20 lg:-ml-20">
                         <img
                             src="/images/home/whybexatm.webp"
                             alt="BexATM Left Graphic"
-                            className="w-[500px] sm:w-[600px] md:w-[700px] lg:w-[750px] xl:w-[820px] max-w-none"
+                            className="w-[750px] sm:w-[900px] md:w-[1050px] lg:w-[1150px] xl:w-[1300px] max-w-none"
                         />
                     </div>
 
-                    {/* RIGHT SECTION (center + right stacked horizontally on desktop) */}
-                    <div className="flex flex-col -ml-45 lg:flex-row gap-12">
+                    {/* RIGHT SECTION */}
+                    <div className="flex flex-col lg:flex-row gap-12 lg:-ml-45">
 
                         {/* CENTER CONTENT */}
-                        <div className="space-y-10 w-full">
+                        <div className="space-y-20 w-full">
 
-                            <div className="flex items-start gap-3 -ml-7">
-                                <div className="w-2 h-10 bg-green-500 rounded-full"></div>
+                            <div className="flex items-start gap-3 lg:-ml-15">
+                                <div className="w-2 h-18 bg-green-500 rounded-full"></div>
                                 <div>
                                     <h3 className="font-semibold text-lg">Unified System for All Operations</h3>
                                     <p className="text-gray-700">Manage projects, attendance, and HR from one connected platform.</p>
@@ -258,7 +319,7 @@ export default function BexATMHome() {
                             </div>
 
                             <div className="flex items-start gap-3">
-                                <div className="w-2 h-10 bg-blue-500 rounded-full"></div>
+                                <div className="w-2 h-18 bg-blue-500 rounded-full"></div>
                                 <div>
                                     <h3 className="font-semibold text-lg">Real-Time Attendance</h3>
                                     <p className="text-gray-700">Every check-in updates task progress and team availability instantly.</p>
@@ -266,15 +327,15 @@ export default function BexATMHome() {
                             </div>
 
                             <div className="flex items-start gap-3">
-                                <div className="w-2 h-10 bg-yellow-500 rounded-full"></div>
+                                <div className="w-2 h-18 bg-yellow-500 rounded-full"></div>
                                 <div>
                                     <h3 className="font-semibold text-lg">End-to-End Visibility & Control</h3>
                                     <p className="text-gray-700">Track work, teams, and projects in real time for faster decisions.</p>
                                 </div>
                             </div>
 
-                            <div className="flex items-start gap-3 -ml-7">
-                                <div className="w-2 h-10 bg-orange-500 rounded-full"></div>
+                            <div className="flex items-start gap-3 lg:-ml-15">
+                                <div className="w-2 h-18 bg-orange-500 rounded-full"></div>
                                 <div>
                                     <h3 className="font-semibold text-lg">Built for Field, Office & Hybrid Teams</h3>
                                     <p className="text-gray-700">Seamless for on-site crews, remote staff, and multi-location teams.</p>
@@ -286,8 +347,8 @@ export default function BexATMHome() {
                         {/* RIGHT SMALL PANEL */}
                         <div className="flex flex-col items-start ml-5 space-y-6 w-full max-w-xs">
 
-                            <h2 className="text-3xl md:text-4xl font-bold text-[#003C71]">
-                                Why BexATM?
+                            <h2 className="text-3xl md:text-6xl lg:-mt-15 font-bold text-[#003C71]">
+                                Why ATM?
                             </h2>
 
                             <img
@@ -296,35 +357,34 @@ export default function BexATMHome() {
                                 className="rounded-xl shadow-md w-full h-64 object-cover"
                             />
 
-                            <p className="text-black-700 font-bold">
+                            <p className="text-sm md:text-base text-black font-bold leading-snug lg:-mt-5">
                                 The only platform that combines Project Management + Time Tracking + HR Operations.
                             </p>
 
-                            <p className="text-black-700 font-semibold leading-relaxed">
-                                Unlike traditional project tools, BexATM<br />
+                            <p className="text-gray-700 leading-relaxed lg:-mt-5">
+                                Unlike traditional project tools, ATM<br />
                                 connects your project work with real on-ground<br />
                                 workforce data — ensuring complete visibility,<br />
                                 accountability, and productivity.
                             </p>
 
-                            <button className="px-6 py-3 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition">
-                                Let&apos;s Start – It&apos;s FREE
-                            </button>
-
+                            <Link href="/demo">
+                                <button className="px-6 py-3 bg-[#003C71] text-white rounded-xl shadow hover:bg-[#002B52] transition">
+                                    Let&apos;s Start – It&apos;s FREE
+                                </button>
+                            </Link>
 
                         </div>
-
-
                     </div>
-
                 </div>
             </section>
 
-            <section className="bg-white py-20 px-6 lg:px-12">
+            <section className="bg-white py-10 px-6 lg:px-12">
+
                 {/* Section Title */}
                 <div className="max-w-7xl mx-auto text-center mb-12">
                     <h2 className="text-3xl lg:text-6xl font-bold text-[#003C71]">
-                        Core Modules of BexATM
+                        Core Modules of ATM
                     </h2>
                     <p className="text-black-100 mt-3 font-bold">
                         Powerful Modules for Complete Operational Control
@@ -500,7 +560,7 @@ export default function BexATMHome() {
                             Download payroll-ready
                             attendance files, timesheets,
                             project reports, and connect
-                            BexATM with your existing
+                            ATM with your existing
                             systems through seamless API
                             integrations.
                         </p>
@@ -509,14 +569,224 @@ export default function BexATMHome() {
                 </div>
             </section>
 
-            <section className="w-full py-16 px-6 flex flex-col items-center text-center bg-white">
+            <section className="bg-white py-10 px-6 lg:px-12">
+                {/* Section Title */}
+                <div className="max-w-7xl mx-auto text-center mb-12">
+                    <h2 className="text-3xl lg:text-6xl font-bold text-[#003C71]">
+                        ATM Tiny Apps
+                    </h2>
+                    <p className="text-black-100 mt-3 font-bold">
+                        Lightweight solutions for faster workflows
+                    </p>
+                </div>
+
+                {/* MAIN FLEX CONTAINER — LEFT IMAGES + RIGHT GRID */}
+                <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10">
+                    {/* LEFT SIDE — IMAGES */}
+                    <div className="flex flex-col items-center mt-5 gap-10 lg:w-1/4">
+                        <img
+                            src="/images/home/tinyapps1.png"
+                            alt="App Screenshot 1"
+                            className="rounded-xl shadow-md border w-[180px] h-auto"
+                        />
+                        <img
+                            src="/images/home/tinyapps.png"
+                            alt="App Screenshot 2"
+                            className="rounded-xl shadow-md border w-[180px] h-auto"
+                        />
+                    </div>
+
+                    {/* RIGHT SIDE — 10 CARD GRID */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:w-5/2">
+
+                        {/* CARD 1 */}
+                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
+    shadow-md hover:shadow-lg transition-all duration-300 text-center">
+
+                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
+        flex items-center justify-center">
+                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            </div>
+
+                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2">
+                                ATM Enterprise
+                            </h3>
+
+                            <p className="text-gray-600 text-[14px]">
+                                Manage company-wide operations with centralized tools and real-time insights.
+                            </p>
+                        </div>
+
+                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
+    shadow-md hover:shadow-lg transition-all duration-300 text-center">
+
+                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
+        flex items-center justify-center">
+                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            </div>
+
+                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2 whitespace-nowrap">
+                                ATM Team Activities
+                            </h3>
+
+
+                            <p className="text-gray-600 text-[14px]">
+                                Track team schedules, tasks, events, and activity reports in one place.
+                            </p>
+                        </div>
+
+
+                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
+    shadow-md hover:shadow-lg transition-all duration-300 text-center">
+
+                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
+        flex items-center justify-center">
+                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            </div>
+
+                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2">
+                                ATM CRM
+                            </h3>
+
+                            <p className="text-gray-600 text-[14px]">
+                                Manage leads, customers, interactions, and follow-ups with an easy CRM workflow.
+                            </p>
+                        </div>
+
+                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
+    shadow-md hover:shadow-lg transition-all duration-300 text-center">
+
+                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
+        flex items-center justify-center">
+                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            </div>
+
+                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2">
+                                ATM Task
+                            </h3>
+
+                            <p className="text-gray-600 text-[14px]">
+                                Create, assign, and monitor tasks to keep teams aligned and productive.
+                            </p>
+                        </div>
+
+                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
+    shadow-md hover:shadow-lg transition-all duration-300 text-center">
+
+                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
+        flex items-center justify-center">
+                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            </div>
+
+                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2">
+                                ATM School
+                            </h3>
+
+                            <p className="text-gray-600 text-[14px]">
+                                Centralized training modules and knowledge resources for your entire team.
+                            </p>
+                        </div>
+
+                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
+    shadow-md hover:shadow-lg transition-all duration-300 text-center">
+
+                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
+        flex items-center justify-center">
+                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            </div>
+
+                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2">
+                                ATM Request
+                            </h3>
+
+                            <p className="text-gray-600 text-[14px]">
+                                Submit and approve internal requests with a fast and organized workflow.
+                            </p>
+                        </div>
+
+                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
+    shadow-md hover:shadow-lg transition-all duration-300 text-center">
+
+                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
+        flex items-center justify-center">
+                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            </div>
+
+                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2">
+                                ATM Price Catalog
+                            </h3>
+
+                            <p className="text-gray-600 text-[14px]">
+                                Access up-to-date product and service pricing anytime.
+                            </p>
+                        </div>
+
+                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
+    shadow-md hover:shadow-lg transition-all duration-300 text-center">
+
+                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
+        flex items-center justify-center">
+                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            </div>
+
+                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2">
+                                ATM Stock Take
+                            </h3>
+
+                            <p className="text-gray-600 text-[14px]">
+                                Track inventory levels, perform stock counts, and maintain accurate warehouse data.
+                            </p>
+                        </div>
+
+
+                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
+    shadow-md hover:shadow-lg transition-all duration-300 text-center">
+
+                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
+        flex items-center justify-center">
+                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            </div>
+
+                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2">
+                                ATM Scrab
+                            </h3>
+
+                            <p className="text-gray-600 text-[14px]">
+                                Record and monitor staff attendance with automated logs and summaries.
+                            </p>
+                        </div>
+
+
+                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
+    shadow-md hover:shadow-lg transition-all duration-300 text-center">
+
+                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
+        flex items-center justify-center">
+                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            </div>
+
+                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2">
+                                ATM Petty Case
+                            </h3>
+
+                            <p className="text-gray-600 text-[14px]">
+                                Manage small expenses with a simple and transparent petty cash system.
+                            </p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </section>
+
+            <section className="w-full py-6 px-4 md:px-6 flex flex-col items-center text-center bg-white">
 
                 {/* HEADING */}
-                <div className="mt-8 space-y-2">
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#003C71]">
-                        A Simple, Powerful Workflow That Connects <br /> Your Entire Team
+                <div className="mt-4 md:mt-8 space-y-2 px-2">
+                    <h2 className="text-2xl md:text-4xl font-bold text-[#003C71] leading-snug md:leading-tight">
+                        A Simple, Powerful Workflow That Connects <br className="hidden md:block" />
+                        Your Entire Team
                     </h2>
-
                 </div>
 
                 {/* FULL-WIDTH IMAGE */}
@@ -524,61 +794,65 @@ export default function BexATMHome() {
                     <img
                         src="/images/home/infographic.webp"
                         alt="Section Image"
-                        className="w-full max-w-[1400px] object-cover"
+                        className="w-full max-w-[1400px] object-contain md:object-cover"
                     />
                 </div>
 
                 {/* BUTTONS */}
-                <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-                    <button className="px-6 py-3 bg-[#003C71] text-white rounded-xl shadow hover:bg-[#002B52] transition">
-                        Talk to Our EXPERT
-                    </button>
+                <div className="mt-8 md:mt-10 flex flex-col sm:flex-row items-center gap-3 md:gap-4 w-full sm:w-auto">
 
-                    <button className="px-6 py-3 border-2 border-[#003C71] text-[#003C71] rounded-xl shadow hover:bg-[#003C71] hover:text-white transition">
-                        Book a Demo
-                    </button>
+                    <Link href="/demo" className="w-full sm:w-auto">
+                        <button className="w-full sm:w-auto px-5 py-2.5 md:px-6 md:py-3 bg-[#003C71] text-white rounded-xl shadow hover:bg-[#002B52] transition text-sm md:text-base">
+                            Talk to Our EXPERT
+                        </button>
+                    </Link>
+
+                    <Link href="/use-cases" className="w-full sm:w-auto">
+                        <button className="w-full sm:w-auto px-5 py-2.5 md:px-6 md:py-3 bg-[#003C71] text-white rounded-xl shadow hover:bg-[#002B52] transition text-sm md:text-base">
+                            Book a Free Demo
+                        </button>
+                    </Link>
+
                 </div>
+
             </section>
 
-            {/* FOOTER SECTION */}
-            <footer className="bg-black text-white pt-20 px-6 md:px-20">
-
-                <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-5 gap-14">
-
+            <footer className="bg-black text-white pt-14 px-4 md:px-16">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-6">
                     {/* 1 — LOGO + DESCRIPTION */}
-                    <div className="col-span-2 lg:col-span-1">
+                    <div className="col-span-1 lg:col-span-1">
                         <Image
                             src="/images/header/bexatm2.png"
                             alt="ATM Logo"
-                            width={170}
-                            height={75}
-                            className="object-contain mb-5"
+                            width={150}
+                            height={65}
+                            className="object-contain mb-4"
                         />
-
-                        <p className="text-sm leading-relaxed opacity-85 mb-7 pr-4">
-                            ATM is an all-in-one platform for managing projects, boosting team
-                            productivity, and tracking workforce activities. It provides smart
-                            solutions for startups, construction teams, and residential
-                            communities. With integrated tools for tasks, attendance, HR, Agile
-                            workflows, and AI-powered insights, BexATM helps organizations work
-                            smarter and deliver results faster.
+                        <p className="text-sm leading-relaxed opacity-80 mb-5 pr-0 md:pr-2 max-w-full md:max-w-sm">
+                            ATM is an all-in-one platform for project management, team productivity, and workforce tracking.
+                            It offers integrated tools for tasks, attendance, HR, Agile Project Management, and AI-powered workflows,
+                            helping startups, construction teams, and resident communities operate smarter and achieve results faster.
                         </p>
 
-                        <h3 className="text-base font-semibold mb-3">Follow Us</h3>
-
-                        <div className="flex gap-4">
-                            <Image src="/icons/linkedin.png" width={30} height={30} alt="LinkedIn" />
-                            <Image src="/icons/instagram.png" width={30} height={30} alt="Instagram" />
-                            <Image src="/icons/youtube.png" width={30} height={30} alt="YouTube" />
+                        <h3 className="text-base font-semibold mb-2">Follow Us</h3>
+                        <div className="flex gap-3">
+                            <a href="https://linkedin.com" target="_blank" className="hover:scale-110 transition">
+                                <FaLinkedinIn size={24} color="#0077B5" />
+                            </a>
+                            <a href="https://instagram.com" target="_blank" className="hover:scale-110 transition">
+                                <FaInstagram size={24} color="#E1306C" />
+                            </a>
+                            <a href="https://youtube.com" target="_blank" className="hover:scale-110 transition">
+                                <FaYoutube size={24} color="#FF0000" />
+                            </a>
                         </div>
                     </div>
 
                     {/* 2 — PRODUCTS */}
                     <div>
-                        <h3 className="text-2xl font-semibold mb-2">Our Products</h3>
-                        <div className="w-12 h-1 bg-[#00D0D0] mb-4"></div>
-
-                        <ul className="space-y-0 text-sm opacity-85 list-disc ml-4">
+                        <h3 className="text-xl font-semibold mb-1">Our Products</h3>
+                        <div className="w-10 h-1 bg-[#00D0D0] mb-3"></div>
+                        <ul className="space-y-1 text-sm opacity-80 list-disc ml-3">
                             <li>AI Project Management for Startups</li>
                             <li>Construction Project Management</li>
                             <li>Apartment Society Management</li>
@@ -587,10 +861,9 @@ export default function BexATMHome() {
 
                     {/* 3 — FEATURES */}
                     <div>
-                        <h3 className="text-2xl font-semibold mb-2">Key Features</h3>
-                        <div className="w-12 h-1 bg-[#00D0D0] mb-4"></div>
-
-                        <ul className="space-y-0 text-sm opacity-85 list-disc ml-4">
+                        <h3 className="text-xl font-semibold mb-1">Key Features</h3>
+                        <div className="w-10 h-1 bg-[#00D0D0] mb-3"></div>
+                        <ul className="space-y-1 text-sm opacity-80 list-disc ml-3">
                             <li>Agile Management</li>
                             <li>Task & Workflow</li>
                             <li>Back Office (HRM)</li>
@@ -606,10 +879,9 @@ export default function BexATMHome() {
 
                     {/* 4 — QUICK LINKS */}
                     <div>
-                        <h3 className="text-2xl font-semibold mb-2">Quick Links</h3>
-                        <div className="w-12 h-1 bg-[#00D0D0] mb-4"></div>
-
-                        <ul className="space-y-2 text-sm opacity-85 list-disc ml-4">
+                        <h3 className="text-xl font-semibold mb-1">Quick Links</h3>
+                        <div className="w-10 h-1 bg-[#00D0D0] mb-3"></div>
+                        <ul className="space-y-1 text-sm opacity-80 list-disc ml-3">
                             <li>Terms & Conditions</li>
                             <li>Privacy Policy</li>
                             <li>Pricing</li>
@@ -621,45 +893,42 @@ export default function BexATMHome() {
                     </div>
 
                     {/* 5 — CONTACT */}
-                    <div>
-                        <h3 className="text-2xl font-semibold mb-2">Contact Us</h3>
-                        <div className="w-12 h-1 bg-[#00D0D0] mb-4"></div>
+                    <div className="flex flex-col">
+                        <h3 className="text-xl font-semibold mb-1">Contact Us</h3>
+                        <div className="w-10 h-1 bg-[#00D0D0] mb-3"></div>
 
-                        <p className="text-sm opacity-85 leading-relaxed mb-4">
+                        <p className="text-sm opacity-80 leading-relaxed mb-3">
                             #25/31, Lakshmi Nagar II Main Road,<br />
                             Porur, Chennai, Tamil Nadu - 600116
                         </p>
 
-                        <p className="text-sm font-semibold text-[#00D0D0] mb-2">
+                        <p className="text-sm font-semibold text-[#F6A800] mb-1">
                             Email: contact@bexatm.com
                         </p>
 
-                        <p className="text-sm font-semibold text-[#F6A800] mb-6">
+                        <p className="text-sm font-semibold text-[#F6A800] mb-3">
                             Phone: (+91)94444 08804
                         </p>
 
-                        <button className="bg-[#F6A800] text-black text-sm px-5 py-2 rounded-full font-semibold mb-3">
-                            Book a Demo
-                        </button>
+                        <div className="flex flex-wrap gap-3 mt-2">
+                            <button className="bg-[#F6A800] text-black text-sm px-5 py-1.5 rounded-full font-semibold whitespace-nowrap">
+                                Book a Demo
+                            </button>
 
-                        <button className="bg-[#F6A800] text-black text-sm px-5 py-2 rounded-full font-semibold block">
-                            Chat with Our Expert: (+91)94444 08804
-                        </button>
+                            <button className="bg-[#F6A800] text-black text-sm px-5 py-1.5 rounded-full font-semibold whitespace-nowrap">
+                                Chat with Our Expert: (+91)94444 08804
+                            </button>
+                        </div>
+
                     </div>
-
                 </div>
 
-                <div className="w-full bg-[#00D0D0] h-5 mt-14"></div>
+                <div className="w-screen bg-[#00D0D0] h-4 mt-10 relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]"></div>
 
-                <div className="text-center py-5 text-sm opacity-75 bg-black">
+                <div className="text-center py-4 text-xs opacity-70 bg-black">
                     © 2025 Beyondex Solutions Pvt Ltd.
                 </div>
-
             </footer>
-
-
-
-
         </main>
     );
 }

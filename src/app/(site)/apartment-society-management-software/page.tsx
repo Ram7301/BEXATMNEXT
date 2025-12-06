@@ -144,7 +144,7 @@ export default function BexAtmPdfPage() {
   return (
     <>
       <Head>
-        <title>Apartment Society Management Software| BexATM</title>
+        <title>Apartment Society Management Software| ATM</title>
         <meta
           name="description"
           content="Manage tasks, complaints, billing, and facility operations with BexATM—an AI-powered apartment society management software for RWAs and residential communities."
@@ -330,41 +330,53 @@ export default function BexAtmPdfPage() {
         )}
 
         {/* HERO */}
-        <section
-          className="relative flex flex-col md:flex-row items-center 
-  justify-center md:justify-between w-full min-h-screen px-6 md:px-20 text-white overflow-hidden"
-        >
-          {/* ✅ Full Background Image */}
-          <img
-            src="/images/community4.webp"
-            alt="Community"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+     <section
+  className="relative flex flex-col md:flex-row items-center 
+  justify-center md:justify-between w-full min-h-screen px-6 
+  md:px-20 text-white overflow-hidden"
+>
+  {/* Background Image */}
+  <img
+    src="/images/community4.webp"
+    alt="Community"
+    className="absolute inset-0 w-full h-full object-cover"
+  />
 
-          {/* ✅ Optional overlay */}
-          {/* <div className="absolute inset-0 bg-black/30"></div> */}
+  {/* Content */}
+  <div
+    className="
+      relative z-10 max-w-xl md:max-w-lg mt-24 md:mt-10 
+      
+      /* MOBILE: white box */
+      bg-white/20 backdrop-blur-sm p-6 rounded-xl 
+      
+      /* DESKTOP: remove white box */
+      md:bg-transparent md:backdrop-blur-0 md:p-0 md:rounded-none
+      
+      text-center md:text-left
+    "
+  >
+    <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 leading-tight text-black md:text-white">
+      Smart Project Management for Apartment Communities
+    </h1>
 
-          {/* ✅ Text Content */}
-          <div className="text-center md:text-left max-w-xl md:max-w-lg 
-    mt-0 md:mt-10 md:ml-4 relative z-10"
-          >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
-              Smart Project Management for Apartment Communities
-            </h1>
+    <p className="text-base sm:text-lg mb-6 leading-relaxed text-black md:text-gray-200">
+      ATM brings residents, facility teams, and communities together on one
+      AI-powered platform — for transparent, organized, and stress-free community management.
+    </p>
 
-            <p className="text-base sm:text-lg text-gray-200 font-medium mb-6 leading-relaxed">
-              BexATM brings residents, facility teams, and Communities together on one
-              AI-powered platform — for transparent, organized, and stress-free community management.
-            </p>
+    <Button
+      onClick={scrollToForm}
+      className="bg-[#F6B200] text-black font-semibold hover:bg-yellow-400 
+      px-8 py-3 rounded-md transition-all duration-300 shadow-md"
+    >
+      Book a Demo
+    </Button>
+  </div>
+</section>
 
-            <Button
-              onClick={scrollToForm}
-              className="bg-[#F6B200] text-black font-semibold hover:bg-yellow-400 px-8 py-3 rounded-md transition-all duration-300"
-            >
-              Book a Demo
-            </Button>
-          </div>
-        </section>
+
+
 
         {/* PROBLEM SECTION */}
         <section
@@ -502,7 +514,7 @@ export default function BexAtmPdfPage() {
         <section className="bg-gradient-to-br from-white to-gray-50 py-20 md:py-24 mt-0">
           <div className="max-w-7xl mx-auto px-6 text-center">
             <h3 className="text-4xl font-bold text-gray-900">
-              How Does BexATM Benefit Your Community?
+              How Does ATM Benefit Your Community?
             </h3>
 
 
@@ -538,8 +550,8 @@ export default function BexAtmPdfPage() {
             <div className="bg-white p-10 rounded-xl shadow-md border border-gray-200 relative">
               <span className="text-[#F6B200] text-4xl font-bold">“</span>
               <p className="mt-4 text-gray-700 italic leading-relaxed">
-                Before BexATM, our community office was buried in paperwork and missed follow-ups.
-                Ever since we switched to BexATM, task allocation has become effortless and transparent.
+                Before ATM, our community office was buried in paperwork and missed follow-ups.
+                Ever since we switched to ATM, task allocation has become effortless and transparent.
                 The ticketing system is so clear that our response time has improved by nearly 60%.
                 Residents are happier, and our team feels more organized than ever.
                 Truly a game-changer for any society management team.
@@ -554,7 +566,7 @@ export default function BexAtmPdfPage() {
             <div className="bg-white p-10 rounded-xl shadow-md border border-gray-200 relative">
               <span className="text-[#F6B200] text-4xl font-bold">“</span>
               <p className="mt-4 text-gray-700 italic leading-relaxed">
-                BexATM has brought a new level of professionalism to our community.
+                ATM has brought a new level of professionalism to our community.
                 From maintenance updates to vendor management, everything is available in one clean dashboard.
                 The transparency it offers has increased trust among residents, and we receive far fewer complaints.
                 The budgeting and expense tracking tools are incredibly helpful for decision-making.
@@ -570,10 +582,10 @@ export default function BexAtmPdfPage() {
             <div className="bg-white p-10 rounded-xl shadow-md border border-gray-200 relative">
               <span className="text-[#F6B200] text-4xl font-bold">“</span>
               <p className="mt-4 text-gray-700 italic leading-relaxed">
-                As a company handling multiple apartment complexes, BexATM is exactly what we needed.
+                As a company handling multiple apartment complexes, ATM is exactly what we needed.
                 The software ensures smooth coordination across teams, and the automated reminders prevent delays.
                 Our clients appreciate the organized reporting and real-time updates.
-                BexATM doesn’t just simplify work—it helps us deliver better service every day.
+                ATM doesn’t just simplify work—it helps us deliver better service every day.
               </p>
 
               <div className="mt-6">
@@ -602,52 +614,52 @@ export default function BexAtmPdfPage() {
               <div className="space-y-3">
                 {[
                   {
-                    q: "What is BexATM Community Management Software?",
-                    a: "BexATM is a cloud-based community and apartment management software that helps RWAs, property managers, and facility teams streamline operations. It includes features like task allocation, maintenance ticketing, budgeting, vendor management, staff monitoring, announcements, and real-time reports—all in one platform."
+                    q: "What is ATM Community Management Software?",
+                    a: "ATM is a cloud-based community and apartment management software that helps RWAs, property managers, and facility teams streamline operations. It includes features like task allocation, maintenance ticketing, budgeting, vendor management, staff monitoring, announcements, and real-time reports—all in one platform."
                   },
                   {
-                    q: "Who can use BexATM?",
-                    a: "BexATM is designed for Apartment societies & gated communities, Resident Welfare Associations (RWAs), Facility management teams, Property management companies, Builders & developers managing multiple projects. Anyone looking to simplify society operations can use it effectively."
+                    q: "Who can use ATM?",
+                    a: "ATM is designed for Apartment societies & gated communities, Resident Welfare Associations (RWAs), Facility management teams, Property management companies, Builders & developers managing multiple projects. Anyone looking to simplify society operations can use it effectively."
                   },
                   {
-                    q: "How does BexATM help improve community management?",
-                    a: "BexATM reduces manual work, eliminates paperwork, and improves transparency. It streamlines complaint management, automates reminders, tracks staff productivity, manages budgets, and offers real-time insights for faster decision-making — improving resident satisfaction."
+                    q: "How does ATM help improve community management?",
+                    a: "ATM reduces manual work, eliminates paperwork, and improves transparency. It streamlines complaint management, automates reminders, tracks staff productivity, manages budgets, and offers real-time insights for faster decision-making — improving resident satisfaction."
                   },
                   {
-                    q: "Does BexATM have a maintenance & ticketing system?",
-                    a: "Yes. BexATM includes a robust maintenance ticketing system where residents can raise complaints, and managers can assign, monitor, and close tasks effortlessly. It also sends notifications and updates at every stage."
+                    q: "Does ATM have a maintenance & ticketing system?",
+                    a: "Yes. ATM includes a robust maintenance ticketing system where residents can raise complaints, and managers can assign, monitor, and close tasks effortlessly. It also sends notifications and updates at every stage."
                   },
                   {
-                    q: "Can BexATM help track budgets and expenses?",
-                    a: "Absolutely. BexATM provides a financial module to track community budgets, expenses, vendor payments, and reports. This ensures transparency and accurate financial planning for RWAs."
+                    q: "Can ATM help track budgets and expenses?",
+                    a: "Absolutely. ATM provides a financial module to track community budgets, expenses, vendor payments, and reports. This ensures transparency and accurate financial planning for RWAs."
                   },
                   {
                     q: "Is the software easy for staff and residents to use?",
-                    a: "Yes. BexATM has a simple, user-friendly interface designed for all age groups. Even non-technical staff can use the system with minimal training."
+                    a: "Yes. ATM has a simple, user-friendly interface designed for all age groups. Even non-technical staff can use the system with minimal training."
                   },
                   {
-                    q: "Is my data safe with BexATM?",
-                    a: "Yes. BexATM uses secure cloud infrastructure, encrypted data storage, and role-based access control to ensure complete data privacy and protection."
+                    q: "Is my data safe with ATM?",
+                    a: "Yes. ATM uses secure cloud infrastructure, encrypted data storage, and role-based access control to ensure complete data privacy and protection."
                   },
                   {
-                    q: "Can BexATM be used on mobile phones?",
-                    a: "Yes. BexATM is accessible on both mobile and desktop browsers. A mobile app version is also available for managers, staff, and residents for easier on-the-go access."
+                    q: "Can ATM be used on mobile phones?",
+                    a: "Yes. ATM is accessible on both mobile and desktop browsers. A mobile app version is also available for managers, staff, and residents for easier on-the-go access."
                   },
                   {
-                    q: "Does BexATM support vendor and staff management?",
-                    a: "Yes. BexATM allows you to add vendors, track contracts, assign work, monitor staff attendance, track shifts, and get performance reports."
+                    q: "Does ATM support vendor and staff management?",
+                    a: "Yes. ATM allows you to add vendors, track contracts, assign work, monitor staff attendance, track shifts, and get performance reports."
                   },
                   {
-                    q: "Can BexATM help with community announcements and updates?",
+                    q: "Can ATM help with community announcements and updates?",
                     a: "Yes. You can instantly send announcements, event updates, notices, and emergency alerts to all residents through the dashboard or mobile app."
                   },
                   {
-                    q: "Can BexATM handle multiple communities or properties?",
+                    q: "Can ATM handle multiple communities or properties?",
                     a: "Yes. Property management companies can manage multiple societies from a single dashboard with individual reporting and control."
                   },
                   {
-                    q: "What makes BexATM different from other community management software?",
-                    a: "BexATM stands out for its simple UI, fast performance, complete automation, real-time monitoring, strong reporting tools, customizable modules, and responsive support — making community management seamless and burden-free."
+                    q: "What makes ATM different from other community management software?",
+                    a: "ATM stands out for its simple UI, fast performance, complete automation, real-time monitoring, strong reporting tools, customizable modules, and responsive support — making community management seamless and burden-free."
                   }
                 ].map((item, index) => (
                   <div
@@ -677,7 +689,7 @@ export default function BexAtmPdfPage() {
             {/* ✅ Right: Book a Demo Form */}
             <div ref={formRef} className="bg-white shadow-lg rounded-md p-8 w-full">
               <h2 className="text-xl md:text-2xl font-bold text-black-800">
-                Ready to Build Smarter with BexATM?
+                Ready to Build Smarter with ATM?
               </h2>
               <p className="text-black-600 mb-6 text-sm">Book Your Free Demo Now</p>
 
@@ -791,10 +803,10 @@ export default function BexAtmPdfPage() {
           {/* Heading + Subtext */}
           <div>
             <h3 className="text-lg font-semibold">
-              Start Managing Smarter with <span className="text-yellow-400">BexATM</span> — Powered by AI
+              Start Managing Smarter with <span className="text-yellow-400">ATM</span> — Powered by AI
             </h3>
             <p className="text-sm text-gray-300 mt-2 max-w-sm mx-auto">
-              Join 800+ communities who’ve automated workflows and grown faster with BexATM.
+              Join 800+ communities who’ve automated workflows and grown faster with ATM.
             </p>
           </div>
 
@@ -824,7 +836,7 @@ export default function BexAtmPdfPage() {
 
           {/* Footer Bottom Text */}
           <p className="text-xs text-gray-400 pt-4 border-t border-gray-800">
-            © {new Date().getFullYear()} BexATM. All rights reserved.
+            © {new Date().getFullYear()} ATM. All rights reserved.
           </p>
         </footer>
       </main>

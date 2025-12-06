@@ -189,7 +189,7 @@ export default function ProjectManagementForStartups() {
   return (
     <>
       <Head>
-        <title>Project Management Software for Startups & Small Business| BexATM</title>
+        <title>Project Management Software for Startups & Small Business| ATM</title>
         <meta
           name="description"
           content="Scale faster and collaborate smarter with BexATM’s AI-powered project management software for startups and small business teams."
@@ -375,7 +375,7 @@ export default function ProjectManagementForStartups() {
         {/* HERO (PDF-style: bold headline, left content, right stats) */}
 
         <section
-          className="
+  className="
     relative 
     bg-cover bg-center sm:bg-[center_top] 
     bg-no-repeat 
@@ -383,58 +383,62 @@ export default function ProjectManagementForStartups() {
     min-h-[80vh] 
     flex items-end
   "
-          style={{ backgroundImage: "url('/images/startups/mainbanner.webp')" }}
-        >
-          {/* Dark Overlay for Readability */}
-          {/* <div className="absolute inset-0 bg-black/50 sm:bg-black/40"></div> */}
+  style={{ backgroundImage: "url('/images/startups/mainbanner.webp')" }}
+>
+  {/* Content wrapper */}
+  <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-16">
 
-          {/* Content wrapper */}
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-16">
+    {/* LEFT CONTENT */}
+    <div
+      className="
+        max-w-xl space-y-4 sm:space-y-6
+        
+        /* MOBILE: dark glass background */
+        bg-black/20 backdrop-blur-sm p-6 rounded-xl
+        
+        /* DESKTOP: no dark box */
+        md:bg-transparent md:backdrop-blur-0 md:p-0 md:rounded-none
+      "
+    >
+      <h1
+        className="
+          text-xl sm:text-2xl lg:text-3xl font-bold leading-tight 
+          text-white
+        "
+      >
+        AI Powered
+      </h1>
 
-            {/* LEFT CONTENT */}
-            <div className="max-w-xl space-y-4 sm:space-y-6">
+      <h2
+        className="
+          text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight 
+          text-white
+        "
+      >
+        Project Management Software for Startups & Small Business
+      </h2>
 
-              <h1 className="
-        text-xl 
-        sm:text-2xl 
-        lg:text-3xl 
-        font-bold 
-        leading-tight
-      ">
-                AI Powered
-              </h1>
+      <p
+        className="
+          text-[#3FC4C8] text-base sm:text-lg leading-relaxed
+        "
+      >
+        Run Your Startup Smarter — Manage Projects, Teams & Tasks 3X Faster with AI
+      </p>
 
-              <h2 className="
-        text-3xl 
-        sm:text-4xl 
-        lg:text-5xl 
-        font-bold 
-        leading-tight
-      ">
-                Project Management Software for Startups & Small Business
-              </h2>
+      <p
+        className="
+          text-gray-200 text-sm sm:text-base leading-relaxed
+        "
+      >
+        ATM is the all-in-one Project Management Software for Startups & Small
+        Businesses, helping teams plan projects, track tasks, automate workflows,
+        collaborate better, and execute faster — without spreadsheets and chaos.
+      </p>
 
-              <p className="
-        text-[#3FC4C8] 
-        text-base sm:text-lg 
-        leading-relaxed
-      ">
-                Run Your Startup Smarter — Manage Projects, Teams & Tasks 3X Faster with AI
-              </p>
-
-              <p className="
-        text-gray-100 
-        text-sm sm:text-base 
-        leading-relaxed
-      ">
-                BexATM is the all-in-one Project Management Software for Startups & Small
-                Businesses, helping teams plan projects, track tasks, automate workflows,
-                collaborate better, and execute faster — without spreadsheets and chaos.
-              </p>
-
-              <Button
-                onClick={scrollToForm}
-                className="
+      <Button
+        onClick={scrollToForm}
+        className="
           bg-[#F6B200] 
           text-black 
           font-bold 
@@ -445,13 +449,14 @@ export default function ProjectManagementForStartups() {
           transition 
           w-full sm:w-auto
         "
-              >
-                Book Free Demo
-              </Button>
+      >
+        Book Free Demo
+      </Button>
+    </div>
+  </div>
+</section>
 
-            </div>
-          </div>
-        </section>
+
 
         <section
           className="relative bg-cover bg-center bg-no-repeat py-28 px-8 lg:px-24"
@@ -465,7 +470,7 @@ export default function ProjectManagementForStartups() {
             </h2>
 
             <p className="text-gray-600 text-lg mb-16">
-              These challenges slow down your growth — BexATM fixes that.
+              These challenges slow down your growth — ATM fixes that.
             </p>
 
             {/* GRID + CROSS LINES */}
@@ -542,7 +547,7 @@ export default function ProjectManagementForStartups() {
             <div className="text-left lg:pl-20 flex flex-col justify-start relative z-10 text-white lg:text-black">
 
               <h2 className="text-4xl sm:text-5xl font-bold text-[#0A1A2F] mb-3">
-                Meet BexATM
+                Meet ATM
               </h2>
 
               <h1 className="text-[17px] font-extrabold mb-4">
@@ -554,7 +559,7 @@ export default function ProjectManagementForStartups() {
               </h1>
 
               <p className="mb-10 text-[15px] leading-relaxed max-w-lg">
-                BexATM’s AI-powered project engine helps startups automate workflows,
+                ATM AI-powered project engine helps startups automate workflows,
                 plan projects, track tasks, and collaborate efficiently without spreadsheets and chaos.
               </p>
 
@@ -564,7 +569,7 @@ export default function ProjectManagementForStartups() {
                 {[
                   {
                     title: "Smart Deadline Alerts & Reminders",
-                    desc: "BexATM’s AI engine automates your workflow by suggesting the right tasks..."
+                    desc: "ATM AI engine automates your workflow by suggesting the right tasks..."
                   },
                   {
                     title: "Team Collaboration Hub",
@@ -623,10 +628,10 @@ export default function ProjectManagementForStartups() {
           {/* Section Title */}
           <div className="max-w-7xl mx-auto text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-[#0A1A2F]">
-              Core Modules of BexATM
+              Core Modules of ATM
             </h2>
             <p className="text-gray-600 mt-3 font-medium">
-              BexATM’s End-to-End Feature Suite
+              ATM End-to-End Feature Suite
             </p>
           </div>
 
@@ -751,7 +756,7 @@ export default function ProjectManagementForStartups() {
           style={{ backgroundImage: "url('/images/startups/whobanner.webp')" }}
         >
           <div className="max-w-7xl mx-auto text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold">Who Is BexATM For?</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold">Who Is ATM For?</h2>
             <p className="text-gray-200 mt-3 text-lg">
               Perfect Project Management Software for Startups, Agencies & SMEs
             </p>
@@ -859,9 +864,9 @@ export default function ProjectManagementForStartups() {
           {/* Dark Overlay for Mobile Readability */}
           <div className="absolute inset-0 bg-black/20 md:bg-transparent"></div>
 
-          {/* Why BexATM - Top Right */}
+          {/* Why ATM - Top Right */}
           <h2 className="absolute top-6 right-6 md:top-10 md:right-20 text-3xl md:text-5xl font-extrabold text-[#0A2A45] z-10">
-            Why BexATM?
+            Why ATM?
           </h2>
 
           {/* Right Content (becomes full width on mobile) */}
@@ -892,7 +897,7 @@ export default function ProjectManagementForStartups() {
 
           {/* Bottom Center Text */}
           <p className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[90%] text-center text-xl md:text-3xl font-extrabold text-gray-900 z-10">
-            BexATM connecting tasks → teams → deadlines → reports
+            ATM connecting tasks → teams → deadlines → reports
           </p>
         </section>
 
@@ -977,9 +982,9 @@ export default function ProjectManagementForStartups() {
             {/* Card 1 */}
             <div className="bg-white p-10 rounded-xl shadow-md border border-gray-200 relative">
               <span className="text-[#F6B200] text-4xl font-bold">“</span>
-              <h2>“BexATM brought complete structure to our sprints.”</h2>
+              <h2>“ATM brought complete structure to our sprints.”</h2>
               <p className="mt-4 text-gray-700 italic leading-relaxed">
-                Before using BexATM, our product team struggled with scattered tasks and delays. The AI suggestions and predictive timelines helped us deliver faster and stay organized. Our sprint completion rate improved by 90% within weeks.
+                Before using ATM, our product team struggled with scattered tasks and delays. The AI suggestions and predictive timelines helped us deliver faster and stay organized. Our sprint completion rate improved by 90% within weeks.
               </p>
 
               <div className="mt-6">
@@ -992,7 +997,7 @@ export default function ProjectManagementForStartups() {
               <span className="text-[#F6B200] text-4xl font-bold">“</span>
               <h2>“Perfect for small teams managing multiple clients.”</h2>
               <p className="mt-4 text-gray-700 italic leading-relaxed">
-                BexATM reduced our WhatsApp clutter, improved deadlines, and made client reporting effortless. We now handle more projects with the same team and deliver work on time consistently.
+                ATM reduced our WhatsApp clutter, improved deadlines, and made client reporting effortless. We now handle more projects with the same team and deliver work on time consistently.
               </p>
 
               <div className="mt-6">
@@ -1005,7 +1010,7 @@ export default function ProjectManagementForStartups() {
               <span className="text-[#F6B200] text-4xl font-bold">“</span>
               <p className="mt-4 text-gray-700 italic leading-relaxed">
                 <h2>“We finally have full visibility of our daily operations.”</h2>
-                Task tracking, staff coordination, and reporting became seamless with BexATM. The AI summaries save us hours every week, and team accountability has noticeably improved.
+                Task tracking, staff coordination, and reporting became seamless with ATM. The AI summaries save us hours every week, and team accountability has noticeably improved.
               </p>
 
               <div className="mt-6">
@@ -1033,28 +1038,28 @@ export default function ProjectManagementForStartups() {
               <div className="space-y-3">
                 {[
                   {
-                    q: "Is BexATM suitable for early-stage startups with small teams?",
-                    a: "Yes. BexATM is designed specifically for small and fast-moving teams. Whether you have 3 people or 30, the platform helps you organize tasks, track progress, and manage projects without adding extra workload. As your startup grows, BexATM scales with you effortlessly."
+                    q: "Is ATM suitable for early-stage startups with small teams?",
+                    a: "Yes. ATM is designed specifically for small and fast-moving teams. Whether you have 3 people or 30, the platform helps you organize tasks, track progress, and manage projects without adding extra workload. As your startup grows, ATM scales with you effortlessly."
                   },
                   {
-                    q: "Can BexATM help us reduce dependency on WhatsApp, Excel, and scattered tools?",
-                    a: "Absolutely. Startups often juggle multiple tools, which leads to confusion and lost information. BexATM replaces Excel sheets, WhatsApp updates, and email follow-ups by bringing tasks, deadlines, files, and communication into one central dashboard."
+                    q: "Can ATM help us reduce dependency on WhatsApp, Excel, and scattered tools?",
+                    a: "Absolutely. Startups often juggle multiple tools, which leads to confusion and lost information. ATM replaces Excel sheets, WhatsApp updates, and email follow-ups by bringing tasks, deadlines, files, and communication into one central dashboard."
                   },
                   {
-                    q: "How does the AI in BexATM help small businesses work more efficiently?",
-                    a: "BexATM’s AI analyzes team activity, tasks, and timelines to suggest next steps, predict delays, optimize workloads, and generate instant summaries. This helps small businesses save time, prevent bottlenecks, and maintain consistent productivity without constant supervision."
+                    q: "How does the AI in ATM help small businesses work more efficiently?",
+                    a: "ATM AI analyzes team activity, tasks, and timelines to suggest next steps, predict delays, optimize workloads, and generate instant summaries. This helps small businesses save time, prevent bottlenecks, and maintain consistent productivity without constant supervision."
                   },
                   {
-                    q: "Does BexATM support remote or hybrid teams?",
-                    a: "Yes. BexATM is built for distributed teams. Members can update tasks, share files, and collaborate from anywhere. Real-time visibility ensures founders and managers always know what’s happening — even if the team works from different locations."
+                    q: "Does ATM support remote or hybrid teams?",
+                    a: "Yes. ATM is built for distributed teams. Members can update tasks, share files, and collaborate from anywhere. Real-time visibility ensures founders and managers always know what’s happening — even if the team works from different locations."
                   },
                   {
-                    q: "Will BexATM integrate with the tools my startup already uses?",
-                    a: "Yes. BexATM integrates with Google Drive, Slack, Gmail, and other essential tools used by startups and SMEs. This ensures your team can continue using their favorite apps while keeping all project data synced and organized."
+                    q: "Will ATM integrate with the tools my startup already uses?",
+                    a: "Yes. ATM integrates with Google Drive, Slack, Gmail, and other essential tools used by startups and SMEs. This ensures your team can continue using their favorite apps while keeping all project data synced and organized."
                   },
                   {
-                    q: "Is BexATM affordable for small businesses and bootstrapped startups?",
-                    a: "Definitely. BexATM offers startup-friendly pricing with no hidden costs. You only pay for your team size, and you can start with a free demo or trial before committing. It’s designed to give maximum value without stretching your budget."
+                    q: "Is ATM affordable for small businesses and bootstrapped startups?",
+                    a: "Definitely. ATM offers startup-friendly pricing with no hidden costs. You only pay for your team size, and you can start with a free demo or trial before committing. It’s designed to give maximum value without stretching your budget."
                   },
 
                 ].map((item, index) => (
@@ -1085,7 +1090,7 @@ export default function ProjectManagementForStartups() {
             {/* Form */}
             <div ref={formRef} className="bg-white shadow-lg rounded-md p-8 w-full">
               <h2 className="text-xl md:text-2xl font-bold text-black-800">
-                Ready to Build Smarter with BexATM?
+                Ready to Build Smarter with ATM?
               </h2>
               <p className="text-black-600 mb-6 text-sm">Book Your Free Demo Now</p>
 
@@ -1198,10 +1203,10 @@ export default function ProjectManagementForStartups() {
           {/* Heading + Subtext */}
           <div>
             <h3 className="text-lg font-semibold">
-              Start Managing Smarter with <span className="text-yellow-400">BexATM</span> — Powered by AI
+              Start Managing Smarter with <span className="text-yellow-400">ATM</span> — Powered by AI
             </h3>
             <p className="text-sm text-gray-300 mt-2 max-w-sm mx-auto">
-              Join 800+ startups who’ve automated workflows and grown faster with BexATM.
+              Join 800+ startups who’ve automated workflows and grown faster with ATM.
             </p>
           </div>
 
@@ -1234,7 +1239,7 @@ export default function ProjectManagementForStartups() {
 
           {/* Footer Bottom Text */}
           <p className="text-xs text-gray-400 pt-4 border-t border-gray-800">
-            © {new Date().getFullYear()} BexATM. All rights reserved.
+            © {new Date().getFullYear()} ATM. All rights reserved.
           </p>
         </footer>
       </main>

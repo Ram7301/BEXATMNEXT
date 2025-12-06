@@ -146,7 +146,7 @@ export default function ProjectManagementPage() {
   return (
     <>
       <Head>
-        <title>AI Powered Construction Project Management Software for Your Team| BexATM</title>
+        <title>AI Powered Construction Project Management Software for Your Team| ATM</title>
         <meta
           name="description"
           content="Empower your construction team with BexATM’s AI-powered software. Track tasks, manage resources and deliver projects on time with our construction project management solution."
@@ -335,7 +335,7 @@ export default function ProjectManagementPage() {
           className="relative flex flex-col md:flex-row items-center justify-between py-20 px-6 mb-0 md:-mb-24
  md:px-20 text-white overflow-hidden bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/images/Banner1.webp')",
+            backgroundImage: "url('/images/construction.webp')",
           }}
         >
           {/* 🔹 Left Content */}
@@ -348,7 +348,7 @@ export default function ProjectManagementPage() {
               Plan smarter, execute faster, and deliver projects on time — every time.
               <br />
               <span className="text-gray-700 font-normal">
-                BexATM helps construction companies streamline site progress, track
+                ATM helps construction companies streamline site progress, track
                 resources, and eliminate delays with AI-driven insights.
               </span>
             </p>
@@ -465,10 +465,10 @@ export default function ProjectManagementPage() {
           <div className="md:w-1/2 mt-12 md:mt-0 relative">
             <img
               src="/images/Before.webp"
-              alt="Before BexATM"
+              alt="Before ATM"
               className="w-full"
             />
-            <p className="absolute bottom-4 right-4 text-gray-600 text-sm">Before BexATM</p>
+            <p className="absolute bottom-4 right-4 text-gray-600 text-sm">Before ATM</p>
           </div>
         </section>
 
@@ -485,7 +485,7 @@ export default function ProjectManagementPage() {
               From Site Planning to Completion
             </h2>
             <p className="text-gray-600 max-w-lg">
-              BexATM centralizes all your project data, communication, and progress tracking powered by AI recommendations
+              ATM centralizes all your project data, communication, and progress tracking powered by AI recommendations
             </p>
 
             {/* Feature Boxes */}
@@ -591,7 +591,7 @@ export default function ProjectManagementPage() {
               className="rounded-xl shadow-lg"
             />
             <p className="absolute bottom-0 right-0 text-sm text-gray-500">
-              With BexATM
+              With ATM
             </p>
           </div>
         </section>
@@ -607,10 +607,10 @@ export default function ProjectManagementPage() {
           {/* Content */}
           <div className="relative z-10 max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-black-900 mb-4">
-              How Does BexATM Benefit Your Business?
+              How Does ATM Benefit Your Business?
             </h2>
             <p className="text-black-700 mb-12 max-w-2xl mx-auto">
-              Beyond managing projects, BexATM boosts efficiency, saves cost, and builds client trust.
+              Beyond managing projects, ATM boosts efficiency, saves cost, and builds client trust.
             </p>
 
             {/* Benefit Cards */}
@@ -774,12 +774,12 @@ export default function ProjectManagementPage() {
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-yellow-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
               <div className="text-[#F6B200] text-5xl leading-none mb-4">“</div>
               <p className="text-gray-700 italic mb-6">
-                Before BexATM, managing multiple sites was a nightmare — scattered updates,
+                Before ATM, managing multiple sites was a nightmare — scattered updates,
                 missed follow-ups, and constant calls. Now, I can see everything on one dashboard —
                 progress, material status, team output — all in real time.
                 <br />
                 <br />
-                BexATM has reduced our project delays by almost 35% and improved coordination
+                ATM has reduced our project delays by almost 35% and improved coordination
                 between our site engineers and head office.
               </p>
               <h3 className="font-semibold text-gray-900">
@@ -794,7 +794,7 @@ export default function ProjectManagementPage() {
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-yellow-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
               <div className="text-[#F6B200] text-5xl leading-none mb-4">“</div>
               <p className="text-gray-700 italic mb-6">
-                BexATM makes site reporting effortless. I update progress photos and task completions
+                ATM makes site reporting effortless. I update progress photos and task completions
                 right from my mobile, and the management sees it instantly. The daily summaries help
                 me stay on track — no missed inspections or deadlines anymore.
               </p>
@@ -810,7 +810,7 @@ export default function ProjectManagementPage() {
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-yellow-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
               <div className="text-[#F6B200] text-5xl leading-none mb-4">“</div>
               <p className="text-gray-700 italic mb-6">
-                We’ve tried several project tracking tools before, but BexATM is built for construction.
+                We’ve tried several project tracking tools before, but ATM is built for construction.
                 It understands our workflows — from BOQ to billing. The platform helps us monitor
                 manpower, costs, and timelines with unmatched clarity.
               </p>
@@ -847,35 +847,35 @@ export default function ProjectManagementPage() {
               <div className="space-y-3">
                 {[
                   {
-                    q: "What kinds of construction projects can BexATM handle?",
-                    a: "BexATM is built to support everything from residential buildings to large-scale infrastructure sites. Whether you’re managing one site or five simultaneous jobs, the platform scales with you — offering real-time visibility and control across all projects."
+                    q: "What kinds of construction projects can ATM handle?",
+                    a: "ATM is built to support everything from residential buildings to large-scale infrastructure sites. Whether you’re managing one site or five simultaneous jobs, the platform scales with you — offering real-time visibility and control across all projects."
                   },
                   {
-                    q: "How quickly can I deploy BexATM for my construction team?",
+                    q: "How quickly can I deploy ATM for my construction team?",
                     a: "Most construction teams are up and running within a few days. We assist with importing project data, configuring site-specific workflows, and training your field engineers. You’ll be ready to start tracking progress and issues almost immediately."
                   },
                   {
                     q: "Will the on-site crew be able to update progress from the field?",
-                    a: "Yes. BexATM offers mobile and web access so field staff can upload photos, mark task status, and log issues directly on site. This keeps your office team informed in real time — no more waiting for end-of-day reports."
+                    a: "Yes. ATM offers mobile and web access so field staff can upload photos, mark task status, and log issues directly on site. This keeps your office team informed in real time — no more waiting for end-of-day reports."
                   },
                   {
-                    q: "How does BexATM help in preventing project delays and cost overruns?",
-                    a: "By combining task tracking, resource monitoring and AI insights, BexATM alerts you to schedule risks, material bottlenecks or cost overruns before they become problems. This helps you stay on budget and on time."
+                    q: "How does ATM help in preventing project delays and cost overruns?",
+                    a: "By combining task tracking, resource monitoring and AI insights, ATM alerts you to schedule risks, material bottlenecks or cost overruns before they become problems. This helps you stay on budget and on time."
                   },
                   {
-                    q: "Can I track budgets, materials and labour in BexATM?",
+                    q: "Can I track budgets, materials and labour in ATM?",
                     a: "Absolutely. The platform includes dedicated modules for budget tracking, expense monitoring, and material/labour usage — giving you a live view of your financials and resource consumption across site activities."
                   },
                   {
-                    q: "Does BexATM integrate with our existing tools (e.g., spreadsheets, drawings, ERPs)?",
-                    a: "Yes. You can import data from Excel, attach project drawings and BOQs, and export results for other systems. BexATM supports your workflows — it doesn’t force you to change everything."
+                    q: "Does ATM integrate with our existing tools (e.g., spreadsheets, drawings, ERPs)?",
+                    a: "Yes. You can import data from Excel, attach project drawings and BOQs, and export results for other systems. ATM supports your workflows — it doesn’t force you to change everything."
                   },
                   {
                     q: "How secure is our project data and who has access to it?",
-                    a: "Security is built-in. BexATM uses role-based access controls, secure cloud storage and encrypted data transfer, so only authorised personnel see your project information. You get governance and compliance built-in."
+                    a: "Security is built-in. ATM uses role-based access controls, secure cloud storage and encrypted data transfer, so only authorised personnel see your project information. You get governance and compliance built-in."
                   },
                   {
-                    q: "How do I get support and training for using BexATM on construction projects?",
+                    q: "How do I get support and training for using ATM on construction projects?",
                     a: "We provide a dedicated onboarding programme, training tailored for site managers and office teams, plus ongoing support via chat, email and phone. Your team is supported every step of the way."
                   }
                 ].map((item, index) => (
@@ -905,7 +905,7 @@ export default function ProjectManagementPage() {
             {/* ✅ Right: Book a Demo Form */}
             <div ref={formRef} className="bg-white shadow-lg rounded-md p-8 w-full">
               <h2 className="text-xl md:text-2xl font-bold text-black-800">
-                Ready to Build Smarter with BexATM?
+                Ready to Build Smarter with ATM?
               </h2>
               <p className="text-black-600 mb-6 text-sm">Book Your Free Demo Now</p>
 
@@ -1019,10 +1019,10 @@ export default function ProjectManagementPage() {
           {/* Heading + Subtext */}
           <div>
             <h3 className="text-lg font-semibold">
-              Start Managing Smarter with <span className="text-yellow-400">BexATM</span> — Powered by AI
+              Start Managing Smarter with <span className="text-yellow-400">ATM</span> — Powered by AI
             </h3>
             <p className="text-sm text-gray-300 mt-2 max-w-sm mx-auto">
-              Join 800+ construction who’ve automated workflows and grown faster with BexATM.
+              Join 800+ construction who’ve automated workflows and grown faster with ATM.
             </p>
           </div>
 
@@ -1056,7 +1056,7 @@ export default function ProjectManagementPage() {
 
           {/* Footer Bottom Text */}
           <p className="text-xs text-gray-400 pt-4 border-t border-gray-800">
-            © {new Date().getFullYear()} BexATM. All rights reserved.
+            © {new Date().getFullYear()} ATM. All rights reserved.
           </p>
         </footer>
 

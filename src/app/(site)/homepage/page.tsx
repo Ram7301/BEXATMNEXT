@@ -573,7 +573,7 @@ export default function BexATMHome() {
                 {/* Section Title */}
                 <div className="max-w-7xl mx-auto text-center mb-12">
                     <h2 className="text-3xl lg:text-6xl font-bold text-[#003C71]">
-                        ATM Tiny Apps
+                        Tiny Mobile Apps
                     </h2>
                     <p className="text-black-100 mt-3 font-bold">
                         Lightweight solutions for faster workflows
@@ -600,178 +600,294 @@ export default function BexATMHome() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:w-5/2">
 
                         {/* CARD 1 */}
-                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
-    shadow-md hover:shadow-lg transition-all duration-300 text-center">
+                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
+hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
+transition-all duration-500">
 
-                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
-        flex items-center justify-center">
-                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            {/* Floating icon circle */}
+                            <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
+        bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+        flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+                                <Image
+                                    src="/images/home/icons/Enterprise.png"
+                                    width={45}
+                                    height={45}
+                                    alt="ATM Enterprise Icon"
+                                    className="drop-shadow-lg"
+                                />
                             </div>
 
-                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2">
-                                ATM Enterprise
-                            </h3>
+                            <div className="mt-6 text-center">
+                                <h3 className="text-[20px] font-semibold text-[#003C71] tracking-wide">
+                                    Enterprise
+                                </h3>
 
-                            <p className="text-gray-600 text-[14px]">
-                                Manage company-wide operations with centralized tools and real-time insights.
-                            </p>
+                                <p className="mt-3 text-gray-600 text-[15px] leading-relaxed">
+                                    Manage company-wide operations with centralized tools and real-time insights.
+                                </p>
+                            </div>
                         </div>
 
-                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
-    shadow-md hover:shadow-lg transition-all duration-300 text-center">
+                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
+hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
+transition-all duration-500">
 
-                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
-        flex items-center justify-center">
-                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            {/* Floating icon circle */}
+                            <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
+        bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+        flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+                                <Image
+                                    src="/images/home/icons/TeamActivity.png"
+                                    width={45}
+                                    height={45}
+                                    alt="ATM Team Activities Icon"
+                                    className="drop-shadow-lg"
+                                />
                             </div>
 
-                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2 whitespace-nowrap">
-                                ATM Team Activities
-                            </h3>
+                            <div className="mt-6 text-center">
+                                <h3 className="text-[20px] font-semibold text-[#003C71] tracking-wide whitespace-nowrap">
+                                    Team<br /> Activities
+                                </h3>
 
-
-                            <p className="text-gray-600 text-[14px]">
-                                Track team schedules, tasks, events, and activity reports in one place.
-                            </p>
+                                <p className="mt-3 text-gray-600 text-[15px] leading-relaxed">
+                                    Track team schedules, tasks, events, and activity reports in one place.
+                                </p>
+                            </div>
                         </div>
 
+                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
+hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
+transition-all duration-500">
 
-                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
-    shadow-md hover:shadow-lg transition-all duration-300 text-center">
-
-                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
-        flex items-center justify-center">
-                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            {/* Floating icon circle */}
+                            <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
+        bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+        flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+                                <Image
+                                    src="/images/home/icons/CRM.png"
+                                    width={45}
+                                    height={45}
+                                    alt="ATM CRM Icon"
+                                    className="drop-shadow-lg"
+                                />
                             </div>
 
-                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2">
-                                ATM CRM
-                            </h3>
+                            <div className="mt-6 text-center">
+                                <h3 className="text-[20px] font-semibold text-[#003C71] tracking-wide">
+                                    CRM
+                                </h3>
 
-                            <p className="text-gray-600 text-[14px]">
-                                Manage leads, customers, interactions, and follow-ups with an easy CRM workflow.
-                            </p>
+                                <p className="mt-3 text-gray-600 text-[15px] leading-relaxed">
+                                    Manage leads, customers, interactions, and follow-ups with an easy CRM workflow.
+                                </p>
+                            </div>
                         </div>
 
-                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
-    shadow-md hover:shadow-lg transition-all duration-300 text-center">
+                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
+hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
+transition-all duration-500">
 
-                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
-        flex items-center justify-center">
-                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            {/* Floating icon circle */}
+                            <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
+        bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+        flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+                                <Image
+                                    src="/images/home/icons/Task.png"
+                                    width={45}
+                                    height={45}
+                                    alt="ATM Task Icon"
+                                    className="drop-shadow-lg"
+                                />
                             </div>
 
-                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2">
-                                ATM Task
-                            </h3>
+                            <div className="mt-6 text-center">
+                                <h3 className="text-[20px] font-semibold text-[#003C71] tracking-wide">
+                                    Task
+                                </h3>
 
-                            <p className="text-gray-600 text-[14px]">
-                                Create, assign, and monitor tasks to keep teams aligned and productive.
-                            </p>
+                                <p className="mt-3 text-gray-600 text-[15px] leading-relaxed">
+                                    Create, assign, and monitor tasks to keep teams aligned and productive.
+                                </p>
+                            </div>
                         </div>
 
-                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
-    shadow-md hover:shadow-lg transition-all duration-300 text-center">
+                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
+hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
+transition-all duration-500">
 
-                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
-        flex items-center justify-center">
-                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            {/* Floating icon circle */}
+                            <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
+        bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+        flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+                                <Image
+                                    src="/images/home/icons/School.png"
+                                    width={45}
+                                    height={45}
+                                    alt="ATM School Icon"
+                                    className="drop-shadow-lg"
+                                />
                             </div>
 
-                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2">
-                                ATM School
-                            </h3>
+                            <div className="mt-6 text-center">
+                                <h3 className="text-[20px] font-semibold text-[#003C71] tracking-wide">
+                                    School
+                                </h3>
 
-                            <p className="text-gray-600 text-[14px]">
-                                Centralized training modules and knowledge resources for your entire team.
-                            </p>
+                                <p className="mt-3 text-gray-600 text-[15px] leading-relaxed">
+                                    Centralized training modules and knowledge resources for your entire team.
+                                </p>
+                            </div>
                         </div>
 
-                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
-    shadow-md hover:shadow-lg transition-all duration-300 text-center">
+                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
+hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
+transition-all duration-500">
 
-                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
-        flex items-center justify-center">
-                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            {/* Floating icon circle */}
+                            <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
+        bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+        flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+                                <Image
+                                    src="/images/home/icons/CRM.png"
+                                    width={45}
+                                    height={45}
+                                    alt="ATM Request Icon"
+                                    className="drop-shadow-lg"
+                                />
                             </div>
 
-                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2">
-                                ATM Request
-                            </h3>
+                            <div className="mt-6 text-center">
+                                <h3 className="text-[20px] font-semibold text-[#003C71] tracking-wide">
+                                    Request
+                                </h3>
 
-                            <p className="text-gray-600 text-[14px]">
-                                Submit and approve internal requests with a fast and organized workflow.
-                            </p>
+                                <p className="mt-3 text-gray-600 text-[15px] leading-relaxed">
+                                    Submit and approve internal requests with a fast and organized workflow.
+                                </p>
+                            </div>
                         </div>
 
-                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
-    shadow-md hover:shadow-lg transition-all duration-300 text-center">
+                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
+hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
+transition-all duration-500">
 
-                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
-        flex items-center justify-center">
-                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            {/* Floating icon circle */}
+                            <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
+        bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+        flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+                                <Image
+                                    src="/images/home/icons/PriceCatalog.png"
+                                    width={45}
+                                    height={45}
+                                    alt="ATM Price Catalog Icon"
+                                    className="drop-shadow-lg"
+                                />
                             </div>
 
-                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2">
-                                ATM Price Catalog
-                            </h3>
+                            <div className="mt-6 text-center">
+                                <h3 className="text-[20px] font-semibold text-[#003C71] tracking-wide">
+                                    Price Catalog
+                                </h3>
 
-                            <p className="text-gray-600 text-[14px]">
-                                Access up-to-date product and service pricing anytime.
-                            </p>
+                                <p className="mt-3 text-gray-600 text-[15px] leading-relaxed">
+                                    Access up-to-date product and service pricing anytime.
+                                </p>
+                            </div>
                         </div>
 
-                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
-    shadow-md hover:shadow-lg transition-all duration-300 text-center">
+                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
+hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
+transition-all duration-500">
 
-                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
-        flex items-center justify-center">
-                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            {/* Floating icon circle */}
+                            <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
+        bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+        flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+                                <Image
+                                    src="/images/home/icons/StockTake.png"
+                                    width={45}
+                                    height={45}
+                                    alt="ATM Stock Take Icon"
+                                    className="drop-shadow-lg"
+                                />
                             </div>
 
-                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2">
-                                ATM Stock Take
-                            </h3>
+                            <div className="mt-6 text-center">
+                                <h3 className="text-[20px] font-semibold text-[#003C71] tracking-wide">
+                                    Stock Take
+                                </h3>
 
-                            <p className="text-gray-600 text-[14px]">
-                                Track inventory levels, perform stock counts, and maintain accurate warehouse data.
-                            </p>
+                                <p className="mt-3 text-gray-600 text-[15px] leading-relaxed">
+                                    Track inventory levels, perform stock counts, and maintain accurate warehouse data.
+                                </p>
+                            </div>
                         </div>
 
+                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
+hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
+transition-all duration-500">
 
-                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
-    shadow-md hover:shadow-lg transition-all duration-300 text-center">
-
-                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
-        flex items-center justify-center">
-                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            {/* Floating icon circle */}
+                            <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
+        bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+        flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+                                <Image
+                                    src="/images/home/icons/Tickets.png"
+                                    width={45}
+                                    height={45}
+                                    alt="ATM Scrab Icon"
+                                    className="drop-shadow-lg"
+                                />
                             </div>
 
-                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2">
-                                ATM Scrab
-                            </h3>
+                            <div className="mt-6 text-center">
+                                <h3 className="text-[20px] font-semibold text-[#003C71] tracking-wide">
+                                    Tickets
+                                </h3>
 
-                            <p className="text-gray-600 text-[14px]">
-                                Record and monitor staff attendance with automated logs and summaries.
-                            </p>
+                                <p className="mt-3 text-gray-600 text-[15px] leading-relaxed">
+                                    Efficiently track and resolve all ATM-related issues with a streamlined ticketing system.
+                                </p>
+                            </div>
                         </div>
 
+                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
+hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
+transition-all duration-500">
 
-                        <div className="bg-white rounded-2xl border border-gray-100 p-6 
-    shadow-md hover:shadow-lg transition-all duration-300 text-center">
-
-                            <div className="mx-auto mb-4 w-14 h-14 rounded-2xl bg-[#003C71]/10 
-        flex items-center justify-center">
-                                <Image src="/images/icon.png" width={32} height={32} alt="" />
+                            {/* Floating icon circle */}
+                            <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
+    bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+    flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+                                <Image
+                                    src="/images/home/icons/PettyCash.png"
+                                    width={45}
+                                    height={45}
+                                    alt="Petty Cash Icon"
+                                    className="drop-shadow-lg"
+                                />
                             </div>
 
-                            <h3 className="text-[16px] font-bold text-[#003C71] mb-2">
-                                ATM Petty Case
-                            </h3>
+                            <div className="mt-6 text-center">
+                                <h3 className="text-[20px] font-semibold text-[#003C71] tracking-wide">
+                                    Petty Case
+                                </h3>
 
-                            <p className="text-gray-600 text-[14px]">
-                                Manage small expenses with a simple and transparent petty cash system.
-                            </p>
+                                <p className="mt-3 text-gray-600 text-[15px] leading-relaxed">
+                                    Manage small expenses with a simple and transparent petty cash system.
+                                </p>
+                            </div>
                         </div>
 
 

@@ -64,27 +64,34 @@ export default function BexATMHome() {
     return (
         <main className="min-h-screen w-full overflow-x-hidden bg-white text-black">
             {/* HERO SECTION */}
-            <section className="relative w-full bg-cover bg-center pt-10 pb-10 px-4 md:px-20"
-
-                style={{ backgroundImage: "url('/images/home/mainbanner.webp')" }}
+            <section
+                className="relative w-full bg-cover bg-center pt-12 pb-12 px-4 md:px-20"
+                style={{
+                    backgroundImage: "url('/images/home/mainbanner.webp')",
+                    backgroundPositionY: "-15px"
+                }}
             >
-                <div className="grid md:grid-cols-2 gap-10 items-center">
+                {/* MOBILE ONLY DARK OVERLAY */}
+                <div className="absolute inset-0 bg-black/50 md:bg-transparent"></div>
+
+                <div className="relative grid md:grid-cols-2 gap-10 items-center">
 
                     {/* LEFT CONTENT */}
                     <div className="text-white max-w-xl">
 
-                        {/* Main Heading */}
-                        <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mt-6 md:mt-10 mb-1">
+                        {/* Heading */}
+                        <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mt-4 md:mt-10 mb-2">
                             ONE PLATFORM<br />TO MANAGE YOUR
                         </h1>
 
-                        {/* Sub-heading */}
-                        <div className="bg-white text-gray-900 inline-block px-6 md:px-25 py-2 rounded-lg font-semibold mb-2 shadow-md text-base md:text-lg">
+                        {/* Subheading */}
+                        <div className="bg-white text-gray-900 inline-block px-4 md:px-6 py-2 rounded-lg
+                font-semibold mb-4 shadow-md text-sm md:text-lg">
                             Projects – People – Budget
                         </div>
 
                         {/* Paragraph */}
-                        <p className="text-base md:text-lg leading-relaxed mb-3">
+                        <p className="text-sm md:text-lg leading-relaxed mb-4 text-white/90">
                             Empower your teams with an end-to-end system for project execution, attendance,
                             workforce management, and real-time insights — built for
                             <span className="text-blue-400 font-semibold"> Startups</span>,
@@ -92,27 +99,34 @@ export default function BexATMHome() {
                             <span className="text-blue-400 font-semibold"> Construction teams</span>.
                         </p>
 
+                        {/* INDUSTRY ICONS - Classic Minimal Style */}
                         {/* Industry Icons Bar */}
                         <div className="mt-3">
-                            <div className="
-        w-full bg-[#0C4867] rounded-xl
-        p-2 md:p-4                /* smaller padding on mobile */
-        shadow-lg flex flex-col md:flex-row
-        justify-between items-center
-        gap-3 md:gap-0            /* smaller gap on mobile */
-        max-w-[260px] md:max-w-full mx-auto   /* shrink width on mobile */
-    ">
+                            <div
+                                className="
+            w-full bg-[#0C4867] rounded-xl
+            p-2 md:p-4
+            shadow-lg flex flex-col md:flex-row
+            justify-between items-center
+            gap-2 md:gap-0
+            max-w-[220px] md:max-w-full mx-auto   /* smaller width on mobile */
+        "
+                            >
 
                                 {/* Startups */}
                                 <Link href="/project-management-software-for-startups" className="flex-1">
-                                    <div className="flex flex-col items-center text-white p-1 md:p-2 rounded-md cursor-pointer
-                transition-all duration-300 hover:bg-white/10 hover:scale-105">
-
-                                        <img src="images/home/icons/startup.png"
-                                            className="w-10 h-10 md:w-15 md:h-15 mb-1 md:mb-2"
-                                            alt="Startups & SMBs" />
-
-                                        <p className="text-center text-[11px] md:text-sm font-medium leading-tight">
+                                    <div
+                                        className="
+                    flex flex-col items-center text-white p-1 md:p-2 rounded-md cursor-pointer
+                    transition-all duration-300 hover:bg-white/10 hover:scale-105
+                "
+                                    >
+                                        <img
+                                            src="images/home/icons/startup.png"
+                                            className="w-6 h-6 md:w-12 md:h-12 mb-1"
+                                            alt="Startups & SMBs"
+                                        />
+                                        <p className="text-center text-[10px] md:text-sm font-medium leading-tight">
                                             Startups &<br /> SMB&apos;s
                                         </p>
                                     </div>
@@ -122,15 +136,19 @@ export default function BexATMHome() {
 
                                 {/* Community */}
                                 <Link href="/apartment-society-management-software" className="flex-1">
-                                    <div className="flex flex-col items-center text-white p-1 md:p-2 rounded-md cursor-pointer
-                transition-all duration-300 hover:bg-white/10 hover:scale-105">
-
-                                        <img src="images/home/icons/community.png"
-                                            className="w-10 h-10 md:w-15 md:h-15 mb-1 md:mb-2"
-                                            alt="Community" />
-
-                                        <p className="text-center text-[11px] md:text-sm font-medium leading-tight">
-                                            Community /<br /> Association
+                                    <div
+                                        className="
+                    flex flex-col items-center text-white p-1 md:p-2 rounded-md cursor-pointer
+                    transition-all duration-300 hover:bg-white/10 hover:scale-105
+                "
+                                    >
+                                        <img
+                                            src="images/home/icons/community.png"
+                                            className="w-6 h-6 md:w-12 md:h-12 mb-1"
+                                            alt="Community"
+                                        />
+                                        <p className="text-center text-[10px] md:text-sm font-medium leading-tight">
+                                            Community /<br /> Associations
                                         </p>
                                     </div>
                                 </Link>
@@ -139,33 +157,34 @@ export default function BexATMHome() {
 
                                 {/* Construction */}
                                 <Link href="/construction-project-management-software" className="flex-1">
-                                    <div className="flex flex-col items-center text-white p-1 md:p-2 rounded-md cursor-pointer
-                transition-all duration-300 hover:bg-white/10 hover:scale-105">
-
-                                        <img src="images/home/icons/construction.png"
-                                            className="w-10 h-10 md:w-15 md:h-15 mb-1 md:mb-2"
-                                            alt="Construction Teams" />
-
-                                        <p className="text-center text-[11px] md:text-sm font-medium leading-tight">
+                                    <div
+                                        className="
+                    flex flex-col items-center text-white p-1 md:p-2 rounded-md cursor-pointer
+                    transition-all duration-300 hover:bg-white/10 hover:scale-105
+                "
+                                    >
+                                        <img
+                                            src="images/home/icons/construction.png"
+                                            className="w-6 h-6 md:w-12 md:h-12 mb-1"
+                                            alt="Construction Teams"
+                                        />
+                                        <p className="text-center text-[10px] md:text-sm font-medium leading-tight">
                                             Construction<br /> Teams
                                         </p>
                                     </div>
                                 </Link>
+
                             </div>
                         </div>
 
 
-                        {/* Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-4 mt-5">
-                            <Link href="/demo">
-                                <button className="bg-[#F6A800] hover:bg-[#d99000] transition text-black text-sm px-5 py-2 rounded-full font-semibold">
-                                    Book a Free Demo
-                                </button>
-                            </Link>
 
-                            <Link href="/use-cases">
-                                <button className="bg-[#F6A800] hover:bg-[#d99000] transition text-black text-sm px-5 py-2 rounded-full font-semibold">
-                                    Explore Use Cases
+                        {/* Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                            <Link href="/demo">
+                                <button className="bg-[#F6A800] hover:bg-[#d99000] transition text-black 
+                        text-sm px-6 py-2 rounded-full font-semibold">
+                                    Get Start Free
                                 </button>
                             </Link>
                         </div>
@@ -174,6 +193,7 @@ export default function BexATMHome() {
 
                 </div>
             </section>
+
 
             <section className="py-10 px-6 md:px-20 bg-[#F8FAFC]">
 
@@ -398,8 +418,8 @@ export default function BexATMHome() {
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
                             <Image src="/images/startups/icons/clients.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">HR & Payroll
-                                Hub</h3>
+                            <h3 className="font-semibold text-[14px]">Human Resources
+                            </h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
                             Centralize employee records,
@@ -415,7 +435,7 @@ export default function BexATMHome() {
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
                             <Image src="/images/startups/icons/remoteteam.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">Smart Time &
+                            <h3 className="font-semibold text-[14px]">Smart Time &
                                 Attendance</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
@@ -434,7 +454,7 @@ export default function BexATMHome() {
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
                             <Image src="/images/startups/icons/agiletask.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">Agile Project &
+                            <h3 className="font-semibold text-[14px]">Agile Project &
                                 Task Management</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
@@ -451,7 +471,7 @@ export default function BexATMHome() {
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
                             <Image src="/images/startups/icons/timesheet.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">Employee Self-
+                            <h3 className="font-semibold text-[14px]">Employee Self-
                                 Service (ESS)</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
@@ -468,7 +488,7 @@ export default function BexATMHome() {
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
                             <Image src="/images/startups/icons/selfservice.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">Manager
+                            <h3 className="font-semibold text-[14px]">Manager
                                 Command Center</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
@@ -485,7 +505,7 @@ export default function BexATMHome() {
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
                             <Image src="/images/startups/icons/resource.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">Competency &
+                            <h3 className="font-semibold text-[14px]">Competency &
                                 Assessment Suite</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
@@ -502,8 +522,7 @@ export default function BexATMHome() {
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
                             <Image src="/images/startups/icons/hrpayroll.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">Resource Allocation
-                                & Workload Planning</h3>
+                            <h3 className="font-semibold text-[14px]">Resource Allocation & Workload Planning</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
                             Assign employees to tasks or
@@ -519,7 +538,7 @@ export default function BexATMHome() {
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
                             <Image src="/images/startups/icons/escalationmanagement.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">Escalation & Issue
+                            <h3 className="font-semibold text-[14px]">Escalation & Issue
                                 Management</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
@@ -536,7 +555,7 @@ export default function BexATMHome() {
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
                             <Image src="/images/startups/icons/managerdashboards.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">Dashboards &
+                            <h3 className="font-semibold text-[14px]">Dashboards &
                                 Insights</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
@@ -553,7 +572,7 @@ export default function BexATMHome() {
                     <div className="bg-white rounded-xl shadow border">
                         <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
                             <Image src="/images/startups/icons/integrations.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[15px]">Reports, Exports &
+                            <h3 className="font-semibold text-[14px]">Reports, Exports &
                                 Integrations</h3>
                         </div>
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
@@ -585,7 +604,7 @@ export default function BexATMHome() {
                     {/* LEFT SIDE — IMAGES */}
                     <div className="flex flex-col items-center mt-5 gap-10 lg:w-1/4">
                         <img
-                            src="/images/home/tinyapps1.png"
+                            src="/images/home/Tinyapps0.png"
                             alt="App Screenshot 1"
                             className="rounded-xl shadow-md border w-[180px] h-auto"
                         />
@@ -881,7 +900,7 @@ transition-all duration-500">
 
                             <div className="mt-6 text-center">
                                 <h3 className="text-[20px] font-semibold text-[#003C71] tracking-wide">
-                                    Petty Case
+                                    Petty Cash
                                 </h3>
 
                                 <p className="mt-3 text-gray-600 text-[15px] leading-relaxed">

@@ -64,7 +64,7 @@ const Header: React.FC = () => {
           <div className="flex justify-between items-center">
             <Link href='/'>
               <Image
-                src={'/images/header/bexatm2.png'}
+                src={'/images/header/BexatmLogo.png'}
                 alt='logo'
                 width={200}
                 height={200}
@@ -72,7 +72,7 @@ const Header: React.FC = () => {
                 className={`object-contain ${isHomepage ? sticky ? "block dark:hidden" : "hidden" : sticky ? "block dark:hidden" : "block dark:hidden"}`}
               />
               <Image
-                src={'/images/header/bexatm2.png'}
+                src={'/images/header/BexatmLogo.png'}
                 alt='logo'
                 width={200}
                 height={200}

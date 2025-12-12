@@ -92,8 +92,8 @@ export default function BexATMHome() {
 
                         {/* Paragraph */}
                         <p className="text-sm md:text-lg leading-relaxed mb-4 text-white/90">
-                            Empower your teams with an end-to-end system for project execution, attendance,
-                            workforce management, and real-time insights — built for
+                            Empower your teams with an end-to-end system for project execution, attendance, workforce management,
+                            and real-time insights — built for Startups & SMB, Construction & Building Mgmt, and Schools & Institutions.
                             <span className="text-blue-400 font-semibold"> Startups</span>,
                             <span className="text-blue-400 font-semibold"> Communities</span>, and
                             <span className="text-blue-400 font-semibold"> Construction teams</span>.
@@ -127,7 +127,7 @@ export default function BexATMHome() {
                                             alt="Startups & SMBs"
                                         />
                                         <p className="text-center text-[10px] md:text-sm font-medium leading-tight">
-                                            Startups &<br /> SMB&apos;s
+                                            Startups &<br /> Small Business
                                         </p>
                                     </div>
                                 </Link>
@@ -148,7 +148,7 @@ export default function BexATMHome() {
                                             alt="Community"
                                         />
                                         <p className="text-center text-[10px] md:text-sm font-medium leading-tight">
-                                            Community /<br /> Associations
+                                            Construction /<br /> Building Management
                                         </p>
                                     </div>
                                 </Link>
@@ -169,7 +169,7 @@ export default function BexATMHome() {
                                             alt="Construction Teams"
                                         />
                                         <p className="text-center text-[10px] md:text-sm font-medium leading-tight">
-                                            Construction<br /> Teams
+                                            Schools /<br /> Institutions
                                         </p>
                                     </div>
                                 </Link>
@@ -194,7 +194,6 @@ export default function BexATMHome() {
                 </div>
             </section>
 
-
             <section className="py-10 px-6 md:px-20 bg-[#F8FAFC]">
 
                 {/* TITLE + SUBTITLE */}
@@ -204,8 +203,8 @@ export default function BexATMHome() {
                     </h2>
 
                     <p className="text-lg leading-relaxed" style={{ color: "#003C71" }}>
-                        Whether you run a fast-growing startup, manage a residential community, or operate
-                        multiple construction sites — ATM adapts to your workflow
+                        Whether you lead a startup, manage construction and facility teams, or operate an educational institution,
+                        ATM aligns perfectly with your operational workflow
                     </p>
                 </div>
 
@@ -217,21 +216,23 @@ export default function BexATMHome() {
                         {
                             title: "Project Management for Startups & SMBs",
                             desc: "Agile workflows, team productivity, remote attendance & client deliverables.",
-                            img: "/images/home/Startup.webp",
+                            img: "/images/home/startup.webp",
                             href: "/project-management-software-for-startups",
                         },
                         {
-                            title: "Community Management Software",
-                            desc: "Resident services, staff attendance, maintenance tracking & committee dashboards.",
-                            img: "/images/home/Community.webp",
-                            href: "/apartment-society-management-software",
+                            title: "Construction & Building Management",
+                            desc: "Manage site activities, track workforce, monitor project milestones, and streamline construction workflows efficiently.",
+                            img: "/images/home/construction&facilitymanagement.webp",
+                            href: "/construction-building-management-software",
                         },
+
                         {
-                            title: "Construction Project Management",
-                            desc: "Site attendance, contractor tracking, DPR tasks & milestone-based progress.",
-                            img: "/images/home/Construction.webp",
-                            href: "/construction-project-management-software",
-                        },
+                            title: "School & Institution",
+                            desc: "Manage attendance, track student performance, handle assignments, and monitor milestones for academic progress seamlessly.",
+                            img: "/images/home/school.webp",
+                            href: "/school-management-software",
+                        }
+
                     ].map((card, i) => (
                         <Link key={i} href={card.href}>
                             <div className="bg-white shadow-lg rounded-2xl p-6 border hover:shadow-2xl hover:scale-105 transform transition cursor-pointer text-center">
@@ -318,7 +319,7 @@ export default function BexATMHome() {
                     {/* LEFT CIRCULAR GRAPHIC */}
                     <div className="flex justify-center lg:justify-start lg:-mt-20 lg:-ml-20">
                         <img
-                            src="/images/home/whybexatm.webp"
+                            src="/images/home/whybexatm1.webp"
                             alt="BexATM Left Graphic"
                             className="w-[750px] sm:w-[900px] md:w-[1050px] lg:w-[1150px] xl:w-[1300px] max-w-none"
                         />
@@ -415,173 +416,277 @@ export default function BexATMHome() {
                 <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
 
                     {/* 1 — Agile Task & Sprint Management */}
-                    <div className="bg-white rounded-xl shadow border">
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
-                            <Image src="/images/startups/icons/clients.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[14px]">Human Resources
-                            </h3>
+                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
+                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
+                hover:-translate-y-1 hover:scale-[1.01] group">
+
+                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
+                    flex items-center gap-3">
+
+                            <Image
+                                src="/images/startups/icons/clients.png"
+                                width={45}
+                                height={45}
+                                alt=""
+                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
+                            />
+
+                            <h3 className="font-semibold text-[14px]">Human Resources</h3>
                         </div>
+
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Centralize employee records,
-                            leave policies, attendance
-                            data, and payroll-ready
-                            reports in one place, ensuring
-                            smooth HR operations with
-                            minimal manual work.
+                            Centralize employee records, leave policies, attendance data, and payroll-ready
+                            reports in one place, ensuring smooth HR operations with minimal manual work.
                         </p>
                     </div>
 
-                    {/* 2 — Remote Team Attendance */}
-                    <div className="bg-white rounded-xl shadow border">
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
-                            <Image src="/images/startups/icons/remoteteam.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[14px]">Smart Time &
-                                Attendance</h3>
+                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
+                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
+                hover:-translate-y-1 hover:scale-[1.01] group">
+
+                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
+                    flex items-center gap-3">
+                            <Image
+                                src="/images/startups/icons/remoteteam.png"
+                                width={45}
+                                height={45}
+                                alt=""
+                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
+                            />
+
+                            <h3 className="font-semibold text-[14px] leading-tight">
+                                Smart Time & Attendance
+                            </h3>
                         </div>
+
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Track attendance accurately
-                            with biometrics, geofencing,
-
-                            mobile check-ins, and shift-
-                            based logging — eliminating
-
-                            time fraud and boosting
-                            workforce transparency.
+                            Track attendance accurately with biometrics, geofencing,
+                            mobile check-ins, and shift-based logging — eliminating
+                            time fraud and boosting workforce transparency.
                         </p>
                     </div>
 
                     {/* 3 — Projects & Client Deliverables */}
-                    <div className="bg-white rounded-xl shadow border">
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
-                            <Image src="/images/startups/icons/agiletask.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[14px]">Agile Project &
-                                Task Management</h3>
+                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
+                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
+                hover:-translate-y-1 hover:scale-[1.01] group">
+
+                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
+                    flex items-center gap-3">
+
+                            <Image
+                                src="/images/startups/icons/agiletask.png"
+                                width={45}
+                                height={45}
+                                alt=""
+                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
+                            />
+
+                            <h3 className="font-semibold text-[14px] leading-tight">
+                                Agile Project & Task Management
+                            </h3>
                         </div>
+
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Plan sprints, assign tasks,
-                            organize milestones, and
-                            monitor real-time progress
-                            using weightage-based
-                            tracking for precise project
-                            completion insights.
+                            Plan sprints, assign tasks, organize milestones, and
+                            monitor real-time progress using weightage-based
+                            tracking for precise project completion insights.
                         </p>
                     </div>
 
                     {/* 4 — Timesheet-Based Billing */}
-                    <div className="bg-white rounded-xl shadow border">
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
-                            <Image src="/images/startups/icons/timesheet.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[14px]">Employee Self-
-                                Service (ESS)</h3>
+                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
+                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
+                hover:-translate-y-1 hover:scale-[1.01] group">
+
+                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
+                    flex items-center gap-3">
+
+                            <Image
+                                src="/images/startups/icons/timesheet.png"
+                                width={45}
+                                height={45}
+                                alt=""
+                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
+                            />
+
+                            <h3 className="font-semibold text-[14px] leading-tight">
+                                Employee Self-Service (ESS)
+                            </h3>
                         </div>
+
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Let employees manage leave,
-                            on-duty, overtime, expenses,
-                            and attendance corrections
-                            directly from mobile or web,
-                            reducing dependency on HR
-                            and managers.
+                            Let employees manage leave, on-duty, overtime, expenses,
+                            and attendance corrections directly from mobile or web,
+                            reducing dependency on HR and managers.
                         </p>
                     </div>
 
                     {/* 5 — Employee Self-Service */}
-                    <div className="bg-white rounded-xl shadow border">
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
-                            <Image src="/images/startups/icons/selfservice.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[14px]">Manager
-                                Command Center</h3>
+                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
+                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
+                hover:-translate-y-1 hover:scale-[1.01] group">
+
+                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
+                    flex items-center gap-3">
+
+                            <Image
+                                src="/images/startups/icons/selfservice.png"
+                                width={45}
+                                height={45}
+                                alt=""
+                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
+                            />
+
+                            <h3 className="font-semibold text-[14px] leading-tight">
+                                Manager Command Center
+                            </h3>
                         </div>
+
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            A unified approval hub where
-                            managers can review tasks,
-                            timesheets, leave, overtime,
-                            and expenses, supported by
-                            real-time team insights and
-                            notifications.
+                            A unified approval hub where managers can review tasks,
+                            timesheets, leave, overtime, and expenses, supported by
+                            real-time team insights and notifications.
                         </p>
                     </div>
 
                     {/* 6 — Resource Allocation for Small Teams */}
-                    <div className="bg-white rounded-xl shadow border">
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
-                            <Image src="/images/startups/icons/resource.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[14px]">Competency &
-                                Assessment Suite</h3>
+                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
+                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
+                hover:-translate-y-1 hover:scale-[1.01] group">
+
+                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
+                    flex items-center gap-3">
+
+                            <Image
+                                src="/images/startups/icons/resource.png"
+                                width={45}
+                                height={45}
+                                alt=""
+                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
+                            />
+
+                            <h3 className="font-semibold text-[14px] leading-tight">
+                                Competency & Assessment Suite
+                            </h3>
                         </div>
+
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Create structured assessments
-                            with categories, question
-                            groups, pass criteria, and
-                            scored evaluations to measure
-                            employee skills, performance,
-                            and growth paths.
+                            Create structured assessments with categories, question
+                            groups, pass criteria, and scored evaluations to measure
+                            employee skills, performance, and growth paths.
                         </p>
                     </div>
 
                     {/* 7 — Founder & Manager Dashboards */}
-                    <div className="bg-white rounded-xl shadow border">
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
-                            <Image src="/images/startups/icons/hrpayroll.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[14px]">Resource Allocation & Workload Planning</h3>
+                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
+                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
+                hover:-translate-y-1 hover:scale-[1.01] group">
+
+                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
+                    flex items-center gap-3">
+
+                            <Image
+                                src="/images/startups/icons/hrpayroll.png"
+                                width={45}
+                                height={45}
+                                alt=""
+                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
+                            />
+
+                            <h3 className="font-semibold text-[14px] leading-tight">
+                                Resource Allocation & Workload Planning
+                            </h3>
                         </div>
+
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Assign employees to tasks or
-                            projects based on skills,
-                            availability, and workload
-                            distribution to balance
-                            responsibilities and improve
-                            delivery efficiency.
+                            Assign employees to tasks or projects based on skills,
+                            availability, and workload distribution to balance
+                            responsibilities and improve delivery efficiency.
                         </p>
                     </div>
 
                     {/* 8 — Escalation Management */}
-                    <div className="bg-white rounded-xl shadow border">
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
-                            <Image src="/images/startups/icons/escalationmanagement.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[14px]">Escalation & Issue
-                                Management</h3>
+                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
+                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
+                hover:-translate-y-1 hover:scale-[1.01] group">
+
+                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
+                    flex items-center gap-3">
+
+                            <Image
+                                src="/images/startups/icons/escalationmanagement.png"
+                                width={45}
+                                height={45}
+                                alt=""
+                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
+                            />
+
+                            <h3 className="font-semibold text-[14px] leading-tight">
+                                Escalation & Issue Management
+                            </h3>
                         </div>
+
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Automatically flag delays,
-                            bottlenecks, and unresolved
-                            issues to higher management
-                            using escalation rules that
-                            maintain accountability and
-                            project momentum.
+                            Automatically flag delays, bottlenecks, and unresolved
+                            issues to higher management using escalation rules that
+                            maintain accountability and project momentum.
                         </p>
                     </div>
 
                     {/* 9 — HR & Payroll Alignment */}
-                    <div className="bg-white rounded-xl shadow border">
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
-                            <Image src="/images/startups/icons/managerdashboards.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[14px]">Dashboards &
-                                Insights</h3>
+                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
+                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
+                hover:-translate-y-1 hover:scale-[1.01] group">
+
+                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
+                    flex items-center gap-3">
+
+                            <Image
+                                src="/images/startups/icons/managerdashboards.png"
+                                width={45}
+                                height={45}
+                                alt=""
+                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
+                            />
+
+                            <h3 className="font-semibold text-[14px] leading-tight">
+                                Dashboards & Insights
+                            </h3>
                         </div>
+
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Get real-time, role-based
-                            dashboards for employees,
-                            managers, and project heads,
-                            giving a clear view of tasks,
-                            attendance, timelines, and
-                            productivity metrics.
+                            Get real-time, role-based dashboards for employees,
+                            managers, and project heads, giving a clear view of tasks,
+                            attendance, timelines, and productivity metrics.
                         </p>
                     </div>
 
                     {/* 10 — Integrations for Modern Startups */}
-                    <div className="bg-white rounded-xl shadow border">
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl flex items-center gap-3">
-                            <Image src="/images/startups/icons/integrations.png" width={45} height={45} alt="" />
-                            <h3 className="font-semibold text-[14px]">Reports, Exports &
-                                Integrations</h3>
+                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
+                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
+                hover:-translate-y-1 hover:scale-[1.01] group">
+
+                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
+                    flex items-center gap-3">
+
+                            <Image
+                                src="/images/startups/icons/integrations.png"
+                                width={45}
+                                height={45}
+                                alt=""
+                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
+                            />
+
+                            <h3 className="font-semibold text-[14px] leading-tight">
+                                Reports, Exports & Integrations
+                            </h3>
                         </div>
+
                         <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Download payroll-ready
-                            attendance files, timesheets,
-                            project reports, and connect
-                            ATM with your existing
-                            systems through seamless API
-                            integrations.
+                            Download payroll-ready attendance files, timesheets,
+                            project reports, and connect ATM with your existing
+                            systems through seamless API integrations.
                         </p>
                     </div>
 
@@ -619,15 +724,19 @@ export default function BexATMHome() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:w-5/2">
 
                         {/* CARD 1 */}
-                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+                        <div className="group relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
 shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
-hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
-transition-all duration-500">
+transition-all duration-500 ease-out
+hover:shadow-[0_0_40px_rgba(22,127,140,0.35)]
+hover:-translate-y-4 hover:scale-[1.05]">
 
                             {/* Floating icon circle */}
                             <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
-        bg-gradient-to-br from-[#0A485E] to-[#167F8C]
-        flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+    bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+    flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20
+    transition-all duration-500 ease-out
+    group-hover:-translate-y-2 group-hover:scale-[1.08] group-hover:shadow-[0_0_25px_rgba(22,127,140,0.6)]">
+
                                 <Image
                                     src="/images/home/icons/Enterprise.png"
                                     width={45}
@@ -648,15 +757,19 @@ transition-all duration-500">
                             </div>
                         </div>
 
-                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+
+                        <div className="group relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
 shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
-hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
-transition-all duration-500">
+transition-all duration-500 ease-out
+hover:shadow-[0_0_40px_rgba(22,127,140,0.35)]
+hover:-translate-y-4 hover:scale-[1.05]">
 
                             {/* Floating icon circle */}
                             <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
-        bg-gradient-to-br from-[#0A485E] to-[#167F8C]
-        flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+    bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+    flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20
+    transition-all duration-500 ease-out
+    group-hover:-translate-y-2 group-hover:scale-[1.08] group-hover:shadow-[0_0_25px_rgba(22,127,140,0.6)]">
                                 <Image
                                     src="/images/home/icons/TeamActivity.png"
                                     width={45}
@@ -677,15 +790,18 @@ transition-all duration-500">
                             </div>
                         </div>
 
-                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+                        <div className="group relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
 shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
-hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
-transition-all duration-500">
+transition-all duration-500 ease-out
+hover:shadow-[0_0_40px_rgba(22,127,140,0.35)]
+hover:-translate-y-4 hover:scale-[1.05]">
 
                             {/* Floating icon circle */}
                             <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
-        bg-gradient-to-br from-[#0A485E] to-[#167F8C]
-        flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+    bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+    flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20
+    transition-all duration-500 ease-out
+    group-hover:-translate-y-2 group-hover:scale-[1.08] group-hover:shadow-[0_0_25px_rgba(22,127,140,0.6)]">
                                 <Image
                                     src="/images/home/icons/CRM.png"
                                     width={45}
@@ -706,15 +822,18 @@ transition-all duration-500">
                             </div>
                         </div>
 
-                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+                        <div className="group relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
 shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
-hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
-transition-all duration-500">
+transition-all duration-500 ease-out
+hover:shadow-[0_0_40px_rgba(22,127,140,0.35)]
+hover:-translate-y-4 hover:scale-[1.05]">
 
                             {/* Floating icon circle */}
                             <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
-        bg-gradient-to-br from-[#0A485E] to-[#167F8C]
-        flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+    bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+    flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20
+    transition-all duration-500 ease-out
+    group-hover:-translate-y-2 group-hover:scale-[1.08] group-hover:shadow-[0_0_25px_rgba(22,127,140,0.6)]">
                                 <Image
                                     src="/images/home/icons/Task.png"
                                     width={45}
@@ -735,15 +854,18 @@ transition-all duration-500">
                             </div>
                         </div>
 
-                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+                        <div className="group relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
 shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
-hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
-transition-all duration-500">
+transition-all duration-500 ease-out
+hover:shadow-[0_0_40px_rgba(22,127,140,0.35)]
+hover:-translate-y-4 hover:scale-[1.05]">
 
                             {/* Floating icon circle */}
                             <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
-        bg-gradient-to-br from-[#0A485E] to-[#167F8C]
-        flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+    bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+    flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20
+    transition-all duration-500 ease-out
+    group-hover:-translate-y-2 group-hover:scale-[1.08] group-hover:shadow-[0_0_25px_rgba(22,127,140,0.6)]">
                                 <Image
                                     src="/images/home/icons/School.png"
                                     width={45}
@@ -764,15 +886,18 @@ transition-all duration-500">
                             </div>
                         </div>
 
-                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+                        <div className="group relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
 shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
-hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
-transition-all duration-500">
+transition-all duration-500 ease-out
+hover:shadow-[0_0_40px_rgba(22,127,140,0.35)]
+hover:-translate-y-4 hover:scale-[1.05]">
 
                             {/* Floating icon circle */}
                             <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
-        bg-gradient-to-br from-[#0A485E] to-[#167F8C]
-        flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+    bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+    flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20
+    transition-all duration-500 ease-out
+    group-hover:-translate-y-2 group-hover:scale-[1.08] group-hover:shadow-[0_0_25px_rgba(22,127,140,0.6)]">
                                 <Image
                                     src="/images/home/icons/CRM.png"
                                     width={45}
@@ -793,15 +918,18 @@ transition-all duration-500">
                             </div>
                         </div>
 
-                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+                        <div className="group relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
 shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
-hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
-transition-all duration-500">
+transition-all duration-500 ease-out
+hover:shadow-[0_0_40px_rgba(22,127,140,0.35)]
+hover:-translate-y-4 hover:scale-[1.05]">
 
                             {/* Floating icon circle */}
                             <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
-        bg-gradient-to-br from-[#0A485E] to-[#167F8C]
-        flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+    bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+    flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20
+    transition-all duration-500 ease-out
+    group-hover:-translate-y-2 group-hover:scale-[1.08] group-hover:shadow-[0_0_25px_rgba(22,127,140,0.6)]">
                                 <Image
                                     src="/images/home/icons/PriceCatalog.png"
                                     width={45}
@@ -822,15 +950,18 @@ transition-all duration-500">
                             </div>
                         </div>
 
-                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+                        <div className="group relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
 shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
-hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
-transition-all duration-500">
+transition-all duration-500 ease-out
+hover:shadow-[0_0_40px_rgba(22,127,140,0.35)]
+hover:-translate-y-4 hover:scale-[1.05]">
 
                             {/* Floating icon circle */}
                             <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
-        bg-gradient-to-br from-[#0A485E] to-[#167F8C]
-        flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+    bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+    flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20
+    transition-all duration-500 ease-out
+    group-hover:-translate-y-2 group-hover:scale-[1.08] group-hover:shadow-[0_0_25px_rgba(22,127,140,0.6)]">
                                 <Image
                                     src="/images/home/icons/StockTake.png"
                                     width={45}
@@ -851,15 +982,18 @@ transition-all duration-500">
                             </div>
                         </div>
 
-                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+                        <div className="group relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
 shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
-hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
-transition-all duration-500">
+transition-all duration-500 ease-out
+hover:shadow-[0_0_40px_rgba(22,127,140,0.35)]
+hover:-translate-y-4 hover:scale-[1.05]">
 
                             {/* Floating icon circle */}
                             <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
-        bg-gradient-to-br from-[#0A485E] to-[#167F8C]
-        flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+    bg-gradient-to-br from-[#0A485E] to-[#167F8C]
+    flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20
+    transition-all duration-500 ease-out
+    group-hover:-translate-y-2 group-hover:scale-[1.08] group-hover:shadow-[0_0_25px_rgba(22,127,140,0.6)]">
                                 <Image
                                     src="/images/home/icons/Tickets.png"
                                     width={45}
@@ -880,15 +1014,18 @@ transition-all duration-500">
                             </div>
                         </div>
 
-                        <div className="relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
+                        <div className="group relative rounded-3xl p-7 bg-[#F8FAFC] border border-gray-200
 shadow-[10px_10px_25px_rgba(0,0,0,0.08),-10px_-10px_25px_rgba(255,255,255,0.9)]
-hover:shadow-[15px_15px_35px_rgba(0,0,0,0.1),-15px_-15px_35px_rgba(255,255,255,1)]
-transition-all duration-500">
+transition-all duration-500 ease-out
+hover:shadow-[0_0_40px_rgba(22,127,140,0.35)]
+hover:-translate-y-4 hover:scale-[1.05]">
 
                             {/* Floating icon circle */}
                             <div className="mx-auto -mt-12 w-24 h-24 rounded-3xl 
     bg-gradient-to-br from-[#0A485E] to-[#167F8C]
-    flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20">
+    flex items-center justify-center shadow-xl shadow-[#0A485E]/40 border border-white/20
+    transition-all duration-500 ease-out
+    group-hover:-translate-y-2 group-hover:scale-[1.08] group-hover:shadow-[0_0_25px_rgba(22,127,140,0.6)]">
                                 <Image
                                     src="/images/home/icons/PettyCash.png"
                                     width={45}
@@ -908,7 +1045,6 @@ transition-all duration-500">
                                 </p>
                             </div>
                         </div>
-
 
                     </div>
                 </div>
@@ -999,7 +1135,7 @@ transition-all duration-500">
                         <h3 className="text-xl font-semibold mb-1">Key Features</h3>
                         <div className="w-10 h-1 bg-[#00D0D0] mb-3"></div>
                         <ul className="space-y-1 text-sm opacity-80 list-disc ml-3">
-                            <li>Agile Management</li>
+                            <li>Agile Project Management</li>
                             <li>Task & Workflow</li>
                             <li>Back Office (HRM)</li>
                             <li>Time & Attendance</li>
@@ -1008,7 +1144,8 @@ transition-all duration-500">
                             <li>Manager Desk</li>
                             <li>Assessment System</li>
                             <li>Cost & Budget</li>
-                            <li>AI Insights</li>
+                            <li>AI Insights & Dashboards</li>
+                            <li>Dashboard</li>
                         </ul>
                     </div>
 
@@ -1025,6 +1162,11 @@ transition-all duration-500">
                             <li className="font-semibold">Start Free Plan</li>
                             <li>Blog Post</li>
                         </ul>
+
+                        <button className="bg-[#F6A800] text-black text-sm px-5 py-1.5 mt-15 rounded-full font-semibold whitespace-nowrap mx-auto md:mx-10">
+                            Book a Demo
+                        </button>
+
                     </div>
 
                     {/* 5 — CONTACT */}
@@ -1032,12 +1174,12 @@ transition-all duration-500">
                         <h3 className="text-xl font-semibold mb-1">Contact Us</h3>
                         <div className="w-10 h-1 bg-[#00D0D0] mb-3"></div>
 
-                        <p className="text-sm opacity-80 leading-relaxed mb-3">
+                        <p className="text-sm opacity-80 leading-relaxed mb-10">
                             #25/31, Lakshmi Nagar II Main Road,<br />
-                            Porur, Chennai, Tamil Nadu - 600116
+                            Porur, Chennai, <br />Tamil Nadu - 600116
                         </p>
 
-                        <p className="text-sm font-semibold text-[#F6A800] mb-1">
+                        <p className="text-sm font-semibold text-[#F6A800] mb-4">
                             Email: contact@bexatm.com
                         </p>
 
@@ -1046,13 +1188,13 @@ transition-all duration-500">
                         </p>
 
                         <div className="flex flex-wrap gap-3 mt-2">
-                            <button className="bg-[#F6A800] text-black text-sm px-5 py-1.5 rounded-full font-semibold whitespace-nowrap">
-                                Book a Demo
-                            </button>
 
-                            <button className="bg-[#F6A800] text-black text-sm px-5 py-1.5 rounded-full font-semibold whitespace-nowrap">
+
+                            <button className="border border-[#F6A800] text-[#F6A800] text-sm px-5 py-1.5 mt-10 rounded-full font-semibold whitespace-nowrap md:-ml-20 mx-auto md:mx-0">
                                 Chat with Our Expert: (+91)94444 08804
                             </button>
+
+
                         </div>
 
                     </div>

@@ -1,21 +1,28 @@
 "use client";
 
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { useState, useRef, useEffect } from "react";
 import { FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
 import Link from "next/link";
 
+const brands = [
+    "/brands/capsule.svg",
+    "/brands/layers.svg",
+    "/brands/polymath.svg",
+    "/brands/segment.svg",
+    "/brands/altshift.svg",
+];
 
+/* ================= COUNTER COMPONENT ================= */
 function Counter({ end, duration = 2000, isK = false }) {
     const ref = useRef<HTMLSpanElement | null>(null);
     const [count, setCount] = useState(0);
     const animRef = useRef<number | null>(null);
-    const [selectedImage, setSelectedImage] = useState(null);
 
     const startAnimation = () => {
         let start = 0;
+
         const step = () => {
             start += end / (duration / 16);
 
@@ -24,9 +31,10 @@ function Counter({ end, duration = 2000, isK = false }) {
                 animRef.current = requestAnimationFrame(step);
             } else {
                 setCount(end);
-                cancelAnimationFrame(animRef.current!);
+                if (animRef.current) cancelAnimationFrame(animRef.current);
             }
         };
+
         step();
     };
 
@@ -36,11 +44,9 @@ function Counter({ end, duration = 2000, isK = false }) {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    // Start from 0 every time you scroll into view
                     setCount(0);
                     startAnimation();
                 } else {
-                    // Reset when it goes out of view
                     setCount(0);
                 }
             },
@@ -48,24 +54,138 @@ function Counter({ end, duration = 2000, isK = false }) {
         );
 
         observer.observe(ref.current);
-
         return () => observer.disconnect();
     }, []);
 
-    return (
-        <span ref={ref}>
-            {isK ? `${count}K` : count}
-        </span>
-    );
+    return <span ref={ref}>{isK ? `${count}K` : count}</span>;
 }
 
-
+/* ================= HOME PAGE ================= */
 export default function BexATMHome() {
+    const [showPopup, setShowPopup] = useState(false);
+
+    // Show popup after 5 seconds
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowPopup(true);
+        }, 5000);
+
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <main className="min-h-screen w-full overflow-x-hidden bg-white text-black">
+
+            {/* ================= POPUP ================= */}
+            {showPopup && (
+                <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm">
+                    <div className="relative bg-white rounded-2xl shadow-2xl max-w-5xl w-full mx-4 overflow-hidden grid md:grid-cols-2">
+
+                        {/* CLOSE */}
+                        <button
+                            onClick={() => setShowPopup(false)}
+                            className="absolute top-4 right-4 z-10 text-gray-400 hover:text-black text-2xl"
+                        >
+                            ×
+                        </button>
+
+                        {/* LEFT IMAGE */}
+                        <div className="hidden md:block">
+                            <img
+                                src="/images/home/Popupimage.webp"
+                                alt="Popup"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+
+                        {/* RIGHT FORM */}
+                        <div className="p-8 md:p-10">
+
+                            {/* TITLE */}
+                            <h2 className="text-3xl font-bold text-[#0F172A] leading-tight">
+                                Get Started with ATM — <br />
+                                <span className="text-blue-600">100% FREE Plan</span>
+                            </h2>
+
+                            {/* SUBTITLE */}
+                            <p className="text-sm text-gray-500 mt-3 mb-6">
+                                Experience ATM’s powerful tools for Startups, Construction Teams,
+                                and Educational Institutions. No credit card required.
+                            </p>
+
+                            {/* FORM */}
+                            <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                                <div>
+                                    <label className="text-xs text-gray-500">Name</label>
+                                    <input
+                                        type="text"
+                                        placeholder="Full Name"
+                                        className="w-full mt-1 border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="text-xs text-gray-500">Work Email</label>
+                                    <input
+                                        type="email"
+                                        placeholder="john@company.com"
+                                        className="w-full mt-1 border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="text-xs text-gray-500">Phone Number</label>
+                                    <input
+                                        type="tel"
+                                        placeholder="+1 555-0123"
+                                        className="w-full mt-1 border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="text-xs text-gray-500">Organization Name</label>
+                                    <input
+                                        type="text"
+                                        placeholder="Company or Institution Name"
+                                        className="w-full mt-1 border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                                    />
+                                </div>
+
+                                <div className="md:col-span-2">
+                                    <label className="text-xs text-gray-500">Select Industry</label>
+                                    <select className="w-full mt-1 border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                                        <option>Startup</option>
+                                        <option>Construction</option>
+                                        <option>Institution</option>
+                                    </select>
+                                </div>
+
+                                {/* CTA */}
+                                <button
+                                    type="submit"
+                                    className="md:col-span-2 mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-full shadow-lg transition"
+                                >
+                                    Start Free Plan
+                                </button>
+                            </form>
+
+                            {/* FOOTER */}
+                            <div className="flex items-center justify-between text-xs text-gray-500 mt-6">
+                                <span>✔ Free Forever Plan</span>
+                                <span>✔ Upgrade Anytime</span>
+                                <span>✔ Secure & Encrypted</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            )}
+
+
             {/* HERO SECTION */}
             <section
-                className="relative w-full bg-cover bg-center pt-12 pb-12 px-4 md:px-20"
+                className="relative w-full bg-cover bg-center pt-12 pb-12 px-4 md:px-20 max-[900px]:bg-top"
                 style={{
                     backgroundImage: "url('/images/home/mainbanner.webp')",
                     backgroundPositionY: "-15px"
@@ -74,7 +194,8 @@ export default function BexATMHome() {
                 {/* MOBILE ONLY DARK OVERLAY */}
                 <div className="absolute inset-0 bg-black/50 md:bg-transparent"></div>
 
-                <div className="relative grid md:grid-cols-2 gap-10 items-center">
+                <div className="relative grid md:grid-cols-2 gap-10 items-center max-[900px]:grid-cols-1">
+
 
                     {/* LEFT CONTENT */}
                     <div className="text-white max-w-xl">
@@ -194,6 +315,40 @@ export default function BexATMHome() {
                 </div>
             </section>
 
+            <section className="w-screen bg-[#F5FBFA] py-16 overflow-hidden">
+                {/* Heading */}
+                <div className="text-center mb-10 px-4">
+                    <h2 className="text-2xl md:text-4xl font-bold text-[#0A2540]">
+                        Trusted by Teams Across Startups, Construction Sites &<br />
+                        Educational Institutions
+                    </h2>
+                    <p className="mt-4 font-bold text-[#425466]">
+                        Empowering diverse teams with reliable tools to streamline projects,
+                        people, and daily operations.
+                    </p>
+                </div>
+
+                {/* Marquee */}
+                <div className="relative w-full overflow-hidden mt-20">
+                    <div className="flex w-[200%] animate-marquee">
+                        {[...brands, ...brands].map((logo, index) => (
+                            <div
+                                key={index}
+                                className="flex items-center justify-center px-12 md:px-16"
+                            >
+                                <Image
+                                    src={logo}
+                                    alt="Brand"
+                                    width={140}
+                                    height={50}
+                                    className="object-contain opacity-80"
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             <section className="py-10 px-6 md:px-20 bg-[#F8FAFC]">
 
                 {/* TITLE + SUBTITLE */}
@@ -216,7 +371,7 @@ export default function BexATMHome() {
                         {
                             title: "Project Management for Startups & SMBs",
                             desc: "Agile workflows, team productivity, remote attendance & client deliverables.",
-                            img: "/images/home/startup.webp",
+                            img: "/images/home/Startup.webp",
                             href: "/project-management-software-for-startups",
                         },
                         {

@@ -136,17 +136,16 @@ export default function BexATMHome() {
     };
 
     useEffect(() => {
-    const timer = setTimeout(() => {
-        setShowPopup(true);
-    }, 5000); // 5 seconds
+        const timer = setTimeout(() => {
+            setShowPopup(true);
+        }, 5000); // 5 seconds
 
-    return () => clearTimeout(timer);
-}, []);
-
+        return () => clearTimeout(timer);
+    }, []);
 
 
     return (
-        <main className="min-h-screen w-full bg-white text-black">
+      <main className="min-h-screen w-full overflow-x-hidden bg-white text-black">
             {/* ================= POPUP ================= */}
             {showPopup && (
                 <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-3 sm:p-4">
@@ -285,72 +284,100 @@ export default function BexATMHome() {
                 </div>
             )}
 
-
             {/* HERO SECTION */}
             <section
-                className="relative w-full bg-cover bg-center pt-12 pb-12 px-4 md:px-20 max-[900px]:bg-top"
+                className="
+    relative w-full bg-cover bg-center
+    pt-10 md:pt-12 pb-10 md:pb-12
+    px-4 sm:px-6 md:px-20
+    max-[900px]:bg-top
+  "
                 style={{
                     backgroundImage: "url('/images/home/mainbanner.webp')",
-                    backgroundPositionY: "-15px"
+                    backgroundPositionY: "-15px",
                 }}
             >
                 {/* MOBILE ONLY DARK OVERLAY */}
                 <div className="absolute inset-0 bg-black/50 md:bg-transparent"></div>
 
-                <div className="relative grid md:grid-cols-2 gap-10 items-center max-[900px]:grid-cols-1">
-
+                <div className="
+    relative grid md:grid-cols-2
+    gap-8 md:gap-10
+    items-center
+    max-[900px]:grid-cols-1
+  ">
 
                     {/* LEFT CONTENT */}
                     <div className="text-white max-w-xl">
 
                         {/* Heading */}
-                        <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mt-4 md:mt-10 mb-2">
+                        <h1 className="
+        text-3xl md:text-5xl
+        font-extrabold leading-tight
+        mt-4 md:mt-10 mb-2
+      ">
                             ONE PLATFORM<br />TO MANAGE YOUR
                         </h1>
 
                         {/* Subheading */}
-                        <div className="bg-white text-gray-900 inline-block px-4 md:px-25 py-2 rounded-lg
-                font-semibold mb-4 shadow-md text-sm md:text-lg">
+                        <div className="
+        bg-white text-gray-900 inline-block
+        px-4 md:px-25 py-2
+        rounded-lg font-semibold
+        mb-4 shadow-md
+        text-sm md:text-lg
+      ">
                             Projects – People – Budget
                         </div>
 
                         {/* Paragraph */}
-                        <p className="text-sm md:text-lg leading-relaxed mb-4 text-white/90">
-                            Empower your teams with an end-to-end system for project execution, attendance, workforce management,
-                            and real-time insights — built for Startups & SMB, Construction & Building Mgmt, and Schools & Institutions.
+                        <p className="
+        text-sm md:text-lg
+        leading-relaxed
+        mb-4 text-white/90
+      ">
+                            Empower your teams with an end-to-end system for project execution,
+                            attendance, workforce management, and real-time insights — built for
+                            Startups & SMB, Construction & Building Mgmt, and Schools & Institutions.
                             <span className="text-blue-400 font-semibold"> Startups</span>,
                             <span className="text-blue-400 font-semibold"> Communities</span>, and
                             <span className="text-blue-400 font-semibold"> Construction teams</span>.
                         </p>
 
-                        {/* INDUSTRY ICONS - Classic Minimal Style */}
-                        {/* Industry Icons Bar */}
+                        {/* INDUSTRY ICONS */}
                         <div className="mt-3">
                             <div
                                 className="
             w-full bg-[#0C4867] rounded-xl
             p-2 md:p-4
-            shadow-lg flex flex-col md:flex-row
+            shadow-lg
+            flex flex-col md:flex-row
             justify-between items-center
             gap-2 md:gap-0
-            max-w-[220px] md:max-w-full mx-auto   /* smaller width on mobile */
-        "
+            max-w-[260px] sm:max-w-[320px] md:max-w-full
+            mx-auto md:mx-0
+          "
                             >
 
                                 {/* Startups */}
                                 <Link href="/project-management-software-for-startups" className="flex-1">
-                                    <div
-                                        className="
-                    flex flex-col items-center text-white p-1 md:p-2 rounded-md cursor-pointer
-                    transition-all duration-300 hover:bg-white/10 hover:scale-105
-                "
-                                    >
+                                    <div className="
+              flex flex-col items-center
+              text-white p-1 md:p-2
+              rounded-md cursor-pointer
+              transition-all duration-300
+              hover:bg-white/10 hover:scale-105
+            ">
                                         <img
-                                            src="images/home/icons/startup.png"
+                                            src="/images/home/icons/startup.png"
                                             className="w-6 h-6 md:w-12 md:h-12 mb-1"
                                             alt="Startups & SMBs"
                                         />
-                                        <p className="text-center text-[10px] md:text-sm font-medium leading-tight">
+                                        <p className="
+                text-center
+                text-[10px] md:text-sm
+                font-medium leading-tight
+              ">
                                             Startups &<br /> Small Business
                                         </p>
                                     </div>
@@ -360,18 +387,23 @@ export default function BexATMHome() {
 
                                 {/* Community */}
                                 <Link href="/apartment-society-management-software" className="flex-1">
-                                    <div
-                                        className="
-                    flex flex-col items-center text-white p-1 md:p-2 rounded-md cursor-pointer
-                    transition-all duration-300 hover:bg-white/10 hover:scale-105
-                "
-                                    >
+                                    <div className="
+              flex flex-col items-center
+              text-white p-1 md:p-2
+              rounded-md cursor-pointer
+              transition-all duration-300
+              hover:bg-white/10 hover:scale-105
+            ">
                                         <img
-                                            src="images/home/icons/community.png"
+                                            src="/images/home/icons/community.png"
                                             className="w-6 h-6 md:w-12 md:h-12 mb-1"
                                             alt="Community"
                                         />
-                                        <p className="text-center text-[10px] md:text-sm font-medium leading-tight">
+                                        <p className="
+                text-center
+                text-[10px] md:text-sm
+                font-medium leading-tight
+              ">
                                             Construction /<br /> Building Management
                                         </p>
                                     </div>
@@ -381,18 +413,23 @@ export default function BexATMHome() {
 
                                 {/* Construction */}
                                 <Link href="/construction-project-management-software" className="flex-1">
-                                    <div
-                                        className="
-                    flex flex-col items-center text-white p-1 md:p-2 rounded-md cursor-pointer
-                    transition-all duration-300 hover:bg-white/10 hover:scale-105
-                "
-                                    >
+                                    <div className="
+              flex flex-col items-center
+              text-white p-1 md:p-2
+              rounded-md cursor-pointer
+              transition-all duration-300
+              hover:bg-white/10 hover:scale-105
+            ">
                                         <img
-                                            src="images/home/icons/construction.png"
+                                            src="/images/home/icons/construction.png"
                                             className="w-6 h-6 md:w-12 md:h-12 mb-1"
                                             alt="Construction Teams"
                                         />
-                                        <p className="text-center text-[10px] md:text-sm font-medium leading-tight">
+                                        <p className="
+                text-center
+                text-[10px] md:text-sm
+                font-medium leading-tight
+              ">
                                             Schools /<br /> Institutions
                                         </p>
                                     </div>
@@ -401,20 +438,22 @@ export default function BexATMHome() {
                             </div>
                         </div>
 
-
-
                         {/* Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4 mt-6">
-                            <Link href="/demo">
-                                <button className="bg-[#F6A800] hover:bg-[#d99000] transition text-black 
-                        text-sm px-6 py-2 rounded-full font-semibold">
-                                    Get Start Free
-                                </button>
-                            </Link>
+                            <button
+                                onClick={() => setShowPopup(true)}
+                                className="
+            bg-[#F6A800] hover:bg-[#d99000]
+            transition text-black
+            text-sm px-6 py-2
+            rounded-full font-semibold
+          "
+                            >
+                                Get Start Free
+                            </button>
                         </div>
 
                     </div>
-
                 </div>
             </section>
 
@@ -1356,7 +1395,8 @@ hover:-translate-y-4 hover:scale-[1.05]">
             </section>
 
             <footer className="bg-black text-white pt-14 px-4 md:px-16">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-6">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-6">
+
                     {/* 1 — LOGO + DESCRIPTION */}
                     <div className="col-span-1 lg:col-span-1">
                         <Image
@@ -1366,6 +1406,7 @@ hover:-translate-y-4 hover:scale-[1.05]">
                             height={65}
                             className="object-contain mb-4"
                         />
+
                         <p className="text-sm leading-relaxed opacity-80 mb-5 pr-0 md:pr-2 max-w-full md:max-w-sm">
                             ATM is an all-in-one platform for project management, team productivity, and workforce tracking.
                             It offers integrated tools for tasks, attendance, HR, Agile Project Management, and AI-powered workflows,
@@ -1373,7 +1414,7 @@ hover:-translate-y-4 hover:scale-[1.05]">
                         </p>
 
                         <h3 className="text-base font-semibold mb-2">Follow Us</h3>
-                        <div className="flex gap-3">
+                        <div className="flex gap-4 sm:gap-3">
                             <a href="https://linkedin.com" target="_blank" className="hover:scale-110 transition">
                                 <FaLinkedinIn size={24} color="#0077B5" />
                             </a>
@@ -1420,6 +1461,7 @@ hover:-translate-y-4 hover:scale-[1.05]">
                     <div>
                         <h3 className="text-xl font-semibold mb-1">Quick Links</h3>
                         <div className="w-10 h-1 bg-[#00D0D0] mb-3"></div>
+
                         <ul className="space-y-1 text-sm opacity-80 list-disc ml-3">
                             <li>Terms & Conditions</li>
                             <li>Privacy Policy</li>
@@ -1432,12 +1474,10 @@ hover:-translate-y-4 hover:scale-[1.05]">
 
                         <button
                             onClick={() => setShowPopup(true)}
-                            className="bg-[#F6A800] text-black text-sm px-5 py-1.5 mt-15 rounded-full font-semibold whitespace-nowrap mx-auto md:mx-10"
+                            className="bg-[#F6A800] text-black text-sm px-5 py-1.5 mt-14 rounded-full font-semibold whitespace-nowrap mx-auto md:mx-10 block"
                         >
                             Book a Demo
                         </button>
-
-
                     </div>
 
                     {/* 5 — CONTACT */}
@@ -1445,47 +1485,48 @@ hover:-translate-y-4 hover:scale-[1.05]">
                         <h3 className="text-xl font-semibold mb-1">Contact Us</h3>
                         <div className="w-10 h-1 bg-[#00D0D0] mb-3"></div>
 
-                        <p className="text-sm opacity-80 leading-relaxed mb-10">
+                        <p className="text-sm opacity-80 leading-relaxed mb-10 break-words">
                             #25/31, Lakshmi Nagar II Main Road,<br />
-                            Porur, Chennai, <br />Tamil Nadu - 600116
+                            Porur, Chennai, <br />
+                            Tamil Nadu - 600116
                         </p>
 
-                        <p className="text-sm font-semibold text-[#F6A800] mb-4">
+                        <p className="text-sm font-semibold text-[#F6A800] mb-4 break-words">
                             Email: contact@bexatm.com
                         </p>
 
-                        <p className="text-sm font-semibold text-[#F6A800] mb-3">
+                        <p className="text-sm font-semibold text-[#F6A800] mb-3 break-words">
                             Phone: (+91)94444 08804
                         </p>
 
                         <div className="flex flex-wrap gap-3 mt-2">
-
-
                             <Button
                                 asChild
-                                variant="outline" className="border border-[#F6A800] text-[#F6A800] text-sm px-5 py-1.5 mt-10 rounded-full font-semibold whitespace-nowrap md:-ml-20 mx-auto md:mx-0">
+                                variant="outline"
+                                className="border border-[#F6A800] text-[#F6A800] text-sm px-5 py-1.5 mt-9 rounded-full font-semibold whitespace-nowrap mx-auto md:mx-0 md:-ml-20"
+                            >
                                 <a
                                     href="https://wa.me/919444408804"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    Say Hi To Our Expert:{" "}
+                                    Say Hi To Our Expert:
                                     <span className="ml-2 font-bold">(+91) 94444 08804</span>
                                 </a>
                             </Button>
-
-
                         </div>
-
                     </div>
                 </div>
 
+                {/* Bottom Cyan Bar */}
                 <div className="w-screen bg-[#00D0D0] h-4 mt-10 relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]"></div>
 
+                {/* Copyright */}
                 <div className="text-center py-4 text-xs opacity-70 bg-black">
                     © 2025 Beyondex Solutions Pvt Ltd.
                 </div>
             </footer>
+
         </main>
     );
 }

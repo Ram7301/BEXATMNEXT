@@ -372,65 +372,60 @@ export default function ProjectManagementForStartups() {
             </div>
           </div>
         )}
-        {/* HERO (PDF-style: bold headline, left content, right stats) */}
 
         <section
           className="
-    relative 
-    bg-cover bg-center sm:bg-[center_top] 
-    bg-no-repeat 
-    text-white 
-    min-h-[80vh] 
+    relative
+    bg-cover bg-center sm:bg-[center_top]
+    bg-no-repeat
+    text-white
+    min-h-[70vh] sm:min-h-[80vh] lg:min-h-[85vh]
     flex items-end
   "
           style={{ backgroundImage: "url('/images/startups/mainbanner.webp')" }}
         >
-          {/* Content wrapper */}
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-16">
+          {/* MOBILE OVERLAY (readability only) */}
+          <div className="absolute inset-0 bg-black/40 sm:bg-transparent"></div>
 
+          {/* Content wrapper */}
+          <div
+            className="
+      relative z-10
+      w-full
+      max-w-7xl mx-auto
+      px-4 sm:px-6 lg:px-12
+      pb-10 sm:pb-16 lg:pb-24
+    "
+          >
             {/* LEFT CONTENT */}
             <div
               className="
-        max-w-xl space-y-4 sm:space-y-6
-        
-        /* MOBILE: dark glass background */
-        bg-black/20 backdrop-blur-sm p-6 rounded-xl
-        
-        /* DESKTOP: no dark box */
-        md:bg-transparent md:backdrop-blur-0 md:p-0 md:rounded-none
+        max-w-xl
+        space-y-4 sm:space-y-5 lg:space-y-6
+
+        /* MOBILE glass */
+        bg-black/30 backdrop-blur-sm
+        p-4 sm:p-6
+        rounded-xl
+
+        /* TABLET / DESKTOP reset */
+        md:bg-transparent md:backdrop-blur-0
+        md:p-0 md:rounded-none
       "
             >
-              <h1
-                className="
-          text-xl sm:text-2xl lg:text-3xl font-bold leading-tight 
-          text-white
-        "
-              >
+              <h1 className="text-base sm:text-2xl lg:text-3xl font-bold leading-tight">
                 AI Powered
               </h1>
 
-              <h2
-                className="
-          text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight 
-          text-white
-        "
-              >
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold leading-tight">
                 Project Management Software for Startups & Small Business
               </h2>
 
-              <p
-                className="
-          text-[#3FC4C8] text-base sm:text-lg leading-relaxed
-        "
-              >
+              <p className="text-[#3FC4C8] text-sm sm:text-lg leading-relaxed">
                 Run Your Startup Smarter — Manage Projects, Teams & Tasks 3X Faster with AI
               </p>
 
-              <p
-                className="
-          text-gray-200 text-sm sm:text-base leading-relaxed
-        "
-              >
+              <p className="text-gray-200 text-sm sm:text-base leading-relaxed">
                 ATM is the all-in-one Project Management Software for Startups & Small
                 Businesses, helping teams plan projects, track tasks, automate workflows,
                 collaborate better, and execute faster — without spreadsheets and chaos.
@@ -439,14 +434,14 @@ export default function ProjectManagementForStartups() {
               <Button
                 onClick={scrollToForm}
                 className="
-          bg-[#F6B200] 
-          text-black 
-          font-bold 
-          px-5 py-3 
-          rounded-md 
-          shadow-md 
-          hover:brightness-105 
-          transition 
+          bg-[#F6B200]
+          text-black
+          font-bold
+          px-6 py-3
+          rounded-md
+          shadow-md
+          hover:brightness-105
+          transition
           w-full sm:w-auto
         "
               >
@@ -455,6 +450,7 @@ export default function ProjectManagementForStartups() {
             </div>
           </div>
         </section>
+
 
         <section
           className="relative bg-cover bg-center bg-no-repeat py-28 px-8 lg:px-24"

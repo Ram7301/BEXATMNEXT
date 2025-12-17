@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import contentData from "../../../Mock.db/C001.json";
 
 const Hero: React.FC = () => {
   const router = useRouter();

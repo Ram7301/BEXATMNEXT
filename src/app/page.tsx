@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import Homepage from './(site)/homepage/page'
+import Homepage from './(site)/home/page'
 
 export const metadata: Metadata = {
   title: 'ATM',

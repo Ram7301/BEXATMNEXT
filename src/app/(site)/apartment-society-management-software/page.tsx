@@ -828,7 +828,7 @@ export default function BexAtmPdfPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Chat with Our Expert:{" "}
+                Say Hi To Our Expert:{" "}
                 <span className="ml-2 font-bold">+91 944 440 8804</span>
               </a>
             </Button>

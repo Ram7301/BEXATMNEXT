@@ -1048,7 +1048,7 @@ export default function ProjectManagementPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Chat with Our Expert:{" "}
+                Say Hi To Our Expert:{" "}
                 <span className="ml-2 font-bold">(+91)94444 08804</span>
               </a>
             </Button>

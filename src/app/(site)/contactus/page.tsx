@@ -24,7 +24,7 @@ export default function ContactUs() {
     email: "",
     mobile: "",
     organisation: "",
-    industry: "",
+    // industry: "",
     message: "",
     captchaInput: "",
     questionPhone: "",
@@ -124,7 +124,7 @@ export default function ContactUs() {
           name: '',
           email: '',
           mobile: '',
-          industry: '',
+          // industry: '',
           organisation: '',
           message: '',
           captchaInput: '',
@@ -426,7 +426,7 @@ export default function ContactUs() {
 
 
 
-                <div className="w-full">
+                {/* <div className="w-full">
                   <select
                     name="industry"
                     value={formData.industry}
@@ -440,7 +440,7 @@ export default function ContactUs() {
                     <option value="Construction">Construction</option>
                     <option value="Institution">Institution</option>
                   </select>
-                </div>
+                </div> */}
 
                 <div>
                   <p className="mb-2 text-sm font-medium">CAPTCHA</p>

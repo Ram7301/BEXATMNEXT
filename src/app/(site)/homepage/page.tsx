@@ -6,48 +6,41 @@ import { Button } from "@/components/ui/button";
 import { FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
 import Link from "next/link";
 
-const brands = [
-    "/brands/capsule.svg",
-    "/brands/layers.svg",
-    "/brands/polymath.svg",
-    "/brands/segment.svg",
-    "/brands/altshift.svg",
+const brands: string[] = [
+    "/images/home/crea.png",
+    "/images/home/electroflux.png",
+    "/images/home/pss.png",
+    "/images/home/trimurthi.png",
+    "/images/home/trinity.png",
+    "/images/home/yjelite.png",
+    "/images/home/plymouth.png",
 ];
+
 
 /* ================= COUNTER COMPONENT ================= */
 function Counter({ end, duration = 2000, isK = false }) {
     const ref = useRef<HTMLSpanElement | null>(null);
     const [count, setCount] = useState(0);
-    const animRef = useRef<number | null>(null);
-
-    const startAnimation = () => {
-        let start = 0;
-
-        const step = () => {
-            start += end / (duration / 16);
-
-            if (start < end) {
-                setCount(Math.floor(start));
-                animRef.current = requestAnimationFrame(step);
-            } else {
-                setCount(end);
-                if (animRef.current) cancelAnimationFrame(animRef.current);
-            }
-        };
-
-        step();
-    };
 
     useEffect(() => {
         if (!ref.current) return;
+
+        let start = 0;
+        const step = () => {
+            start += end / (duration / 16);
+            if (start < end) {
+                setCount(Math.floor(start));
+                requestAnimationFrame(step);
+            } else {
+                setCount(end);
+            }
+        };
 
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setCount(0);
-                    startAnimation();
-                } else {
-                    setCount(0);
+                    step();
                 }
             },
             { threshold: 0.4 }
@@ -55,41 +48,119 @@ function Counter({ end, duration = 2000, isK = false }) {
 
         observer.observe(ref.current);
         return () => observer.disconnect();
-    }, []);
+    }, [end, duration]);
 
     return <span ref={ref}>{isK ? `${count}K` : count}</span>;
 }
 
 /* ================= HOME PAGE ================= */
+
 export default function BexATMHome() {
     const [showPopup, setShowPopup] = useState(false);
 
-    // Show popup after 5 seconds
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowPopup(true);
-        }, 5000);
+    /* ---------- FORM STATE ---------- */
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        organisation: "",
+        industry: "",
+    });
 
-        return () => clearTimeout(timer);
-    }, []);
+    const [loading, setLoading] = useState(false);
+    const [message, setMessage] = useState("");
+
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    ) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        const { name, email, phone, organisation, industry } = formData;
+
+        if (!name || !email || !phone || !industry) {
+            setMessage("❌ Please fill all required fields");
+            return;
+        }
+
+        if (!/^[0-9]{10}$/.test(phone)) {
+            setMessage("❌ Enter valid 10-digit mobile number");
+            return;
+        }
+
+        setLoading(true);
+        setMessage("");
+
+        try {
+            const response = await fetch(
+                "https://bexatm.com/api/TrailMailRequestInsertControllerV1.php",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization:
+                            "eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJzdWIiOiJCZXhAMTIzIiwibmFtZSI6IkJleCIsImFkbWluIjp0cnVlLCJleHAiOjE2Njk5ODQzNDl9.uxE3r3X4lqV_WKrRKRPXd-Jub9BnVcCXqCtLL4I0fpU",
+                    },
+                    body: JSON.stringify({
+                        RecordID: "",
+                        MailID: email,
+                        Name: name,
+                        MobileNumber: phone,
+                        TrailType: industry,
+                        Description: "",
+                        CompanyName: "",
+                        PreferredDateTime: "",
+                        OrganisationName: organisation,
+                        CompanyVertical: "",
+                    }),
+                }
+            );
+
+            const result = await response.json();
+
+            if (result.Status === "Y") {
+                setMessage("✅ Free plan activated successfully!");
+                setTimeout(() => setShowPopup(false), 2000);
+            } else {
+                setMessage(`❌ ${result.Msg || "Submission failed"}`);
+            }
+        } catch (error) {
+            setMessage("⚠️ Server error. Please try again later.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+    const timer = setTimeout(() => {
+        setShowPopup(true);
+    }, 5000); // 5 seconds
+
+    return () => clearTimeout(timer);
+}, []);
+
+
 
     return (
-        <main className="min-h-screen w-full overflow-x-hidden bg-white text-black">
-
+        <main className="min-h-screen w-full bg-white text-black">
             {/* ================= POPUP ================= */}
             {showPopup && (
-                <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm">
-                    <div className="relative bg-white rounded-2xl shadow-2xl max-w-5xl w-full mx-4 overflow-hidden grid md:grid-cols-2">
+                <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-3 sm:p-4">
+                    <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto grid grid-cols-1 md:grid-cols-2">
 
-                        {/* CLOSE */}
+                        {/* CLOSE BUTTON */}
                         <button
                             onClick={() => setShowPopup(false)}
-                            className="absolute top-4 right-4 z-10 text-gray-400 hover:text-black text-2xl"
+                            className="absolute top-3 right-3 md:top-4 md:right-4 z-10 text-gray-400 hover:text-black text-2xl"
                         >
                             ×
                         </button>
 
-                        {/* LEFT IMAGE */}
+                        {/* LEFT IMAGE (Desktop only) */}
                         <div className="hidden md:block">
                             <img
                                 src="/images/home/Popupimage.webp"
@@ -99,28 +170,34 @@ export default function BexATMHome() {
                         </div>
 
                         {/* RIGHT FORM */}
-                        <div className="p-8 md:p-10">
+                        <div className="p-4 sm:p-6 md:p-10">
 
                             {/* TITLE */}
-                            <h2 className="text-3xl font-bold text-[#0F172A] leading-tight">
+                            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#0F172A] leading-tight">
                                 Get Started with ATM — <br />
                                 <span className="text-blue-600">100% FREE Plan</span>
                             </h2>
 
                             {/* SUBTITLE */}
-                            <p className="text-sm text-gray-500 mt-3 mb-6">
+                            <p className="text-sm text-gray-500 mt-3 mb-5">
                                 Experience ATM’s powerful tools for Startups, Construction Teams,
                                 and Educational Institutions. No credit card required.
                             </p>
 
                             {/* FORM */}
-                            <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
+                            <form
+                                onSubmit={handleSubmit}
+                                className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4"
+                            >
                                 <div>
                                     <label className="text-xs text-gray-500">Name</label>
                                     <input
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
                                         type="text"
                                         placeholder="Full Name"
+                                        required
                                         className="w-full mt-1 border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
                                     />
                                 </div>
@@ -128,8 +205,12 @@ export default function BexATMHome() {
                                 <div>
                                     <label className="text-xs text-gray-500">Work Email</label>
                                     <input
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
                                         type="email"
                                         placeholder="john@company.com"
+                                        required
                                         className="w-full mt-1 border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
                                     />
                                 </div>
@@ -137,8 +218,12 @@ export default function BexATMHome() {
                                 <div>
                                     <label className="text-xs text-gray-500">Phone Number</label>
                                     <input
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleChange}
                                         type="tel"
-                                        placeholder="+1 555-0123"
+                                        placeholder="+91 90555-00123"
+                                        required
                                         className="w-full mt-1 border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
                                     />
                                 </div>
@@ -146,32 +231,50 @@ export default function BexATMHome() {
                                 <div>
                                     <label className="text-xs text-gray-500">Organization Name</label>
                                     <input
+                                        name="organisation"
+                                        value={formData.organisation}
+                                        onChange={handleChange}
                                         type="text"
                                         placeholder="Company or Institution Name"
+                                        required
                                         className="w-full mt-1 border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
                                     />
                                 </div>
 
                                 <div className="md:col-span-2">
                                     <label className="text-xs text-gray-500">Select Industry</label>
-                                    <select className="w-full mt-1 border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
-                                        <option>Startup</option>
-                                        <option>Construction</option>
-                                        <option>Institution</option>
+                                    <select
+                                        name="industry"
+                                        value={formData.industry}
+                                        onChange={handleChange}
+                                        required
+                                        className="w-full mt-1 border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                                    >
+                                        <option value="">Select Industry</option>
+                                        <option value="Startups">Startup</option>
+                                        <option value="Construction">Construction</option>
+                                        <option value="Institution">Institution</option>
                                     </select>
                                 </div>
 
-                                {/* CTA */}
                                 <button
                                     type="submit"
-                                    className="md:col-span-2 mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-full shadow-lg transition"
+                                    disabled={loading}
+                                    className="md:col-span-2 mt-3 sm:mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-full shadow-lg transition w-full"
                                 >
-                                    Start Free Plan
+                                    {loading ? "Submitting..." : "Start Free Plan"}
                                 </button>
+
+                                {message && (
+                                    <p className="md:col-span-2 text-center text-sm mt-2">
+                                        {message}
+                                    </p>
+                                )}
                             </form>
 
+
                             {/* FOOTER */}
-                            <div className="flex items-center justify-between text-xs text-gray-500 mt-6">
+                            <div className="flex flex-wrap justify-center sm:justify-between text-xs text-gray-500 mt-5 gap-3">
                                 <span>✔ Free Forever Plan</span>
                                 <span>✔ Upgrade Anytime</span>
                                 <span>✔ Secure & Encrypted</span>
@@ -206,7 +309,7 @@ export default function BexATMHome() {
                         </h1>
 
                         {/* Subheading */}
-                        <div className="bg-white text-gray-900 inline-block px-4 md:px-6 py-2 rounded-lg
+                        <div className="bg-white text-gray-900 inline-block px-4 md:px-25 py-2 rounded-lg
                 font-semibold mb-4 shadow-md text-sm md:text-lg">
                             Projects – People – Budget
                         </div>
@@ -315,38 +418,46 @@ export default function BexATMHome() {
                 </div>
             </section>
 
-            <section className="w-screen bg-[#F5FBFA] py-16 overflow-hidden">
+            <section className="w-screen bg-[#F5FBFA] py-12 md:py-16 overflow-hidden">
+
                 {/* Heading */}
-                <div className="text-center mb-10 px-4">
-                    <h2 className="text-2xl md:text-4xl font-bold text-[#0A2540]">
-                        Trusted by Teams Across Startups, Construction Sites &<br />
+                <div className="text-center mb-6 md:mb-10 px-4">
+                    <h2
+                        className="text-3xl md:text-5xl font-bold mb-4 leading-snug md:leading-tight"
+                        style={{ color: "#003C71" }}
+                    >
+                        Trusted by Teams Across Startups, Construction Sites &amp;<br className="hidden md:block" />
                         Educational Institutions
                     </h2>
-                    <p className="mt-4 font-bold text-[#425466]">
+
+                    <p className="font-bold text-[#425466] text-sm md:text-base">
                         Empowering diverse teams with reliable tools to streamline projects,
                         people, and daily operations.
                     </p>
                 </div>
 
-                {/* Marquee */}
-                <div className="relative w-full overflow-hidden mt-20">
-                    <div className="flex w-[200%] animate-marquee">
-                        {[...brands, ...brands].map((logo, index) => (
-                            <div
-                                key={index}
-                                className="flex items-center justify-center px-12 md:px-16"
-                            >
+                {/* Marquee (MOBILE + DESKTOP) */}
+                <div className="relative w-full overflow-hidden mt-6 md:mt-20">
+                    <div className="marquee-track">
+                        {[...brands, ...brands, ...brands].map((logo, index) => (
+                            <div key={index} className="marquee-item">
                                 <Image
                                     src={logo}
                                     alt="Brand"
-                                    width={140}
-                                    height={50}
-                                    className="object-contain opacity-80"
+                                    width={260}
+                                    height={90}
+                                    className="
+              object-contain
+              w-[160px] h-[60px]
+              md:w-[220px] md:h-[75px]
+              lg:w-[260px] lg:h-[90px]
+            "
                                 />
                             </div>
                         ))}
                     </div>
                 </div>
+
             </section>
 
             <section className="py-10 px-6 md:px-20 bg-[#F8FAFC]">
@@ -362,7 +473,6 @@ export default function BexATMHome() {
                         ATM aligns perfectly with your operational workflow
                     </p>
                 </div>
-
 
                 {/* 3 CARDS ROW */}
 
@@ -1233,11 +1343,13 @@ hover:-translate-y-4 hover:scale-[1.05]">
                         </button>
                     </Link>
 
-                    <Link href="/use-cases" className="w-full sm:w-auto">
-                        <button className="w-full sm:w-auto px-5 py-2.5 md:px-6 md:py-3 bg-[#003C71] text-white rounded-xl shadow hover:bg-[#002B52] transition text-sm md:text-base">
-                            Book a Free Demo
-                        </button>
-                    </Link>
+                    <button
+                        onClick={() => setShowPopup(true)}
+                        className="w-full sm:w-auto px-5 py-2.5 md:px-6 md:py-3 bg-[#003C71] text-white rounded-xl shadow hover:bg-[#002B52] transition text-sm md:text-base"
+                    >
+                        Book a Free Demo
+                    </button>
+
 
                 </div>
 
@@ -1318,9 +1430,13 @@ hover:-translate-y-4 hover:scale-[1.05]">
                             <li>Blog Post</li>
                         </ul>
 
-                        <button className="bg-[#F6A800] text-black text-sm px-5 py-1.5 mt-15 rounded-full font-semibold whitespace-nowrap mx-auto md:mx-10">
+                        <button
+                            onClick={() => setShowPopup(true)}
+                            className="bg-[#F6A800] text-black text-sm px-5 py-1.5 mt-15 rounded-full font-semibold whitespace-nowrap mx-auto md:mx-10"
+                        >
                             Book a Demo
                         </button>
+
 
                     </div>
 
@@ -1345,9 +1461,18 @@ hover:-translate-y-4 hover:scale-[1.05]">
                         <div className="flex flex-wrap gap-3 mt-2">
 
 
-                            <button className="border border-[#F6A800] text-[#F6A800] text-sm px-5 py-1.5 mt-10 rounded-full font-semibold whitespace-nowrap md:-ml-20 mx-auto md:mx-0">
-                                Chat with Our Expert: (+91)94444 08804
-                            </button>
+                            <Button
+                                asChild
+                                variant="outline" className="border border-[#F6A800] text-[#F6A800] text-sm px-5 py-1.5 mt-10 rounded-full font-semibold whitespace-nowrap md:-ml-20 mx-auto md:mx-0">
+                                <a
+                                    href="https://wa.me/919444408804"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Chat with Our Expert:{" "}
+                                    <span className="ml-2 font-bold">(+91) 94444 08804</span>
+                                </a>
+                            </Button>
 
 
                         </div>

@@ -20,15 +20,18 @@ const generateCaptcha = () => {
 export default function ContactUs() {
   const [captcha, setCaptcha] = useState('');
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    mobile: '',
-    message: '',
-    captchaInput: '',
-    questionPhone: '',
-    questionEmail: '',
-    questionText: ''
+    name: "",
+    email: "",
+    mobile: "",
+    organisation: "",
+    industry: "",
+    message: "",
+    captchaInput: "",
+    questionPhone: "",
+    questionEmail: "",
+    questionText: "",
   });
+
 
   const [formData1, setFormData1] = useState({
     phoneNumber: '',
@@ -46,7 +49,9 @@ export default function ContactUs() {
     setFormData({ ...formData, captchaInput: '' });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     if (e.target.name === 'mobile') {
       // Allow only numeric input and ensure the length is 10
       const value = e.target.value.replace(/\D/g, '');  // Remove non-digit characters
@@ -95,7 +100,7 @@ export default function ContactUs() {
     try {
       setLoading(true);
       const response = await axios.post(
-        'https://bexatm.com/api/TrailMailRequestInsertController.php',
+        'https://bexatm.com/api/TrailMailRequestInsertControllerV1.php',
         {
           RecordID: '',
           MailID: email,
@@ -119,6 +124,8 @@ export default function ContactUs() {
           name: '',
           email: '',
           mobile: '',
+          industry: '',
+          organisation: '',
           message: '',
           captchaInput: '',
           questionPhone: '',
@@ -161,7 +168,7 @@ export default function ContactUs() {
     try {
       setLoading(true);
       const response = await axios.post(
-        'https://bexatm.com/api/TrailMailRequestInsertController.php',
+        'https://bexatm.com/api/TrailMailRequestInsertControllerV1.php',
         {
           RecordID: '',
           MailID: email,
@@ -365,7 +372,7 @@ export default function ContactUs() {
             <div className="flex-1 w-full space-y-6">
               <div>
                 <h3 className="text-2xl sm:text-3xl font-semibold text-black dark:text-white mb-2">
-                  Request for 28-days free trial
+                  Request for free subscription
                 </h3>
                 <p className="text-lg text-gray-700 dark:text-gray-300">
                   Thanks for trying out our - <span className="font-medium text-primary">Agile Task Manager</span>
@@ -407,6 +414,33 @@ export default function ContactUs() {
                   required
                   className="px-6 py-3.5 border border-black/10 dark:border-white/10 rounded-full outline-primary w-full"
                 />
+
+                <input
+                  name="organisation"
+                  value={formData.organisation}
+                  onChange={handleChange}
+                  type="text"
+                  placeholder="Company or Institution Name"
+                  className="px-6 py-3.5 border border-black/10 dark:border-white/10 rounded-full outline-primary w-full"
+                />
+
+
+
+                <div className="w-full">
+                  <select
+                    name="industry"
+                    value={formData.industry}
+                    onChange={handleChange}
+                    required
+                    className="px-6 py-3.5 border border-black/10 dark:border-white/10 rounded-full outline-primary w-full"
+
+                  >
+                    <option value="">Select Industry</option>
+                    <option value="Startup">Startup</option>
+                    <option value="Construction">Construction</option>
+                    <option value="Institution">Institution</option>
+                  </select>
+                </div>
 
                 <div>
                   <p className="mb-2 text-sm font-medium">CAPTCHA</p>

@@ -81,7 +81,7 @@ export default function ProjectManagementPage() {
 
     try {
       const response = await fetch(
-        "https://bexatm.com/api/TrailMailRequestInsertController.php",
+        "https://bexatm.com/api/TrailMailRequestInsertControllerV1.php",
         {
           method: "POST",
           headers: {

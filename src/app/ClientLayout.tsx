@@ -25,7 +25,7 @@ export default function ClientLayout({
     pathname === "/project-management-software-for-startups" ||
     pathname === "/construction-project-management-software" ||
     pathname === "/apartment-society-management-software" ||
-    pathname === "/homepage";  // Add this line
+    pathname === "/";  // Add this line
 
   const enableRecaptchaForThisPage =
     pathname === "/construction-project-management-software";

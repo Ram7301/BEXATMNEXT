@@ -66,7 +66,7 @@ export default function ProjectManagementForStartups() {
 
     try {
       const response = await fetch(
-        "https://bexatm.com/api/TrailMailRequestInsertController.php",
+        "https://bexatm.com/api/TrailMailRequestInsertControllerV1.php",
         {
           method: "POST",
           headers: {
@@ -375,7 +375,7 @@ export default function ProjectManagementForStartups() {
         {/* HERO (PDF-style: bold headline, left content, right stats) */}
 
         <section
-  className="
+          className="
     relative 
     bg-cover bg-center sm:bg-[center_top] 
     bg-no-repeat 
@@ -383,14 +383,14 @@ export default function ProjectManagementForStartups() {
     min-h-[80vh] 
     flex items-end
   "
-  style={{ backgroundImage: "url('/images/startups/mainbanner.webp')" }}
->
-  {/* Content wrapper */}
-  <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-16">
+          style={{ backgroundImage: "url('/images/startups/mainbanner.webp')" }}
+        >
+          {/* Content wrapper */}
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-16">
 
-    {/* LEFT CONTENT */}
-    <div
-      className="
+            {/* LEFT CONTENT */}
+            <div
+              className="
         max-w-xl space-y-4 sm:space-y-6
         
         /* MOBILE: dark glass background */
@@ -399,46 +399,46 @@ export default function ProjectManagementForStartups() {
         /* DESKTOP: no dark box */
         md:bg-transparent md:backdrop-blur-0 md:p-0 md:rounded-none
       "
-    >
-      <h1
-        className="
+            >
+              <h1
+                className="
           text-xl sm:text-2xl lg:text-3xl font-bold leading-tight 
           text-white
         "
-      >
-        AI Powered
-      </h1>
+              >
+                AI Powered
+              </h1>
 
-      <h2
-        className="
+              <h2
+                className="
           text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight 
           text-white
         "
-      >
-        Project Management Software for Startups & Small Business
-      </h2>
+              >
+                Project Management Software for Startups & Small Business
+              </h2>
 
-      <p
-        className="
+              <p
+                className="
           text-[#3FC4C8] text-base sm:text-lg leading-relaxed
         "
-      >
-        Run Your Startup Smarter — Manage Projects, Teams & Tasks 3X Faster with AI
-      </p>
+              >
+                Run Your Startup Smarter — Manage Projects, Teams & Tasks 3X Faster with AI
+              </p>
 
-      <p
-        className="
+              <p
+                className="
           text-gray-200 text-sm sm:text-base leading-relaxed
         "
-      >
-        ATM is the all-in-one Project Management Software for Startups & Small
-        Businesses, helping teams plan projects, track tasks, automate workflows,
-        collaborate better, and execute faster — without spreadsheets and chaos.
-      </p>
+              >
+                ATM is the all-in-one Project Management Software for Startups & Small
+                Businesses, helping teams plan projects, track tasks, automate workflows,
+                collaborate better, and execute faster — without spreadsheets and chaos.
+              </p>
 
-      <Button
-        onClick={scrollToForm}
-        className="
+              <Button
+                onClick={scrollToForm}
+                className="
           bg-[#F6B200] 
           text-black 
           font-bold 
@@ -449,14 +449,12 @@ export default function ProjectManagementForStartups() {
           transition 
           w-full sm:w-auto
         "
-      >
-        Book Free Demo
-      </Button>
-    </div>
-  </div>
-</section>
-
-
+              >
+                Book Free Demo
+              </Button>
+            </div>
+          </div>
+        </section>
 
         <section
           className="relative bg-cover bg-center bg-no-repeat py-28 px-8 lg:px-24"

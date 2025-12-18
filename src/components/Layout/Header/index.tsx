@@ -161,19 +161,30 @@ const Header: React.FC = () => {
             <div>
               <button
                 onClick={() => setNavbarOpen(!navbarOpen)}
-                className={`flex items-center gap-2 p-1 sm:px-3 sm:py-2 rounded-full font-medium text-sm hover:cursor-pointer border ${isHomepage
-                  ? sticky
-                    ? 'text-white bg-primary dark:bg-white dark:text-dark dark:hover:text-white dark:hover:bg-dark hover:text-dark hover:bg-white border-dark dark:border-white'
-                    : 'text-dark bg-primary dark:text-dark hover:bg-transparent hover:text-white border-white'
-                  : 'bg-dark text-white hover:bg-transparent hover:text-dark dark:bg-white dark:text-dark dark:hover:bg-transparent dark:hover:text-white duration-300'
+                className={`group flex items-center gap-2 p-1 sm:px-3 sm:py-2 rounded-full font-medium text-sm hover:cursor-pointer border
+    ${isHomepage
+                    ? sticky
+                      ? 'bg-[#F6A800] border-[#F6A800] dark:bg-[#F6A800] dark:border-[#F6A800]'
+                      : 'bg-[#F6A800] border-[#F6A800]'
+                    : 'bg-[#F6A800] border-[#F6A800] dark:bg-[#F6A800] dark:border-[#F6A800]'
                   }`}
                 aria-label="Toggle mobile menu"
               >
                 <span>
                   <Icon icon={'ph:list'} width={16} height={16} />
                 </span>
-                <span className="hidden sm:block">Key Features</span>
+                <span
+                  className={`
+      hidden sm:block
+      text-black dark:text-black
+      transition-colors duration-300
+    `}
+                >
+                  Key Features
+                </span>
               </button>
+
+
             </div>
           </div>
         </div>

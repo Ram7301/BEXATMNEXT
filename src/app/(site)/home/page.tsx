@@ -145,7 +145,7 @@ export default function BexATMHome() {
 
 
     return (
-      <main className="min-h-screen w-full overflow-x-hidden bg-white text-black">
+        <main className="min-h-screen w-full overflow-x-hidden bg-white text-black">
             {/* ================= POPUP ================= */}
             {showPopup && (
                 <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-3 sm:p-4">
@@ -386,7 +386,7 @@ export default function BexATMHome() {
                                 <div className="hidden md:block w-px bg-white/20 h-14"></div>
 
                                 {/* Community */}
-                                <Link href="/apartment-society-management-software" className="flex-1">
+                                <Link href="/construction-building-management" className="flex-1">
                                     <div className="
               flex flex-col items-center
               text-white p-1 md:p-2
@@ -1392,6 +1392,84 @@ hover:-translate-y-4 hover:scale-[1.05]">
 
                 </div>
 
+            </section>
+
+            <section className="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-20 bg-gradient-to-b from-white via-gray-50 to-white text-center overflow-hidden">
+
+                {/* Subtle glow backdrop */}
+                <div className="absolute -top-40 sm:-top-32 left-1/2 -translate-x-1/2 w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] bg-yellow-100/30 rounded-full blur-3xl"></div>
+
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-12 sm:mb-14 md:mb-16 relative z-10 text-gray-900">
+                    Client Reviews
+                </h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 max-w-6xl mx-auto relative z-10">
+
+                    {/* Review 1 */}
+                    <div className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-md border border-yellow-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-left flex flex-col">
+
+                        <div className="text-[#F6B200] text-5xl sm:text-6xl leading-none mb-4 sm:mb-6">“</div>
+
+                        <p className="text-gray-700 italic leading-relaxed space-y-3 sm:space-y-4 flex-grow text-sm sm:text-base">
+                            <span className="block font-medium text-gray-800">
+                                A Wonderful Experience Working With Beyondex
+                            </span>
+
+                            <span className="block">
+                                Working with Beyondex on the development of the CREA app, the CREA web application, and the Reflux landing page has been one of the most seamless and rewarding experiences for us.
+                            </span>
+
+                            <span className="block">
+                                From the very beginning, Govee, the Founder & MD, has been the guiding star of this entire journey. His clarity, patience, and leadership created an environment where every challenge felt manageable and every idea felt valued.
+                            </span>
+
+                            <span className="block">
+                                A very special mention goes to Neelakrishna. He has been a constant pillar throughout the entire development process — guiding the team with calm confidence, taking on countless changes without hesitation, and ensuring everything stayed on track. His dedication and patience made a huge difference, and we deeply appreciate the effort he put in to bring this vision to life.
+                            </span>
+
+                            <span className="block">
+                                Our heartfelt appreciation also goes to Kabilan, Keerthana, Sathish, Mughesh, Safin, and the rest of the talented Beyondex team. Their commitment, support, and professionalism were evident in every stage of the project. Whether it was late-night problem-solving or refining workflows, they were always there with a solution-focused mindset.
+                            </span>
+
+                            <span className="block">
+                                On a personal note, I (Yash) want to express my gratitude for the warmth, hospitality, and knowledge each of you shared with me. I’ve learned so much from this journey, and it has been genuinely meaningful.
+                                Thank you, Beyondex, for bringing CREA and Reflux to life with such dedication and heart.
+                            </span>
+                        </p>
+
+                        <h3 className="mt-6 sm:mt-8 font-semibold text-gray-900 border-t pt-4 text-sm sm:text-base">
+                            CREA Team
+                        </h3>
+                    </div>
+
+                    {/* Review 2 */}
+                    <div className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-md border border-yellow-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-left flex flex-col">
+
+                        <div className="text-[#F6B200] text-5xl sm:text-6xl leading-none mb-4 sm:mb-6">“</div>
+
+                        <p className="text-gray-700 italic leading-relaxed space-y-3 sm:space-y-4 flex-grow text-sm sm:text-base">
+                            <span className="block">
+                                We partnered with Beyondex Solutions Pvt. Ltd to develop a custom web application tailored to our business needs, and the experience was very positive. The development work was solid and well executed, and the team demonstrated strong technical expertise and a clear understanding of our requirements. They delivered key features that aligned with our expectations, and the application’s core functionality and architecture were thoughtfully implemented. Communication throughout the project was effective, and the team was responsive and collaborative from start to finish.
+                            </span>
+
+                            <span className="block">
+                                During the later stages of the project, we identified several issues that required additional testing and rounds of fixes. Beyondex handled this constructively, working closely with us to resolve the problems and refine the solution. Their willingness to iterate with us and see the work through to a stable outcome gave us confidence in the final product and in their commitment to quality.
+                            </span>
+
+                            <span className="block">
+                                Overall, Beyondex Solutions proved to be a capable and reliable partner for custom development. With their continued focus on quality and refinement, they are well-positioned to deliver polished, end-to-end solutions.
+                            </span>
+                        </p>
+
+                        <h3 className="mt-6 sm:mt-8 font-semibold text-gray-900 border-t pt-4 text-sm sm:text-base">
+                            Plymouth
+                        </h3>
+                    </div>
+                </div>
+
+                <p className="text-gray-500 mt-12 sm:mt-14 md:mt-16 text-xs sm:text-sm italic relative z-10 max-w-xl mx-auto px-2">
+                    Empowering construction teams with real-time visibility and better project outcomes.
+                </p>
             </section>
 
             <footer className="bg-black text-white pt-14 px-4 md:px-16">

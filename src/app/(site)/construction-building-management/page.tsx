@@ -56,7 +56,7 @@ export default function BexATMHome() {
                         <p className="text-sm sm:text-base md:text-xl lg:text-2xl leading-relaxed mb-8 md:mb-35 text-white/90">
                             Track site activities, workforce attendance <br className="hidden sm:block" />
                             maintenance tasks, approvals, and daily <br className="hidden sm:block" />
-                            operation — All in Real Time.
+                            operations — In Real Time.
                         </p>
 
                         {/* Buttons */}
@@ -128,7 +128,7 @@ export default function BexATMHome() {
                 <div className="relative z-10 w-full flex flex-col items-center">
                     {/* Heading */}
                     <h1 className="text-3xl md:text-5xl font-bold text-[#1f4f8b] text-center px-4">
-                        ATM Solution is Designed For
+                        ATM Solution is Designed
                     </h1>
 
                     <p className="mt-4 text-lg md:text-xl text-[#1f4f8b] text-center px-4 max-w-3xl">

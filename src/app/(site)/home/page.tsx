@@ -7,12 +7,12 @@ import { FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
 import Link from "next/link";
 
 const brands: string[] = [
-    "/images/home/crea.png",
-    "/images/home/electroflux.png",
-    "/images/home/pss.png",
-    "/images/home/trimurthi.png",
-    "/images/home/trinity.png",
-    "/images/home/yjelite.png",
+    "/images/home/Crea.png",
+    "/images/home/Electro.png",
+    "/images/home/PSS.png",
+    "/images/home/Trimurthi.png",
+    "/images/home/LWG.png",
+    "/images/home/EliteAcademy.png",
     "/images/home/plymouth.png",
 ];
 
@@ -57,6 +57,7 @@ function Counter({ end, duration = 2000, isK = false }) {
 
 export default function BexATMHome() {
     const [showPopup, setShowPopup] = useState(false);
+    const [isDemoPopupOpen, setIsDemoPopupOpen] = useState(false);
 
     /* ---------- FORM STATE ---------- */
     const [formData, setFormData] = useState({
@@ -287,28 +288,38 @@ export default function BexATMHome() {
             {/* HERO SECTION */}
             <section
                 className="
-    relative w-full bg-cover bg-center
-    pt-10 md:pt-12 pb-10 md:pb-12
-    px-4 sm:px-6 md:px-20
-    max-[900px]:bg-top
+    relative w-full
+    min-h-[700px] md:min-h-[800px] lg:min-h-[900px]
+    bg-cover
+    bg-[center_80%] md:bg-center
+    flex flex-col justify-start
+    pt-16 md:pt-24
+    pb-0
+    overflow-hidden
   "
                 style={{
                     backgroundImage: "url('/images/home/mainbanner.webp')",
                     backgroundPositionY: "-15px",
                 }}
             >
+
                 {/* MOBILE ONLY DARK OVERLAY */}
                 <div className="absolute inset-0 bg-black/50 md:bg-transparent"></div>
 
-                <div className="
-    relative grid md:grid-cols-2
-    gap-8 md:gap-10
-    items-center
-    max-[900px]:grid-cols-1
-  ">
+                <div
+                    className="
+      relative grid md:grid-cols-2
+      gap-8 md:gap-10
+      max-[900px]:grid-cols-1
+      items-center md:items-start
+      w-full max-w-7xl
+      mx-auto
+      pl-4 pr-6 md:pl-4 lg:pl-0
+    "
+                >
 
                     {/* LEFT CONTENT */}
-                    <div className="text-white max-w-xl">
+                    <div className="text-white max-w-xl mx-0 lg:-ml-12 xl:-ml-20">
 
                         {/* Heading */}
                         <h1 className="
@@ -346,18 +357,16 @@ export default function BexATMHome() {
 
                         {/* INDUSTRY ICONS */}
                         <div className="mt-3">
-                            <div
-                                className="
-            w-full bg-[#0C4867] rounded-xl
-            p-2 md:p-4
-            shadow-lg
-            flex flex-col md:flex-row
-            justify-between items-center
-            gap-2 md:gap-0
-            max-w-[260px] sm:max-w-[320px] md:max-w-full
-            mx-auto md:mx-0
-          "
-                            >
+                            <div className="
+          w-full bg-[#0C4867] rounded-xl
+          p-2 md:p-4
+          shadow-lg
+          flex flex-col md:flex-row
+          justify-between items-center
+          gap-2 md:gap-0
+          max-w-[260px] sm:max-w-[320px] md:max-w-full
+          mx-auto md:mx-0
+        ">
 
                                 {/* Startups */}
                                 <Link href="/project-management-software-for-startups" className="flex-1">
@@ -454,32 +463,52 @@ export default function BexATMHome() {
                         </div>
 
                     </div>
+
                 </div>
             </section>
 
-            <section className="w-screen bg-[#F5FBFA] py-12 md:py-16 overflow-hidden">
-
+            <section
+                className="
+    relative w-full
+    min-h-[420px] sm:min-h-[480px] md:min-h-[460px] lg:min-h-[520px]
+    bg-cover
+    bg-[center_80%] md:bg-center
+    flex flex-col items-center justify-start
+    pt-8 sm:pt-12 md:pt-16
+    pb-10 sm:pb-12
+    overflow-hidden
+  "
+            >
                 {/* Heading */}
-                <div className="text-center mb-6 md:mb-10 px-4">
+                <div className="w-full max-w-6xl text-center mb-4 sm:mb-6 px-4 sm:px-6">
                     <h2
-                        className="text-3xl md:text-5xl font-bold mb-4 leading-snug md:leading-tight"
-                        style={{ color: "#003C71" }}
+                        className="
+        text-2xl sm:text-3xl md:text-5xl
+        font-bold
+        mb-3
+        leading-snug md:leading-tight
+        text-center
+        line-clamp-2
+      "
+                        style={{ color: '#003C71' }}
                     >
-                        Trusted by Teams Across Startups, Construction Sites &amp;<br className="hidden md:block" />
-                        Educational Institutions
+                        Trusted by Teams Across Startups, Construction Sites & Educational Institutions
                     </h2>
 
-                    <p className="font-bold text-[#425466] text-sm md:text-base">
+                    <p className="font-bold text-[#425466] text-sm sm:text-base">
                         Empowering diverse teams with reliable tools to streamline projects,
                         people, and daily operations.
                     </p>
                 </div>
 
-                {/* Marquee (MOBILE + DESKTOP) */}
-                <div className="relative w-full overflow-hidden mt-6 md:mt-20">
-                    <div className="marquee-track">
+                {/* Marquee */}
+                <div className="relative w-full overflow-hidden mt-6 sm:mt-8 md:mt-12">
+                    <div className="marquee-track flex items-center">
                         {[...brands, ...brands, ...brands].map((logo, index) => (
-                            <div key={index} className="marquee-item">
+                            <div
+                                key={index}
+                                className="marquee-item flex items-center justify-center px-4 sm:px-6"
+                            >
                                 <Image
                                     src={logo}
                                     alt="Brand"
@@ -487,7 +516,8 @@ export default function BexATMHome() {
                                     height={90}
                                     className="
               object-contain
-              w-[160px] h-[60px]
+              w-[140px] h-[50px]
+              sm:w-[160px] sm:h-[60px]
               md:w-[220px] md:h-[75px]
               lg:w-[260px] lg:h-[90px]
             "
@@ -496,26 +526,46 @@ export default function BexATMHome() {
                         ))}
                     </div>
                 </div>
-
             </section>
 
-            <section className="py-10 px-6 md:px-20 bg-[#F8FAFC]">
-
+            <section
+                className="
+    relative w-full
+    min-h-[700px] md:min-h-[800px] lg:min-h-[900px]
+    bg-cover
+    bg-[center_80%] md:bg-center
+    flex flex-col items-center justify-start
+    pt-12 sm:pt-16 md:pt-24
+    pb-16 sm:pb-20
+    overflow-hidden
+  "
+            >
                 {/* TITLE + SUBTITLE */}
-                <div className="text-center max-w-5xl mx-auto -mt-8 mb-16">
-                    <h2 className="text-4xl md:text-6xl font-bold mb-4" style={{ color: "#003C71" }}>
+                <div className="text-center max-w-5xl mx-auto -mt-6 sm:-mt-8 mb-10 sm:mb-16 px-4">
+                    <h2
+                        className="
+        text-2xl sm:text-3xl md:text-5xl lg:text-6xl
+        font-bold mb-4
+      "
+                        style={{ color: "#003C71" }}
+                    >
                         Solutions Tailored to Your Industry
                     </h2>
 
-                    <p className="text-lg leading-relaxed" style={{ color: "#003C71" }}>
+                    <p
+                        className="
+        text-sm sm:text-base md:text-lg
+        leading-relaxed
+      "
+                        style={{ color: "#003C71" }}
+                    >
                         Whether you lead a startup, manage construction and facility teams, or operate an educational institution,
                         ATM aligns perfectly with your operational workflow
                     </p>
                 </div>
 
                 {/* 3 CARDS ROW */}
-
-                <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 max-w-6xl mx-auto px-4">
                     {[
                         {
                             title: "Project Management for Startups & SMBs",
@@ -529,14 +579,12 @@ export default function BexATMHome() {
                             img: "/images/home/construction&facilitymanagement.webp",
                             href: "/construction-building-management-software",
                         },
-
                         {
                             title: "School & Institution",
                             desc: "Manage attendance, track student performance, handle assignments, and monitor milestones for academic progress seamlessly.",
                             img: "/images/home/school.webp",
                             href: "/school-management-software",
-                        }
-
+                        },
                     ].map((card, i) => (
                         <Link key={i} href={card.href}>
                             <div className="bg-white shadow-lg rounded-2xl p-6 border hover:shadow-2xl hover:scale-105 transform transition cursor-pointer text-center">
@@ -548,12 +596,10 @@ export default function BexATMHome() {
                                     />
                                 </div>
 
-                                {/* Title with exact blue color */}
                                 <h3 className="text-xl font-bold mb-2" style={{ color: "#0A436A" }}>
                                     {card.title}
                                 </h3>
 
-                                {/* Description */}
                                 <p className="text-sm leading-relaxed" style={{ color: "#0A436A" }}>
                                     {card.desc}
                                 </p>
@@ -562,17 +608,25 @@ export default function BexATMHome() {
                     ))}
                 </div>
 
-
                 {/* STATS ROW */}
-                <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16 mt-16 text-center">
-
+                <div
+                    className="
+      flex flex-wrap justify-center items-center
+      gap-8 sm:gap-10 md:gap-16
+      mt-12 sm:mt-16
+      text-center
+      px-4
+    "
+                >
                     {/* 1 */}
                     <div className="flex items-center gap-3">
-                        <h3 className="text-6xl font-extrabold" style={{ color: "#0A436A" }}>
-                            <Counter end={20} />
-                            +
+                        <h3
+                            className="text-3xl sm:text-4xl md:text-6xl font-extrabold"
+                            style={{ color: "#0A436A" }}
+                        >
+                            <Counter end={20} />+
                         </h3>
-                        <p className="text-lg font-medium" style={{ color: "#0A436A" }}>
+                        <p className="text-base sm:text-lg font-medium" style={{ color: "#0A436A" }}>
                             Powerful <br /> Modules
                         </p>
                     </div>
@@ -581,10 +635,13 @@ export default function BexATMHome() {
 
                     {/* 2 */}
                     <div className="flex items-center gap-3">
-                        <h3 className="text-6xl font-extrabold" style={{ color: "#0A436A" }}>
+                        <h3
+                            className="text-3xl sm:text-4xl md:text-6xl font-extrabold"
+                            style={{ color: "#0A436A" }}
+                        >
                             <Counter end={10} isK={true} />
                         </h3>
-                        <p className="text-lg font-medium" style={{ color: "#0A436A" }}>
+                        <p className="text-base sm:text-lg font-medium" style={{ color: "#0A436A" }}>
                             Task <br /> Tracked
                         </p>
                     </div>
@@ -593,10 +650,13 @@ export default function BexATMHome() {
 
                     {/* 3 */}
                     <div className="flex items-center gap-3">
-                        <h3 className="text-6xl font-extrabold" style={{ color: "#0A436A" }}>
+                        <h3
+                            className="text-3xl sm:text-4xl md:text-6xl font-extrabold"
+                            style={{ color: "#0A436A" }}
+                        >
                             <Counter end={99} />%
                         </h3>
-                        <p className="text-lg font-medium" style={{ color: "#0A436A" }}>
+                        <p className="text-base sm:text-lg font-medium" style={{ color: "#0A436A" }}>
                             Faster <br /> Approval
                         </p>
                     </div>
@@ -605,399 +665,271 @@ export default function BexATMHome() {
 
                     {/* 4 */}
                     <div className="flex items-center gap-3">
-                        <h3 className="text-6xl font-extrabold" style={{ color: "#0A436A" }}>
+                        <h3
+                            className="text-3xl sm:text-4xl md:text-6xl font-extrabold"
+                            style={{ color: "#0A436A" }}
+                        >
                             <Counter end={15} />+
                         </h3>
-                        <p className="text-lg font-medium" style={{ color: "#0A436A" }}>
+                        <p className="text-base sm:text-lg font-medium" style={{ color: "#0A436A" }}>
                             Industry <br /> Served
                         </p>
                     </div>
-
                 </div>
             </section>
 
-            <section className="py-10 px-6 md:px-20 max-w-7xl mx-auto">
+            <section
+                className="
+    relative w-full
+    min-h-[700px] md:h-[800px] lg:h-[900px]
+    bg-cover bg-[center_80%] md:bg-center
+    flex flex-col items-center justify-start
+    pt-16 md:pt-24
+    pb-20 md:pb-0
+    overflow-hidden
+  "
+            >
+                <div className="w-full max-w-7xl mx-auto px-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
-                <div className="grid lg:grid-cols-2 gap-12 items-start">
-
-                    {/* LEFT CIRCULAR GRAPHIC */}
-                    <div className="flex justify-center lg:justify-start lg:-mt-20 lg:-ml-20">
-                        <img
-                            src="/images/home/whybexatm1.webp"
-                            alt="BexATM Left Graphic"
-                            className="w-[750px] sm:w-[900px] md:w-[1050px] lg:w-[1150px] xl:w-[1300px] max-w-none"
-                        />
-                    </div>
-
-                    {/* RIGHT SECTION */}
-                    <div className="flex flex-col lg:flex-row gap-12 lg:-ml-45">
-
-                        {/* CENTER CONTENT */}
-                        <div className="space-y-20 w-full">
-
-                            <div className="flex items-start gap-3 lg:-ml-15">
-                                <div className="w-2 h-18 bg-green-500 rounded-full"></div>
-                                <div>
-                                    <h3 className="font-semibold text-lg">Unified System for All Operations</h3>
-                                    <p className="text-gray-700">Manage projects, attendance, and HR from one connected platform.</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-3">
-                                <div className="w-2 h-18 bg-blue-500 rounded-full"></div>
-                                <div>
-                                    <h3 className="font-semibold text-lg">Real-Time Attendance</h3>
-                                    <p className="text-gray-700">Every check-in updates task progress and team availability instantly.</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-3">
-                                <div className="w-2 h-18 bg-yellow-500 rounded-full"></div>
-                                <div>
-                                    <h3 className="font-semibold text-lg">End-to-End Visibility & Control</h3>
-                                    <p className="text-gray-700">Track work, teams, and projects in real time for faster decisions.</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-3 lg:-ml-15">
-                                <div className="w-2 h-18 bg-orange-500 rounded-full"></div>
-                                <div>
-                                    <h3 className="font-semibold text-lg">Built for Field, Office & Hybrid Teams</h3>
-                                    <p className="text-gray-700">Seamless for on-site crews, remote staff, and multi-location teams.</p>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        {/* RIGHT SMALL PANEL */}
-                        <div className="flex flex-col items-start ml-5 space-y-6 w-full max-w-xs">
-
-                            <h2 className="text-3xl md:text-6xl lg:-mt-15 font-bold text-[#003C71]">
-                                Why ATM?
-                            </h2>
-
+                        {/* LEFT CIRCULAR GRAPHIC */}
+                        <div className="flex justify-center lg:justify-start lg:-mt-20 lg:ml-20">
                             <img
-                                src="/images/home/whybexatm2.webp"
-                                alt="Team working"
-                                className="rounded-xl shadow-md w-full h-64 object-cover"
+                                src="/images/home/whybexatm1.webp"
+                                alt="BexATM Left Graphic"
+                                className="
+            w-[520px]
+            sm:w-[700px]
+            md:w-[900px]
+            lg:w-[1150px]
+            xl:w-[1300px]
+            max-w-none
+          "
                             />
+                        </div>
 
-                            <p className="text-sm md:text-base text-black font-bold leading-snug lg:-mt-5">
-                                The only platform that combines Project Management + Time Tracking + HR Operations.
-                            </p>
+                        {/* RIGHT SECTION */}
+                        <div className="flex flex-col lg:flex-row gap-12 lg:-ml-72">
 
-                            <p className="text-gray-700 leading-relaxed lg:-mt-5">
-                                Unlike traditional project tools, ATM<br />
-                                connects your project work with real on-ground<br />
-                                workforce data — ensuring complete visibility,<br />
-                                accountability, and productivity.
-                            </p>
+                            {/* CENTER CONTENT */}
+                            <div className="space-y-16 w-full">
 
-                            <Link href="/demo">
-                                <button className="px-6 py-3 bg-[#003C71] text-white rounded-xl shadow hover:bg-[#002B52] transition">
-                                    Let&apos;s Start – It&apos;s FREE
-                                </button>
-                            </Link>
+                                <div className="flex items-start gap-3 lg:-ml-14">
+                                    <div className="w-2 h-18 bg-green-500 rounded-full" />
+                                    <div>
+                                        <h3 className="font-semibold text-lg">
+                                            Unified System for All Operations
+                                        </h3>
+                                        <p className="text-gray-700">
+                                            Manage projects, attendance, and HR from one connected platform.
+                                        </p>
+                                    </div>
+                                </div>
 
+                                <div className="flex items-start gap-3">
+                                    <div className="w-2 h-18 bg-blue-500 rounded-full" />
+                                    <div>
+                                        <h3 className="font-semibold text-lg">Real-Time Attendance</h3>
+                                        <p className="text-gray-700">
+                                            Every check-in updates task progress and team availability instantly.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start gap-3">
+                                    <div className="w-2 h-18 bg-yellow-500 rounded-full" />
+                                    <div>
+                                        <h3 className="font-semibold text-lg">
+                                            End-to-End Visibility & Control
+                                        </h3>
+                                        <p className="text-gray-700">
+                                            Track work, teams, and projects in real time for faster decisions.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start gap-3 lg:-ml-14">
+                                    <div className="w-2 h-18 bg-orange-500 rounded-full" />
+                                    <div>
+                                        <h3 className="font-semibold text-lg">
+                                            Built for Field, Office & Hybrid Teams
+                                        </h3>
+                                        <p className="text-gray-700">
+                                            Seamless for on-site crews, remote staff, and multi-location teams.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            {/* RIGHT SMALL PANEL */}
+                            <div className="flex flex-col items-start space-y-6 w-full max-w-xs lg:ml-6">
+
+                                <h2 className="text-3xl md:text-6xl lg:-mt-14 font-bold text-[#003C71]">
+                                    Why ATM?
+                                </h2>
+
+                                <img
+                                    src="/images/home/whybexatm2.webp"
+                                    alt="Team working"
+                                    className="rounded-xl shadow-md w-full h-64 object-cover"
+                                />
+
+                                <p className="text-sm md:text-base text-black font-bold leading-snug">
+                                    The only platform that combines Project Management + Time Tracking + HR Operations.
+                                </p>
+
+                                <p className="text-gray-700 leading-relaxed">
+                                    Unlike traditional project tools, ATM<br />
+                                    connects your project work with real on-ground<br />
+                                    workforce data — ensuring complete visibility,<br />
+                                    accountability, and productivity.
+                                </p>
+
+                                <Link href="/demo">
+                                    <button className="px-6 py-3 bg-[#003C71] text-white rounded-xl shadow hover:bg-[#002B52] transition">
+                                        Let&apos;s Start – It&apos;s FREE
+                                    </button>
+                                </Link>
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="bg-white py-10 px-6 lg:px-12">
 
+            <section
+                className="
+    relative w-full
+    min-h-[700px] md:min-h-[800px] lg:min-h-[900px]
+    bg-cover
+    bg-[center_80%] md:bg-center
+    flex flex-col items-center justify-start
+    pt-12 sm:pt-16 md:pt-24
+    pb-16 sm:pb-20
+    overflow-hidden
+  "
+            >
                 {/* Section Title */}
-                <div className="max-w-7xl mx-auto text-center mb-12">
-                    <h2 className="text-3xl lg:text-6xl font-bold text-[#003C71]">
+                <div className="max-w-7xl mx-auto text-center mb-10 sm:mb-12 px-4">
+                    <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#003C71]">
                         Core Modules of ATM
                     </h2>
-                    <p className="text-black-100 mt-3 font-bold">
+                    <p className="text-black-100 mt-3 font-bold text-sm sm:text-base">
                         Powerful Modules for Complete Operational Control
                     </p>
                 </div>
 
                 {/* MODULE GRID */}
-                <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                <div
+                    className="
+      max-w-7xl mx-auto
+      grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5
+      gap-5 sm:gap-6
+      px-4
+    "
+                >
+                    {[
+                        {
+                            title: "Human Resources",
+                            desc: "Centralize employee records, leave policies, attendance data, and payroll-ready reports in one place, ensuring smooth HR operations with minimal manual work.",
+                            img: "/images/startups/icons/clients.png",
+                        },
+                        {
+                            title: "Smart Time & Attendance",
+                            desc: "Track attendance accurately with biometrics, geofencing, mobile check-ins, and shift-based logging — eliminating time fraud and boosting workforce transparency.",
+                            img: "/images/startups/icons/remoteteam.png",
+                        },
+                        {
+                            title: "Agile Project & Task Management",
+                            desc: "Plan sprints, assign tasks, organize milestones, and monitor real-time progress using weightage-based tracking for precise project completion insights.",
+                            img: "/images/startups/icons/agiletask.png",
+                        },
+                        {
+                            title: "Employee Self-Service (ESS)",
+                            desc: "Let employees manage leave, on-duty, overtime, expenses, and attendance corrections directly from mobile or web, reducing dependency on HR and managers.",
+                            img: "/images/startups/icons/timesheet.png",
+                        },
+                        {
+                            title: "Manager Command Center",
+                            desc: "A unified approval hub where managers can review tasks, timesheets, leave, overtime, and expenses, supported by real-time team insights and notifications.",
+                            img: "/images/startups/icons/selfservice.png",
+                        },
+                        {
+                            title: "Competency & Assessment Suite",
+                            desc: "Create structured assessments with categories, question groups, pass criteria, and scored evaluations to measure employee skills, performance, and growth paths.",
+                            img: "/images/startups/icons/resource.png",
+                        },
+                        {
+                            title: "Resource Allocation & Workload Planning",
+                            desc: "Assign employees to tasks or projects based on skills, availability, and workload distribution to balance responsibilities and improve delivery efficiency.",
+                            img: "/images/startups/icons/hrpayroll.png",
+                        },
+                        {
+                            title: "Escalation & Issue Management",
+                            desc: "Automatically flag delays, bottlenecks, and unresolved issues to higher management using escalation rules that maintain accountability and project momentum.",
+                            img: "/images/startups/icons/escalationmanagement.png",
+                        },
+                        {
+                            title: "Dashboards & Insights",
+                            desc: "Get real-time, role-based dashboards for employees, managers, and project heads, giving a clear view of tasks, attendance, timelines, and productivity metrics.",
+                            img: "/images/startups/icons/managerdashboards.png",
+                        },
+                        {
+                            title: "Reports, Exports & Integrations",
+                            desc: "Download payroll-ready attendance files, timesheets, project reports, and connect ATM with your existing systems through seamless API integrations.",
+                            img: "/images/startups/icons/integrations.png",
+                        },
+                    ].map((item, index) => (
+                        <div
+                            key={index}
+                            className="
+          bg-white rounded-xl shadow border
+          transition-all duration-300
+          hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg
+          hover:-translate-y-1 hover:scale-[1.01]
+          group
+        "
+                        >
+                            <div
+                                className="
+            bg-gradient-to-r from-[#0A485E] to-[#167F8C]
+            text-white p-4 rounded-t-xl
+            flex items-center gap-3
+          "
+                            >
+                                <Image
+                                    src={item.img}
+                                    width={45}
+                                    height={45}
+                                    alt=""
+                                    className="transition-all duration-300 group-hover:-translate-y-[3px]"
+                                />
+                                <h3 className="font-semibold text-[14px] leading-tight">
+                                    {item.title}
+                                </h3>
+                            </div>
 
-                    {/* 1 — Agile Task & Sprint Management */}
-                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
-                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
-                hover:-translate-y-1 hover:scale-[1.01] group">
-
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
-                    flex items-center gap-3">
-
-                            <Image
-                                src="/images/startups/icons/clients.png"
-                                width={45}
-                                height={45}
-                                alt=""
-                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
-                            />
-
-                            <h3 className="font-semibold text-[14px]">Human Resources</h3>
+                            <p className="p-4 text-gray-700 text-sm leading-relaxed">
+                                {item.desc}
+                            </p>
                         </div>
-
-                        <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Centralize employee records, leave policies, attendance data, and payroll-ready
-                            reports in one place, ensuring smooth HR operations with minimal manual work.
-                        </p>
-                    </div>
-
-                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
-                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
-                hover:-translate-y-1 hover:scale-[1.01] group">
-
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
-                    flex items-center gap-3">
-                            <Image
-                                src="/images/startups/icons/remoteteam.png"
-                                width={45}
-                                height={45}
-                                alt=""
-                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
-                            />
-
-                            <h3 className="font-semibold text-[14px] leading-tight">
-                                Smart Time & Attendance
-                            </h3>
-                        </div>
-
-                        <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Track attendance accurately with biometrics, geofencing,
-                            mobile check-ins, and shift-based logging — eliminating
-                            time fraud and boosting workforce transparency.
-                        </p>
-                    </div>
-
-                    {/* 3 — Projects & Client Deliverables */}
-                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
-                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
-                hover:-translate-y-1 hover:scale-[1.01] group">
-
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
-                    flex items-center gap-3">
-
-                            <Image
-                                src="/images/startups/icons/agiletask.png"
-                                width={45}
-                                height={45}
-                                alt=""
-                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
-                            />
-
-                            <h3 className="font-semibold text-[14px] leading-tight">
-                                Agile Project & Task Management
-                            </h3>
-                        </div>
-
-                        <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Plan sprints, assign tasks, organize milestones, and
-                            monitor real-time progress using weightage-based
-                            tracking for precise project completion insights.
-                        </p>
-                    </div>
-
-                    {/* 4 — Timesheet-Based Billing */}
-                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
-                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
-                hover:-translate-y-1 hover:scale-[1.01] group">
-
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
-                    flex items-center gap-3">
-
-                            <Image
-                                src="/images/startups/icons/timesheet.png"
-                                width={45}
-                                height={45}
-                                alt=""
-                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
-                            />
-
-                            <h3 className="font-semibold text-[14px] leading-tight">
-                                Employee Self-Service (ESS)
-                            </h3>
-                        </div>
-
-                        <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Let employees manage leave, on-duty, overtime, expenses,
-                            and attendance corrections directly from mobile or web,
-                            reducing dependency on HR and managers.
-                        </p>
-                    </div>
-
-                    {/* 5 — Employee Self-Service */}
-                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
-                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
-                hover:-translate-y-1 hover:scale-[1.01] group">
-
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
-                    flex items-center gap-3">
-
-                            <Image
-                                src="/images/startups/icons/selfservice.png"
-                                width={45}
-                                height={45}
-                                alt=""
-                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
-                            />
-
-                            <h3 className="font-semibold text-[14px] leading-tight">
-                                Manager Command Center
-                            </h3>
-                        </div>
-
-                        <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            A unified approval hub where managers can review tasks,
-                            timesheets, leave, overtime, and expenses, supported by
-                            real-time team insights and notifications.
-                        </p>
-                    </div>
-
-                    {/* 6 — Resource Allocation for Small Teams */}
-                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
-                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
-                hover:-translate-y-1 hover:scale-[1.01] group">
-
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
-                    flex items-center gap-3">
-
-                            <Image
-                                src="/images/startups/icons/resource.png"
-                                width={45}
-                                height={45}
-                                alt=""
-                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
-                            />
-
-                            <h3 className="font-semibold text-[14px] leading-tight">
-                                Competency & Assessment Suite
-                            </h3>
-                        </div>
-
-                        <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Create structured assessments with categories, question
-                            groups, pass criteria, and scored evaluations to measure
-                            employee skills, performance, and growth paths.
-                        </p>
-                    </div>
-
-                    {/* 7 — Founder & Manager Dashboards */}
-                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
-                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
-                hover:-translate-y-1 hover:scale-[1.01] group">
-
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
-                    flex items-center gap-3">
-
-                            <Image
-                                src="/images/startups/icons/hrpayroll.png"
-                                width={45}
-                                height={45}
-                                alt=""
-                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
-                            />
-
-                            <h3 className="font-semibold text-[14px] leading-tight">
-                                Resource Allocation & Workload Planning
-                            </h3>
-                        </div>
-
-                        <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Assign employees to tasks or projects based on skills,
-                            availability, and workload distribution to balance
-                            responsibilities and improve delivery efficiency.
-                        </p>
-                    </div>
-
-                    {/* 8 — Escalation Management */}
-                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
-                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
-                hover:-translate-y-1 hover:scale-[1.01] group">
-
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
-                    flex items-center gap-3">
-
-                            <Image
-                                src="/images/startups/icons/escalationmanagement.png"
-                                width={45}
-                                height={45}
-                                alt=""
-                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
-                            />
-
-                            <h3 className="font-semibold text-[14px] leading-tight">
-                                Escalation & Issue Management
-                            </h3>
-                        </div>
-
-                        <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Automatically flag delays, bottlenecks, and unresolved
-                            issues to higher management using escalation rules that
-                            maintain accountability and project momentum.
-                        </p>
-                    </div>
-
-                    {/* 9 — HR & Payroll Alignment */}
-                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
-                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
-                hover:-translate-y-1 hover:scale-[1.01] group">
-
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
-                    flex items-center gap-3">
-
-                            <Image
-                                src="/images/startups/icons/managerdashboards.png"
-                                width={45}
-                                height={45}
-                                alt=""
-                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
-                            />
-
-                            <h3 className="font-semibold text-[14px] leading-tight">
-                                Dashboards & Insights
-                            </h3>
-                        </div>
-
-                        <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Get real-time, role-based dashboards for employees,
-                            managers, and project heads, giving a clear view of tasks,
-                            attendance, timelines, and productivity metrics.
-                        </p>
-                    </div>
-
-                    {/* 10 — Integrations for Modern Startups */}
-                    <div className="bg-white rounded-xl shadow border transition-all duration-300 
-                hover:border-[#167F8C] hover:bg-gray-50 hover:shadow-lg 
-                hover:-translate-y-1 hover:scale-[1.01] group">
-
-                        <div className="bg-gradient-to-r from-[#0A485E] to-[#167F8C] text-white p-4 rounded-t-xl 
-                    flex items-center gap-3">
-
-                            <Image
-                                src="/images/startups/icons/integrations.png"
-                                width={45}
-                                height={45}
-                                alt=""
-                                className="transition-all duration-300 group-hover:-translate-y-[3px]"
-                            />
-
-                            <h3 className="font-semibold text-[14px] leading-tight">
-                                Reports, Exports & Integrations
-                            </h3>
-                        </div>
-
-                        <p className="p-4 text-gray-700 text-sm leading-relaxed">
-                            Download payroll-ready attendance files, timesheets,
-                            project reports, and connect ATM with your existing
-                            systems through seamless API integrations.
-                        </p>
-                    </div>
-
+                    ))}
                 </div>
             </section>
 
-            <section className="bg-white py-10 px-6 lg:px-12">
+            <section
+                className="
+    relative w-full
+    min-h-[700px] md:h-[800px] lg:h-[900px]
+    bg-cover
+    bg-[center_80%] md:bg-center
+    flex flex-col items-center justify-start
+    pt-16 md:pt-24
+    pb-20 md:pb-0
+    overflow-hidden
+  ">
                 {/* Section Title */}
                 <div className="max-w-7xl mx-auto text-center mb-12">
                     <h2 className="text-3xl lg:text-6xl font-bold text-[#003C71]">
@@ -1354,18 +1286,32 @@ hover:-translate-y-4 hover:scale-[1.05]">
                 </div>
             </section>
 
-            <section className="w-full py-6 px-4 md:px-6 flex flex-col items-center text-center bg-white">
-
+            <section
+                className="
+    relative w-full
+    min-h-[700px] md:min-h-[800px] lg:min-h-[900px]
+    bg-cover
+    bg-[center_80%] md:bg-center
+    flex flex-col items-center justify-start
+    pt-16 md:pt-24
+    pb-20 md:pb-0
+    overflow-hidden
+  "
+            >
                 {/* HEADING */}
-                <div className="mt-4 md:mt-8 space-y-2 px-2">
+                <div className="mt-4 md:mt-8 px-4 text-center">
                     <h2 className="text-2xl md:text-4xl font-bold text-[#003C71] leading-snug md:leading-tight">
-                        A Simple, Powerful Workflow That Connects <br className="hidden md:block" />
-                        Your Entire Team
+                        <span className="block">
+                            A Simple, Powerful Workflow That Connects
+                        </span>
+                        <span className="block mx-auto">
+                            Your Entire Team
+                        </span>
                     </h2>
                 </div>
 
                 {/* FULL-WIDTH IMAGE */}
-                <div className="w-full flex justify-center mt-6">
+                <div className="w-full flex justify-center mt-6 px-4">
                     <img
                         src="/images/home/infographic.webp"
                         alt="Section Image"
@@ -1374,8 +1320,7 @@ hover:-translate-y-4 hover:scale-[1.05]">
                 </div>
 
                 {/* BUTTONS */}
-                <div className="mt-8 md:mt-10 flex flex-col sm:flex-row items-center gap-3 md:gap-4 w-full sm:w-auto">
-
+                <div className="mt-8 md:mt-10 flex flex-col sm:flex-row items-center gap-3 md:gap-4 w-full sm:w-auto px-4">
                     <Link href="/demo" className="w-full sm:w-auto">
                         <button className="w-full sm:w-auto px-5 py-2.5 md:px-6 md:py-3 bg-[#003C71] text-white rounded-xl shadow hover:bg-[#002B52] transition text-sm md:text-base">
                             Talk to Our EXPERT
@@ -1388,26 +1333,59 @@ hover:-translate-y-4 hover:scale-[1.05]">
                     >
                         Book a Free Demo
                     </button>
-
-
                 </div>
-
             </section>
 
-            <section className="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-20 bg-gradient-to-b from-white via-gray-50 to-white text-center overflow-hidden">
-
+            <section
+                className="
+    relative w-full
+    min-h-[700px] md:min-h-[800px] lg:min-h-[900px]
+    bg-cover
+    bg-[center_80%] md:bg-center
+    flex flex-col items-center justify-start
+    pt-12 sm:pt-16 md:pt-24
+    pb-16 sm:pb-20
+    overflow-hidden
+  "
+            >
                 {/* Subtle glow backdrop */}
-                <div className="absolute -top-40 sm:-top-32 left-1/2 -translate-x-1/2 w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] bg-yellow-100/30 rounded-full blur-3xl"></div>
+                <div
+                    className="
+      absolute -top-40 sm:-top-32
+      left-1/2 -translate-x-1/2
+      w-[320px] sm:w-[400px] md:w-[500px] lg:w-[600px]
+      h-[320px] sm:h-[400px] md:h-[500px] lg:h-[600px]
+      bg-yellow-100/30
+      rounded-full blur-3xl
+      pointer-events-none
+    "
+                ></div>
 
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-12 sm:mb-14 md:mb-16 relative z-10 text-gray-900">
+                {/* Heading */}
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-14 md:mb-16 relative z-10 text-gray-900 text-center px-4">
                     Client Reviews
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 max-w-6xl mx-auto relative z-10">
+                {/* Reviews Grid */}
+                {/* Reviews Grid */}
+                <div
+                    className="
+    grid
+    grid-cols-1
+    md:grid-cols-2
+    lg:grid-cols-3
+    gap-6 sm:gap-8 md:gap-10
+    max-w-7xl
+    w-full
+    mx-auto
+    relative z-10
+    px-4
+    items-stretch
+  "
+                >
 
                     {/* Review 1 */}
-                    <div className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-md border border-yellow-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-left flex flex-col">
-
+                    <div className="bg-white p-5 sm:p-6 md:p-10 rounded-2xl shadow-md border border-yellow-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-left flex flex-col">
                         <div className="text-[#F6B200] text-5xl sm:text-6xl leading-none mb-4 sm:mb-6">“</div>
 
                         <p className="text-gray-700 italic leading-relaxed space-y-3 sm:space-y-4 flex-grow text-sm sm:text-base">
@@ -1443,8 +1421,7 @@ hover:-translate-y-4 hover:scale-[1.05]">
                     </div>
 
                     {/* Review 2 */}
-                    <div className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-md border border-yellow-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-left flex flex-col">
-
+                    <div className="bg-white p-5 sm:p-6 md:p-10 rounded-2xl shadow-md border border-yellow-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-left flex flex-col">
                         <div className="text-[#F6B200] text-5xl sm:text-6xl leading-none mb-4 sm:mb-6">“</div>
 
                         <p className="text-gray-700 italic leading-relaxed space-y-3 sm:space-y-4 flex-grow text-sm sm:text-base">
@@ -1465,144 +1442,175 @@ hover:-translate-y-4 hover:scale-[1.05]">
                             Plymouth
                         </h3>
                     </div>
-                </div>
 
-                <p className="text-gray-500 mt-12 sm:mt-14 md:mt-16 text-xs sm:text-sm italic relative z-10 max-w-xl mx-auto px-2">
-                    Empowering construction teams with real-time visibility and better project outcomes.
-                </p>
-            </section>
+                    {/* Review 3 */}
+                    <div className="bg-white p-5 sm:p-6 md:p-10 rounded-2xl shadow-md border border-yellow-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-left flex flex-col">
+                        <div className="text-[#F6B200] text-5xl sm:text-6xl leading-none mb-4 sm:mb-6">“</div>
 
-            <footer className="bg-black text-white pt-14 px-4 md:px-16">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-6">
+                        <p className="text-gray-700 italic leading-relaxed space-y-3 sm:space-y-4 flex-grow text-sm sm:text-base">
+                            <span className="block">
+                                Beyondex Solutions Pvt. Ltd. delivered a powerful and well-structured Leather Industry Software that seamlessly aligns with our operational workflows.
+                                The application is stable, efficient, and easy for our teams to adopt, significantly improving day-to-day process management.
+                            </span>
 
-                    {/* 1 — LOGO + DESCRIPTION */}
-                    <div className="col-span-1 lg:col-span-1">
-                        <Image
-                            src="/images/header/bexatm2.png"
-                            alt="ATM Logo"
-                            width={150}
-                            height={65}
-                            className="object-contain mb-4"
-                        />
+                            <span className="block">
+                                Their team showed deep technical capability and a strong understanding of industry-specific challenges, ensuring the solution was scalable,
+                                performance-driven, and future-ready. The collaboration was smooth, with consistent communication and timely support throughout the project lifecycle.
+                            </span>
 
-                        <p className="text-sm leading-relaxed opacity-80 mb-5 pr-0 md:pr-2 max-w-full md:max-w-sm">
-                            ATM is an all-in-one platform for project management, team productivity, and workforce tracking.
-                            It offers integrated tools for tasks, attendance, HR, Agile Project Management, and AI-powered workflows,
-                            helping startups, construction teams, and resident communities operate smarter and achieve results faster.
+                            <span className="block">
+                                We consider Beyondex a reliable technology partner capable of delivering high-quality, business-focused software solutions for the leather industry.
+                            </span>
                         </p>
 
-                        <h3 className="text-base font-semibold mb-2">Follow Us</h3>
-                        <div className="flex gap-4 sm:gap-3">
-                            <a href="https://linkedin.com" target="_blank" className="hover:scale-110 transition">
-                                <FaLinkedinIn size={24} color="#0077B5" />
-                            </a>
-                            <a href="https://instagram.com" target="_blank" className="hover:scale-110 transition">
-                                <FaInstagram size={24} color="#E1306C" />
-                            </a>
-                            <a href="https://youtube.com" target="_blank" className="hover:scale-110 transition">
-                                <FaYoutube size={24} color="#FF0000" />
-                            </a>
+                        <h3 className="mt-6 sm:mt-8 font-semibold text-gray-900 border-t pt-4 text-sm sm:text-base">
+                            Vamse PJ
+                        </h3>
+                    </div>
+
+                </div>
+
+
+            </section>
+
+            <footer className="bg-black text-white">
+
+                {/* MAIN FOOTER */}
+                <div
+                    className="
+                  max-w-[1440px]
+                  mx-auto
+                  px-4 sm:px-6 md:px-8
+                  pt-8 sm:pt-10
+                  pb-6 sm:pb-8
+                  grid
+                  grid-cols-1
+                  sm:grid-cols-2
+                  lg:grid-cols-[1.5fr_1fr_1fr_1fr_1.3fr]
+                  gap-6 sm:gap-8
+                "
+                >
+                    {/* LOGO + ABOUT */}
+                    <div>
+                        <Image
+                            src="/images/header/bexatm2.png"
+                            alt="ATM"
+                            width={140}
+                            height={55}
+                            className="mb-3"
+                        />
+
+                        <p className="text-[13px] leading-[21px] text-[#C7C7C7] max-w-[360px]">
+                            BexATM is an all-in-one platform for project management, team productivity,
+                            and workforce tracking, offering powerful solutions for startups,
+                            construction teams, and resident associations communities. With integrated
+                            tools for tasks, attendance, HR, Agile Project Management, and AI-powered
+                            workflows, BexATM helps organizations operate smarter and deliver results
+                            faster.
+                        </p>
+
+                        <h4 className="mt-4 mb-2 font-semibold text-sm">Follow Us</h4>
+                        <div className="flex gap-3">
+                            <FaLinkedinIn size={20} className="text-[#0A66C2]" />
+                            <FaInstagram size={20} className="text-[#E1306C]" />
+                            <FaYoutube size={20} className="text-[#FF0000]" />
                         </div>
                     </div>
 
-                    {/* 2 — PRODUCTS */}
+                    {/* OUR PRODUCTS */}
                     <div>
-                        <h3 className="text-xl font-semibold mb-1">Our Products</h3>
-                        <div className="w-10 h-1 bg-[#00D0D0] mb-3"></div>
-                        <ul className="space-y-1 text-sm opacity-80 list-disc ml-3">
-                            <li>AI Project Management for Startups</li>
-                            <li>Construction Project Management</li>
-                            <li>Apartment Society Management</li>
+                        <h3 className="font-semibold text-sm">Our Products</h3>
+                        <div className="w-9 h-[2px] bg-[#1FB5AE] mt-2 mb-2" />
+                        <ul className="text-[13px] text-[#C7C7C7] space-y-1.5 list-disc ml-4">
+                            <li><Link href="/project-management-software-for-startups">AI Powered Project Management Software for Startups & SME’s</Link></li>
+                            <li><Link href="/construction-project-management-software">Construction Project Management Software</Link></li>
+                            <li><Link href="/apartment-society-management-software">Apartment Society Management Software</Link></li>
                         </ul>
                     </div>
 
-                    {/* 3 — FEATURES */}
+                    {/* KEY FEATURES */}
                     <div>
-                        <h3 className="text-xl font-semibold mb-1">Key Features</h3>
-                        <div className="w-10 h-1 bg-[#00D0D0] mb-3"></div>
-                        <ul className="space-y-1 text-sm opacity-80 list-disc ml-3">
-                            <li>Agile Project Management</li>
-                            <li>Task & Workflow</li>
-                            <li>Back Office (HRM)</li>
-                            <li>Time & Attendance</li>
-                            <li>Geo Attendance</li>
-                            <li>Employee Self Service</li>
-                            <li>Manager Desk</li>
-                            <li>Assessment System</li>
-                            <li>Cost & Budget</li>
-                            <li>AI Insights & Dashboards</li>
-                            <li>Dashboard</li>
+                        <h3 className="font-semibold text-sm">Key Features</h3>
+                        <div className="w-9 h-[2px] bg-[#1FB5AE] mt-2 mb-2" />
+                        <ul className="text-[13px] text-[#C7C7C7] space-y-1.5 list-disc ml-4">
+                            <li><Link href="/features/agile-project-management">Agile Project Management</Link></li>
+                            <li><Link href="/features/task-workflow">Task & Workflow</Link></li>
+                            <li><Link href="/features/hrm">Back Office (HRM)</Link></li>
+                            <li><Link href="/features/time-attendance">Time & Attendance</Link></li>
+                            <li><Link href="/features/geo-attendance">Geo Attendance</Link></li>
+                            <li><Link href="/features/employee-self-service">Employee Self Service</Link></li>
+                            <li><Link href="/features/manager-desk">Manager Desk</Link></li>
+                            <li><Link href="/features/assessment-system">Assessment System</Link></li>
+                            <li><Link href="/features/cost-budget">Cost & Budget</Link></li>
+                            <li><Link href="/features/ai-insights">AI Insight & Dashboards</Link></li>
+                            <li><Link href="/dashboard">Dashboard</Link></li>
                         </ul>
                     </div>
 
-                    {/* 4 — QUICK LINKS */}
+                    {/* QUICK LINKS */}
                     <div>
-                        <h3 className="text-xl font-semibold mb-1">Quick Links</h3>
-                        <div className="w-10 h-1 bg-[#00D0D0] mb-3"></div>
-
-                        <ul className="space-y-1 text-sm opacity-80 list-disc ml-3">
-                            <li>Terms & Conditions</li>
-                            <li>Privacy Policy</li>
-                            <li>Pricing</li>
-                            <li>Case Studies</li>
-                            <li className="font-semibold">Customer Support</li>
-                            <li className="font-semibold">Start Free Plan</li>
-                            <li>Blog Post</li>
+                        <h3 className="font-semibold text-sm">Quick Links</h3>
+                        <div className="w-9 h-[2px] bg-[#1FB5AE] mt-2 mb-2" />
+                        <ul className="text-[13px] text-[#C7C7C7] space-y-1.5 list-disc ml-4">
+                            <li><Link href="/terms-and-conditions">Terms & Conditions</Link></li>
+                            <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+                            <li><Link href="/pricing">Pricing</Link></li>
+                            <li><Link href="/case-studies">Case Studies</Link></li>
+                            <li><Link href="/support">Customer Support</Link></li>
+                            <li><Link href="/signup">Get Start Free Plan</Link></li>
+                            <li><Link href="/blog">Blog Post</Link></li>
                         </ul>
-
-                        <button
-                            onClick={() => setShowPopup(true)}
-                            className="bg-[#F6A800] text-black text-sm px-5 py-1.5 mt-14 rounded-full font-semibold whitespace-nowrap mx-auto md:mx-10 block"
-                        >
-                            Book a Demo
-                        </button>
                     </div>
 
-                    {/* 5 — CONTACT */}
-                    <div className="flex flex-col">
-                        <h3 className="text-xl font-semibold mb-1">Contact Us</h3>
-                        <div className="w-10 h-1 bg-[#00D0D0] mb-3"></div>
+                    {/* CONTACT */}
+                    <div>
+                        <h3 className="font-semibold text-sm">Contact us</h3>
+                        <div className="w-9 h-[2px] bg-[#1FB5AE] mt-2 mb-2" />
 
-                        <p className="text-sm opacity-80 leading-relaxed mb-10 break-words">
-                            #25/31, Lakshmi Nagar II Main Road,<br />
-                            Porur, Chennai, <br />
+                        <p className="text-[13px] leading-[21px] text-[#C7C7C7] mb-3">
+                            # 25/31, Lakshmi Nagar II Main Road,<br />
+                            Porur, Chennai,<br />
                             Tamil Nadu - 600116
                         </p>
 
-                        <p className="text-sm font-semibold text-[#F6A800] mb-4 break-words">
+                        <p className="text-[13px] font-semibold text-[#F6A800] mb-1">
                             Email: contact@bexatm.com
                         </p>
-
-                        <p className="text-sm font-semibold text-[#F6A800] mb-3 break-words">
-                            Phone: (+91)94444 08804
+                        <p className="text-[13px] font-semibold text-[#F6A800] mb-3">
+                            Phone: (+91) 94444 08804
                         </p>
 
-                        <div className="flex flex-wrap gap-3 mt-2">
-                            <Button
-                                asChild
-                                variant="outline"
-                                className="border border-[#F6A800] text-[#F6A800] text-sm px-5 py-1.5 mt-9 rounded-full font-semibold whitespace-nowrap mx-auto md:mx-0 md:-ml-20"
+                        <div className="flex flex-col sm:flex-row gap-3">
+                            {/* Book a Demo */}
+                            <button
+                                onClick={() => setShowPopup(true)}
+                                className="bg-[#F6A800] text-black w-[140px] h-[38px] rounded-full font-semibold text-xs flex items-center justify-center"
                             >
-                                <a
-                                    href="https://wa.me/919444408804"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Say Hi To Our Expert:
-                                    <span className="ml-2 font-bold">(+91) 94444 08804</span>
-                                </a>
-                            </Button>
+                                Book a Demo
+                            </button>
+
+
+                            {/* WhatsApp Button */}
+                            <a
+                                href="https://wa.me/919444408804"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="border border-[#F6A800] text-[#F6A800] w-[260px] h-[38px] rounded-full font-semibold text-xs flex items-center justify-center whitespace-nowrap hover:bg-[#F6A800] hover:text-black transition"
+                            >
+                                Say Hi To Our Expert: +91 94444 08804
+                            </a>
                         </div>
+
                     </div>
                 </div>
 
-                {/* Bottom Cyan Bar */}
-                <div className="w-screen bg-[#00D0D0] h-4 mt-10 relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]"></div>
-
-                {/* Copyright */}
-                <div className="text-center py-4 text-xs opacity-70 bg-black">
-                    © 2025 Beyondex Solutions Pvt Ltd.
+                {/* COPYRIGHT */}
+                <div className="bg-[#1FB5AE] h-8 flex items-center justify-center px-4">
+                    <span className="text-black text-[11px] font-semibold text-center">
+                        Copyright © 2025 Beyondex solutions Pvt Ltd.
+                    </span>
                 </div>
+
             </footer>
 
         </main>

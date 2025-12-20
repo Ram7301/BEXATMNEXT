@@ -19,7 +19,7 @@ export default function ProjectManagementForStartups() {
   const [formData, setFormData] = useState({
     name: "",
     jobTitle: "",
-    companyName: "",
+    organisationname: "",
     email: "",
     phone: "",
     preferredDateTime: "",
@@ -39,7 +39,7 @@ export default function ProjectManagementForStartups() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const { name, jobTitle, email, phone, companyName, preferredDateTime } = formData;
+    const { name, jobTitle, email, phone, organisationname, preferredDateTime } = formData;
 
     // ✅ Basic validation
     if (!name || !email || !phone) {
@@ -70,7 +70,7 @@ export default function ProjectManagementForStartups() {
 
     try {
       const response = await fetch(
-        "https://bexatm.com/api/TrailMailRequestInsertControllerV1.php",
+        "https://bexatm.com/api/TrailMailRequestInsertControllerV2.php",
         {
           method: "POST",
           headers: {
@@ -85,8 +85,10 @@ export default function ProjectManagementForStartups() {
             MobileNumber: phone,
             TrailType: "Startups",
             Description: jobTitle ? `Job Title: ${jobTitle}` : "",
-            CompanyName: companyName,
-            PreferredDateTime: formatted
+            OrganisationName: organisationname,
+            PreferredDateTime: formatted,
+            JobTitle: "DB",
+            ProspectStatus: "BD"
           })
 
         }
@@ -207,7 +209,7 @@ export default function ProjectManagementForStartups() {
               "url": "https://bexatm.com//project-management-software-for-startups",
               "name": "Startups",
               "description":
-                "Contact BexATM for support, questions or free trial.",
+                "Contact ATM for support, questions or free trial.",
             }),
           }}
         />
@@ -337,8 +339,8 @@ export default function ProjectManagementForStartups() {
                   <div className="flex flex-col">
                     <label className="text-sm font-medium mb-1">Company Name</label>
                     <input
-                      name="companyName"
-                      value={formData.companyName}
+                      name="organisationname"
+                      value={formData.organisationname}
                       onChange={handleChange}
                       placeholder="Your company name"
                       className="w-full border border-gray-300 p-3 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400"

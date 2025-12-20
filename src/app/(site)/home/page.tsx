@@ -98,7 +98,7 @@ export default function BexATMHome() {
 
         try {
             const response = await fetch(
-                "https://bexatm.com/api/TrailMailRequestInsertControllerV1.php",
+                "https://bexatm.com/api/TrailMailRequestInsertControllerV2.php",
                 {
                     method: "POST",
                     headers: {
@@ -117,6 +117,8 @@ export default function BexATMHome() {
                         PreferredDateTime: "",
                         OrganisationName: organisation,
                         CompanyVertical: "",
+                        JobTitle: "DB",
+                        ProspectStatus: "FV"
                     }),
                 }
             );
@@ -288,34 +290,27 @@ export default function BexATMHome() {
             {/* HERO SECTION */}
             <section
                 className="
-    relative w-full
-    min-h-[700px] md:min-h-[800px] lg:min-h-[900px]
-    bg-cover
-    bg-[center_80%] md:bg-center
-    flex flex-col justify-start
-    pt-16 md:pt-24
-    pb-0
+    relative w-full bg-cover
+    bg-[center_-50%] md:bg-[center_0%]
+ md:bg-[center_0%]
+    pt-10 md:pt-12 pb-10 md:pb-12
+    px-4 sm:px-6 md:px-20
     overflow-hidden
   "
                 style={{
                     backgroundImage: "url('/images/home/mainbanner.webp')",
-                    backgroundPositionY: "-15px",
                 }}
             >
-
                 {/* MOBILE ONLY DARK OVERLAY */}
                 <div className="absolute inset-0 bg-black/50 md:bg-transparent"></div>
 
                 <div
                     className="
-      relative grid md:grid-cols-2
-      gap-8 md:gap-10
-      max-[900px]:grid-cols-1
-      items-center md:items-start
-      w-full max-w-7xl
-      mx-auto
-      pl-4 pr-6 md:pl-4 lg:pl-0
-    "
+    relative grid grid-cols-1 md:grid-cols-2
+    gap-8 md:gap-10 md:ml-20
+
+    items-center
+  "
                 >
 
                     {/* LEFT CONTENT */}
@@ -470,15 +465,20 @@ export default function BexATMHome() {
             <section
                 className="
     relative w-full
-    min-h-[420px] sm:min-h-[480px] md:min-h-[460px] lg:min-h-[520px]
+    min-h-auto
+    md:min-h-[460px] lg:min-h-[520px]
     bg-cover
     bg-[center_80%] md:bg-center
     flex flex-col items-center justify-start
-    pt-8 sm:pt-12 md:pt-16
+    mt-0
+    pt-0 sm:pt-12 md:pt-16
     pb-10 sm:pb-12
     overflow-hidden
   "
             >
+
+
+
                 {/* Heading */}
                 <div className="w-full max-w-6xl text-center mb-4 sm:mb-6 px-4 sm:px-6">
                     <h2
@@ -693,7 +693,7 @@ export default function BexATMHome() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
                         {/* LEFT CIRCULAR GRAPHIC */}
-                        <div className="flex justify-center lg:justify-start lg:-mt-20 lg:ml-20">
+                        <div className="flex justify-center lg:justify-start lg:-mt-20 lg:-ml-20">
                             <img
                                 src="/images/home/whybexatm1.webp"
                                 alt="BexATM Left Graphic"
@@ -712,7 +712,7 @@ export default function BexATMHome() {
                         <div className="flex flex-col lg:flex-row gap-12 lg:-ml-72">
 
                             {/* CENTER CONTENT */}
-                            <div className="space-y-16 w-full">
+                            <div className="space-y-20 w-full">
 
                                 <div className="flex items-start gap-3 lg:-ml-14">
                                     <div className="w-2 h-18 bg-green-500 rounded-full" />
@@ -786,18 +786,23 @@ export default function BexATMHome() {
                                     accountability, and productivity.
                                 </p>
 
-                                <Link href="/demo">
-                                    <button className="px-6 py-3 bg-[#003C71] text-white rounded-xl shadow hover:bg-[#002B52] transition">
+                                <Link href="" onClick={(e) => e.preventDefault()}>
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowPopup(true)}
+                                        className="px-6 py-3 bg-[#003C71] text-white rounded-xl shadow hover:bg-[#002B52] transition"
+                                    >
                                         Let&apos;s Start – It&apos;s FREE
                                     </button>
                                 </Link>
+
+
 
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-
 
             <section
                 className="
@@ -1339,7 +1344,7 @@ hover:-translate-y-4 hover:scale-[1.05]">
             <section
                 className="
     relative w-full
-    min-h-[700px] md:min-h-[800px] lg:min-h-[900px]
+    min-h-[650px] md:min-h-[750px] lg:min-h-[850px]
     bg-cover
     bg-[center_80%] md:bg-center
     flex flex-col items-center justify-start
@@ -1353,42 +1358,41 @@ hover:-translate-y-4 hover:scale-[1.05]">
                     className="
       absolute -top-40 sm:-top-32
       left-1/2 -translate-x-1/2
-      w-[320px] sm:w-[400px] md:w-[500px] lg:w-[600px]
-      h-[320px] sm:h-[400px] md:h-[500px] lg:h-[600px]
+      w-[280px] sm:w-[360px] md:w-[460px] lg:w-[520px]
+      h-[280px] sm:h-[360px] md:h-[460px] lg:h-[520px]
       bg-yellow-100/30
       rounded-full blur-3xl
       pointer-events-none
     "
-                ></div>
+                />
 
                 {/* Heading */}
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-14 md:mb-16 relative z-10 text-gray-900 text-center px-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 md:mb-14 relative z-10 text-gray-900 text-center px-4">
                     Client Reviews
                 </h2>
 
                 {/* Reviews Grid */}
-                {/* Reviews Grid */}
                 <div
                     className="
-    grid
-    grid-cols-1
-    md:grid-cols-2
-    lg:grid-cols-3
-    gap-6 sm:gap-8 md:gap-10
-    max-w-7xl
-    w-full
-    mx-auto
-    relative z-10
-    px-4
-    items-stretch
-  "
+      grid
+      grid-cols-1
+      md:grid-cols-2
+      lg:grid-cols-3
+      gap-5 md:gap-6 lg:gap-8
+      max-w-7xl
+      w-full
+      mx-auto
+      relative z-10
+      px-4
+      items-stretch
+    "
                 >
 
-                    {/* Review 1 */}
-                    <div className="bg-white p-5 sm:p-6 md:p-10 rounded-2xl shadow-md border border-yellow-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-left flex flex-col">
-                        <div className="text-[#F6B200] text-5xl sm:text-6xl leading-none mb-4 sm:mb-6">“</div>
+                    {/* ================= Review 1 ================= */}
+                    <div className="bg-white p-4 sm:p-5 md:p-6 rounded-xl shadow-md border border-yellow-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                        <div className="text-[#F6B200] text-4xl sm:text-5xl leading-none mb-3">“</div>
 
-                        <p className="text-gray-700 italic leading-relaxed space-y-3 sm:space-y-4 flex-grow text-sm sm:text-base">
+                        <p className="text-gray-700 italic leading-relaxed space-y-2 flex-grow text-sm">
                             <span className="block font-medium text-gray-800">
                                 A Wonderful Experience Working With Beyondex
                             </span>
@@ -1402,75 +1406,86 @@ hover:-translate-y-4 hover:scale-[1.05]">
                             </span>
 
                             <span className="block">
-                                A very special mention goes to Neelakrishna. He has been a constant pillar throughout the entire development process — guiding the team with calm confidence, taking on countless changes without hesitation, and ensuring everything stayed on track. His dedication and patience made a huge difference, and we deeply appreciate the effort he put in to bring this vision to life.
+                                A very special mention goes to Neelakrishna. He has been a constant pillar throughout the entire development process — guiding the team with calm confidence, taking on countless changes without hesitation, and ensuring everything stayed on track.
                             </span>
 
                             <span className="block">
-                                Our heartfelt appreciation also goes to Kabilan, Keerthana, Sathish, Mughesh, Safin, and the rest of the talented Beyondex team. Their commitment, support, and professionalism were evident in every stage of the project. Whether it was late-night problem-solving or refining workflows, they were always there with a solution-focused mindset.
+                                Our heartfelt appreciation also goes to Kabilan, Keerthana, Sathish, Mughesh, Safin, and the rest of the talented Beyondex team.
                             </span>
 
                             <span className="block">
-                                On a personal note, I (Yash) want to express my gratitude for the warmth, hospitality, and knowledge each of you shared with me. I’ve learned so much from this journey, and it has been genuinely meaningful.
                                 Thank you, Beyondex, for bringing CREA and Reflux to life with such dedication and heart.
                             </span>
                         </p>
 
-                        <h3 className="mt-6 sm:mt-8 font-semibold text-gray-900 border-t pt-4 text-sm sm:text-base">
+                        <h3 className="mt-4 font-semibold text-gray-900 border-t pt-3 text-sm">
                             CREA Team
                         </h3>
                     </div>
 
-                    {/* Review 2 */}
-                    <div className="bg-white p-5 sm:p-6 md:p-10 rounded-2xl shadow-md border border-yellow-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-left flex flex-col">
-                        <div className="text-[#F6B200] text-5xl sm:text-6xl leading-none mb-4 sm:mb-6">“</div>
+                    {/* ================= Review 2 ================= */}
+                    <div className="bg-white p-4 sm:p-5 md:p-6 rounded-xl shadow-md border border-yellow-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                        <div className="text-[#F6B200] text-4xl sm:text-5xl leading-none mb-3">“</div>
 
-                        <p className="text-gray-700 italic leading-relaxed space-y-3 sm:space-y-4 flex-grow text-sm sm:text-base">
+                        <p className="text-gray-700 italic leading-relaxed space-y-2 flex-grow text-sm">
                             <span className="block">
-                                We partnered with Beyondex Solutions Pvt. Ltd to develop a custom web application tailored to our business needs, and the experience was very positive. The development work was solid and well executed, and the team demonstrated strong technical expertise and a clear understanding of our requirements. They delivered key features that aligned with our expectations, and the application’s core functionality and architecture were thoughtfully implemented. Communication throughout the project was effective, and the team was responsive and collaborative from start to finish.
+                                We partnered with Beyondex Solutions Pvt. Ltd to develop a custom web application tailored to our business needs, and the experience was very positive.
                             </span>
 
                             <span className="block">
-                                During the later stages of the project, we identified several issues that required additional testing and rounds of fixes. Beyondex handled this constructively, working closely with us to resolve the problems and refine the solution. Their willingness to iterate with us and see the work through to a stable outcome gave us confidence in the final product and in their commitment to quality.
+                                The development work was solid and well executed, and the team demonstrated strong technical expertise and a clear understanding of our requirements.
                             </span>
 
                             <span className="block">
-                                Overall, Beyondex Solutions proved to be a capable and reliable partner for custom development. With their continued focus on quality and refinement, they are well-positioned to deliver polished, end-to-end solutions.
+                                During the later stages of the project, we identified several issues that required additional testing and rounds of fixes.
+                            </span>
+
+                            <span className="block">
+                                Beyondex handled this constructively, working closely with us to resolve the problems and refine the solution.
+                            </span>
+
+                            <span className="block">
+                                Overall, Beyondex Solutions proved to be a capable and reliable partner for custom development.
                             </span>
                         </p>
 
-                        <h3 className="mt-6 sm:mt-8 font-semibold text-gray-900 border-t pt-4 text-sm sm:text-base">
+                        <h3 className="mt-4 font-semibold text-gray-900 border-t pt-3 text-sm">
                             Plymouth
                         </h3>
                     </div>
 
-                    {/* Review 3 */}
-                    <div className="bg-white p-5 sm:p-6 md:p-10 rounded-2xl shadow-md border border-yellow-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-left flex flex-col">
-                        <div className="text-[#F6B200] text-5xl sm:text-6xl leading-none mb-4 sm:mb-6">“</div>
+                    {/* ================= Review 3 ================= */}
+                    <div className="bg-white p-4 sm:p-5 md:p-6 rounded-xl shadow-md border border-yellow-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                        <div className="text-[#F6B200] text-4xl sm:text-5xl leading-none mb-3">“</div>
 
-                        <p className="text-gray-700 italic leading-relaxed space-y-3 sm:space-y-4 flex-grow text-sm sm:text-base">
+                        <p className="text-gray-700 italic leading-relaxed space-y-2 flex-grow text-sm">
                             <span className="block">
                                 Beyondex Solutions Pvt. Ltd. delivered a powerful and well-structured Leather Industry Software that seamlessly aligns with our operational workflows.
+                            </span>
+
+                            <span className="block">
                                 The application is stable, efficient, and easy for our teams to adopt, significantly improving day-to-day process management.
                             </span>
 
                             <span className="block">
-                                Their team showed deep technical capability and a strong understanding of industry-specific challenges, ensuring the solution was scalable,
-                                performance-driven, and future-ready. The collaboration was smooth, with consistent communication and timely support throughout the project lifecycle.
+                                Their team showed deep technical capability and a strong understanding of industry-specific challenges.
                             </span>
 
                             <span className="block">
-                                We consider Beyondex a reliable technology partner capable of delivering high-quality, business-focused software solutions for the leather industry.
+                                The collaboration was smooth, with consistent communication and timely support throughout the project lifecycle.
+                            </span>
+
+                            <span className="block">
+                                We consider Beyondex a reliable technology partner capable of delivering high-quality, business-focused software solutions.
                             </span>
                         </p>
 
-                        <h3 className="mt-6 sm:mt-8 font-semibold text-gray-900 border-t pt-4 text-sm sm:text-base">
+                        <h3 className="mt-4 font-semibold text-gray-900 border-t pt-3 text-sm">
                             Vamse PJ
                         </h3>
                     </div>
 
                 </div>
-
-
             </section>
 
             <footer className="bg-black text-white">

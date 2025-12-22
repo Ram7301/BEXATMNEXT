@@ -117,7 +117,7 @@ export default function BexATMHome() {
                         PreferredDateTime: "",
                         OrganisationName: organisation,
                         CompanyVertical: "",
-                        JobTitle: "DB",
+                        JobTitle: "",
                         ProspectStatus: "FV"
                     }),
                 }

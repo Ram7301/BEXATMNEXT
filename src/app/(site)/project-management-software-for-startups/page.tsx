@@ -87,7 +87,7 @@ export default function ProjectManagementForStartups() {
             Description: jobTitle ? `Job Title: ${jobTitle}` : "",
             OrganisationName: organisationname,
             PreferredDateTime: formatted,
-            JobTitle: "DB",
+            JobTitle: "",
             ProspectStatus: "BD"
           })
 
